@@ -75,7 +75,7 @@ fb          | string    |
 ig          | string    |
 twitter     | string    |
 website     | string    |
-image_url   | string    | not null
+image_url   | string    | 
 
 ## brewery_likes
 column name | data type | details
