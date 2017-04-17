@@ -40,7 +40,7 @@ user_id     | integer   | not null, foreign key (references users), indexed
 beer_id     | integer   | not null, foreign key (references beers), indexed
 venue_id    | integer   | foreign key (references venues), indexed
 rating      | integer   | not null
-address     | string    | not null
+address     | string    |
 lat         | float     |
 lon         | float     |
 review      | text      |
@@ -83,24 +83,6 @@ id          | integer   | not null, primary key
 brewery_id  | integer   | not null, foreign key (references breweries)
 user_id     | integer   | not null, foreign key (references users)
 
-## venues
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-owner_id    | integer   | not null, foreign key (references users), indexed
-name        | string    | not null, unique
-description | text      | not null
-address     | string    | not null, unique
-lat         | float     | not null
-lon         | float     | not null
-image_url   | string    |
-
-## venue_likes
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-user_id     | integer   | not null, foreign key (references users), indexed
-venue_id    | integer   | not null, foreign key (references venues), indexed, unique [user_id]
 
 ## wishlists
 column name | data type | details
@@ -121,6 +103,24 @@ description | text      | string
 
 # Bonus
 
+## venues
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+owner_id    | integer   | not null, foreign key (references users), indexed
+name        | string    | not null, unique
+description | text      | not null
+address     | string    | not null, unique
+lat         | float     | not null
+lon         | float     | not null
+image_url   | string    |
+
+## venue_likes
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+user_id     | integer   | not null, foreign key (references users), indexed
+venue_id    | integer   | not null, foreign key (references venues), indexed, unique [user_id]
 ## friends
 column name | data type | details
 ------------|-----------|-----------------------

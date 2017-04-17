@@ -8,6 +8,7 @@ OnTap is a web application inspired by UnTappd built using Ruby on Rails and Rea
 - [ ] User Profile
   - [ ] User check in feed
   - [ ] Wishlists
+  - [ ] Edit Account
 - [ ] Top beers
   - [ ] Continuous check in feed by beer rating
   - [ ] Search
@@ -23,14 +24,14 @@ OnTap is a web application inspired by UnTappd built using Ruby on Rails and Rea
   - [ ] Likes
   - [ ] Continuous brewery specific check in feed
   - [ ] Create brewery
-- [ ] Venues
-  - [ ] Venue Beers
-  - [ ] Events
 
 
 
 ## Bonus
 
+- [ ] Venues
+- [ ] Venue Beers
+- [ ] Events
 - [ ] Friends
   - [ ] Friends only feed
 - [ ] Badges
