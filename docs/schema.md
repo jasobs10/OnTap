@@ -7,8 +7,7 @@ id              | integer   | not null, primary key
 username        | string    | not null, indexed, unique
 password_digest | string    | not null
 session_token   | string    | not null, indexed, unique
-city            | string    | not null
-country         | string    | not null
+location        | string    |
 f_name          | string    | not null
 l_name          | string    | not null
 private         | boolean   | not null, default false
@@ -75,7 +74,7 @@ fb          | string    |
 ig          | string    |
 twitter     | string    |
 website     | string    |
-image_url   | string    | 
+image_url   | string    |
 
 ## brewery_likes
 column name | data type | details
