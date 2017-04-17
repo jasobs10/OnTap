@@ -46,10 +46,25 @@
 
 - `GET /api/checkins`
 
-  - `retrieves checkins`
+  - `retrieves all checkins`
 
 
-- `POST /api/checkins`
+- `GET /api/beer/:id/checkins`
+
+  - `retrieves beer specific checkins`
+
+
+- `GET /api/user/:id/checkins`
+
+  - `retrieves user specific checkins`
+
+
+- `GET /api/brewery/:id/checkins`
+
+  - `retrieves brewery specific checkins`
+
+
+- `POST /api/beer/:id/checkins`
 
   - `creates checkin for current user`
 
@@ -60,7 +75,7 @@
 
 ### Checkin Comments (Post)
 
-- `POST /api/comments`
+- `POST /api/checkin/:id/comments`
 
   - `creates checkin comment (requires beer id to create)`
 
@@ -76,7 +91,7 @@
 
 ### Checkin Toasts (Likes for checkins)
 
-- `POST /api/checkin_toasts/`
+- `POST /api/checkin/checkin_toasts/`
 
   - `toasts(likes) checkin`
 
@@ -97,19 +112,20 @@
   - `retrieves beer show`
 
 
+- `GET /api/brewery/:id/beers`  
+
+  - `retrieves beers from brewery by id`
+
+
 - `POST /api/beers`
 
   - `creates beer`
 
 
-- `PATCH /api/beers/:id (maybe?)`
+- `PATCH /api/beers/:id`
 
   - `edits beer`
 
-
-- `DELETE /api/beers/:id (maybe?)`
-
-  - `deletes beer`
 
 ### Breweries
 
@@ -128,18 +144,14 @@
   - `creates brewery`
 
 
-- `PATCH /api/breweries (maybe?)`
+- `PATCH /api/breweries/:id`
 
   - `edits breweries`
 
 
-- `DELETE /api/breweries (maybe?)`
-
-  - `deletes brewery`
-
 ### Brewery Likes
 
-- `POST /api/brewery_likes`
+- `POST /api/brewery/:id/brewery_likes`
 
   - `likes brewery`
 
@@ -154,12 +166,12 @@
 
 ### Wishlist
 
-- `GET /api/wishlist`
+- `GET /api/users/:id/wishlist`
 
   - `retrieves current user's wishlist beers`
 
 
-- `POST /api/wishlist`
+- `POST /api/users/:id/wishlist`
 
   - `adds beer to user's wishlist`
 

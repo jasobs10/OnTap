@@ -80,16 +80,16 @@ image_url   | string    |
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-brewery_id  | integer   | not null, foreign key (references breweries)
-user_id     | integer   | not null, foreign key (references users)
+brewery_id  | integer   | not null, foreign key (references breweries), indexed unique [user_id]
+user_id     | integer   | not null, foreign key (references users), indexed
 
 
 ## wishlists
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-user_id     | integer   | not null, foreign key (references users)
-beer_id     | integer   | not null, foreign key (references beers)
+user_id     | integer   | not null, foreign key (references users), indexed
+beer_id     | integer   | not null, foreign key (references beers), indexed unique [user_id]
 
 ## events
 column name | data type | details
