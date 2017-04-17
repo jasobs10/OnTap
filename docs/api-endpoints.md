@@ -149,38 +149,8 @@
 
   - `deletes brewery`      
 
-### Venues
-
-- `GET /api/venues`
-
-  - `retrieves venues`
 
 
-- `GET /api/venues/:id`
-
-  - `retrieves venue show`
-
-
-- `POST /api/venues`
-
-  - `creates venue`
-
-
-- `DELETE /api/venues/:id`
-
-  - `deletes venue`
-
-### VenueLikes
-
-- `POST /api/venue_likes`
-
-  - `likes venue`
-
-
-
-- `DELETE /api/venue_likes/:id`
-
-  - `deletes venue`
 
 ### Wishlist
 
@@ -245,3 +215,38 @@
 - `DELETE /api/events/:id`
 
   - `deletes event`
+
+
+### VenueLikes
+
+- `POST /api/venue_likes`
+
+- `likes venue`
+
+
+
+  - `DELETE /api/venue_likes/:id`
+
+  - `deletes venue`
+
+
+### Venues
+
+- `GET /api/venues`
+
+  - `retrieves venues`
+
+
+- `GET /api/venues/:id`
+
+  - `retrieves venue show`
+
+
+- `POST /api/venues`
+
+  - `creates venue`
+
+
+- `DELETE /api/venues/:id`
+
+  - `deletes venue`
