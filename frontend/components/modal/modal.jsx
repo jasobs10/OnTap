@@ -25,8 +25,13 @@ class Modal extends React.Component {
     // debugger
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState(nextProps.modal);
+  }
+
   render() {
     const comp = this.state.component === null ? "" : this.state.component;
+    // debugger
     return (
       <div>
         {comp}

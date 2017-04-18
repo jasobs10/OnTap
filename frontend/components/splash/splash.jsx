@@ -23,19 +23,23 @@ const mapDispatchToProps = (dispatch) => {
 class Splash extends React.Component {
   constructor(props) {
     super(props);
-    // this.handleClick = this.handleClick.bind(this);
-    // this.state = {}
+    this.state = this.props.modal;
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  // handleClick(field) {
-  // }
+  handleClick(component) {
+    return (e) => this.props.receiveComponent(component);
+  }
 
   render() {
+    // debugger
+
     return (
+
       <div>
         <h1>Welcome to OnTap</h1>
-        <button>Sign In</button>
-        <button>Sign Up</button>
+        <button onClick={this.handleClick(<SignInForm/>)}>Sign In</button>
+        <button onClick={this.handleClick(<SignUpForm/>)}>Sign Up</button>
 
         <div>
           <Modal modal={this.props.modal}/>
