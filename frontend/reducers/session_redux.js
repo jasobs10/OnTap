@@ -95,7 +95,7 @@ export const errorsReducer = (oldState = _defaultErrorsState, action) => {
   }
 };
 
-// currentUsersReducer
+// currentUserReducer
 const _defaultCurrentUserState = null;
 export const currentUserReducer = (oldState = _defaultCurrentUserState, action) => {
   Object.freeze(oldState);
