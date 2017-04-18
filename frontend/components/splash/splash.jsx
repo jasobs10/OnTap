@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 // import { receiveComponent, activateModal } from 'modal_redux';
 // import modal
 import SignInForm from './signin';
-import SignUpForm from './signup'
+import SignUpForm from './signup';
 
 const mapStateToProps = (state) => {
   return {modal: state.modal};
