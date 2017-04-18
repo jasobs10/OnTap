@@ -23,16 +23,16 @@
     "webpack": "^2.4.1"
   },
   "engines": {
-    "node": "4.1.1",
-    "npm": "2.1.x"
+    "node": "6.7.0",
+    "npm": "3.10.7"
   },
-  
-  "devDependencies": {},
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack --watch",
     "postinstall": "webpack"
   },
+  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jasobs10/OnTap.git"
