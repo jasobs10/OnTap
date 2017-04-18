@@ -37,7 +37,9 @@ class SignInForm extends React.Component {
   handleSubmit(e) {
     // debugger
     e.preventDefault();
-    this.props.logIn({user: this.state}).then(() => this.clearForm()).then(() => this.props.router.push('/'));
+    // debugger
+    this.props.logIn({user: this.state}).then(() => this.clearForm());
+    //.then(() => this.props.router.push('/'))
   }
 
   render () {
