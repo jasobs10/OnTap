@@ -4,7 +4,7 @@
 
 [Trello link][trello]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: https://on-tapp.herokuapp.com/
 [trello]: https://trello.com/b/hXZGGErD/ontap
 
 
