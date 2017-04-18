@@ -3,14 +3,14 @@
 const RECEIVE_COMPONENT = "RECEIVE_COMPONENT";
 const ACTIVATE_MODAL = "ACTIVATE_MODAL";
 
-const receiveComponent = (component) => {
+export const receiveComponent = (component) => {
   return {
     type: RECEIVE_COMPONENT,
     component
   };
 };
 
-const activateModal = (bool) => {
+export const activateModal = (bool) => {
   return {
     type: ACTIVATE_MODAL,
     active: bool

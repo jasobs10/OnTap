@@ -22,10 +22,16 @@
     "redux-thunk": "^2.2.0",
     "webpack": "^2.4.1"
   },
+  "engines": {
+    "node": "4.1.1",
+    "npm": "2.1.x"
+  },
+  
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "webpack": "webpack --watch"
+    "webpack": "webpack --watch",
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
