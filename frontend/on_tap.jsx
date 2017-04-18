@@ -9,7 +9,7 @@ import {signUp, logIn, logOut} from './reducers/session_redux';
 // import {receiveCurrentUser} from './actions/session_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
-  // window.store = configureStore();
+  window.store = configureStore();
   window.signUp = signUp;
   window.logIn = logIn;
   window.logOut = logOut;

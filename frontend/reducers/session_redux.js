@@ -45,7 +45,13 @@ export const signUp = (user) => {
 };
 
 export const logIn = (user) => {
-  return dispatch => APIUTIL.logIn(user).then(currentUser => dispatch(receiveCurrentUser(currentUser)), errors => dispatch(receiveSignInErrors(errors.responseJSON)));
+  return dispatch => APIUTIL.logIn(user).then((r) => {
+    // debugger
+    dispatch(receiveCurrentUser(r));},
+    (errors) => {
+    // debugger
+      dispatch(receiveSignInErrors(errors.responseJSON));
+  });
 };
 
 export const logOut = (user) => {
@@ -91,6 +97,7 @@ export const errorsReducer = (oldState = _defaultErrorsState, action) => {
       return Object.assign({}, oldState, {'signUp': action.signUp});
 
     case RECEIVE_SIGNIN_ERRORS:
+    // debugger
       return Object.assign({}, oldState, {'signIn': action.signIn});
     case RECEIVE_LOGOUT_ERRORS:
       return Object.assign({}, oldState, {'logOut': action.logOut});

@@ -37,7 +37,8 @@ class SignUpForm extends React.Component {
   handleSubmit(e) {
     // debugger
     e.preventDefault();
-    this.props.signUp({user: this.state}).then(() => this.clearForm()).then(() => this.props.router.push('/'));
+    this.props.signUp({user: this.state}).then(() => this.clearForm());
+    // .then(() => this.props.router.push('/'))
   }
 
   render () {
