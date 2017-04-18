@@ -13,3 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+// $.ajax({
+//   method: "POST",
+//   url: "api/users",
+//   data: { user: {username: "jasobs10", password: "password"} }
+// });
