@@ -85,11 +85,12 @@ export const errorsReducer = (oldState = _defaultErrorsState, action) => {
   Object.freeze(oldState);
   switch(action.type) {
     case RECEIVE_SIGNUP_ERRORS:
-      return merge({}, oldState, {'signUp': action.errors});
+      return Object.assign({}, oldState, {'signUp': action.errors});
+
     case RECEIVE_SIGNIN_ERRORS:
-      return merge({}, oldState, {'signIn': action.errors});
+      return Object.assign({}, oldState, {'signIn': action.errors});
     case RECEIVE_LOGOUT_ERRORS:
-      return merge({}, oldState, {'logOut': action.errors});
+      return Object.assign({}, oldState, {'logOut': action.errors});
     default:
       return oldState;
   }
