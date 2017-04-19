@@ -38,26 +38,51 @@ class Splash extends React.Component {
     // debugger
 
     return (
-
-      <div className="splash-container">
-        <div className="auth-button-container">
-          <button className="auth" onClick={this.handleClick(<SignInForm modal={this.props.modal} activateModal={this.props.activateModal}/>)}>Sign In</button>
-          <button className="auth" onClick={this.handleClick(<SignUpForm modal={this.props.modal} activateModal={this.props.activateModal}/>)}>Create an account</button>
-        </div>
-        <div className="splash-inner">
-          <div>
-            <article>What's ONTAP?</article>
-            <article>Rate, Review, Discover Your Favorite Beers</article>
-            <article className="demo"><button className="demo-button">Demo Log in</button></article>
+      <div className="splash-wrapper">
+        <div className="splash-container">
+          <div className="auth-button-container">
+            <button className="auth" onClick={this.handleClick(<SignInForm modal={this.props.modal} activateModal={this.props.activateModal}/>)}>Sign In</button>
+            <button className="auth" onClick={this.handleClick(<SignUpForm modal={this.props.modal} activateModal={this.props.activateModal}/>)}>Create an account</button>
           </div>
-          <div>
 
+          <div className="splash-inner">
+            <div>
+              <article><h1>What's ONTAP <i className="fa fa-beer" aria-hidden="true"></i></h1></article>
+              <article className="two"><img className="hops" src="/assets/hops-hi.png" tag="hops"/></article>
+              <article className="splash-tag">Rate, Review, Discover Your Favorite Beers</article>
+              <article className="demo"><button className="demo-button">Demo Log in</button></article>
+            </div>
+            <div className="splash-img">
+              <img src="/assets/craft_beer.png" tag="beer glass"/>
+            </div>
+          </div>
+
+          <div className="modal-container">
+            <Modal modal={this.props.modal} activateModal={this.props.activateModal}/>
           </div>
         </div>
 
-        <div className="modal-container">
-          <Modal modal={this.props.modal} activateModal={this.props.activateModal}/>
+        <div className="bottom-wrapper">
+          <div className="bottom-inner">
+            <img src="/assets/ratings.png" tag="beer-ratings"/>
+            <div>
+              <h2>Check in and Rate Beer </h2>
+              <p>Keep track of beers you drink</p>
+              <p>Show off your whales</p>
+            </div>
+          </div>
+          <div className="bottom-inner">
+            <img src="/assets/badges.png" tag="beer-tags"/>
+            <div>
+              <h2>Drink More Beer, Collect More Badges</h2>
+              <p>Show off your drinking skills</p>
+            </div>
+          </div>
         </div>
+
+        <footer className="splash-footer">
+          © ONTAP, 2017
+        </footer>
       </div>
     );
   }
