@@ -55,6 +55,8 @@ class SignInForm extends React.Component {
 
           <input className="auth-submit" type="submit" value="Log In" />
           <button className="close" onClick={() => this.props.activateModal(false)}></button>
+          <hr className="auth-rule"/>
+          <p className="auth-switch">New around here? <span>Sign up!</span></p>
 
         </form>
 

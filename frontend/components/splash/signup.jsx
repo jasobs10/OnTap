@@ -43,28 +43,29 @@ class SignUpForm extends React.Component {
     // .then(() => this.props.router.push('/'))
   }
 
+  toggleForm(e) {
+    this.props.
+  }
+
   render () {
     return (
       <div className="auth-form-container">
-        <h1>Sign Up</h1>
+        <h1>ONTAP <i className="fa fa-beer beer-color" aria-hidden="true"></i></h1>
+        <h2>beer beer beer beer beer</h2>
         <form onSubmit={this.handleSubmit} className="auth-form">
-          <label>
-            <input type="text" onChange={this.handleChange('username')} value={this.state.username}/>
 
-          </label>
-          <label>
-            <input type="password" onChange={this.handleChange('password')} value={this.state.password}/>
-          </label>
+          <input className="auth-input" type="text" onChange={this.handleChange('username')} value={this.state.username}/>
 
-          <label>
-            <input type="text" onChange={this.handleChange('f_name')} value={this.state.f_name}/>
-          </label>
+          <input className="auth-input" type="password" onChange={this.handleChange('password')} value={this.state.password}/>
 
-          <label>
-            <input type="text" onChange={this.handleChange('l_name')} value={this.state.l_name}/>
-          </label>
-          <input type="submit" value="Sign Up" />
-          <button onClick={() => this.props.activateModal(false)}>close</button>
+          <input className="auth-input" type="text" onChange={this.handleChange('f_name')} value={this.state.f_name}/>
+
+          <input className="auth-input" type="text" onChange={this.handleChange('l_name')} value={this.state.l_name}/>
+
+          <input className="auth-submit" type="submit" value="Sign Up" />
+          <button className="close"onClick={() => this.props.activateModal(false)}></button>
+          <hr className="auth-rule"/>
+          <p className="auth-switch">Have an account? <span>Log in!</span></p>
 
         </form>
 

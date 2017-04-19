@@ -203,7 +203,7 @@
   position: absolute;
   z-index: 999;
   width: 30%;
-  height: 30%;
+  // height: 30%;
   // add padding instead of height
   display: flex;
   align-items: flex-start;
@@ -299,4 +299,26 @@
 .close:after {
   content: '✖';
   font-size: 1.5vw;
+  color: rgb(56, 56, 56);
+}
+
+.auth-rule {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-color: rgb(255, 173, 13);
+}
+
+.auth-switch {
+  margin: 5%;
+  color: rgb(189, 186, 186);
+}
+
+.auth-switch span {
+  color: rgb(255, 173, 13);
+
+}
+
+.auth-switch span:hover {
+  cursor:pointer;
 }
