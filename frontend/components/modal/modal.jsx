@@ -35,8 +35,13 @@ class Modal extends React.Component {
     // debugge
     if (this.state.active) {
       return (
-        <div className="modal">
-          {comp}
+        <div>
+          <div className="modal-background" onClick={() => this.props.activateModal(false)}>
+          </div>
+
+          <div className="modal">
+            {comp}
+          </div>
         </div>
       );
     }

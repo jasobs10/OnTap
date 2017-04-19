@@ -25,6 +25,7 @@ class Splash extends React.Component {
     super(props);
     this.state = this.props.modal;
     this.handleClick = this.handleClick.bind(this);
+    this.handleModal = this.handleModal.bind(this);
   }
 
   handleClick(component) {
@@ -32,6 +33,12 @@ class Splash extends React.Component {
       this.props.receiveComponent(component);
       this.props.activateModal(true);
     };
+  }
+
+  handleModal() {
+    if (this.props.modal.active) {
+      this.props.activateModal(false);
+    }
   }
 
   render() {
