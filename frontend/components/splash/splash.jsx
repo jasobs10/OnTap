@@ -44,6 +44,16 @@ class Splash extends React.Component {
           <button className="auth" onClick={this.handleClick(<SignInForm modal={this.props.modal} activateModal={this.props.activateModal}/>)}>Sign In</button>
           <button className="auth" onClick={this.handleClick(<SignUpForm modal={this.props.modal} activateModal={this.props.activateModal}/>)}>Create an account</button>
         </div>
+        <div className="splash-inner">
+          <div>
+            <article>What's ONTAP?</article>
+            <article>Rate, Review, Discover Your Favorite Beers</article>
+            <article className="demo"><button className="demo-button">Demo Log in</button></article>
+          </div>
+          <div>
+
+          </div>
+        </div>
 
         <div className="modal-container">
           <Modal modal={this.props.modal} activateModal={this.props.activateModal}/>

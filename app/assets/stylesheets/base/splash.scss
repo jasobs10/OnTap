@@ -12,7 +12,7 @@
    background-position: 10% 90%;
    background-size: cover;
    height: 850px;
-   background-color: rgba(0,0,0,0.6); // Tint color
+   background-color: rgba(0,0,0,0.7); // Tint color
    background-blend-mode: multiply;
  }
 
@@ -22,19 +22,66 @@
    flex-direction: row;
    justify-content: flex-end;
    padding: 15px 15px;
+ }
+
+ .splash-inner {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   margin-top: 50px;
+   font-family: 'Days One', sans-serif;
+   font-size: 40px;
+
+  //  padding:
+ }
+
+ .splash-inner > div {
+   width: 30%;
+   height: 500px;
+   border: 10px solid red;
+   color: white;
+ }
+
+ .splash-inner > :first-child {
+   display: flex;
+   margin-left: 10%;
+   text-align: center;
+   font-color: white;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-around;
+ }
+
+ .demo {
+   width: 100%;
+ }
+
+ .demo-button {
+   border: 2px solid white;
+   width: 95%;
+   border-radius: 5px;
+
+ }
 
 
+
+ .splash-inner > :first-child > article {
+
+ }
+
+ .splash-inner > :last-child {
+   margin-right: 10%;
  }
 
 
  .auth {
    margin-right: 20px;
-   padding: 10px 30px;
+   padding: 15px 30px;
    text-transform: uppercase;
    border: 3px solid white;
    border-radius: 5px;
    color: white;
-   font-family: 'Work Sans';
+   font-family: 'Work Sans', sans-serif;
    font-size: 20px;
    font-weight: bold;
  }
