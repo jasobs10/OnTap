@@ -25,7 +25,8 @@ const mapDispatchToProps = (dispatch) => {
 class Splash extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.modal;
+    // this.state = this.props.modal;
+    this.state = {username: "", password: ""};
     this.handleClick = this.handleClick.bind(this);
     this.handleModal = this.handleModal.bind(this);
   }
@@ -41,6 +42,12 @@ class Splash extends React.Component {
     if (this.props.modal.active) {
       this.props.activateModal(false);
     }
+  }
+
+  guest() {
+    const testUser = ["t", "e", "s", "t"];
+    const testPass = ["p", "a", "s", "s", "w", "o", "r", "d"];
+
   }
 
   render() {
@@ -63,7 +70,7 @@ class Splash extends React.Component {
               <article><h1>What's ONTAP <i className="fa fa-beer" aria-hidden="true"></i></h1></article>
               <article className="two"><img className="hops" src={window.images.hops} alt="hops"/></article>
               <article className="splash-tag">Rate, Review, Discover Your Favorite Beers</article>
-              <article className="demo" onClick={() => this.props.guestLogIn()}><button className="demo-button">Demo Log in</button></article>
+              <article className="demo" onClick={this.handleClick(<SignInForm receiveComponent={this.props.receiveComponent} activateModal={this.props.activateModal} guest={true}/>)}><button className="demo-button">Demo Log in</button></article>
             </div>
             <div className="splash-img">
               <img src={window.images.craftBeer} alt="craft beer"/>

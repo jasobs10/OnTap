@@ -97,6 +97,7 @@
 
  .demo-button:hover {
    background-color: rgba(5, 36, 50, 1);
+   transition: 0.7s;
  }
 
  article > h1 {
@@ -128,6 +129,8 @@
    cursor: pointer;
    background-color: white;
    color: black;
+   transition: .7s;
+
  }
 
  .bottom-wrapper {

@@ -14,24 +14,68 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     logIn: (user) => dispatch(logIn(user)),
-    closeModal: () => dispatch(activateModal(false))
+    closeModal: () => dispatch(activateModal(false)),
+    guestLogIn: () => dispatch(logIn({user: {username: "test", password: "password"}}))
   };
 };
 
 class SignInForm extends React.Component {
   constructor(props) {
-    // debugger
     super(props);
+    // debugger
     this.state = {username: "", password: ""};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearForm = this.clearForm.bind(this);
     this.toggleForm = this.toggleForm.bind(this);
+    this.guest = this.guest.bind(this);
+  }
+
+  guest() {
+    const testUser = ["t", "e", "s", "t"];
+    const testPass = ["p", "a", "s", "s", "w", "o", "r", "d"];
+    let interval = setInterval(() => {
+      let current = this.state.username.length;
+      if (current < testUser.length) {
+        this.setState({username: this.state.username + testUser[current]})
+      } else {
+        clearInterval(interval);
+          let interval2 = setInterval(() => {
+          current = this.state.password.length;
+          if (current < testPass.length) {
+            this.setState({password: this.state.password + testPass[current]})
+          } else {
+            clearInterval(interval2);
+            this.props.logIn({user: this.state}).then(() => this.clearForm()).then(() => this.props.activateModal(false));
+          }
+
+        }, 100);
+      }
+
+    }, 100);
+
+
   }
 
   handleChange(field) {
     return (e) => this.setState({[field]: e.target.value});
   }
+
+  // componentDidMount() {
+  //
+  // }
+  componentWillMount() {
+    if (this.props.guest) {
+      this.clearForm();
+      this.guest();
+
+    }
+  }
+
+  // componentWillReceiveProps(newProps) {
+  //   debugger
+  //   // if newProps.guest
+  // }
 
   clearForm() {
     // debugger
@@ -54,7 +98,6 @@ class SignInForm extends React.Component {
   }
 
   render () {
-    // debugger
     return (
       <div className="auth-form-container">
         <h1>ONTAP <i className="fa fa-beer beer-color" aria-hidden="true"></i></h1>

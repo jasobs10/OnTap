@@ -31,7 +31,7 @@ class Modal extends React.Component {
 
   render() {
     // const comp = this.state.component === null ? "" : this.state.component;
-    const comp = this.state.active ? this.state.component : "";
+    // const comp = this.state.active ? this.state.component : "";
     // debugge
     if (this.state.active) {
       return (
@@ -40,7 +40,7 @@ class Modal extends React.Component {
           </div>
 
           <div className="modal">
-            {comp}
+            {this.state.component}
           </div>
         </div>
       );

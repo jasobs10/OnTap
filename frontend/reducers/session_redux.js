@@ -1,4 +1,5 @@
 import merge from 'lodash/merge';
+import { activateModal } from './modal_redux';
 // Session Action Creators (Log in, Sign up, Log Out)
 
 const RECEIVE_SIGNUP_ERRORS = "RECEIVE_SIGNUP_ERRORS";
