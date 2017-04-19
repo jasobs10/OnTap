@@ -38,21 +38,23 @@ class SignInForm extends React.Component {
     // debugger
     e.preventDefault();
     // debugger
-    this.props.logIn({user: this.state}).then(() => this.clearForm());
+    this.props.logIn({user: this.state}).then(() => this.clearForm()).then(() => activateModal(false));
     //.then(() => this.props.router.push('/'))
+    // change modal back to false
   }
 
   render () {
     return (
       <div className="auth-form-container">
-        <h1>ONTAP <i className="fa fa-beer" aria-hidden="true"></i></h1>
+        <h1>ONTAP <i className="fa fa-beer beer-color" aria-hidden="true"></i></h1>
+        <h2>beer beer beer beer beer</h2>
         <form onSubmit={this.handleSubmit} className="auth-form">
-          <input type="text" onChange={this.handleChange('username')} value={this.state.username}/>
+          <input className="auth-input" type="text" onChange={this.handleChange('username')} value={this.state.username}/>
 
-          <input type="password" onChange={this.handleChange('password')} value={this.state.password}/>
-      
-          <input type="submit" value="Log In" />
-          <button onClick={() => this.props.activateModal(false)}>close</button>
+          <input className="auth-input" type="password" onChange={this.handleChange('password')} value={this.state.password}/>
+
+          <input className="auth-submit" type="submit" value="Log In" />
+          <button className="close" onClick={() => this.props.activateModal(false)}></button>
 
         </form>
 
