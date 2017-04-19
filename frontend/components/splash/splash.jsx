@@ -40,10 +40,9 @@ class Splash extends React.Component {
     return (
 
       <div className="splash-container">
-        <h1>Welcome to OnTap</h1>
-        <div>
+        <div className="auth-button-container">
           <button className="auth" onClick={this.handleClick(<SignInForm modal={this.props.modal} activateModal={this.props.activateModal}/>)}>Sign In</button>
-          <button className="auth" onClick={this.handleClick(<SignUpForm modal={this.props.modal} activateModal={this.props.activateModal}/>)}>Sign Up</button>
+          <button className="auth" onClick={this.handleClick(<SignUpForm modal={this.props.modal} activateModal={this.props.activateModal}/>)}>Create an account</button>
         </div>
 
         <div className="modal-container">

@@ -1,9 +1,48 @@
 
  .splash-container {
-   display: flex;
-   flex-direction: column;
+  //  display: flex;
+  //  flex-direction: column;
    position: relative;
-   justify-content: center;
+  //  justify-content: center;
+   border: 1px solid red;
+  //  background-color: red;
+   background-image: url('/assets/beer.jpeg');
+   background-attachment: fixed;
+   background-repeat: no-repeat;
+   background-position: 10% 90%;
+   background-size: cover;
+   height: 850px;
+   background-color: rgba(0,0,0,0.6); // Tint color
+   background-blend-mode: multiply;
+ }
+
+ .auth-button-container {
+   box-sizing: border-box;
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-end;
+   padding: 15px 15px;
+
+
+ }
+
+
+ .auth {
+   margin-right: 20px;
+   padding: 10px 30px;
+   text-transform: uppercase;
+   border: 3px solid white;
+   border-radius: 5px;
+   color: white;
+   font-family: 'Work Sans';
+   font-size: 20px;
+   font-weight: bold;
+ }
+
+ .auth:hover {
+   cursor: pointer;
+   background-color: white;
+   color: black;
  }
 
  .modal-container {
