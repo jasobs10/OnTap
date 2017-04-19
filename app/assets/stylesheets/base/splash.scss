@@ -1,0 +1,17 @@
+
+ .splash-container {
+   display: flex;
+   flex-direction: column;
+   position: relative;
+   justify-content: center;
+ }
+
+ .modal-container {
+   display: flex;
+   position: relative;
+   justify-content: center;
+ }
+ .modal {
+   box-sizing: border-box;
+   border: 1px solid red;
+ }

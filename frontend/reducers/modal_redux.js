@@ -11,6 +11,7 @@ export const receiveComponent = (component) => {
 };
 
 export const activateModal = (bool) => {
+  // debugger
   return {
     type: ACTIVATE_MODAL,
     active: bool
@@ -25,7 +26,7 @@ export const modalReducer = (oldState = _defaultModalState, action) => {
     case RECEIVE_COMPONENT:
       return Object.assign({}, oldState, {component: action.component});
     case ACTIVATE_MODAL:
-      return Object.assign({}, oldState, {active: action.bool});
+      return Object.assign({}, oldState, {active: action.active});
     default:
       return oldState;
   }

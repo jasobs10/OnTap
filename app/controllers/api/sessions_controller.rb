@@ -5,7 +5,6 @@ class Api::SessionsController < ApplicationController
       log_in(@user)
       render 'api/users/show'
     else
-      debugger
       render json: { base: ["Invalid username/password"] }, status: 404
     end
   end

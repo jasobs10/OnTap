@@ -55,6 +55,7 @@ class SignInForm extends React.Component {
             Password: <input type="password" onChange={this.handleChange('password')} value={this.state.password}/>
           </label>
           <input type="submit" value="Log In" />
+          <button onClick={() => this.props.activateModal(false)}>close</button>
 
         </form>
 

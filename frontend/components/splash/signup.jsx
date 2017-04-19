@@ -1,25 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { logIn, signUp } from '../../reducers/session_redux';
+import { activateModal, receiveComponent } from '../../reducers/modal_redux';
 
 const mapStateToProps = (state, ownProps) => {
   // let formType = ownProps.formType || 'signin';
   return {
     signUpErrors: state.errors.signUp,
-    // formType
+    modal: state.modal
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    signUp: (user) => dispatch(signUp(user))
+    signUp: (user) => dispatch(signUp(user)),
+    closeModal: () => dispatch(activateModal(false)),
+    receiveComponent: (component) => dispatch(receiveComponent(component))
   };
 };
 
 class SignUpForm extends React.Component {
   constructor(props) {
-    // debugger
     super(props);
+    // debugger
     this.state = {username: "", password: "", f_name: "", l_name: ""};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,7 +38,6 @@ class SignUpForm extends React.Component {
   }
 
   handleSubmit(e) {
-    // debugger
     e.preventDefault();
     this.props.signUp({user: this.state}).then(() => this.clearForm());
     // .then(() => this.props.router.push('/'))
@@ -62,6 +64,7 @@ class SignUpForm extends React.Component {
             Last Name: <input type="text" onChange={this.handleChange('l_name')} value={this.state.l_name}/>
           </label>
           <input type="submit" value="Sign Up" />
+          <button onClick={() => this.props.activateModal(false)}>close</button>
 
         </form>
 

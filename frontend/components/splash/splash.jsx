@@ -28,7 +28,10 @@ class Splash extends React.Component {
   }
 
   handleClick(component) {
-    return (e) => this.props.receiveComponent(component);
+    return (e) => {
+      this.props.receiveComponent(component);
+      this.props.activateModal(true);
+    };
   }
 
   render() {
@@ -36,13 +39,15 @@ class Splash extends React.Component {
 
     return (
 
-      <div>
+      <div className="splash-container">
         <h1>Welcome to OnTap</h1>
-        <button onClick={this.handleClick(<SignInForm/>)}>Sign In</button>
-        <button onClick={this.handleClick(<SignUpForm/>)}>Sign Up</button>
-
         <div>
-          <Modal modal={this.props.modal}/>
+          <button className="auth" onClick={this.handleClick(<SignInForm modal={this.props.modal} activateModal={this.props.activateModal}/>)}>Sign In</button>
+          <button className="auth" onClick={this.handleClick(<SignUpForm modal={this.props.modal} activateModal={this.props.activateModal}/>)}>Sign Up</button>
+        </div>
+
+        <div className="modal-container">
+          <Modal modal={this.props.modal} activateModal={this.props.activateModal}/>
         </div>
       </div>
     );
