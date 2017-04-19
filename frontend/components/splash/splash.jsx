@@ -61,12 +61,12 @@ class Splash extends React.Component {
           <div className="splash-inner">
             <div>
               <article><h1>What's ONTAP <i className="fa fa-beer" aria-hidden="true"></i></h1></article>
-              <article className="two"><img className="hops" src="/assets/hops-hi.png"/></article>
+              <article className="two"><img className="hops" src={window.images.hops} alt="hops"/></article>
               <article className="splash-tag">Rate, Review, Discover Your Favorite Beers</article>
               <article className="demo" onClick={() => this.props.guestLogIn()}><button className="demo-button">Demo Log in</button></article>
             </div>
             <div className="splash-img">
-              <img src="/assets/craft_beer.png"/>
+              <img src={window.images.craftBeer} alt="craft beer"/>
             </div>
           </div>
 
@@ -74,7 +74,7 @@ class Splash extends React.Component {
 
         <div className="bottom-wrapper">
           <div className="bottom-inner">
-            <img src="/assets/ratings.png"/>
+            <img src={window.images.ratings} alt="beer ratings"/>
             <div>
               <h2>Check in and Rate Beer </h2>
               <p>Keep track of beers you drink</p>
@@ -82,7 +82,7 @@ class Splash extends React.Component {
             </div>
           </div>
           <div className="bottom-inner">
-            <img src="/assets/badges.png"/>
+            <img src={window.images.badges} alt="beer badges"/>
             <div>
               <h2>Drink More Beer, Collect More Badges</h2>
               <p>Show off your drinking skills</p>

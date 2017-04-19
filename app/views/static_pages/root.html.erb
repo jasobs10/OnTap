@@ -4,8 +4,24 @@
   	window.currentUser = <%= render("api/users/user.json.jbuilder",
   		user: current_user).html_safe %>
   <% end %>
+
+  window.images = {
+   hops: "<%= image_path("hops-hi.png") %>",
+   badges: "<%= image_path("badges.png") %>",
+   craftBeer: "<%= image_path("craft_beer.png") %>",
+   ratings: "<%= image_path("ratings.png") %>"
+ }
+
+
 </script>
 
 <main id="root">
   ERROR
 </main>
+
+<!-- window.images = {
+ hops: "<%= image_path("hops-hi.png") %>",
+ badges: "<%= image_path("badges.png") %>",
+ craftBeer: "<%= image_path("craft_beer.png") %>",
+ ratings: "<%= image_path("ratings.png") %>"
+{ -->
