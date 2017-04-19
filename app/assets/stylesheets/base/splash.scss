@@ -91,6 +91,7 @@
    background-color: rgba(0, 91, 130, 0.8);
    font-weight: 400;
    box-sizing: border-box;
+   text-transform: uppercase;
 
  }
 
@@ -181,35 +182,35 @@
   letter-spacing: 3px;
 }
 
-.modal-container {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  justify-content: center;
- //  background-color: white;
-   position: absolute;
-   top: 10%;
-  //  height: 300px;
-  //  width: 40%;
-}
+// .modal-container {
+//   display: flex;
+//   position: relative;
+//   flex-direction: column;
+//   justify-content: center;
+//  //  background-color: white;
+//    position: absolute;
+//    width: 1
+//    top: 10%;
+//   //  height: 300px;
+//   //  width: 40%;
+// }
 .modal {
   box-sizing: border-box;
   border-radius: 7px;
   border: 2px solid;
   border-color: rgba(0, 91, 130, 0.8);
   background-color: white;
-  //  position: absolute;
+  position: absolute;
   z-index: 999;
-  width: 100%;
-  height: 100%;
+  width: 20%;
+  height: 30%;
   display: flex;
   align-items: flex-start;
- //  top: 100%;
- height: 350px;
+  top: 10%;
 }
 
 .auth-form-container {
-  padding: 10% 20%;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -228,4 +229,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+}
+
+.hidden {
+  display: none;
 }

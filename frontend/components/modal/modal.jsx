@@ -32,12 +32,18 @@ class Modal extends React.Component {
   render() {
     // const comp = this.state.component === null ? "" : this.state.component;
     const comp = this.state.active ? this.state.component : "";
-    // debugger
+    // debugge
+    if (this.state.active) {
+      return (
+        <div className="modal">
+          {comp}
+        </div>
+      );
+    }
+
     return (
-      <div className="modal">
-        {comp}
-      </div>
-    );
+      <p className="hidden"></p>
+    )
   }
 
 }
