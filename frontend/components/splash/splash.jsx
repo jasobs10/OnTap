@@ -39,6 +39,11 @@ class Splash extends React.Component {
 
     return (
       <div className="splash-wrapper">
+
+        <div className="modal-container">
+          <Modal modal={this.props.modal} activateModal={this.props.activateModal}/>
+        </div >
+
         <div className="splash-container">
           <div className="auth-button-container">
             <button className="auth" onClick={this.handleClick(<SignInForm modal={this.props.modal} activateModal={this.props.activateModal}/>)}>Sign In</button>
@@ -57,9 +62,6 @@ class Splash extends React.Component {
             </div>
           </div>
 
-          <div className="modal-container">
-            <Modal modal={this.props.modal} activateModal={this.props.activateModal}/>
-          </div>
         </div>
 
         <div className="bottom-wrapper">

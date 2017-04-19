@@ -45,23 +45,23 @@ class SignUpForm extends React.Component {
 
   render () {
     return (
-      <div>
+      <div className="auth-form-container">
         <h1>Sign Up</h1>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} className="auth-form">
           <label>
-            Username: <input type="text" onChange={this.handleChange('username')} value={this.state.username}/>
+            <input type="text" onChange={this.handleChange('username')} value={this.state.username}/>
 
           </label>
           <label>
-            Password: <input type="password" onChange={this.handleChange('password')} value={this.state.password}/>
+            <input type="password" onChange={this.handleChange('password')} value={this.state.password}/>
           </label>
 
           <label>
-            First Name: <input type="text" onChange={this.handleChange('f_name')} value={this.state.f_name}/>
+            <input type="text" onChange={this.handleChange('f_name')} value={this.state.f_name}/>
           </label>
 
           <label>
-            Last Name: <input type="text" onChange={this.handleChange('l_name')} value={this.state.l_name}/>
+            <input type="text" onChange={this.handleChange('l_name')} value={this.state.l_name}/>
           </label>
           <input type="submit" value="Sign Up" />
           <button onClick={() => this.props.activateModal(false)}>close</button>

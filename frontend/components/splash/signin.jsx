@@ -44,16 +44,13 @@ class SignInForm extends React.Component {
 
   render () {
     return (
-      <div>
-        <h1>Log In</h1>
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Username: <input type="text" onChange={this.handleChange('username')} value={this.state.username}/>
+      <div className="auth-form-container">
+        <h1>ONTAP <i className="fa fa-beer" aria-hidden="true"></i></h1>
+        <form onSubmit={this.handleSubmit} className="auth-form">
+          <input type="text" onChange={this.handleChange('username')} value={this.state.username}/>
 
-          </label>
-          <label>
-            Password: <input type="password" onChange={this.handleChange('password')} value={this.state.password}/>
-          </label>
+          <input type="password" onChange={this.handleChange('password')} value={this.state.password}/>
+      
           <input type="submit" value="Log In" />
           <button onClick={() => this.props.activateModal(false)}>close</button>
 
