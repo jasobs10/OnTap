@@ -13,7 +13,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    logIn: (user) => dispatch(logIn(user))
+    logIn: (user) => dispatch(logIn(user)),
+    closeModal: () => dispatch(activateModal(false))
   };
 };
 
@@ -33,25 +34,27 @@ class SignInForm extends React.Component {
   }
 
   clearForm() {
+    debugger
     this.setState({username: "", password: ""});
   }
 
   handleSubmit(e) {
-    // debugger
+    debugger
     e.preventDefault();
     // debugger
-    this.props.logIn({user: this.state}).then(() => this.clearForm()).then(() => activateModal(false));
+    this.props.logIn({user: this.state}).then(() => this.clearForm()).then(() => this.props.activateModal(false));
     //.then(() => this.props.router.push('/'))
     // change modal back to false
   }
 
   toggleForm() {
-    this.props.activateModal(false);
+    // this.props.activateModal(false);
     this.props.receiveComponent(<SignUpForm receiveComponent={this.props.receiveComponent} activateModal={this.props.activateModal}/>);
-    this.props.activateModal(true);
+    // this.props.activateModal(true);
   }
 
   render () {
+    debugger
     return (
       <div className="auth-form-container">
         <h1>ONTAP <i className="fa fa-beer beer-color" aria-hidden="true"></i></h1>

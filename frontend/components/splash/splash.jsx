@@ -42,7 +42,7 @@ class Splash extends React.Component {
   }
 
   render() {
-    // debugger
+    debugger
 
     return (
       <div className="splash-wrapper">
@@ -59,12 +59,12 @@ class Splash extends React.Component {
           <div className="splash-inner">
             <div>
               <article><h1>What's ONTAP <i className="fa fa-beer" aria-hidden="true"></i></h1></article>
-              <article className="two"><img className="hops" src="/assets/hops-hi.png" tag="hops"/></article>
+              <article className="two"><img className="hops" src="/assets/hops-hi.png"/></article>
               <article className="splash-tag">Rate, Review, Discover Your Favorite Beers</article>
               <article className="demo"><button className="demo-button">Demo Log in</button></article>
             </div>
             <div className="splash-img">
-              <img src="/assets/craft_beer.png" tag="beer glass"/>
+              <img src="/assets/craft_beer.png"/>
             </div>
           </div>
 
