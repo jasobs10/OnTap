@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { logIn, signUp } from '../../reducers/session_redux';
 import { activateModal, receiveComponent } from '../../reducers/modal_redux';
+import SignInForm from './signin';
 
 const mapStateToProps = (state, ownProps) => {
   // let formType = ownProps.formType || 'signin';
@@ -27,6 +28,7 @@ class SignUpForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearForm = this.clearForm.bind(this);
+    this.toggleForm = this.toggleForm.bind(this);
   }
 
   handleChange(field) {
@@ -43,8 +45,10 @@ class SignUpForm extends React.Component {
     // .then(() => this.props.router.push('/'))
   }
 
-  toggleForm(e) {
-    this.props.
+  toggleForm() {
+    this.props.activateModal(false);
+    this.props.receiveComponent(<SignInForm receiveComponent={this.props.receiveComponent} activateModal={this.props.activateModal}/>);
+    this.props.activateModal(true);
   }
 
   render () {
@@ -54,18 +58,18 @@ class SignUpForm extends React.Component {
         <h2>beer beer beer beer beer</h2>
         <form onSubmit={this.handleSubmit} className="auth-form">
 
-          <input className="auth-input" type="text" onChange={this.handleChange('username')} value={this.state.username}/>
+          <input className="auth-input" type="text" onChange={this.handleChange('username')} value={this.state.username} placeholder="Username"/>
 
-          <input className="auth-input" type="password" onChange={this.handleChange('password')} value={this.state.password}/>
+          <input className="auth-input" type="password" onChange={this.handleChange('password')} value={this.state.password} placeholder="Password"/>
 
-          <input className="auth-input" type="text" onChange={this.handleChange('f_name')} value={this.state.f_name}/>
+          <input className="auth-input" type="text" onChange={this.handleChange('f_name')} value={this.state.f_name} placeholder="First name"/>
 
-          <input className="auth-input" type="text" onChange={this.handleChange('l_name')} value={this.state.l_name}/>
+          <input className="auth-input" type="text" onChange={this.handleChange('l_name')} value={this.state.l_name} placeholder="Last name"/>
 
           <input className="auth-submit" type="submit" value="Sign Up" />
           <button className="close"onClick={() => this.props.activateModal(false)}></button>
           <hr className="auth-rule"/>
-          <p className="auth-switch">Have an account? <span>Log in!</span></p>
+          <p className="auth-switch">Have an account? <span onClick={this.toggleForm}>Log in!</span></p>
 
         </form>
 
