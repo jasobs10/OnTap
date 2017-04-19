@@ -4,6 +4,7 @@ import { receiveComponent, activateModal } from '../../reducers/modal_redux';
 import Modal from '../modal/modal';
 import SignInForm from './signin';
 import SignUpForm from './signup';
+import { logIn, signUp } from '../../reducers/session_redux';
 
 const mapStateToProps = (state) => {
 
@@ -16,7 +17,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     receiveComponent: (component) => dispatch(receiveComponent(component)),
-    activateModal: (bool) => dispatch(activateModal(bool))
+    activateModal: (bool) => dispatch(activateModal(bool)),
+    guestLogIn: () => dispatch(logIn({user: {username: "test", password: "password"}}))
   };
 };
 
@@ -42,7 +44,7 @@ class Splash extends React.Component {
   }
 
   render() {
-    debugger
+    // debugger
 
     return (
       <div className="splash-wrapper">
@@ -61,7 +63,7 @@ class Splash extends React.Component {
               <article><h1>What's ONTAP <i className="fa fa-beer" aria-hidden="true"></i></h1></article>
               <article className="two"><img className="hops" src="/assets/hops-hi.png"/></article>
               <article className="splash-tag">Rate, Review, Discover Your Favorite Beers</article>
-              <article className="demo"><button className="demo-button">Demo Log in</button></article>
+              <article className="demo" onClick={() => this.props.guestLogIn()}><button className="demo-button">Demo Log in</button></article>
             </div>
             <div className="splash-img">
               <img src="/assets/craft_beer.png"/>
@@ -72,7 +74,7 @@ class Splash extends React.Component {
 
         <div className="bottom-wrapper">
           <div className="bottom-inner">
-            <img src="/assets/ratings.png" tag="beer-ratings"/>
+            <img src="/assets/ratings.png"/>
             <div>
               <h2>Check in and Rate Beer </h2>
               <p>Keep track of beers you drink</p>
@@ -80,7 +82,7 @@ class Splash extends React.Component {
             </div>
           </div>
           <div className="bottom-inner">
-            <img src="/assets/badges.png" tag="beer-tags"/>
+            <img src="/assets/badges.png"/>
             <div>
               <h2>Drink More Beer, Collect More Badges</h2>
               <p>Show off your drinking skills</p>

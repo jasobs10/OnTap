@@ -34,12 +34,12 @@ class SignInForm extends React.Component {
   }
 
   clearForm() {
-    debugger
+    // debugger
     this.setState({username: "", password: ""});
   }
 
   handleSubmit(e) {
-    debugger
+    // debugger
     e.preventDefault();
     // debugger
     this.props.logIn({user: this.state}).then(() => this.clearForm()).then(() => this.props.activateModal(false));
@@ -54,7 +54,7 @@ class SignInForm extends React.Component {
   }
 
   render () {
-    debugger
+    // debugger
     return (
       <div className="auth-form-container">
         <h1>ONTAP <i className="fa fa-beer beer-color" aria-hidden="true"></i></h1>
