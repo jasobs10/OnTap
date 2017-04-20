@@ -6,3 +6,92 @@
   padding: 0;
   margin: 0;
 }
+
+.nav-container {
+  width: 100%;
+  background-color: rgb(255, 173, 13);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+
+}
+
+.nav-inside {
+  font-family: 'Oxygen', sans-serif;
+  color: white;
+  // margin-left: 30%;
+  font-size: 18px;
+  display: flex;
+  background-color: transparent;
+  width: 850px;
+  flex-direction: row;
+  justify-content: center;
+  // justify-content: center;
+  letter-spacing: 2px;
+  margin: 0 auto;
+  letter-spacing: 2px;
+  // padding: .3% 0;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.nav-inside li {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  width: 170px;
+  justify-content: center;
+
+}
+
+
+
+.nav-inside > li:hover {
+  cursor: pointer;
+  background-color: rgba(255, 77, 0, 0.85);
+
+}
+
+.titlelogo {
+  letter-spacing: 3px;
+  font-size: 27px;
+  font-weight: 700;
+}
+
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown {
+  visibility: hidden;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 100%;
+  background-color: rgba(255, 77, 0, 0.85);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 15px 0;
+}
+
+
+
+.dropdown > li {
+  width: 20%;
+  box-sizing: border-box;
+  // border: 1px solid red;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+}
+//
+.account-button {
+  position: static;
+}
+
+.account-button:hover .dropdown {
+  visibility: visible;
+}
