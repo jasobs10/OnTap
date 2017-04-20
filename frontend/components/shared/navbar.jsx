@@ -1,45 +1,69 @@
 import React from 'react';
 import { hashHistory } from 'react-router';
+import { logOut } from '../../reducers/session_redux';
+import { connect } from 'react-redux';
 
-export const Navbar = (props) => {
-  return (
-    <div className="nav-container">
-      <div className="nav-inside">
-
-        <li className="titlelogo">
-          <i className="fa fa-beer" aria-hidden="true"></i> ONTAP
-        </li>
-        <li>
-          Top beers
-        </li>
-        <li>
-          Breweries
-        </li>
-        <li className="account-button">
-          Account
-          <div className="dropdown">
-            <li>
-              My profile
-            </li>
-            <li>
-              Beer history
-            </li>
-            <li>
-              settings
-            </li>
-            <li>
-              Wish list
-            </li>
-            <li>
-              Log out
-            </li>
-          </div>
-        </li>
-        <li>
-          Log Out
-
-        </li>
-      </div>
-    </div>
-  );
+const mapStateToProps = (state) => {
+  return {
+    currentUser: state.currentUser
+  };
 };
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logOut: (user) => dispatch(logOut(user))
+
+  }
+};
+
+class Navbar extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+  }
+
+  render() {
+    return (
+      <div className="nav-container">
+        <div className="nav-inside">
+
+          <li className="titlelogo">
+            <i className="fa fa-beer" aria-hidden="true"></i> ONTAP
+          </li>
+          <li>
+            Top beers
+          </li>
+          <li>
+            Breweries
+          </li>
+          <li className="account-button">
+            Account
+            <div className="dropdown">
+              <li>
+                My profile
+              </li>
+              <li>
+                Beer history
+              </li>
+              <li>
+                settings
+              </li>
+              <li>
+                Wish list
+              </li>
+              <li onClick={() => this.props.logOut(this.props.currentUser).then(() => hashHistory.push('/'))}>
+                Log out
+              </li>
+            </div>
+          </li>
+          <li onClick={() => this.props.logOut(this.props.currentUser).then(() => hashHistory.push('/'))}>
+            Log Out
+          </li>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

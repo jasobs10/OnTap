@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import Splash from './components/splash/splash';
 import CheckinIndex from './components/checkin/checkin_index';
-import { Navbar } from './components/shared/navbar';
+import Navbar from './components/shared/navbar';
 // import {signUp, logIn, logOut} from './reducers/session_redux';
 
 //TESTING
