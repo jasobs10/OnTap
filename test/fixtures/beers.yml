@@ -1,0 +1,34 @@
+# == Schema Information
+#
+# Table name: beers
+#
+#  id          :integer          not null, primary key
+#  name        :string           not null
+#  description :text
+#  brewery_id  :integer          not null
+#  abv         :float            not null
+#  ibu         :float            not null
+#  style       :string           not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyText
+  brewery_id: 1
+  abv: 1.5
+  ibu: 1.5
+  style: MyString
+  container: MyString
+
+two:
+  name: MyString
+  description: MyText
+  brewery_id: 1
+  abv: 1.5
+  ibu: 1.5
+  style: MyString
+  container: MyString

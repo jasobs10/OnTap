@@ -45,6 +45,7 @@ lat         | float     |
 lon         | float     |
 review      | text      |
 image_url   | string    |
+container   | string    |
 
 ## checkin_toasts
 column name | data type | details

@@ -20,15 +20,21 @@ class Navbar extends React.Component {
 
   constructor(props) {
     super(props);
+    this.state = {user: this.props.currentUser}
 
   }
 
+  // componentWillReceiveProps(newProps) {
+  //   if (!newProps.currentUser)
+  // }
+
   render() {
+    // debugger
     return (
       <div className="nav-container">
         <div className="nav-inside">
 
-          <li className="titlelogo">
+          <li className="titlelogo" onClick={() => hashHistory.push('/home')}>
             <i className="fa fa-beer" aria-hidden="true"></i> ONTAP
           </li>
           <li>
@@ -38,7 +44,7 @@ class Navbar extends React.Component {
             Breweries
           </li>
           <li className="account-button">
-            Account
+            {this.state.user.username}
             <div className="dropdown">
               <li>
                 My profile

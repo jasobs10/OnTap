@@ -17,7 +17,10 @@ class ApplicationController < ActionController::Base
     session[:session_token] = nil
   end
 
-# def require_logged_in
-#   unless current_user render :root
-# end
+
+  def require_logged_in
+    if !current_user
+      render json: { base: ["Invalid username/password"] }, status: 404
+    end
+  end
 end
