@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import Splash from './components/splash/splash';
 import CheckinIndex from './components/checkin/checkin_index';
+import { Navbar } from './components/shared/navbar';
 // import {signUp, logIn, logOut} from './reducers/session_redux';
 
 //TESTING
@@ -13,9 +14,6 @@ import CheckinIndex from './components/checkin/checkin_index';
 
 // let nav = (<div></div>);
 //
-// if(this.props.location.pathname !== "/"){
-//   nav = <NavBar />;
-// }
 
 // <div className="app-container">
 //     {nav}
@@ -23,10 +21,21 @@ import CheckinIndex from './components/checkin/checkin_index';
 //   </div>
 //
 
-const App = ({ children }) => {
+
+const App = (props) => {
+  // debugger
+  let nav = (<div></div>);
+  if(props.location.pathname !== "/"){
+    nav = <Navbar />
+  }
+
   return (
-    <div>
-      { children }
+    <div className="main-wrapper">
+      { nav }
+      { props.children }
+      <footer className="splash-footer">
+        © ONTAP, 2017
+      </footer>
     </div>
   );
 };

@@ -68,7 +68,7 @@ class Splash extends React.Component {
               <article className="splash-tag">Rate, Review, Discover Your Favorite Beers</article>
               <article className="demo" onClick={this.handleClick(<SignInForm receiveComponent={this.props.receiveComponent} activateModal={this.props.activateModal} guest={true}/>)}><button className="demo-button">Demo Log in</button></article>
             </div>
-            
+
             <div className="splash-img">
               <img src={window.images.craftBeer} alt="craft beer"/>
             </div>
@@ -95,9 +95,6 @@ class Splash extends React.Component {
           </div>
         </div>
 
-        <footer className="splash-footer">
-          © ONTAP, 2017
-        </footer>
       </div>
     );
   }
