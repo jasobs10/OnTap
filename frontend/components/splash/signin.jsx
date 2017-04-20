@@ -1,4 +1,5 @@
 import React from 'react';
+import { hashHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { logIn, signUp } from '../../reducers/session_redux';
 import SignUpForm from './signup';
@@ -49,7 +50,7 @@ class SignInForm extends React.Component {
             this.setState({password: this.state.password + testPass[current]})
           } else {
             clearInterval(interval2);
-            this.props.logIn({user: this.state}).then(() => this.clearForm()).then(() => this.props.activateModal(false));
+            this.props.logIn({user: this.state}).then(() => this.clearForm()).then(() => this.props.activateModal(false)).then(() => hashHistory.push('/home'));
           }
 
         }, 100);
@@ -104,8 +105,8 @@ class SignInForm extends React.Component {
 
   renderErrors() {
     // debugger
-    let errs = Object.values(this.props.signInErrors).map((error) => {
-      return (<li className="list-error"><i className="fa fa-exclamation-circle error-sym" aria-hidden="true"></i> {error}</li>);
+    let errs = Object.values(this.props.signInErrors).map((error, i) => {
+      return (<li key={i} className="list-error"><i className="fa fa-exclamation-circle error-sym" aria-hidden="true"></i> {error}</li>);
     });
     return (
       <div className="errors">
@@ -119,7 +120,7 @@ class SignInForm extends React.Component {
     // debugger
     e.preventDefault();
     // debugger
-    this.props.logIn({user: this.state}).then(() => this.clearForm()).then(() => this.props.activateModal(false));
+    this.props.logIn({user: this.state}).then(() => this.clearForm()).then(() => this.props.activateModal(false)).then(() => hashHistory.push('/home'));
     //.then(() => this.props.router.push('/'))
     // change modal back to false
   }

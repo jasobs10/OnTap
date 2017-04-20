@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Main = ({ children }) => {
+const App = ({ children }) => {
   <div>
     <h1>OnTap</h1>
     { children }

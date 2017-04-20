@@ -4,6 +4,7 @@ import { logIn, signUp } from '../../reducers/session_redux';
 import { activateModal, receiveComponent } from '../../reducers/modal_redux';
 import SignInForm from './signin';
 import { receiveSignUpErrors } from '../../reducers/session_redux';
+import { hashHistory } from 'react-router';
 
 const mapStateToProps = (state, ownProps) => {
   // let formType = ownProps.formType || 'signin';
@@ -60,7 +61,7 @@ class SignUpForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.signUp({user: this.state}).then(() => this.clearForm()).then(() => this.props.activateModal(false));
+    this.props.signUp({user: this.state}).then(() => this.clearForm()).then(() => this.props.activateModal(false)).then(() => hashHistory.push('/home'));
     // .then(() => this.props.router.push('/'))
   }
 
@@ -76,8 +77,8 @@ class SignUpForm extends React.Component {
     if (this.props.signUpErrors === undefined) {
       signErrors = "";
     } else {
-      signErrors = Object.values(this.props.signUpErrors).map((error) => {
-        return <li className="list-error"><i className="fa fa-exclamation-circle error-sym" aria-hidden="true"></i> {error}</li>
+      signErrors = Object.values(this.props.signUpErrors).map((error, i) => {
+        return <li key={i} className="list-error"><i className="fa fa-exclamation-circle error-sym" aria-hidden="true"></i> {error}</li>
       });
     }
     // debugger
