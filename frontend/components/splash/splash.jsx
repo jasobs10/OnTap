@@ -45,11 +45,6 @@ class Splash extends React.Component {
     }
   }
 
-  guest() {
-    const testUser = ["t", "e", "s", "t"];
-    const testPass = ["p", "a", "s", "s", "w", "o", "r", "d"];
-
-  }
 
   render() {
     // debugger
@@ -73,6 +68,7 @@ class Splash extends React.Component {
               <article className="splash-tag">Rate, Review, Discover Your Favorite Beers</article>
               <article className="demo" onClick={this.handleClick(<SignInForm receiveComponent={this.props.receiveComponent} activateModal={this.props.activateModal} guest={true}/>)}><button className="demo-button">Demo Log in</button></article>
             </div>
+            
             <div className="splash-img">
               <img src={window.images.craftBeer} alt="craft beer"/>
             </div>
@@ -89,6 +85,7 @@ class Splash extends React.Component {
               <p>Show off your whales</p>
             </div>
           </div>
+
           <div className="bottom-inner">
             <img src={window.images.badges} alt="beer badges"/>
             <div>

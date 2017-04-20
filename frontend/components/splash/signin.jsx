@@ -104,11 +104,15 @@ class SignInForm extends React.Component {
 
   renderErrors() {
     // debugger
+    let errs = Object.values(this.props.signInErrors).map((error) => {
+      return (<li className="list-error"><i className="fa fa-exclamation-circle error-sym" aria-hidden="true"></i> {error}</li>);
+    });
     return (
       <div className="errors">
-        <span className="error">{this.props.signInErrors.base}</span>
+        {errs}
       </div>
     );
+    // <span className="error">{this.props.signInErrors.base}</span>
   }
 
   handleSubmit(e) {
@@ -139,8 +143,8 @@ class SignInForm extends React.Component {
       <div className="auth-form-container">
         <h1>ONTAP <i className="fa fa-beer beer-color" aria-hidden="true"></i></h1>
         <h2>beer beer beer beer beer</h2>
-        {this.props.signInErrors ? this.renderErrors() : ""}
         <form onSubmit={this.handleSubmit} className="auth-form">
+          {this.props.signInErrors ? this.renderErrors() : ""}
           <input className="auth-input username" type="text" onChange={this.handleChange('username')} value={this.state.username} placeholder="Username"/>
 
           <input className="auth-input" type="password" onChange={this.handleChange('password')} value={this.state.password} placeholder="Password"/>

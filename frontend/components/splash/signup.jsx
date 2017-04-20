@@ -77,7 +77,7 @@ class SignUpForm extends React.Component {
       signErrors = "";
     } else {
       signErrors = Object.values(this.props.signUpErrors).map((error) => {
-        return <li className="list-error">{error}</li>
+        return <li className="list-error"><i className="fa fa-exclamation-circle error-sym" aria-hidden="true"></i> {error}</li>
       });
     }
     // debugger
