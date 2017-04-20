@@ -7,28 +7,28 @@ const RECEIVE_SIGNIN_ERRORS = "RECEIVE_SIGNIN_ERRORS";
 const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 const RECEIVE_LOGOUT_ERRORS = "RECEIVE_LOGOUT_ERRORS";
 
-const receiveLogOutErrors = (errors) => {
+export const receiveLogOutErrors = (errors) => {
   return {
     type: RECEIVE_LOGOUT_ERRORS,
     logOut: errors
   };
 };
 
-const receiveSignUpErrors = (errors) => {
+export const receiveSignUpErrors = (errors) => {
   return {
     type: RECEIVE_SIGNUP_ERRORS,
     signUp: errors
   };
 };
 
-const receiveSignInErrors = (errors) => {
+export const receiveSignInErrors = (errors) => {
   return {
     type: RECEIVE_SIGNIN_ERRORS,
     signIn: errors
   };
 };
 
-const receiveCurrentUser = (currentUser) => {
+export const receiveCurrentUser = (currentUser) => {
   return {
     type: RECEIVE_CURRENT_USER,
     // id: currentUser.id,

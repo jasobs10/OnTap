@@ -13,7 +13,7 @@
   //  justify-content: center;
 
   //  background-color: red;
-   background-image: url('/assets/beer.jpeg');
+   background-image: url('/images/beer.jpeg');
    background-attachment: fixed;
    background-repeat: no-repeat;
    background-position: 10% 90%;
@@ -335,4 +335,27 @@
   top: 0;
   right: 0;
   background-color: rgba(0,0,0, 0.8);
+}
+
+.errors {
+  margin-bottom: 8%;
+  // border-left: 3px solid red;
+  width: 90%;
+  text-align: center;
+  color: white;
+  background-color: rgba(255, 6, 6, 0.74);
+  letter-spacing: 1.5px;
+  border-radius: 2px;
+}
+
+.error {
+  // color: red;
+  // margin: 0 2%;
+
+  margin: 6% 0;
+}
+
+.list-error {
+  margin: 4px 0;
+  list-style: none;
 }

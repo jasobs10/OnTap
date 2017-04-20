@@ -9,7 +9,8 @@ import { logIn, signUp } from '../../reducers/session_redux';
 const mapStateToProps = (state) => {
 
   return {
-    modal: state.modal
+    modal: state.modal,
+    errors: state.errors
   };
 };
 
