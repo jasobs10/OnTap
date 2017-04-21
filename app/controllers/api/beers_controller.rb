@@ -3,6 +3,7 @@ class Api::BeersController < ApplicationController
 
   def index
     @beers = Beer.all
+    render json: @beers
   end
 
   def create
@@ -10,8 +11,8 @@ class Api::BeersController < ApplicationController
     @beer.brewery_id = params[:id]
 
     if @beer.save
-      render :show
-    else
+      render json: @beer
+    elseshow
       render json: @beer.errors.full_messages, status: 404
     end
   end
@@ -19,14 +20,15 @@ class Api::BeersController < ApplicationController
   def update
     @beer = Beer.find(params[:id])
     if @beer.update(beer_params)
-      render :show
+      render json: @beer
     else
       render json @beer.errors.full_messages
     end
   end
 
   def show
-    @beer = Beer.find_by(params[:id])
+    @beer = Beer.find(params[:id])
+    render json: @beer
   end
 
 

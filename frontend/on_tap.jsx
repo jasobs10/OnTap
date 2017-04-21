@@ -6,6 +6,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import Splash from './components/splash/splash';
 import CheckinIndex from './components/checkin/checkin_index';
 import Navbar from './components/shared/navbar';
+import Beers from './components/beers/beers';
 // import {signUp, logIn, logOut} from './reducers/session_redux';
 
 //TESTING
@@ -62,6 +63,7 @@ const Root = ({ store }) => {
         <Route path="/" component={ App }>
           <IndexRoute component={ Splash } onEnter={_redirectIfLoggedIn}/>
           <Route path="home" component={ CheckinIndex } onEnter={_redirectIfNotLoggedIn}/>
+          <Route path="beers" component={ Beers } onEnter={_redirectIfNotLoggedIn}/>
         </Route>
       </Router>
     </Provider>
@@ -72,7 +74,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.store = configureStore();
   // window.signUp = signUp;
   // window.logIn = logIn;
-  // window.logOut = logOut;
+  // // window.logOut = logOut;
+  // window.store = configureStore();
   let store;
   if (window.currentUser) {
     const preloadedState = { currentUser: window.currentUser };

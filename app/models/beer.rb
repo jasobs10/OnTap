@@ -17,6 +17,7 @@ class Beer < ApplicationRecord
   #add model side validations, custom errors, style has to be in list of constants,
   validates :name, :brewery_id, :abv, :ibu, :style, presence: true
   #class method of styles
+  belongs_to :brewery
 
   #include validation of inclusion of those
   #belongs_to :brewery

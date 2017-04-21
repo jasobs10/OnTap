@@ -51,6 +51,7 @@
 .nav-inside > li:hover {
   cursor: pointer;
   background-color: rgba(255, 77, 0, 0.85);
+  transition: .3s;
 
 }
 
@@ -91,6 +92,7 @@
 
 .dropdown > li:hover {
   background-color: rgba(247, 96, 0, 0.97);
+  transition: .3s;
 }
 //
 .account-button {
@@ -99,4 +101,5 @@
 
 .account-button:hover .dropdown {
   visibility: visible;
+  transition: 10s ease;
 }

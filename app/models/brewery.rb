@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  name       :string           not null
-#  type       :string           not null
+#  style      :string           not null
 #  country    :string           not null
 #  city       :string           not null
 #  state      :string           not null
@@ -17,8 +17,10 @@
 #
 
 class Brewery < ApplicationRecord
-  validates :name, :type, :country, :city, :state, presence: true
+  validates :name, :style, :country, :city, :state, presence: true
   validates :name, uniqueness: true
+
+  has_many :beers
 
   #class method to return array of type
   #validation for needing to be one of those

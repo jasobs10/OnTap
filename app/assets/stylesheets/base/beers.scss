@@ -1,0 +1,146 @@
+.beers-wrapper {
+  margin-top: 60px;
+  width: 100%;
+  display: flex;
+  // background-color: red;
+  justify-content: center;
+
+}
+
+.beers-index {
+  width: 850px;
+  // background-color: gray;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+
+}
+
+.beers-index > div {
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 15px;
+
+}
+
+.beers-index > :first-child {
+  width: 569.5px;
+  // margin8right:
+  // background-color: gray;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+}
+.beers-index > :last-child {
+  width: 255px;
+  // background-color: gray;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+}
+
+.beer-item-wrapper {
+  // padding-top: 20px;
+  // background-color: green;
+  width: 97%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.beer-item-container {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  // padding-top: 5%;
+  // padding-bottom: 5%;
+}
+
+.beer-item-main {
+  display: flex;
+  background-color: orange;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  height: 145px;
+}
+
+.beer-item-main > div {
+  border: 1px solid blue;
+  box-sizing: border-box;
+
+}
+
+.col-1 {
+  // background-color: blue;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  flex: 2.3;
+  height: 100%;
+}
+
+.col-1 > div {
+  width: 100%;
+  height: auto;
+}
+
+// .col-1 > img {
+//   height: 10px;
+// }
+.col-2 {
+  flex: 7;
+  padding: 0 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.col-3 {
+  flex: 1.4;
+}
+
+.beer-item-bottom {
+  flex: 1;
+  background-color: green;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+.beer-item-bottom > div {
+  border: 1px solid red;
+  text-align: center;
+  box-sizing: border-box;
+
+
+}
+
+.img-container {
+  height: 40px;
+  width: 35px;
+  background-color: red
+}
+
+.bottom-left {
+  flex: 1;
+
+}
+
+.beer-rating {
+  flex: 3;
+}
+.bottom-right {
+  flex: 2;
+}
