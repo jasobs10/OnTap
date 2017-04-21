@@ -34,7 +34,9 @@ class BeerIndexItem extends React.Component {
               </div>
             </div>
             <div className="col-3">
-              wish
+              <div className="wish-add">
+                +
+              </div>
             </div>
           </div>
           <div className="beer-item-bottom">
