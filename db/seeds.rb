@@ -9,10 +9,10 @@ User.destroy_all
 Beer.destroy_all
 Brewery.destroy_all
 name = "beer"
-description = "this is a test beer. it tests so good. so testy"
+description = "this is a test beer. it tests so good. so testy Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat null, sunt in culpa qui officia deserunt mollit anim id est laborum."
 abv = 100.0
 ibu = 40.0
-style = 'IPA'
+beer_style = 'IPA'
 
 
 brewname = "testbrewery"
@@ -30,7 +30,7 @@ end
 
 breweries.each_with_index do |el, i|
   c = name + i.to_s
-  el.beers.create(name: c, description: description, abv: abv, ibu: ibu, style: style)
+  el.beers.create(name: c, description: description, abv: abv, ibu: ibu, style: beer_style)
 end
 
 

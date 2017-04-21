@@ -4,11 +4,13 @@
   display: flex;
   // background-color: red;
   justify-content: center;
+  font-family: 'Lato', sans-serif;
+  // letter-spacing: 1px;
 
 }
 
 .beers-index {
-  width: 850px;
+  width: 1000px;
   // background-color: gray;
   display: flex;
   flex-direction: row;
@@ -28,7 +30,7 @@
 }
 
 .beers-index > :first-child {
-  width: 569.5px;
+  width: 75%;
   // margin8right:
   // background-color: gray;
   // display: flex;
@@ -36,7 +38,7 @@
   // align-items: center;
 }
 .beers-index > :last-child {
-  width: 255px;
+  width: 25%;
   // background-color: gray;
   // display: flex;
   // flex-direction: column;
@@ -67,11 +69,12 @@
 
 .beer-item-main {
   display: flex;
-  background-color: orange;
+  // background-color: orange;
   width: 100%;
   flex-direction: row;
   justify-content: center;
-  height: 145px;
+  // height: 145px;
+  margin-bottom: 10px;
 }
 
 .beer-item-main > div {
@@ -143,4 +146,33 @@
 }
 .bottom-right {
   flex: 2;
+}
+
+.col-2 > div {
+  // padding: 3px 0;
+}
+
+.beer-name {
+  font-size: 24px;
+  color: rgb(196, 118, 0);
+  padding-bottom: 0;
+  letter-spacing: 1.5px;
+}
+
+.brewery-name {
+  color: rgb(196, 118, 0);
+  font-size: 15.5px;
+  padding-top: 0px;
+  margin-bottom: 7px;
+
+}
+
+.beer-style {
+  color: rgb(97, 96, 96);
+  font-size: 15.5px;
+  margin-bottom: 7px;
+}
+
+.beer-description {
+  color: rgb(142, 140, 141);
 }

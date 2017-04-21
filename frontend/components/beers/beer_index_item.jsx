@@ -20,16 +20,16 @@ class BeerIndexItem extends React.Component {
 
             </div>
             <div className="col-2">
-              <div>
+              <div className="beer-name">
                 {this.props.beer.name}
               </div>
-              <div>
-                {this.props.beer.brewery_id}
+              <div className="brewery-name">
+                Brewery name
               </div>
-              <div>
+              <div className="beer-style">
                 {this.props.beer.style}
               </div>
-              <div>
+              <div className="beer-description">
                 {this.props.beer.description}
               </div>
             </div>
