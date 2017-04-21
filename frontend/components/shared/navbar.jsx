@@ -40,7 +40,7 @@ class Navbar extends React.Component {
           <li onClick={() => hashHistory.push('/beers')}>
             Top beers
           </li>
-          <li>
+          <li onClick={() => hashHistory.push('/breweries')}>
             Breweries
           </li>
           <li className="account-button">

@@ -61,10 +61,10 @@ class BeerIndexItem extends React.Component {
           </div>
           <div className="beer-item-bottom">
             <div className="bottom-left">
-              ABV
+              {this.props.beer.abv}% ABV
             </div>
             <div className="bottom-left">
-              IBU
+              {this.props.beer.ibu} IBU
             </div>
             <div className="beer-rating">
               RATING

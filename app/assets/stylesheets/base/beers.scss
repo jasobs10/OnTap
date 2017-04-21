@@ -128,9 +128,9 @@
   background: rgb(255, 173, 13);
   text-align: center;
   width: 58px;
-  height: 50%;
+  height: 58px;;
   color: white;
-  font-size: 50px;
+  font-size: 60px;
   font-family: monospace;
   font-weight: 850;
   line-height: 100%;
@@ -153,7 +153,7 @@
   padding: 5px;
   right: -15px;
   font-size: 12px;
-  top: 55px;
+  top: 60px;
 
   // right: 10px;
 
@@ -207,10 +207,10 @@
 }
 
 .beer-rating {
-  flex: 3;
+  flex: 2;
 }
 .bottom-right {
-  flex: 2;
+  flex: 1.3;
 }
 
 .col-2 > div {

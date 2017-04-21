@@ -1,7 +1,7 @@
 class Api::BreweriesController < ApplicationController
   before_action :require_logged_in
   def index
-    @breweries = Brewery.all
+    @breweries = Brewery.includes(:beers).all
   end
 
   def create

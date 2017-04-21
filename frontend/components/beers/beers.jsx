@@ -37,9 +37,6 @@ class Beers extends React.Component {
     // debugger
     return (
       <div className="beers-wrapper">
-        <div className="header-main">
-          <h1 className="beers-index-title">Whats ONTAP?</h1>
-        </div>
         <div className="beers-index">
           <div className="beers-feed">
             {items}
@@ -60,4 +57,7 @@ class Beers extends React.Component {
   }
 }
 
+// <div className="header-main">
+//   <h1 className="beers-index-title">Whats ONTAP?</h1>
+// </div>
 export default connect(mapStateToProps, mapDispatchToProps)(Beers);

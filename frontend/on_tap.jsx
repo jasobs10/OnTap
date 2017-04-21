@@ -7,6 +7,7 @@ import Splash from './components/splash/splash';
 import CheckinIndex from './components/checkin/checkin_index';
 import Navbar from './components/shared/navbar';
 import Beers from './components/beers/beers';
+import BreweriesIndex from './components/breweries/breweries_index';
 // import {signUp, logIn, logOut} from './reducers/session_redux';
 
 //TESTING
@@ -64,6 +65,7 @@ const Root = ({ store }) => {
           <IndexRoute component={ Splash } onEnter={_redirectIfLoggedIn}/>
           <Route path="home" component={ CheckinIndex } onEnter={_redirectIfNotLoggedIn}/>
           <Route path="beers" component={ Beers } onEnter={_redirectIfNotLoggedIn}/>
+          <Route path="breweries" component={ BreweriesIndex } onEnter={_redirectIfNotLoggedIn}/>
         </Route>
       </Router>
     </Provider>
