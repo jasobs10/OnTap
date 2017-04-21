@@ -127,18 +127,45 @@
 .wish-add {
   background: rgb(255, 173, 13);
   text-align: center;
-  width: 67%;
+  width: 58px;
   height: 50%;
   color: white;
   font-size: 50px;
   font-family: monospace;
   font-weight: 850;
   line-height: 100%;
+  position: relative;
+
+}
+
+
+.wishlist-dropdown {
+  visibility: hidden;
+  position: absolute;
+  width: 80px;
+  // z-index: 999;
+  background-color: rgba(0, 0, 0, .6);
+  line-height: normal;
+  // color: black;
+  font-size: 13px;
+  // padding: 5px 20px;
+  box-sizing: content-box;
+  padding: 5px;
+  right: -15px;
+  font-size: 12px;
+  top: 55px;
+
+  // right: 10px;
 
 }
 
 .wish-add:hover {
-  background-color: rgb(255, 173, 13);
+  background-color: rgb(176, 118, 4);
+  cursor: pointer;
+}
+
+.wish-add:hover .wishlist-dropdown {
+  visibility: visible;
 }
 
 .beer-item-bottom {
@@ -213,4 +240,49 @@
 
 .beer-description {
   color: rgb(142, 140, 141);
+}
+
+.top-beers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.top-beers-item {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  // justify-content: center;
+}
+
+.top-beers-item > :first-child {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.top-beers-item > :last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+// .header-main {
+//   width: 100%;
+//   padding-bottom: 30px;
+//   visibility: hidden;
+// }
+
+// .beer-item-container > :first-child {
+//   visibility: visible;
+// }
+
+.header-side {
+  width: 100%;
+  padding-bottom: 30px;
+}
+
+.beers-index-title {
+  font-size: 30px;
 }

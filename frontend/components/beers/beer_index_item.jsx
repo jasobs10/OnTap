@@ -8,10 +8,27 @@ class BeerIndexItem extends React.Component {
 
   render() {
     // debugger
+    if (this.props.sideItem) {
+      return (
+        <div className="top-beers-item">
+          <div>
+            <img src="/images/chocolate.png"/>
+          </div>
+          <div>
+            <div className="beer-name">
+              {this.props.beer.name}
+            </div>
+            <div className="brewery-name">
+              {this.props.beer.brewery.name}
+            </div>
+          </div>
+        </div>
+      );
+    }
     return (
       <div className="beer-item-wrapper">
-        <div className="beer-item-container">
 
+        <div className="beer-item-container">
           <div className="beer-item-main">
             <div className="col-1">
               <div className="img-container">
@@ -24,7 +41,7 @@ class BeerIndexItem extends React.Component {
                 {this.props.beer.name}
               </div>
               <div className="brewery-name">
-                Brewery name
+                {this.props.beer.brewery.name}
               </div>
               <div className="beer-style">
                 {this.props.beer.style}
@@ -36,6 +53,9 @@ class BeerIndexItem extends React.Component {
             <div className="col-3">
               <div className="wish-add">
                 +
+                <div className="wishlist-dropdown">
+                  Add to Wishlist
+                </div>
               </div>
             </div>
           </div>

@@ -37,7 +37,7 @@ class Navbar extends React.Component {
           <li className="titlelogo" onClick={() => hashHistory.push('/home')}>
             <i className="fa fa-beer" aria-hidden="true"></i> ONTAP
           </li>
-          <li>
+          <li onClick={() => hashHistory.push('/beers')}>
             Top beers
           </li>
           <li>

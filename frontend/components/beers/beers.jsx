@@ -32,10 +32,14 @@ class Beers extends React.Component {
 
   render () {
     // debugger
-    const items = this.props.beers.map((beer) => <BeerIndexItem key={beer.id} beer={beer}/>)
+    const items = this.props.beers.map((beer) => <BeerIndexItem key={beer.id} beer={beer} />)
+    const smallItems = items.slice(0, 7).map((beer) => <BeerIndexItem key={beer.id} beer={beer.props.beer} sideItem={true}/>);
     // debugger
     return (
       <div className="beers-wrapper">
+        <div className="header-main">
+          <h1 className="beers-index-title">Whats ONTAP?</h1>
+        </div>
         <div className="beers-index">
           <div className="beers-feed">
             {items}
@@ -44,7 +48,10 @@ class Beers extends React.Component {
           <div className="side-bars">
 
             <div className="top-beers">
-
+              <div className="header-side">
+                <h1 className="beers-index-title">Top Global Beers</h1>
+              </div>
+              {smallItems}
             </div>
           </div>
         </div>

@@ -2,8 +2,7 @@ class Api::BeersController < ApplicationController
   before_action :require_logged_in
 
   def index
-    @beers = Beer.all
-    render json: @beers
+    @beers = Beer.includes(:brewery).all
   end
 
   def create
@@ -11,7 +10,7 @@ class Api::BeersController < ApplicationController
     @beer.brewery_id = params[:id]
 
     if @beer.save
-      render json: @beer
+      render :show
     elseshow
       render json: @beer.errors.full_messages, status: 404
     end
@@ -20,7 +19,7 @@ class Api::BeersController < ApplicationController
   def update
     @beer = Beer.find(params[:id])
     if @beer.update(beer_params)
-      render json: @beer
+      render :show
     else
       render json @beer.errors.full_messages
     end
@@ -28,7 +27,6 @@ class Api::BeersController < ApplicationController
 
   def show
     @beer = Beer.find(params[:id])
-    render json: @beer
   end
 
 
