@@ -41,6 +41,7 @@
   align-items: center;
   // justify-content: space-between;
   justify-content: center;
+  color: rgb(142, 140, 141);
 }
 
 .brewery-ratings {
@@ -54,6 +55,7 @@
   // border-left: 1px solid red;
   // border-bottom: 1px solid red;
   height: 100%;
+
 }
 
 .brew-border {
@@ -77,6 +79,6 @@
 // }
 
 .brewery-right-bottom {
-  margin-top: 12px;
+  padding-top: 6%;
   height: 100%;
 }

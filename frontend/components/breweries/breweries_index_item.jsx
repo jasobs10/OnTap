@@ -25,7 +25,7 @@ class BreweriesIndexItem extends React.Component {
         <div className="brewery-info">
           <div className="brewery-ratings">
             <section className="brew-border">
-              25 Beers
+              {this.props.brewery.beers.length} Beers
             </section>
             <section className="brew-section">
               278 ratings
