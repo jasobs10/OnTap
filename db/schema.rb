@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170420211854) do
+ActiveRecord::Schema.define(version: 20170421141947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,47 @@ ActiveRecord::Schema.define(version: 20170420211854) do
     t.index ["name"], name: "index_breweries_on_name", unique: true, using: :btree
   end
 
+  create_table "brewery_likes", force: :cascade do |t|
+    t.integer  "brewery_id", null: false
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "brewery_id"], name: "index_brewery_likes_on_user_id_and_brewery_id", unique: true, using: :btree
+  end
+
+  create_table "checkins", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "beer_id",    null: false
+    t.integer  "venue_id"
+    t.integer  "rating",     null: false
+    t.string   "address"
+    t.text     "review"
+    t.string   "container"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["beer_id"], name: "index_checkins_on_beer_id", using: :btree
+    t.index ["user_id"], name: "index_checkins_on_user_id", using: :btree
+    t.index ["venue_id"], name: "index_checkins_on_venue_id", using: :btree
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "user_id",    null: false
+    t.string   "checkin_id", null: false
+    t.text     "comment",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["checkin_id"], name: "index_comments_on_checkin_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
+  create_table "toasts", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "checkin_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "checkin_id"], name: "index_toasts_on_user_id_and_checkin_id", unique: true, using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false
     t.string   "password_digest", null: false
@@ -54,6 +95,14 @@ ActiveRecord::Schema.define(version: 20170420211854) do
     t.string   "country"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "wishlists", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "beer_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["beer_id", "user_id"], name: "index_wishlists_on_beer_id_and_user_id", unique: true, using: :btree
   end
 
 end

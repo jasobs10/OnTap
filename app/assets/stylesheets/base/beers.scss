@@ -154,6 +154,7 @@
   right: -15px;
   font-size: 12px;
   top: 60px;
+  font: 'Oxygen'
 
   // right: 10px;
 
@@ -162,10 +163,15 @@
 .wish-add:hover {
   background-color: rgb(176, 118, 4);
   cursor: pointer;
+  transition: .5s;
 }
+
 
 .wish-add:hover .wishlist-dropdown {
   visibility: visible;
+}
+.wishlist-dropdown:hover {
+  visibility: hidden;
 }
 
 .beer-item-bottom {
@@ -177,6 +183,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  font-size: 15px;
   // height: 40px;
   // padding: 5px 0;
   color: rgb(142, 140, 141);
@@ -207,10 +214,14 @@
 }
 
 .beer-rating {
-  flex: 2;
+  flex: 1.7;
 }
 .bottom-right {
-  flex: 1.3;
+  flex: 1.6;
+}
+
+.bottom-right-first {
+  flex: 1.3
 }
 
 .col-2 > div {

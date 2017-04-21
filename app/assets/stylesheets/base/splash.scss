@@ -4,6 +4,7 @@
   align-items: center;
   position: relative;
   width: 100%;
+  background-color: white;
 }
 
 
@@ -15,9 +16,11 @@
 
   //  background-color: red;
    background-image: url('/images/beer.jpeg');
-   background-attachment: fixed;
+   background-attachment: scroll;
+  //  background-attachment: fixed;
    background-repeat: no-repeat;
-   background-position: 10% 90%;
+   background-position: 10% 50%;
+  //  background-position: 10% 90%;
    background-size: cover;
    width: 100%;
    height: 700px;
@@ -249,8 +252,20 @@
 
 .beer-color {
   color: rgb(252, 220, 0);
+  -moz-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
 }
 
+.flip {
+  -moz-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
 
 .auth-form-container > h2 {
   margin-top: 1%;

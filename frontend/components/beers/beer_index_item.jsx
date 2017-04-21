@@ -8,6 +8,7 @@ class BeerIndexItem extends React.Component {
 
   render() {
     // debugger
+    const score = this.props.beer.average ? this.props.beer.average : "NO REVIEWS";
     if (this.props.sideItem) {
       return (
         <div className="top-beers-item">
@@ -67,13 +68,13 @@ class BeerIndexItem extends React.Component {
               {this.props.beer.ibu} IBU
             </div>
             <div className="beer-rating">
-              RATING
+              {score}
+            </div>
+            <div className="bottom-right-first">
+              {this.props.beer.checkins} RATINGS
             </div>
             <div className="bottom-right">
-              RATINGS
-            </div>
-            <div className="bottom-right">
-              DATE
+              ADDED {this.props.beer.date_added}
             </div>
           </div>
         </div>

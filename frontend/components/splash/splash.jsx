@@ -63,7 +63,7 @@ class Splash extends React.Component {
 
           <div className="splash-inner">
             <div>
-              <article><h1>What's ONTAP <i className="fa fa-beer" aria-hidden="true"></i></h1></article>
+              <article><h1>What's ONTA<i className="fa fa-beer flip" aria-hidden="true"></i></h1></article>
               <article className="two"><img className="hops" src={window.images.hops} alt="hops"/></article>
               <article className="splash-tag">Rate, Review, Discover Your Favorite Beers</article>
               <article className="demo" onClick={this.handleClick(<SignInForm receiveComponent={this.props.receiveComponent} activateModal={this.props.activateModal} guest={true}/>)}><button className="demo-button">Demo Log in</button></article>

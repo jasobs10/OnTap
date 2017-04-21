@@ -18,6 +18,8 @@ class Beer < ApplicationRecord
   validates :name, :brewery_id, :abv, :ibu, :style, presence: true
   #class method of styles
   belongs_to :brewery
+  has_many :checkins
+
 
   #include validation of inclusion of those
   #belongs_to :brewery

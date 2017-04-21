@@ -20,7 +20,7 @@ class Brewery < ApplicationRecord
   validates :name, :style, :country, :city, :state, presence: true
   validates :name, uniqueness: true
 
-  has_many :beers
+  has_many :beers, dependent: :destroy
 
   #class method to return array of type
   #validation for needing to be one of those
