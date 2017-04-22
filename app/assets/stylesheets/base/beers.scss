@@ -297,3 +297,42 @@
 .beers-index-title {
   font-size: 30px;
 }
+
+.top-star {
+  unicode-bidi: bidi-override;
+  position: relative;
+  // border: 2px solid red;
+  margin: 0 auto;
+  width: 100px;
+  // height: 20px;
+  font-size: 20px;
+  overflow: hidden;
+
+
+
+}
+// .ratings-top {
+//   position: absolute;
+//   top: 0px;
+//   left: 50px;
+//   z-index: 1;
+//   // overflow: hidden;
+//   // width: 15%;
+//   top: 0;
+//   left: 0;
+//   // width: 100px;
+//   // height: 20px;
+//   padding: 0;
+//   // border: 1px solid blue;
+//   margin-left: -70px;
+//   // padding-right: 104px;
+//
+//
+// }
+.ratings-bottom {
+  display: absoulte;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  background-color: red;
+}

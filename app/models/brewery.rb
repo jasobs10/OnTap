@@ -21,6 +21,7 @@ class Brewery < ApplicationRecord
   validates :name, uniqueness: true
 
   has_many :beers, dependent: :destroy
+  has_many :checkins, through: :beers
 
   #class method to return array of type
   #validation for needing to be one of those
