@@ -125,7 +125,7 @@
 }
 
 .wish-add {
-  background: rgb(255, 173, 13);
+  background: #ffad0d;
   text-align: center;
   width: 58px;
   height: 58px;;
@@ -193,7 +193,7 @@
   text-align: center;
   box-sizing: border-box;
   border-right: .6px solid rgb(231, 231, 230);
-  padding: 7px 0;
+  padding: 7px 5px;
 
 
 }
@@ -335,4 +335,8 @@
   left: 0;
   z-index: 99;
   background-color: red;
+}
+
+.rating-bar {
+  width: 70%;
 }

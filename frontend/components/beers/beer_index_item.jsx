@@ -87,6 +87,23 @@
 
 import React from 'react';
 // import ReactStars from 'react-stars'
+import { Line } from 'rc-progress';
+
+const LineRating = ({ average }) => {
+  if (average) {
+    const ratingPercentage = (average / 5 *  100).toString();
+    return(
+      <span><Line percent={ratingPercentage} strokeWidth="10" strokeColor="#ffad0d" trailColor="#8e8c8d" trailWidth="10" className="rating-bar"/> ({average})</span>
+    );
+  }
+
+  return(
+    <span>
+      "NO REVIEWS"
+    </span>
+  )
+
+}
 
 class BeerIndexItem extends React.Component {
   constructor(props) {
@@ -96,7 +113,7 @@ class BeerIndexItem extends React.Component {
 
   render() {
     // debugger
-    const score = this.props.beer.average ? this.props.beer.average : "NO";
+    const ratingPercentage = (this.props.beer.average / 5 *  100).toString();
     if (this.props.sideItem) {
       return (
         <div className="top-beers-item">
@@ -156,7 +173,7 @@ class BeerIndexItem extends React.Component {
               {this.props.beer.ibu} IBU
             </div>
             <div className="beer-rating">
-              {score} AVERAGE
+              <LineRating average={this.props.beer.average}/>
             </div>
             <div className="bottom-right-first">
               {this.props.beer.checkins} RATINGS
@@ -170,6 +187,7 @@ class BeerIndexItem extends React.Component {
     );
   }
 }
+// {score} AVERAGE
 // <div className="top-star">
 //   <div className="ratings-top"></div>
 //   <div className="ratings-bottom"></div>
