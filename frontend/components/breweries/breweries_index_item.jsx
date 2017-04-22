@@ -44,6 +44,23 @@
 // export default BreweriesIndexItem;
 
 import React from 'react';
+import { Line } from 'rc-progress';
+const LineRating = ({ average }) => {
+  if (average) {
+    const ratingPercentage = (average / 5 *  100).toString();
+    return(
+      <span className="line-flex"><Line percent={ratingPercentage} strokeWidth="10" strokeColor="#ffad0d" trailColor="#8e8c8d" trailWidth="10" className="rating-bar"/> ({average})</span>
+    );
+  }
+
+  return(
+    <span>
+      "NO REVIEWS"
+    </span>
+  )
+
+}
+
 
 class BreweriesIndexItem extends React.Component {
   constructor(props) {
@@ -51,7 +68,7 @@ class BreweriesIndexItem extends React.Component {
   }
 
   render() {
-    const score = this.props.brewery.average ? this.props.brewery.average : "NO REVIEWS";
+    // const score = this.props.brewery.average ? this.props.brewery.average : "NO REVIEWS";
     return (
       <div className="brewery-index-item">
         <div className="brewery-text-container">
@@ -78,7 +95,7 @@ class BreweriesIndexItem extends React.Component {
             </section>
           </div>
           <div className="brewery-right-bottom">
-            {score}
+            <LineRating average={this.props.brewery.average}/>
           </div>
         </div>
 
@@ -86,5 +103,6 @@ class BreweriesIndexItem extends React.Component {
     )
   }
 }
+// <LineRating average={this.props.brewery.average}/>
 
 export default BreweriesIndexItem;

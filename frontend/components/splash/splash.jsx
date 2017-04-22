@@ -100,7 +100,6 @@ class Splash extends React.Component {
   }
 }
 // <SignInForm />
-
 // <div class="auth-form"><Modal /></div>
 
 export default connect(mapStateToProps, mapDispatchToProps)(Splash);
