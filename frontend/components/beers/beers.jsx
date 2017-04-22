@@ -3,18 +3,22 @@ import { connect } from 'react-redux';
 import { hashHistory } from 'react-router';
 import { requestBeers } from '../../reducers/beers_redux'
 import BeerIndexItem from './beer_index_item';
+import { addBeerToWishlist, removeBeerFromWishlist } from '../../reducers/wishlist_redux';
 
 const mapStateToProps = (state) => {
 
   return {
     currentUser: state.currentUser,
-    beers: state.beers
+    beers: state.beers,
+    wishlist: state.wishlist
   }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    requestBeers: () => dispatch(requestBeers())
+    requestBeers: () => dispatch(requestBeers()),
+    addBeerToWishlist: (beerId) => dispatch(addBeerToWishlist(beerId)),
+    removeBeerFromWishlist: (id) => dispatch(removeBeerFromWishlist(id))
 
   }
 };
@@ -32,7 +36,7 @@ class Beers extends React.Component {
 
   render () {
     // debugger
-    const items = this.props.beers.map((beer) => <BeerIndexItem key={beer.id} beer={beer} />)
+    const items = this.props.beers.map((beer) => <BeerIndexItem key={beer.id} beer={beer} added={this.props.wishlist.added} addBeerToWishlist={this.props.addBeerToWishlist} removeBeerFromWishlist={this.props.removeBeerFromWishlist}/>)
     const smallItems = items.slice(0, 7).map((beer) => <BeerIndexItem key={beer.id} beer={beer.props.beer} sideItem={true}/>);
     // debugger
     return (

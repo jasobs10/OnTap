@@ -23,6 +23,10 @@ class User < ApplicationRecord
   attr_reader :password
 
   has_many :checkins, dependent: :destroy
+  has_many :wishlists
+  has_many :wishlist_beers, through: :wishlists, source: :beer
+
+
 
 
   def self.find_by_credentials(username, password)

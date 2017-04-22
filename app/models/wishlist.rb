@@ -10,4 +10,9 @@
 #
 
 class Wishlist < ApplicationRecord
+  validates :user_id, :beer_id, null: false
+  validates :user_id, uniqueness: { scope: :beer_id }
+
+  belongs_to :user
+  belongs_to :beer
 end

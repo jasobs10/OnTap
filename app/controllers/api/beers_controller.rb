@@ -2,6 +2,7 @@ class Api::BeersController < ApplicationController
   before_action :require_logged_in
 
   def index
+    # DO sort and indexing in here, pass in params
     @beers = Beer.includes(:brewery, :checkins).all
   end
 

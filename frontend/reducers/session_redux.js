@@ -34,7 +34,9 @@ export const receiveCurrentUser = (currentUser) => {
     // id: currentUser.id,
     // username: currentUser.username,
     // f_name: currentUser.f_name
-    currentUser
+    //add current_user's beer
+    currentUser,
+    // wishList:
   };
 };
 
