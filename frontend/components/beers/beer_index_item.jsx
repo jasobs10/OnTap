@@ -70,7 +70,7 @@ class BeerIndexItem extends React.Component {
               </div>
             </div>
             <div className="col-3">
-              <WishlistAdd key={this.props.beer.id} added={this.props.added} addBeerToWishlist={this.props.addBeerToWishlist} removeBeerFromWishlist={this.props.removeBeerFromWishlist}/>
+              <WishlistAdd key={this.props.beer.id} addBeerToWishlist={this.props.addBeerToWishlist} removeBeerFromWishlist={this.props.removeBeerFromWishlist} beer={this.props.beer}/>
             </div>
           </div>
           <div className="beer-item-bottom">

@@ -14,12 +14,14 @@ json.array! @beers do |beer|
   #     json.breweryName wishlist.beer.brewery, :name
   #   end
   # end
-  json.currentUserWishlist do
-    beer.wishlists.where("user_id = ?", current_user.id).each do |wishlist|
-      json.set! wishlist.id do
-        json.beerName wishlist.beer.name
-        json.breweryName wishlist.beer.brewery.name
-      end
-    end
-  end
+  # json.currentUserWishlist do
+  #   beer.wishlists.where("user_id = ?", current_user.id).each do |wishlist|
+  #     json.set! wishlist.id do
+  #       json.beerName wishlist.beer.name
+  #       json.breweryName wishlist.beer.brewery.name
+  #     end
+  #   end
+  # end
+  json.currentUserWishlist beer.wishlists.select('id').where("user_id = ?", current_user.id).first
+
 end

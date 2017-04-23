@@ -8,7 +8,8 @@ class Api::WishlistsController < ApplicationController
     @wishlistbeer.user_id = current_user.id
     # debugger
     if @wishlistbeer.save
-      render json: @wishlistbeer.id
+      render json: @wishlistbeer
+      # render 'api/beers/index'
     else
       render json: {base: ["Can't add to wishlist"]}, status: 404
     end
@@ -18,7 +19,7 @@ class Api::WishlistsController < ApplicationController
     # @wishlist_user = current_user
     @wishlistbeer = Wishlist.find(params[:id])
     @wishlistbeer.destroy
-    render json: @wishlistbeer.id
+    render json: @wishlistbeer
   end
 
   # def show

@@ -1,26 +1,27 @@
 const ADD_WISHLIST = "ADD_WISHLIST";
 const REMOVE_WISHLIST = "REMOVE_WISHLIST";
 
-const addWishlist = () => {
+const addWishlist = (beer) => {
   return {
     type: ADD_WISHLIST,
-    added: true
+    beer
   };
 };
 
-const removeWishlist = () => {
+const removeWishlist = (id) => {
   return {
     type: REMOVE_WISHLIST,
-    added: false
+    id
   };
 };
 
 const APIUTIL = {
-  addBeerToWishlist: (beerId) => {
+  addBeerToWishlist: (beer_id) => {
+    // debugger
     return $.ajax({
       method: "POST",
       url: "api/wishlists",
-      data: {wishlist: {beerId}}
+      data: {wishlist: {beer_id}}
     });
   },
 
@@ -33,22 +34,27 @@ const APIUTIL = {
 };
 
 export const removeBeerFromWishlist = (id) => {
-  return dispatch => APIUTIL.removeBeerFromWishlist(id).then(() => removeWishlist());
+  return dispatch => APIUTIL.removeBeerFromWishlist(id).then(() => dispatch(removeWishlist()));
 };
 
-export const addBeerToWishlist = (beer_id) => {
-  return dispatch => APIUTIL.addBeerToWishlist(beer_id).then(() => addWishlist());
+export const addBeerToWishlist = (beerId) => {
+  // debugger
+  return dispatch => APIUTIL.addBeerToWishlist(beerId).then(() => dispatch(addWishlist()));
 };
 
-const _defaultState = {added: false};
+const _defaultState = [];
 
 export const wishlistReducer = (oldState = _defaultState, action) => {
+  // debugger
   Object.freeze(oldState);
+  let oldArray = oldState.slice(0);
   switch(action.type) {
     case ADD_WISHLIST:
-      return action.added;
+    debugger
+      return oldArray.push(action.beer);
     case REMOVE_WISHLIST:
-      return action.added;
+      let index = oldArray.indexOf(action.id);
+      return oldArray.splice(index, 1);
     default:
       return oldState;
   }

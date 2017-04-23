@@ -11,8 +11,8 @@ const rootReducer = combineReducers({
   modal: modalReducer,
   beers: beersReducer,
   breweries: breweriesReducer,
-  wishlist: wishlistReducer
 
 });
 
+// wishlist: wishlistReducer
 export default rootReducer;
