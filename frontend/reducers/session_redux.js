@@ -6,7 +6,8 @@ const RECEIVE_SIGNUP_ERRORS = "RECEIVE_SIGNUP_ERRORS";
 const RECEIVE_SIGNIN_ERRORS = "RECEIVE_SIGNIN_ERRORS";
 const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 const RECEIVE_LOGOUT_ERRORS = "RECEIVE_LOGOUT_ERRORS";
-const RECEIVE_CURRENT_USER_WISHLIST = "RECEIVE_CURRENT_USER_WISHLIST";
+const ADD_CURRENT_USER_WISHLIST = "ADD_CURRENT_USER_WISHLIST";
+const REMOVE_CURRENT_USER_WISHLIST = "REMOVE_CURRENT_USER_WISHLIST";
 
 export const receiveLogOutErrors = (errors) => {
   return {
@@ -41,6 +42,19 @@ export const receiveCurrentUser = (currentUser) => {
   };
 };
 
+export const addCurrentUserWishlist = (beer) => {
+  return {
+    type: ADD_CURRENT_USER_WISHLIST,
+    beer
+  };
+};
+
+export const removeCurrentUserWishlist = (id) => {
+  return {
+    type: REMOVE_CURRENT_USER_WISHLIST,
+    id
+  };
+};
 // SESSION Thunk Action Creators
 
 export const signUp = (user) => {
@@ -118,6 +132,17 @@ export const currentUserReducer = (oldState = _defaultCurrentUserState, action) 
     case RECEIVE_CURRENT_USER:
     // debugger
       return action.currentUser;
+    case ADD_CURRENT_USER_WISHLIST:
+    // debugger
+      let current = merge({}, oldState);
+      let newBeer = {wishlistBeers: {[action.beer.id]: action.beer}};
+      return merge(current, newBeer);
+    case REMOVE_CURRENT_USER_WISHLIST:
+    // debugger
+      let current2 = merge({}, oldState);
+      delete current2.wishlistBeers[action.id];
+      return current2;
+
     default:
       return oldState;
   }

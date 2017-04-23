@@ -1,16 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { hashHistory } from 'react-router';
-import { requestBeers, addBeerToWishlist, removeBeerFromWishlist } from '../../reducers/beers_redux'
+import { requestBeers, addBeerToWishlist, removeBeerFromWishlist } from '../../reducers/beers_redux';
 import BeerIndexItem from './beer_index_item';
+import { addCurrentUserWishlist, removeCurrentUserWishlist } from '../../reducers/session_redux';
 // import { addBeerToWishlist, removeBeerFromWishlist } from '../../reducers/wishlist_redux';
 
 const mapStateToProps = (state) => {
 
   return {
     currentUser: state.currentUser,
-    beers: Object.values(state.beers),
-
+    beers: Object.values(state.beers)
   }
 };
 
@@ -18,7 +18,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     requestBeers: (field, params) => dispatch(requestBeers(field, params)),
     addBeerToWishlist: (beerId) => dispatch(addBeerToWishlist(beerId)),
-    removeBeerFromWishlist: (id) => dispatch(removeBeerFromWishlist(id))
+    removeBeerFromWishlist: (id) => dispatch(removeBeerFromWishlist(id)),
+    addCurrentUserWishlist: (beer) => dispatch(addCurrentUserWishlist(beer)),
+    removeCurrentUserWishlist: (beer) => dispatch(removeCurrentUserWishlist(beer))
 
   }
 };
@@ -28,6 +30,26 @@ const mapDispatchToProps = (dispatch) => {
 //     <option value={props.value}
 //   );
 // }
+
+const WishlistBeerItem = (props) => {
+  // debugger
+  const brewery = props.beer.brewery.name || props.beer.brewery;
+  return(
+    <div className="top-beers-item">
+      <div>
+        <img src="/images/chocolate.png"/>
+      </div>
+      <div>
+        <div className="wishlist-beer">
+          {props.beer.name}
+        </div>
+        <div className="wishlist-brewery">
+          {brewery}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 class Beers extends React.Component {
   constructor(props) {
@@ -60,9 +82,11 @@ class Beers extends React.Component {
   }
 
   render () {
+
     // debugger
-    const items = this.props.beers.map((beer) => <BeerIndexItem key={beer.id} beer={beer} addBeerToWishlist={this.props.addBeerToWishlist} removeBeerFromWishlist={this.props.removeBeerFromWishlist}/>)
-    const smallItems = items.slice(0, 7).map((beer) => <BeerIndexItem key={beer.id} beer={beer.props.beer} sideItem={true}/>);
+    const items = this.props.beers.map((beer) => <BeerIndexItem key={beer.id} beer={beer} addBeerToWishlist={this.props.addBeerToWishlist} removeBeerFromWishlist={this.props.removeBeerFromWishlist} addCurrentUserWishlist={this.props.addCurrentUserWishlist} removeCurrentUserWishlist={this.props.removeCurrentUserWishlist}/>)
+    // debugger
+    const wishlistBeers = this.props.currentUser.wishlistBeers ? Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>) : "";
     const selectStyles = this.props.beers.length > 0 ? this.props.beers[0].allStyles.map((style) => <option value={style}>{style}</option>) : "";
     const ratings = ["0", "1", "2", "3", "4", "5"];
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
@@ -108,9 +132,10 @@ class Beers extends React.Component {
 
             <div className="top-beers">
               <div className="header-side">
-                <h1 className="beers-index-title">Top Global Beers</h1>
+                <h1 className="beers-index-title">My Wishlist</h1>
               </div>
-              {smallItems}
+              <hr className="orange-line"/>
+              {wishlistBeers}
             </div>
           </div>
         </div>

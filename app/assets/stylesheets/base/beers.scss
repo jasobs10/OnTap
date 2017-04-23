@@ -23,7 +23,7 @@
   -webkit-box-shadow: 0px 0px 61px -29px rgba(0,0,0,1);
   -moz-box-shadow: 0px 0px 61px -29px rgba(0,0,0,1);
   box-shadow: 0px 0px 61px -29px rgba(0,0,0,1);
-  
+
 
 }
 
@@ -246,6 +246,21 @@
 
 }
 
+.wishlist-beer {
+  font-size: 18px;
+  color: rgb(196, 118, 0);
+  padding-bottom: 0;
+  letter-spacing: 1.5px;
+}
+
+.wishlist-brewery {
+  color: rgb(142, 140, 141);
+  font-size: 14px;
+  padding-top: 0px;
+  margin-bottom: 9px;
+
+}
+
 .beer-style {
   color: rgb(97, 96, 96);
   font-size: 15.5px;
@@ -294,7 +309,7 @@
 
 .header-side {
   width: 100%;
-  padding-bottom: 30px;
+  padding-bottom: 5%;
 }
 
 .beers-index-title {

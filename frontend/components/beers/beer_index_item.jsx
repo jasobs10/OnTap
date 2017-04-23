@@ -27,23 +27,7 @@ class BeerIndexItem extends React.Component {
   render() {
     // debugger
     const ratingPercentage = (this.props.beer.average / 5 *  100).toString();
-    if (this.props.sideItem) {
-      return (
-        <div className="top-beers-item">
-          <div>
-            <img src="/images/chocolate.png"/>
-          </div>
-          <div>
-            <div className="beer-name">
-              {this.props.beer.name}
-            </div>
-            <div className="brewery-name">
-              {this.props.beer.brewery.name}
-            </div>
-          </div>
-        </div>
-      );
-    }
+
     return (
       <div className="beer-item-wrapper">
 
@@ -70,7 +54,7 @@ class BeerIndexItem extends React.Component {
               </div>
             </div>
             <div className="col-3">
-              <WishlistAdd key={this.props.beer.id} addBeerToWishlist={this.props.addBeerToWishlist} removeBeerFromWishlist={this.props.removeBeerFromWishlist} beer={this.props.beer}/>
+              <WishlistAdd key={this.props.beer.id} addBeerToWishlist={this.props.addBeerToWishlist} removeBeerFromWishlist={this.props.removeBeerFromWishlist} beer={this.props.beer} removeCurrentUserWishlist={this.props.removeCurrentUserWishlist} addCurrentUserWishlist={this.props.addCurrentUserWishlist}/>
             </div>
           </div>
           <div className="beer-item-bottom">
