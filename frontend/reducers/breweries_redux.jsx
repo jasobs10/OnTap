@@ -1,4 +1,5 @@
 import { hashHistory } from 'react-router';
+import merge from 'lodash/merge'
 
 
 const RECEIVE_ALL_BREWERIES = "RECEIVE_ALL_BREWERIES";
@@ -63,15 +64,15 @@ export const updateBrewery = (brewery) => {
   return dispatch => APIUTIL.createBrewery(brewery).then((brewery) => dispatch(receiveBrewery(brewery)));
 };
 
-const _defaultBreweriesState = [];
+const _defaultBreweriesState = {};
 export const breweriesReducer = (oldState = _defaultBreweriesState, action) => {
   Object.freeze(oldState);
   switch(action.type) {
     case RECEIVE_ALL_BREWERIES:
       return action.breweries;
     case RECEIVE_BREWERY:
-      let old = oldState.slice(0);
-      return old.push(action.brewery);
+      let old = merge({}, oldState);
+      return merge(old, action.brewery);
     default:
       return oldState;
   }

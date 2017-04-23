@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
 
   return {
     currentUser: state.currentUser,
-    beers: state.beers
+    beers: Object.values(state.beers)
   }
 };
 

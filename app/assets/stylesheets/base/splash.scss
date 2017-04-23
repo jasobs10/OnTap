@@ -199,6 +199,8 @@
   position: absolute;
   z-index: 999;
   width: 30%;
+  // make this non percentage to have consistent size
+  // width: 400px;
   // height: 30%;
   // add padding instead of height
   display: flex;
@@ -206,7 +208,7 @@
   align-items: center;
   top: 10%;
   left: 50%;
-  margin-left: -15%;
+  margin-left: -14%;
   padding: 0 3%;
 }
 
