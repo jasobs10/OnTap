@@ -6,6 +6,7 @@
   justify-content: center;
   font-family: 'Lato', sans-serif;
   // letter-spacing: 1px;
+  min-height: 100%;
 
 }
 
@@ -22,6 +23,7 @@
   -webkit-box-shadow: 0px 0px 61px -29px rgba(0,0,0,1);
   -moz-box-shadow: 0px 0px 61px -29px rgba(0,0,0,1);
   box-shadow: 0px 0px 61px -29px rgba(0,0,0,1);
+  
 
 }
 
@@ -164,7 +166,7 @@
 .wish-add:hover {
   background-color: rgb(176, 118, 4);
   cursor: pointer;
-  transition: .5s;
+  // transition: .5s;
 }
 
 
@@ -340,4 +342,65 @@
 
 .rating-bar {
   width: 70%;
+}
+
+.wish-remove {
+  // background: #ffad0d;
+  // text-align: center;
+  // width: 58px;
+  // height: 58px;;
+  // color: white;
+  // font-size: 60px;
+  // font-family: monospace;
+  // font-weight: 850;
+  // line-height: 100%;
+  // position: relative;
+  // user-select: none;
+  line-height: 90%;
+}
+
+.wish-remove:hover {
+  color: rgb(252, 96, 96);
+
+}
+
+.beer-header {
+  // background-color: red;
+  margin-bottom: 1%;
+  align-self: flex-start;
+  margin-left: 2.2%;
+  font: 'Rubik', sans-serif;
+  // font-size: 30px;
+  letter-spacing: 1.5px;
+  font-weight: 800;
+  font-size: 33px;
+  display: flex;
+  flex-direction: column;
+  // height: 55%;
+
+
+}
+
+.beer-filter {
+  margin-bottom: 4%;
+  display: flex;
+  flex-direction: row;
+  // justify-content: space-between;;
+  justify-content: flex-start;
+  margin-left: 2.2%;
+  width: 100%;
+  margin-top: 2%;
+  // height: 20%;
+
+}
+
+.beer-filter > div {
+  margin-right: 3%;
+}
+
+.orange-line {
+  border-top: 1px solid #ffad0d;
+  // height: 1px;
+  width: 100%;
+
 }

@@ -18,7 +18,7 @@ class WishlistAdd extends React.Component {
     if (this.props.beer.currentUserWishlist) {
       // debugger
       return (
-        <div className="wish-add" onClick={() => this.props.removeBeerFromWishlist(this.props.beer.currentUserWishlist.id)}>
+        <div className="wish-add wish-remove" onClick={() => this.props.removeBeerFromWishlist(this.props.beer.currentUserWishlist.id)}>
           -
           <div className="wishlist-dropdown">
             Remove from wishlist

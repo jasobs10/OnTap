@@ -174,8 +174,11 @@
 .splash-footer {
   font-family: 'Oxygen', sans-serif;
   color: white;
-  font-size: 15px;
+  font-size: 14px;
   display: block;
+  position: relative;
+  // top: 0px;
+  bottom: 0px;
   background-color: rgb(13, 0, 15);
   width: 100%;
   margin-top: 3%;
@@ -184,6 +187,7 @@
   padding-right: 5%;
   letter-spacing: 3px;
   align-self: flex-end;
+  height: .2%;
 }
 
 .modal {

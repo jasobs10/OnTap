@@ -6,13 +6,18 @@ const RECEIVE_ALL_BEERS = "RECEIVE_ALL_BEERS";
 const RECEIVE_BEER = "RECEIVE_BEER";
 const ADD_WISHLIST = "ADD_WISHLIST";
 const REMOVE_WISHLIST = "REMOVE_WISHLIST";
+const RECEIVE_BEERS_BY_STYLE = "RECEIVE_BEERS_BY_STYLE";
+const RECEIVE_BEERS_BY_NAME = "RECEIVE_BEERS_BY_NAME";
+const RECEIVE_BEERS_BY_RATING = "RECEIVE_BEERS_BY_RATING";
+const ADD_ALL_STYLES = "ADD_ALL_STYLES"
 
 
 const APIUTIL = {
-  fetchBeers: () => {
+  fetchBeers: (field = "id", param) => {
     return $.ajax({
       method: "GET",
-      url: "api/beers"
+      url: "api/beers",
+      data: {type: field, sort: param}
     });
   },
 
@@ -22,6 +27,13 @@ const APIUTIL = {
       url: `api/beers/${id}`
     });
   },
+
+  // fetchBeersBy: (field) => {
+  //   return $.ajax({
+  //     method: "GET",
+  //     url: "api/beers"
+  //   });
+  // },
 
   createBeer: (beer) => {
     return $.ajax({
@@ -85,6 +97,13 @@ const removeWishlist = (wishlist) => {
   };
 };
 
+const addAllStyles = (styles) => {
+  return {
+    type: ADD_ALL_STYLES,
+    styles
+  };
+};
+
 export const removeBeerFromWishlist = (id) => {
   // debugger
   return dispatch => APIUTIL.removeBeerFromWishlist(id).then((wishlist) => dispatch(removeWishlist(wishlist)));
@@ -96,8 +115,9 @@ export const addBeerToWishlist = (beerId) => {
 };
 
 
-export const requestBeers = () => {
-  return dispatch => APIUTIL.fetchBeers().then((beers) => dispatch(receiveAllBeers(beers)));
+export const requestBeers = (field, params) => {
+  // debugger
+  return dispatch => APIUTIL.fetchBeers(field, params).then((beers) => dispatch(receiveAllBeers(beers))).then();
 };
 
 export const requestBeer = (id) => {
@@ -116,34 +136,13 @@ export const beersReducer = (oldState = _defaultBeersState, action) => {
     case RECEIVE_ALL_BEERS:
       return action.beers;
     case RECEIVE_BEER:
-      // old = oldState.slice(0);
-      // return old.push(action.beer);
-      return merge(old, action.beer)
+      return merge(old, action.beer);
     case ADD_WISHLIST:
-      // debugger
-      // let newArray = old.map((el) => {
-      //
-      //     if (el.id === action.wishlist.beer_id) {
-      //       // debugger
-      //       el.currentUserWishlist = {'id': action.wishlist.id};
-      //     }
-      //     return el;
-      //     // debugger
-      // });
-      // // debugger
-      // return newArray;
+
       old[action.wishlist.beer_id].currentUserWishlist = {'id': action.wishlist.id};
       return old;
 
     case REMOVE_WISHLIST:
-      // return old.map((el) => {
-      //   // debugger
-      //   if (el.id === action.wishlist.beer_id) {
-      //     el.currentUserWishlist = null;
-      //   }
-      //   return el;
-      //   // debugger
-      // });
 
       old[action.wishlist.beer_id].currentUserWishlist = null;
       return old;
@@ -151,4 +150,15 @@ export const beersReducer = (oldState = _defaultBeersState, action) => {
       return oldState;
   }
 
+};
+
+export const stylesReducer = (oldState = [], action) => {
+  Object.freeze(oldState);
+  switch(action.type) {
+    case ADD_ALL_STYLES:
+      return action.styles;
+    default:
+      return oldState;
+
+  }
 };

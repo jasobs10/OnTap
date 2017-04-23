@@ -3,7 +3,28 @@ class Api::BeersController < ApplicationController
 
   def index
     # DO sort and indexing in here, pass in params
-    @beers = Beer.includes(:brewery, :checkins).all
+    # debugger
+    @styles = Beer.all.map(&:style).uniq.sort
+    fetch_beers = Beer.includes(:brewery, :checkins)
+    if params[:type] == "id" || params[:type] == nil
+      @beers = fetch_beers.all
+    elsif params[:type] == "style"
+      @beers = fetch_beers.where("style = ?", params[:sort])
+      # debugger
+    elsif params[:type] == "rating"
+      avg_max = params[:sort].to_i.to_f + 0.99
+      avg = params[:sort].to_f
+      # debugger
+      # @beers = <<-SQL
+      #   SELECT AVG(rating), beers.id FROM checkins JOIN beers ON checkins.beer_id = beers.id GROUP BY beers.id HAVING AVG(rating) BETWEEN 3 AND 4 - .1
+      # SQL
+      @beers = fetch_beers.select {|beer| beer.checkins.average('rating').between?(avg, avg_max)}
+    elsif params[:type] == "name"
+      @beers = fetch_beers.select('*').where("name LIKE ?", "#{params[:sort]}%")
+
+    end
+    # debugger
+
   end
 
   def create

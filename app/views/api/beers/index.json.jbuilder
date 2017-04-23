@@ -1,3 +1,4 @@
+
 @beers.each do |beer|
   json.set! beer.id do
     json.extract! beer, :id, :name, :description, :abv, :ibu, :style
@@ -5,6 +6,9 @@
     json.brewery beer.brewery, :name
     json.checkins beer.checkins.count(:id)
     json.average beer.checkins.average('rating')
+    json.allStyles do
+      json.array! @styles
+    end
     # json.checkins beer.checkins do |checkin|
     #   json.set! json.rating checkin.rating
     # end
@@ -24,5 +28,15 @@
     #   end
     # end
     json.currentUserWishlist beer.wishlists.select('id').where("user_id = ?", current_user.id).first
+    json.set! beer.style do
+      json.extract! beer, :id
+    end
+
   end
+
+
 end
+#
+# json.styles do
+#   json.array! @beers.map(&:style).uniq
+# end

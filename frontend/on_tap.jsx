@@ -8,6 +8,7 @@ import CheckinIndex from './components/checkin/checkin_index';
 import Navbar from './components/shared/navbar';
 import Beers from './components/beers/beers';
 import BreweriesIndex from './components/breweries/breweries_index';
+import {requestBeers} from './reducers/beers_redux';
 // import {signUp, logIn, logOut} from './reducers/session_redux';
 
 //TESTING
@@ -78,6 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.logIn = logIn;
   // // window.logOut = logOut;
   // window.store = configureStore();
+  window.requestBeers = requestBeers;
   let store;
   if (window.currentUser) {
     const preloadedState = { currentUser: window.currentUser };

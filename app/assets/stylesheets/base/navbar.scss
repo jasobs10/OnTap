@@ -1,3 +1,14 @@
+#root {
+  overflow: auto;
+}
+html {
+  height: 100%;
+
+}
+
+body {
+  height: 100%;
+}
 .main-wrapper {
   display: flex;
   flex-direction: column;
@@ -6,6 +17,7 @@
   padding: 0;
   margin: 0;
   background-color: rgba(0,0,0,.05);
+  // height: 100%;
 }
 
 .nav-container {
@@ -16,6 +28,7 @@
   justify-content: center;
   position: fixed;
   z-index: 999;
+  height: 4.5%;
 
 }
 
