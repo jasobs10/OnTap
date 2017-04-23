@@ -6,10 +6,11 @@ const RECEIVE_ALL_BREWERIES = "RECEIVE_ALL_BREWERIES";
 const RECEIVE_BREWERY = "RECEIVE_BREWERY";
 
 const APIUTIL = {
-  fetchBreweries: () => {
+  fetchBreweries: (field = "id", param) => {
     return $.ajax({
       method: "GET",
-      url: "api/breweries"
+      url: "api/breweries",
+      data: {type: field, sort: param}
     });
   },
 
@@ -52,8 +53,9 @@ const receiveBrewery = (brewery) => {
   };
 };
 
-export const requestBreweries = () => {
-  return dispatch => APIUTIL.fetchBreweries().then((breweries) => dispatch(receiveAllBreweries(breweries)));
+export const requestBreweries = (field, params) => {
+  // debugger
+  return dispatch => APIUTIL.fetchBreweries(field, params).then((breweries) => dispatch(receiveAllBreweries(breweries)));
 };
 
 export const requestBrewery = (id) => {

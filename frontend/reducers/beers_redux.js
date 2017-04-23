@@ -117,7 +117,7 @@ export const addBeerToWishlist = (beerId) => {
 
 export const requestBeers = (field, params) => {
   // debugger
-  return dispatch => APIUTIL.fetchBeers(field, params).then((beers) => dispatch(receiveAllBeers(beers))).then();
+  return dispatch => APIUTIL.fetchBeers(field, params).then((beers) => dispatch(receiveAllBeers(beers)));
 };
 
 export const requestBeer = (id) => {

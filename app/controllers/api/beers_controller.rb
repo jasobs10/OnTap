@@ -6,8 +6,8 @@ class Api::BeersController < ApplicationController
     # debugger
     @styles = Beer.all.map(&:style).uniq.sort
     fetch_beers = Beer.includes(:brewery, :checkins)
-    if params[:type] == "id" || params[:type] == nil
-      @beers = fetch_beers.all
+    if params[:type] == "id" || params[:type] == nil || params[:sort] == "id"
+      @beers = fetch_beers.all.sort { |a,b| b.checkins.average('rating') <=> a.checkins.average('rating')}
     elsif params[:type] == "style"
       @beers = fetch_beers.where("style = ?", params[:sort])
       # debugger

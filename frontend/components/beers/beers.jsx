@@ -55,7 +55,7 @@ class Beers extends React.Component {
   constructor(props) {
     super(props);
     // debugger
-    this.state = {style: "", name: "", rating: ""}
+    this.state = {style: "", name: "", rating: "", id: ""}
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -105,21 +105,24 @@ class Beers extends React.Component {
               <div>
                 Styles: &nbsp;
                 <select value={this.state.style} onChange={this.handleChange("style")}>
-                  <option disabled={true}>Sort by style</option>
+                  <option disabled={true}>Filter by style</option>
+                  <option value="id">Show all beers</option>
                   {selectStyles}
                 </select>
               </div>
               <div>
                 Rating: &nbsp;
                 <select value={this.state.rating} onChange={this.handleChange("rating")}>
-                  <option disabled={true}>Sort by rating</option>
+                  <option disabled={true}>Filter by rating</option>
+                  <option value="id">Show all beers</option>
                   {selectRating}
                 </select>
               </div>
               <div>
                 Name: &nbsp;
                 <select value={this.state.name} onChange={this.handleChange("name")}>
-                  <option disabled={true}>Sort by name</option>
+                  <option disabled={true}>Filter by name</option>
+                  <option value="id">Show all beers</option>
                   {selectName}
                 </select>
               </div>
