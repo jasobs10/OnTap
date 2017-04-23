@@ -31,7 +31,7 @@ const mapDispatchToProps = (dispatch) => {
 //   );
 // }
 
-const WishlistBeerItem = (props) => {
+export const WishlistBeerItem = (props) => {
   // debugger
   const brewery = props.beer.brewery.name || props.beer.brewery;
   return(

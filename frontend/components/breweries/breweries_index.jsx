@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { hashHistory } from 'react-router';
 import { requestBreweries } from '../../reducers/breweries_redux'
 import BreweryIndexItem from './breweries_index_item';
+import { WishlistBeerItem } from '../beers/beers';
 
 const mapStateToProps = (state) => {
 
@@ -23,7 +24,7 @@ class BreweriesIndex extends React.Component {
   constructor(props) {
     super(props)
     // debugger
-    this.state = {loc: "", name: "", id: "", rating: ""};
+    this.state = {state: "", name: "", id: "", rating: ""};
     this.handleChange = this.handleChange.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -46,6 +47,7 @@ class BreweriesIndex extends React.Component {
   render() {
 
     const ratings = ["0", "1", "2", "3", "4", "5"];
+    const wishlistBeers = this.props.currentUser.wishlistBeers ? Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>) : "";
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     const selectRating = ratings.map((rating) => <option value={rating}>{rating}</option>);
     const selectName = alphabet.map((letter) => <option value={letter}>{letter}</option>);
@@ -98,9 +100,11 @@ class BreweriesIndex extends React.Component {
 
             <div className="top-beers">
               <div className="header-side">
-                <h1 className="beers-index-title">Trending Beers</h1>
+                <h1 className="beers-index-title">My Wishlist</h1>
               </div>
-              sd
+              <hr className="orange-line"/>
+
+              {wishlistBeers}
             </div>
           </div>
         </div>
