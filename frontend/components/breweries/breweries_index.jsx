@@ -49,9 +49,9 @@ class BreweriesIndex extends React.Component {
     const ratings = ["0", "1", "2", "3", "4", "5"];
     const wishlistBeers = this.props.currentUser.wishlistBeers ? Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>) : "";
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-    const selectRating = ratings.map((rating) => <option value={rating}>{rating}</option>);
-    const selectName = alphabet.map((letter) => <option value={letter}>{letter}</option>);
-    const selectLoc = this.props.breweries.length > 0 ? this.props.breweries[0].allStates.map((state) => <option value={state}>{state}</option>) : "";
+    const selectRating = ratings.map((rating, i) => <option key={i} value={rating}>{rating}</option>);
+    const selectName = alphabet.map((letter, i) => <option  key={i} value={letter}>{letter}</option>);
+    const selectLoc = this.props.breweries.length > 0 ? this.props.breweries[0].allStates.map((state, i) => <option key={i} value={state}>{state}</option>) : "";
     // debugger
     const brewers = this.props.breweries.map((brewery) => {
       return <BreweryIndexItem key={brewery.id} brewery={brewery} />

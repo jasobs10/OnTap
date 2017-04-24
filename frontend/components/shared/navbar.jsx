@@ -46,21 +46,21 @@ class Navbar extends React.Component {
           <li className="account-button">
             {this.state.user.username}
             <div className="dropdown">
-              <li>
+              <div>
                 My profile
-              </li>
-              <li>
+              </div>
+              <div>
                 Beer history
-              </li>
-              <li>
+              </div>
+              <div>
                 settings
-              </li>
-              <li>
+              </div>
+              <div>
                 Wish list
-              </li>
-              <li onClick={() => this.props.logOut(this.props.currentUser).then(() => hashHistory.push('/'))}>
+              </div>
+              <div onClick={() => this.props.logOut(this.props.currentUser).then(() => hashHistory.push('/'))}>
                 Log out
-              </li>
+              </div>
             </div>
           </li>
           <li onClick={() => this.props.logOut(this.props.currentUser).then(() => hashHistory.push('/'))}>
