@@ -1,6 +1,7 @@
 import React from 'react';
 import { Line } from 'rc-progress';
 // import { WishlistBeerItem } from '../beers/beers';
+var Rating = require('react-rating');
 
 
 class CheckinIndexItem extends React.Component {
@@ -45,7 +46,13 @@ class CheckinIndexItem extends React.Component {
                     {this.props.checkins.review}
                   </div>
                   <div className="bar">
-                    <span className="line-style"><Line percent={ratingPercentage} strokeWidth="12" strokeColor={`${color}`} trailColor="#8e8c8d" trailWidth="12" className="rating-bar"/> ({this.props.checkins.rating})</span>
+                    <span className="avg-text"><Rating
+                                   initialRate={this.props.checkins.rating}
+                                   readonly
+                                   empty="fa fa-circle-thin fa-1x empty"
+                                   full="fa fa-circle fa-1x overall-full"
+                                   className="rating-stars"
+                                   />&nbsp;({this.props.checkins.rating})</span>
 
                   </div>
 

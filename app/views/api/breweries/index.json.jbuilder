@@ -9,10 +9,21 @@
     json.allStates do
       json.array! @states
     end
+    json.likers do
+      brewery.brewery_likers.each do |liker|
+        json.set! liker.id do
+          json.id liker.id
+          json.f_name liker.f_name
+          json.l_name liker.l_name
+          json.username liker.username
+        end
+      end
+    end
 
     # json.beers do
     #   json.array! brewery.beers
     # end
+    json.currentUserLikes brewery.brewery_likes.select('id').where("user_id = ?", current_user.id).first
   end
 end
 

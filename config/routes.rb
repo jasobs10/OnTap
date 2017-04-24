@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     end
 
     resources :checkins, only: [:index, :create, :update, :destroy]
-
+    resources :brewery_likes, only: [:create, :destroy]
 
   end
 

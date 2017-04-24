@@ -8,10 +8,18 @@ json.wishlistBeers do
     end
     # json.array! beer,
   end
+end
+json.likedBreweries do
+  user.liked_breweries.each do |like|
+    json.set! like.id do
+      json.id like.id
+      json.name like.brewery.name
+    end
+  end
+end
     # json.array! user.wishlist_beers do |beer|
     #   json.name beer.name
     #   json.brewery beer.brewery.name
     #   json.id beer.id
     #
     # end
-end

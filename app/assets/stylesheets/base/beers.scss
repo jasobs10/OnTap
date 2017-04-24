@@ -248,11 +248,13 @@
 
 .brewery-name {
   color: rgb(196, 118, 0);
-  font-size: 15.5px;
+  font-size: 15px;
   padding-top: 0px;
   margin-bottom: 9px;
 
 }
+
+
 
 .wishlist-beer {
   font-size: 18px;
@@ -293,7 +295,14 @@
   box-shadow: 0px 0px 61px -29px rgba(0,0,0,1);
   padding: 6.2% 10px;
   // overflow: hidden;
+  margin-bottom: 5%;
 
+}
+
+.rating-stars {
+  letter-spacing: 5px;
+  font-size: 16px;
+  color: #ffad0d;
 }
 
 .top-beers-item {

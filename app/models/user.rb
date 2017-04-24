@@ -25,6 +25,10 @@ class User < ApplicationRecord
   has_many :checkins, dependent: :destroy
   has_many :wishlists
   has_many :wishlist_beers, through: :wishlists, source: :beer
+  has_many :brewery_likes
+  has_many :liked_breweries,
+    through: :brewery_likes,
+    source: :brewery
 
 
 

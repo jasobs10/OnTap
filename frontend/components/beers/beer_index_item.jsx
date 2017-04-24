@@ -2,6 +2,7 @@ import React from 'react';
 // import ReactStars from 'react-stars'
 import { Line } from 'rc-progress';
 import WishlistAdd from '../wishlist/wishlist_add.jsx';
+var Rating = require('react-rating');
 
 const LineRating = ({ average }) => {
   if (average) {
@@ -16,8 +17,14 @@ const LineRating = ({ average }) => {
     }
     const ratingPercentage = (average / 5 *  100).toString();
     return(
-      <span><Line percent={ratingPercentage} strokeWidth="10" strokeColor={`${color}`} trailColor="#8e8c8d" trailWidth="10" className="rating-bar"/> ({average})</span>
-    );
+      <span className="avg-text"><Rating
+                     initialRate={average}
+                     readonly
+                     empty="fa fa-circle-thin fa-1x empty"
+                     full="fa fa-circle fa-1x overall-full"
+                     className="rating-stars"
+                     />&nbsp;({average})</span>
+                 )
   }
 
   return(

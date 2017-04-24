@@ -80,7 +80,7 @@ class BreweriesIndex extends React.Component {
                 Rating: &nbsp;
                 <select value={this.state.rating} onChange={this.handleChange("rating")}>
                   <option disabled={true}>Filter by rating</option>
-                  <option value="id">Show all beers</option>
+                  <option value="id">Show all breweries</option>
                   {selectRating}
                 </select>
               </div>
@@ -91,6 +91,9 @@ class BreweriesIndex extends React.Component {
                   <option value="id">Show all beers</option>
                   {selectName}
                 </select>
+              </div>
+              <div className="brewery-button">
+                <button className="add-brewery">+ Brewery</button>
               </div>
             </div>
             { brewers }
@@ -105,6 +108,13 @@ class BreweriesIndex extends React.Component {
               <hr className="orange-line"/>
 
               {wishlistBeers}
+            </div>
+            <div className="top-beers">
+              <div className="header-side">
+                <h1 className="beers-index-title">My Likes</h1>
+              </div>
+              <hr className="orange-line"/>
+              sdf
             </div>
           </div>
         </div>

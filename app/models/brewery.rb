@@ -22,6 +22,10 @@ class Brewery < ApplicationRecord
 
   has_many :beers, dependent: :destroy
   has_many :checkins, through: :beers
+  has_many :brewery_likes
+  has_many :brewery_likers,
+    through: :brewery_likes,
+    source: :user
 
   #class method to return array of type
   #validation for needing to be one of those

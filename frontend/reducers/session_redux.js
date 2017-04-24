@@ -8,6 +8,8 @@ const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 const RECEIVE_LOGOUT_ERRORS = "RECEIVE_LOGOUT_ERRORS";
 const ADD_CURRENT_USER_WISHLIST = "ADD_CURRENT_USER_WISHLIST";
 const REMOVE_CURRENT_USER_WISHLIST = "REMOVE_CURRENT_USER_WISHLIST";
+const ADD_BREWERY_LIKE = "ADD_BREWERY_LIKE";
+const REMOVE_BREWERY_LIKE = "REMOVE_BREWERY_LIKE";
 
 export const receiveLogOutErrors = (errors) => {
   return {
@@ -52,6 +54,20 @@ export const addCurrentUserWishlist = (beer) => {
 export const removeCurrentUserWishlist = (id) => {
   return {
     type: REMOVE_CURRENT_USER_WISHLIST,
+    id
+  };
+};
+
+const addLike = (brewery) => {
+  return {
+    type: ADD_LIKE,
+    brewery
+  };
+};
+
+const removeLike = (id) => {
+  return {
+    type: REMOVE_LIKE,
     id
   };
 };
@@ -142,6 +158,14 @@ export const currentUserReducer = (oldState = _defaultCurrentUserState, action) 
       let current2 = merge({}, oldState);
       delete current2.wishlistBeers[action.id];
       return current2;
+    case ADD_BREWERY_LIKE:
+      let current4 = merge({}, oldState);
+      let newLike = {likedBreweries: {[action.brewery.brewery.id]: action.brewery}};
+      return newLike;
+    case REMOVE_BREWERY_LIKE:
+      let current3 = merge({}, oldState);
+      delete current3.likedBreweries[action.id];
+      return current3;
 
     default:
       return oldState;

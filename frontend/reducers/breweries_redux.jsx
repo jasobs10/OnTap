@@ -4,8 +4,27 @@ import merge from 'lodash/merge'
 
 const RECEIVE_ALL_BREWERIES = "RECEIVE_ALL_BREWERIES";
 const RECEIVE_BREWERY = "RECEIVE_BREWERY";
+const ADD_BREWERY_LIKE = "ADD_LIKE";
+const REMOVE_BREWERY_LIKE = "REMOVE_LIKE";
 
 const APIUTIL = {
+
+  addBreweryLike: (brewery_id) => {
+    // debugger
+    return $.ajax({
+      method: "POST",
+      url: "api/brewery_likes",
+      data: {brewery_like: {brewery_id}}
+    });
+  },
+
+  removeBreweryLike: (id) => {
+    return $.ajax({
+      method: "DELETE",
+      url: `api/brewery_likes/${id}`
+    });
+  },
+
   fetchBreweries: (field = "id", param) => {
     return $.ajax({
       method: "GET",
@@ -39,6 +58,20 @@ const APIUTIL = {
 
 };
 
+const addLike = (breweryLike) => {
+  return {
+    type: ADD_LIKE,
+    breweryLike
+  };
+};
+
+const removeLike = (breweryLike) => {
+  return {
+    type: REMOVE_LIKE,
+    breweryLike
+  };
+};
+
 const receiveAllBreweries = (breweries) => {
   return {
     type: RECEIVE_ALL_BREWERIES,
@@ -51,6 +84,14 @@ const receiveBrewery = (brewery) => {
     type: RECEIVE_BREWERY,
     brewery
   };
+};
+
+export const addBreweryLike = (brewery_id) => {
+  return dispatch => APIUTIL.addBreweryLike(brewery_id).then((brewerylike) => dispatch(addLike(brewerylike)));
+};
+
+export const removeBreweryLike = (id) => {
+  return dispatch => APIUTIL.removeBreweryLike(id).then((brewerylike) => dispatch(removeLike(brewerylike)))
 };
 
 export const requestBreweries = (field, params) => {
@@ -69,12 +110,19 @@ export const updateBrewery = (brewery) => {
 const _defaultBreweriesState = {};
 export const breweriesReducer = (oldState = _defaultBreweriesState, action) => {
   Object.freeze(oldState);
+  let old = merge({}, oldState);
   switch(action.type) {
     case RECEIVE_ALL_BREWERIES:
       return action.breweries;
     case RECEIVE_BREWERY:
-      let old = merge({}, oldState);
+      old = merge({}, oldState);
       return merge(old, action.brewery);
+    case ADD_BREWERY_LIKE:
+      old[action.breweryLike.beer_id].currentUserLikes = { 'id': action.breweryLike.id }
+      return old
+    case REMOVE_BREWERY_LIKE:
+      old[action.breweryLike.beer_id].currentUserLikes = null
+      return old;
     default:
       return oldState;
   }
