@@ -6,7 +6,7 @@
 #  user_id    :integer          not null
 #  beer_id    :integer          not null
 #  venue_id   :integer
-#  rating     :integer          not null
+#  rating     :float            not null
 #  address    :string
 #  review     :text
 #  container  :string

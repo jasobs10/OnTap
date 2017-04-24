@@ -2,9 +2,18 @@ import React from 'react';
 import { Line } from 'rc-progress';
 const LineRating = ({ average }) => {
   if (average) {
+    const rate = average;
+    let color;
+    if (rate >= 4) {
+      color = "#48b20a";
+    } else if (rate >= 2 && rate < 4) {
+      color = "rgb(205, 183, 35)";
+    } else {
+      color = "rgb(244, 96, 96)";
+    }
     const ratingPercentage = (average / 5 *  100).toString();
     return(
-      <span className="line-flex"><Line percent={ratingPercentage} strokeWidth="10" strokeColor="#ffad0d" trailColor="#8e8c8d" trailWidth="10" className="rating-bar"/> ({average})</span>
+      <span className="line-flex"><Line percent={ratingPercentage} strokeWidth="10" strokeColor={`${color}`} trailColor="#8e8c8d" trailWidth="10" className="rating-bar"/> ({average})</span>
     );
   }
 

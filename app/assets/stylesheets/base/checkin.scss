@@ -1,11 +1,21 @@
 .checkin-avatar {
 
-  border: 1px solid red;
+  // border: 1px solid red;
   flex: .9;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding-top: .5%;
+  width: 100%;
+}
+
+.checkin-avatar div {
+  width: 100%;
 }
 
 .checkin-content {
-  border: 1px solid red;
+  // border: 1px solid red;
   flex: 6;
   display: flex;
   flex-direction: column;
@@ -14,12 +24,24 @@
   // padding: 1%;
   padding-bottom: 0;
   font-family: 'Lato', sans-serif;
+  margin: 0 1.4%;
 
 }
 
 .checkin-beer-avatar {
-  border: 1px solid red;
+  // border: 1px solid red;
   flex: .9;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  // justify-content: center;
+  padding-top: .5%;
+  width: 100%;
+  // padding-left: 1.5%;
+}
+
+.checkin-beer-avatar div {
+  width: 100%;
 }
 
 .checkin-content > div {
@@ -30,13 +52,14 @@
 .ratings-container {
   margin-bottom: .9%;
   width: 100%;
-  border: 1px solid rgb(231, 231, 230);
-  padding: 1%;
+  border: 1px solid rgb(203, 203, 199);
+  border-radius: 5px;
+  padding: 1.2% 1% 1% 1%;
   font-size: 16.5px;
 }
 
 .checkin-image {
-  padding: 1%;
+  padding: 1% 0;
   width: 100%;
   height: 215px;
   overflow: hidden;
@@ -45,6 +68,7 @@
 
 .checkin-header {
   font-size: 17.5px;
+  margin-bottom: 1%;
 }
 
 .checkin-footer {
@@ -66,8 +90,49 @@
   position: absolute;
   font-size: 24px;
   top: 3px;
+  background-color: white;
+  color: transparent;
+  z-index: 100;
 }
 
 .line-style {
   width: 35%;
+}
+
+.checkin-border {
+  border-bottom: 1.5px solid rgb(203, 203, 199);
+  color: #8e8c8d;
+  letter-spacing: 1px;
+}
+
+// .checkin-border  :last-child {
+//   border: none;
+// }
+
+.checkin-buttons {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.checkin-content .checkin-review {
+  position: relative;
+  margin-top: 4%;
+  // padding-top: 3px;
+}
+
+.arrow {
+  border: 1.5px solid rgb(203, 203, 199);
+  border-bottom: none;
+  border-right: none;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 2px;
+  transform: rotate(45deg);
+  top: -7px;;
+  left: 30px;
+  z-index: 99;
+  background-color: white;
 }
