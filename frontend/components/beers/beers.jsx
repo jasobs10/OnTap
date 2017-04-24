@@ -4,6 +4,7 @@ import { hashHistory } from 'react-router';
 import { requestBeers, addBeerToWishlist, removeBeerFromWishlist } from '../../reducers/beers_redux';
 import BeerIndexItem from './beer_index_item';
 import { addCurrentUserWishlist, removeCurrentUserWishlist } from '../../reducers/session_redux';
+import { BreweryLikeItem } from '../breweries/brewery_like_item';
 // import { addBeerToWishlist, removeBeerFromWishlist } from '../../reducers/wishlist_redux';
 
 const mapStateToProps = (state) => {
@@ -93,6 +94,7 @@ class Beers extends React.Component {
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     const selectRating = ratings.map((rating, i) => <option key={i} value={rating}>{rating}</option>);
     const selectName = alphabet.map((letter, i) => <option key={i} value={letter}>{letter}</option>);
+    const breweryLikes = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
     // debugger
     return (
       <div className="beers-wrapper">
@@ -140,6 +142,13 @@ class Beers extends React.Component {
               </div>
               <hr className="orange-line"/>
               {wishlistBeers}
+            </div>
+            <div className="top-beers">
+              <div className="header-side">
+                <h1 className="beers-index-title">My Likes</h1>
+              </div>
+              <hr className="orange-line"/>
+              {breweryLikes}
             </div>
           </div>
         </div>

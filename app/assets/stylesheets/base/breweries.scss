@@ -141,3 +141,27 @@
 
   text-align: center;
 }
+
+.unlike {
+  // background-color: rgb(97, 97, 97);
+}
+
+.like-button-container:hover {
+  background-color: rgb(190, 131, 15);
+  cursor: pointer;
+}
+
+.like-dropdown {
+  visibility: hidden;
+  font-size: 13px;
+  position: absolute;
+  background-color: rgba(0, 0, 0, .6);
+  width: 140%;
+  padding: 5px 2px;
+  top: 30px;
+  left: -7px;
+}
+
+.like-button-container:hover .like-dropdown {
+  visibility: visible;
+}

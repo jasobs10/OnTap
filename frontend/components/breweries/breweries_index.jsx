@@ -5,6 +5,7 @@ import { requestBreweries, addBreweryLike, removeBreweryLike } from '../../reduc
 import BreweryIndexItem from './breweries_index_item';
 import { WishlistBeerItem } from '../beers/beers';
 import { addUserLike, removeUserLike } from '../../reducers/session_redux';
+import { BreweryLikeItem } from './brewery_like_item';
 
 const mapStateToProps = (state) => {
 
@@ -54,6 +55,7 @@ class BreweriesIndex extends React.Component {
 
     const ratings = ["0", "1", "2", "3", "4", "5"];
     const wishlistBeers = this.props.currentUser.wishlistBeers ? Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>) : "";
+    const breweryLikes = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     const selectRating = ratings.map((rating, i) => <option key={i} value={rating}>{rating}</option>);
     const selectName = alphabet.map((letter, i) => <option  key={i} value={letter}>{letter}</option>);
@@ -120,7 +122,7 @@ class BreweriesIndex extends React.Component {
                 <h1 className="beers-index-title">My Likes</h1>
               </div>
               <hr className="orange-line"/>
-              sdf
+              {breweryLikes}
             </div>
           </div>
         </div>

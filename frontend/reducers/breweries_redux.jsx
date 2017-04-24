@@ -87,7 +87,7 @@ const receiveBrewery = (brewery) => {
 };
 
 export const addBreweryLike = (brewery_id) => {
-  debugger
+
   return dispatch => APIUTIL.addBreweryLike(brewery_id).then((brewerylike) => dispatch(addLike(brewerylike)));
 };
 
@@ -121,7 +121,7 @@ export const breweriesReducer = (oldState = _defaultBreweriesState, action) => {
     case ADD_BREWERY_LIKE:
     // debugger
       old[action.breweryLike.brewery_id].currentUserLikes = { 'id': action.breweryLike.id }
-      debugger
+      // debugger
       return old
     case REMOVE_BREWERY_LIKE:
       old[action.breweryLike.brewery_id].currentUserLikes = null

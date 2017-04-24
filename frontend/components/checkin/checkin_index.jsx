@@ -6,6 +6,7 @@ import { requestBeers } from '../../reducers/beers_redux'
 import CheckinIndexItem from './checkin_index_item';
 import { requestAllCheckins, requestCheckin } from '../../reducers/checkins_redux';
 import { WishlistBeerItem } from '../beers/beers';
+import { BreweryLikeItem } from '../breweries/brewery_like_item';
 
 
 const mapStateToProps = (state) => {
@@ -39,6 +40,7 @@ class CheckinIndex extends React.Component {
   render() {
     const wishlistBeers = this.props.currentUser.wishlistBeers ? Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>) : "";
     const indexItems = this.props.checkins.map((checkin) => <CheckinIndexItem key={checkin.id} requestAllCheckins={this.props.requestAllCheckins} requestCheckin={this.props.requestCheckin} checkins={checkin} />);
+    const breweryLikes = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
     // debugger
     return(
       <div className="beers-wrapper">
@@ -60,6 +62,13 @@ class CheckinIndex extends React.Component {
               </div>
               <hr className="orange-line"/>
               {wishlistBeers}
+            </div>
+            <div className="top-beers">
+              <div className="header-side">
+                <h1 className="beers-index-title">My Likes</h1>
+              </div>
+              <hr className="orange-line"/>
+              {breweryLikes}
             </div>
           </div>
         </div>

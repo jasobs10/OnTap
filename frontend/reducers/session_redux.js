@@ -159,7 +159,7 @@ export const currentUserReducer = (oldState = _defaultCurrentUserState, action) 
       delete current2.wishlistBeers[action.id];
       return current2;
     case ADD_USER_LIKE:
-    debugger
+    // debugger
       let current4 = merge({}, oldState);
       let newLike = {likedBreweries: {[action.brewery.id]: action.brewery}};
       return merge(current4, newLike);
