@@ -16,9 +16,10 @@ const LineRating = ({ average }) => {
       color = "rgb(244, 96, 96)";
     }
     const ratingPercentage = (average / 5 *  100).toString();
+    let averageInt = parseInt(average);
     return(
       <span className="avg-text"><Rating
-                     initialRate={average}
+                     initialRate={averageInt}
                      readonly
                      empty="fa fa-circle-thin fa-1x empty"
                      full="fa fa-circle fa-1x overall-full"

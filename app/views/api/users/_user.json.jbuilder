@@ -13,7 +13,7 @@ json.likedBreweries do
   user.liked_breweries.each do |like|
     json.set! like.id do
       json.id like.id
-      json.name like.brewery.name
+      json.name like.name
     end
   end
 end

@@ -4,7 +4,7 @@ import merge from 'lodash/merge'
 
 const RECEIVE_ALL_BREWERIES = "RECEIVE_ALL_BREWERIES";
 const RECEIVE_BREWERY = "RECEIVE_BREWERY";
-const ADD_BREWERY_LIKE = "ADD_LIKE";
+const ADD_BREWERY_LIKE = "ADD_BREWERY_LIKE";
 const REMOVE_BREWERY_LIKE = "REMOVE_LIKE";
 
 const APIUTIL = {
@@ -60,14 +60,14 @@ const APIUTIL = {
 
 const addLike = (breweryLike) => {
   return {
-    type: ADD_LIKE,
+    type: ADD_BREWERY_LIKE,
     breweryLike
   };
 };
 
 const removeLike = (breweryLike) => {
   return {
-    type: REMOVE_LIKE,
+    type: REMOVE_BREWERY_LIKE,
     breweryLike
   };
 };
@@ -87,6 +87,7 @@ const receiveBrewery = (brewery) => {
 };
 
 export const addBreweryLike = (brewery_id) => {
+  debugger
   return dispatch => APIUTIL.addBreweryLike(brewery_id).then((brewerylike) => dispatch(addLike(brewerylike)));
 };
 
@@ -118,10 +119,12 @@ export const breweriesReducer = (oldState = _defaultBreweriesState, action) => {
       old = merge({}, oldState);
       return merge(old, action.brewery);
     case ADD_BREWERY_LIKE:
-      old[action.breweryLike.beer_id].currentUserLikes = { 'id': action.breweryLike.id }
+    // debugger
+      old[action.breweryLike.brewery_id].currentUserLikes = { 'id': action.breweryLike.id }
+      debugger
       return old
     case REMOVE_BREWERY_LIKE:
-      old[action.breweryLike.beer_id].currentUserLikes = null
+      old[action.breweryLike.brewery_id].currentUserLikes = null
       return old;
     default:
       return oldState;

@@ -6,7 +6,7 @@ import { requestBeers } from '../../reducers/beers_redux'
 import CheckinIndexItem from './checkin_index_item';
 import { requestAllCheckins, requestCheckin } from '../../reducers/checkins_redux';
 import { WishlistBeerItem } from '../beers/beers';
-var Rating = require('react-rating');
+
 
 const mapStateToProps = (state) => {
 

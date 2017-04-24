@@ -1,11 +1,11 @@
 class Api::BreweryLikesController < ApplicationController
-  before_action require_logged_in
+  before_action :require_logged_in
   def create
     @brewery_like_user = current_user
     @brewery_like = BreweryLike.new(brewery_like_params)
     @brewery_like.user_id = current_user.id
     # debugger
-    if @brewery_likebeer.save
+    if @brewery_like.save
       render json: @brewery_like
       # render 'api/beers/index'
     else

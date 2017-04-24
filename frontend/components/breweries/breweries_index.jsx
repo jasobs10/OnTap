@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { hashHistory } from 'react-router';
-import { requestBreweries } from '../../reducers/breweries_redux'
+import { requestBreweries, addBreweryLike, removeBreweryLike } from '../../reducers/breweries_redux'
 import BreweryIndexItem from './breweries_index_item';
 import { WishlistBeerItem } from '../beers/beers';
+import { addUserLike, removeUserLike } from '../../reducers/session_redux';
 
 const mapStateToProps = (state) => {
 
@@ -15,7 +16,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    requestBreweries: (field, params) => dispatch(requestBreweries(field, params))
+    requestBreweries: (field, params) => dispatch(requestBreweries(field, params)),
+    addBreweryLike: (brewery_id) => dispatch(addBreweryLike(brewery_id)),
+    removeBreweryLike: (id) => dispatch(removeBreweryLike(id)),
+
+    addUserLike: (brewery) => dispatch(addUserLike(brewery)),
+    removeUserLike: (id) => dispatch(removeUserLike(id))
 
   }
 };
@@ -54,7 +60,7 @@ class BreweriesIndex extends React.Component {
     const selectLoc = this.props.breweries.length > 0 ? this.props.breweries[0].allStates.map((state, i) => <option key={i} value={state}>{state}</option>) : "";
     // debugger
     const brewers = this.props.breweries.map((brewery) => {
-      return <BreweryIndexItem key={brewery.id} brewery={brewery} />
+      return <BreweryIndexItem key={brewery.id} brewery={brewery} addBreweryLike={this.props.addBreweryLike} removeBreweryLike={this.props.removeBreweryLike} addUserLike={this.props.addUserLike} removeUserLike={this.props.removeUserLike}/>
     });
 
     return(

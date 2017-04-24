@@ -9,6 +9,7 @@
   // height: 200px;
   // border-gottom
   padding: 20px;
+  position: relative;
 }
 
 
@@ -117,10 +118,26 @@
   width: 120px;
   vertical-align: center;
   text-transform: uppercase;
-  font-size: 15x
+  font-size: 15x;
 
 }
 
 .add-brewery:hover {
   background-color: rgb(195, 131, 6);
+}
+
+.brewery-loc {
+  font-size: 13px;
+}
+
+.like-button-container {
+  position: absolute;
+  padding: 5px 10px;
+  background-color: rgb(255, 173, 13);
+  color: white;
+  top: 45px;
+  right: 39%;
+  border-radius: 4px;
+
+  text-align: center;
 }

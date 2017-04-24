@@ -88,11 +88,11 @@ class Beers extends React.Component {
     const items = this.props.beers.map((beer) => <BeerIndexItem key={beer.id} beer={beer} addBeerToWishlist={this.props.addBeerToWishlist} removeBeerFromWishlist={this.props.removeBeerFromWishlist} addCurrentUserWishlist={this.props.addCurrentUserWishlist} removeCurrentUserWishlist={this.props.removeCurrentUserWishlist}/>)
     // debugger
     const wishlistBeers = this.props.currentUser.wishlistBeers ? Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>) : "";
-    const selectStyles = this.props.beers.length > 0 ? this.props.beers[0].allStyles.map((style) => <option value={style}>{style}</option>) : "";
+    const selectStyles = this.props.beers.length > 0 ? this.props.beers[0].allStyles.map((style, i) => <option key={i}value={style}>{style}</option>) : "";
     const ratings = ["0", "1", "2", "3", "4", "5"];
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-    const selectRating = ratings.map((rating) => <option value={rating}>{rating}</option>);
-    const selectName = alphabet.map((letter) => <option value={letter}>{letter}</option>);
+    const selectRating = ratings.map((rating, i) => <option key={i} value={rating}>{rating}</option>);
+    const selectName = alphabet.map((letter, i) => <option key={i} value={letter}>{letter}</option>);
     // debugger
     return (
       <div className="beers-wrapper">

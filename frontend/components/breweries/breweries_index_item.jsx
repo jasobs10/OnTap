@@ -1,8 +1,11 @@
 import React from 'react';
 import { Line } from 'rc-progress';
 var Rating = require('react-rating');
+import AddLike from './add-like.jsx';
+
 
 const LineRating = ({ average }) => {
+  // debugger
   if (average) {
     const rate = average;
     let color;
@@ -14,14 +17,15 @@ const LineRating = ({ average }) => {
       color = "rgb(244, 96, 96)";
     }
     const ratingPercentage = (average / 5 *  100).toString();
+    let averageInt = parseInt(average);
     return(
-      <span className="line-flex"><Rating
-                     initialRate={average}
+      <span><Rating
+                     initialRate={averageInt}
                      readonly
                      empty="fa fa-circle-thin fa-1x empty"
                      full="fa fa-circle fa-1x overall-full"
-                     className="overall-icon"
-                     /></span>
+                     className="rating-stars"
+                     />&nbsp;({average})</span>
     );
   }
   // <span className="line-flex"><Line percent={ratingPercentage} strokeWidth="10" strokeColor={`${color}`} trailColor="#8e8c8d" trailWidth="10" className="rating-bar"/> ({average})</span>
@@ -39,12 +43,16 @@ const LineRating = ({ average }) => {
 class BreweriesIndexItem extends React.Component {
   constructor(props) {
     super(props);
+    // debugger
   }
 
   render() {
     // const score = this.props.brewery.average ? this.props.brewery.average : "NO REVIEWS";
     return (
       <div className="brewery-index-item">
+
+        <AddLike key={this.props.brewery.id} brewery={this.props.brewery} addBreweryLike={this.props.addBreweryLike} removeBreweryLike={this.props.removeBreweryLike} addUserLike={this.props.addUserLike} removeUserLike={this.props.removeUserLike}/>
+
         <div className="brewery-text-container">
           <div className='brewery-pic'>
             <img src="/images/beers.jpg"/>
