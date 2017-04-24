@@ -1,0 +1,73 @@
+.checkin-avatar {
+
+  border: 1px solid red;
+  flex: .9;
+}
+
+.checkin-content {
+  border: 1px solid red;
+  flex: 6;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-content: center;
+  // padding: 1%;
+  padding-bottom: 0;
+  font-family: 'Lato', sans-serif;
+
+}
+
+.checkin-beer-avatar {
+  border: 1px solid red;
+  flex: .9;
+}
+
+.checkin-content > div {
+  margin-top: 1.1%;
+}
+
+
+.ratings-container {
+  margin-bottom: .9%;
+  width: 100%;
+  border: 1px solid rgb(231, 231, 230);
+  padding: 1%;
+  font-size: 16.5px;
+}
+
+.checkin-image {
+  padding: 1%;
+  width: 100%;
+  height: 215px;
+  overflow: hidden;
+  padding-top: 0;
+}
+
+.checkin-header {
+  font-size: 17.5px;
+}
+
+.checkin-footer {
+  padding: 1%;
+  width: 100%;
+  font-size: 13px;
+}
+
+.bar {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+
+}
+
+.stars {
+  position: absolute;
+  font-size: 24px;
+  top: 3px;
+}
+
+.line-style {
+  width: 35%;
+}

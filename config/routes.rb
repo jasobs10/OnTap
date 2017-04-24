@@ -5,12 +5,21 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
 
     resource :session, only: [:create, :destroy]
-    resources :users, only: [:create, :show]
+    resources :users, only: [:create, :show] do
+      resources :checkins, only: [:index]
+    end
+
     resources :wishlists, only: [:create, :destroy]
-    resources :beers, only: [:show, :index, :update, :create]
+    resources :beers, only: [:show, :index, :update, :create] do
+      resources :checkins, only: [:index]
+    end
     resources :breweries, only: [:index, :show, :update, :create] do
       resources :beers, only: [:create, :index]
+      resources :checkins, only: [:index]
     end
+
+    resources :checkins, only: [:index, :create, :update, :destroy]
+
 
   end
 

@@ -19,7 +19,7 @@
   flex-direction: row;
   justify-content: space-between;
 
-  padding-top: 25px;
+  padding-top: 0px
 
 
 
@@ -258,6 +258,8 @@
   color: rgb(196, 118, 0);
   padding-bottom: 0;
   letter-spacing: 1.5px;
+  width: 100%;
+  overflow: hidden;
 }
 
 .wishlist-brewery {
@@ -289,12 +291,15 @@
   -moz-box-shadow: 0px 0px 61px -29px rgba(0,0,0,1);
   box-shadow: 0px 0px 61px -29px rgba(0,0,0,1);
   padding: 6.2% 10px;
+  // overflow: hidden;
+
 }
 
 .top-beers-item {
   width: 100%;
   display: flex;
   flex-direction: row;
+  // overflow: hidden;
   // justify-content: center;
 }
 

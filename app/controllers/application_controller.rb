@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
 
   def require_logged_in
     if !current_user
-      render json: { base: ["Invalid username/password"] }, status: 404
+      render json: { base: ["You are not currently logged in"] }, status: 404
     end
   end
 end

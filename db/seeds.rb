@@ -78,5 +78,5 @@ end
 
 Beer.all.each do |x|
   # debugger
-  x.checkins.create!(user_id: userarray.sample.id, rating: rate2.sample, address: Faker::Address.street_address, review: Faker::Hipster.paragraph, container: container2.sample)
+  x.checkins.create!(user_id: userarray.sample.id, rating: rate2.sample, address: Faker::Address.street_address, review: Faker::ChuckNorris.fact, container: container2.sample)
 end
