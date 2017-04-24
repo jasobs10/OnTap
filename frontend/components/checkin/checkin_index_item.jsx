@@ -37,7 +37,7 @@ class CheckinIndexItem extends React.Component {
             </div>
             <div className="checkin-review">
               <div className="arrow">
-                
+
               </div>
               <div>
                 <div className="ratings-container">
@@ -56,12 +56,12 @@ class CheckinIndexItem extends React.Component {
               <img src="/images/tired-hands.jpg" alt="tired-hands-beer"/>
             </div>
             <div className="checkin-buttons">
-              <div>
-                <button>Comment</button>
-              </div>
-              <div>
-                <button>Toast</button>
-              </div>
+
+                <button className="checkin-button"><i className="fa fa-comment-o" aria-hidden="true"></i>&nbsp; &nbsp;Comment</button>
+
+
+                <button className="checkin-button"><i className="fa fa-beer" aria-hidden="true"></i> &nbsp; &nbsp;Toast</button>
+
             </div>
             <div className="checkin-footer">
               2 hours ago &nbsp;&nbsp;&nbsp;&nbsp; View detailed check-in

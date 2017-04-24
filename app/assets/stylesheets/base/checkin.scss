@@ -114,6 +114,8 @@
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
+  height: 40px;
+
 }
 
 .checkin-content .checkin-review {
@@ -139,4 +141,21 @@
 
 .checkin-line {
   margin-bottom: 5%;
+}
+
+.checkin-button {
+  width: 46.6%;
+  // box-sizing: border-box;
+  border-radius: 5px;
+  color: white;
+  background-color: rgb(163, 163, 161);
+  height: 100%;
+  text-align: center;
+  vertical-align: center;
+  padding: 3px, 0, 6px, 0;
+}
+
+.checkin-button:hover {
+  cursor: pointer;
+  background-color: rgb(87, 88, 88);
 }
