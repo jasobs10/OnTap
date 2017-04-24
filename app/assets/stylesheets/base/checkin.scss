@@ -61,9 +61,11 @@
 .checkin-image {
   padding: 1% 0;
   width: 100%;
-  height: 215px;
+  height: 220px;
   overflow: hidden;
   padding-top: 0;
+  margin-bottom: 2px;
+  border-radius: 10px;
 }
 
 .checkin-header {
@@ -115,6 +117,7 @@
   width: 100%;
   justify-content: space-between;
   height: 40px;
+  margin-bottom: 6px;
 
 }
 
@@ -144,7 +147,7 @@
 }
 
 .checkin-button {
-  width: 46.6%;
+  width: 47.5%;
   // box-sizing: border-box;
   border-radius: 5px;
   color: white;

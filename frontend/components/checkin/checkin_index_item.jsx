@@ -57,10 +57,10 @@ class CheckinIndexItem extends React.Component {
             </div>
             <div className="checkin-buttons">
 
-                <button className="checkin-button"><i className="fa fa-comment-o" aria-hidden="true"></i>&nbsp; &nbsp;Comment</button>
+                <button className="checkin-button"><i className="fa fa-comment-o" aria-hidden="true"></i>&nbsp;&nbsp;Comment</button>
 
 
-                <button className="checkin-button"><i className="fa fa-beer" aria-hidden="true"></i> &nbsp; &nbsp;Toast</button>
+                <button className="checkin-button"><i className="fa fa-beer" aria-hidden="true"></i>&nbsp;&nbsp;Toast</button>
 
             </div>
             <div className="checkin-footer">
