@@ -145,6 +145,7 @@
   line-height: 100%;
   position: relative;
   user-select: none;
+  // font-family: 'Oxygen';
 
 }
 
@@ -389,10 +390,12 @@
   // position: relative;
   // user-select: none;
   line-height: 90%;
+  background-color: rgba(115, 113, 113, 0.5);
 }
 
 .wish-remove:hover {
-  color: rgb(252, 96, 96);
+  background-color: rgba(115, 113, 113, 0.9);
+  color: rgb(255, 98, 98);
 
 }
 

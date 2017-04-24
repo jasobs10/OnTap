@@ -46,7 +46,7 @@ class CheckinIndex extends React.Component {
             <div className="beer-header">
               <h1>Recent Activity</h1>
             </div>
-            <hr className="orange-line"/>
+            <hr className="orange-line checkin-line"/>
 
             {indexItems}
 
