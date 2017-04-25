@@ -8,6 +8,12 @@ import { connect } from 'react-redux';
 
 const CommentsIndexItem = (props) => {
   // debugger
+  let del;
+  if (props.currentUser.id === props.comment.user_id || props.currentUser.id === props.comment.checkin_creator) {
+    del = <span className="orange delete-comment" onClick={() => props.deleteComment(props.comment.id)}>delete</span>;
+  } else {
+    del= "";
+  }
   return (
     <div className="comment-item-wrapper">
       <div className="comment-avatar">
@@ -20,7 +26,7 @@ const CommentsIndexItem = (props) => {
         <div className='comments-footer'>
           <span>hour ago</span>
           <span className="orange delete-comment">edit</span>
-          <span className="orange delete-comment" onClick={() => props.deleteComment(props.comment.id)}>delete</span>
+          { del }
         </div>
       </div>
     </div>
@@ -36,7 +42,7 @@ class CommentsIndex extends React.Component {
 
 
   render() {
-    const comments = this.props.checkin.comments ? Object.values(this.props.checkin.comments).map((comment) => <CommentsIndexItem key={comment.id} comment={comment} deleteComment={this.props.deleteComment}/>) : "";
+    const comments = this.props.checkin.comments ? Object.values(this.props.checkin.comments).map((comment) => <CommentsIndexItem currentUser={this.props.currentUser} key={comment.id} comment={comment} deleteComment={this.props.deleteComment}/>) : "";
     return (
       <div className="comments-index-wrapper">
         {comments}

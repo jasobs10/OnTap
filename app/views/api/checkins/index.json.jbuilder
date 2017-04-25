@@ -31,6 +31,7 @@
           json.author_l_name comment.user.l_name
           json.created_at comment.created_at
           json.comment comment.comment
+          json.checkin_creator comment.checkin.user.id
 
         end
       end

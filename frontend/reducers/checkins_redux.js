@@ -160,11 +160,16 @@ export const checkinsReducer = (oldState = {}, action) => {
     case RECEIVE_COMMENT:
       let merged = merge({}, oldState);
       // debugger
-      merge(merged[action.comment.checkin_id].comments, {[action.comment.id]: action.comment});
+      if (merged[action.comment.checkin_id].comments) {
+        merge(merged[action.comment.checkin_id].comments, {[action.comment.id]: action.comment});
+      } else {
+        merged[action.comment.checkin_id].comments = {[action.comment.id]: action.comment};
+      }
+      // debugger
       return merged;
 
     case REMOVE_COMMENT:
-    debugger
+    // debugger
       let merged2 = merge({}, oldState);
       delete merged2[action.comment.checkin_id].comments[action.comment.id];
       return merged2;

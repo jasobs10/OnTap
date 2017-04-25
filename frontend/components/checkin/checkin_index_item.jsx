@@ -106,7 +106,7 @@ class CheckinIndexItem extends React.Component {
             <div className="checkin-footer">
               2 hours ago &nbsp;&nbsp;&nbsp;&nbsp; View detailed check-in
             </div>
-            <CommentsIndex checkin={this.props.checkins} deleteComment={this.props.deleteComment}/>
+            <CommentsIndex checkin={this.props.checkins} deleteComment={this.props.deleteComment} currentUser={this.props.currentUser}/>
           </div>
           <div className="checkin-beer-avatar">
             <div>
