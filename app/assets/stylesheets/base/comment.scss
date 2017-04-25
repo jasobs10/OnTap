@@ -8,6 +8,11 @@
   // box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
   border-radius: 4px;
 
+
+}
+
+.comments-index-wrapper > :last-child {
+  border-style: none;
 }
 .orange {
   color: rgb(180, 124, 16);
@@ -41,6 +46,7 @@
 
 .comments-body {
   color: rgb(87, 87, 87);
+  line-height: 124%;
 }
 
 .comments-footer {

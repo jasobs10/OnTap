@@ -42,7 +42,7 @@ class CommentsIndex extends React.Component {
 
 
   render() {
-    const comments = this.props.checkin.comments ? Object.values(this.props.checkin.comments).map((comment) => <CommentsIndexItem currentUser={this.props.currentUser} key={comment.id} comment={comment} deleteComment={this.props.deleteComment}/>) : "";
+    const comments = this.props.checkin.comments ? Object.values(this.props.checkin.comments).map((comment) => <CommentsIndexItem currentUser={this.props.currentUser} key={comment.id} comment={comment} deleteComment={this.props.deleteComment}/>).reverse() : "";
     return (
       <div className="comments-index-wrapper">
         {comments}
