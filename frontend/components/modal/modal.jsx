@@ -21,11 +21,14 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 class Modal extends React.Component {
   constructor(props) {
     super(props);
+    // debugger
+    // this.state = this.props.modal;
     this.state = this.props.modal;
     // debugger
   }
 
   componentWillReceiveProps(nextProps) {
+    // debugger
     this.setState(nextProps.modal);
   }
 

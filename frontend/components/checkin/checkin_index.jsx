@@ -7,6 +7,8 @@ import CheckinIndexItem from './checkin_index_item';
 import { requestAllCheckins, requestCheckin, createToast, deleteToast } from '../../reducers/checkins_redux';
 import { WishlistBeerItem } from '../beers/beers';
 import { BreweryLikeItem } from '../breweries/brewery_like_item';
+import { receiveComponent, activateModal } from '../../reducers/modal_redux';
+import Modal from '../modal/modal';
 
 
 const mapStateToProps = (state) => {
@@ -14,7 +16,8 @@ const mapStateToProps = (state) => {
   return {
     currentUser: state.currentUser,
     beers: state.beers,
-    checkins: Object.values(state.checkins)
+    checkins: Object.values(state.checkins),
+    modal: state.modal
   }
 };
 
@@ -25,7 +28,9 @@ const mapDispatchToProps = (dispatch) => {
     requestAllCheckins: () => dispatch(requestAllCheckins()),
     requestCheckin: (id) => dispatch(requestCheckin()),
     createToast: (checkin_id) => dispatch(createToast(checkin_id)),
-    deleteToast: (id) => dispatch(deleteToast(id))
+    deleteToast: (id) => dispatch(deleteToast(id)),
+    receiveComponent: (component) => dispatch(receiveComponent(component)),
+    activateModal: (bool) => dispatch(activateModal(bool)),
   }
 };
 
@@ -55,10 +60,12 @@ class CheckinIndex extends React.Component {
       } else {
         breweryLikes = ""
       }
-      const indexItems = this.props.checkins.map((checkin) => <CheckinIndexItem deleteToast={this.props.deleteToast} createToast={this.props.createToast} currentUser={this.props.currentUser} key={checkin.id} requestAllCheckins={this.props.requestAllCheckins} requestCheckin={this.props.requestCheckin} checkins={checkin} />);
+      const indexItems = this.props.checkins.map((checkin) => <CheckinIndexItem modal={this.props.modal} receiveComponent={this.props.receiveComponent} activateModal={this.props.activateModal} deleteToast={this.props.deleteToast} createToast={this.props.createToast} currentUser={this.props.currentUser} key={checkin.id} requestAllCheckins={this.props.requestAllCheckins} requestCheckin={this.props.requestCheckin} checkins={checkin} />);
       // debugger
       return(
         <div className="beers-wrapper">
+          <Modal modal={this.props.modal} activateModal={this.props.activateModal}/>
+
           <div className="beers-index">
             <div className="beers-feed">
               <div className="beer-header">

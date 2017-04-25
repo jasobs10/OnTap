@@ -4,6 +4,7 @@ import { Line } from 'rc-progress';
 var Rating = require('react-rating');
 import CommentForm from './comments_form';
 import Modal from '../modal/modal';
+// import { receiveComponent, activateModal } from '../../reducers/modal_redux'
 
 const ToastButton = (props) => {
   // debugger
@@ -12,29 +13,9 @@ const ToastButton = (props) => {
     // debugger
     toastId = props.checkin.currentUserToast.id
   }
-  
-  const userId = props.currentUser ? props.currentUser.id : ""
-  // debugger
-  // const toasts = props.checkin.toastUsers
 
-    // if (toasts) {
-    //   // debugger
-    //   if (Object.keys(toasts).includes(userId.toString())) {
-    //     return (
-    //       <button onClick={() => props.deleteToast(toastId)} className="checkin-button"><i className="fa fa-beer" aria-hidden="true"></i>&nbsp;&nbsp;Untoast</button>
-    //     );
-    //   } else {
-    //     debugger
-    //     return (
-    //       <button className="checkin-button" onClick={() => props.createToast(props.checkin.id)}><i className="fa fa-beer" aria-hidden="true"></i>&nbsp;&nbsp;Toast</button>
-    //     );
-    //   }
-    // } else {
-    //   return (
-    //     <button className="checkin-button" onClick={() => props.createToast(props.checkin.id)}><i className="fa fa-beer" aria-hidden="true"></i>&nbsp;&nbsp;Toast</button>
-    //   );
-    // }
-    // debugger
+  const userId = props.currentUser ? props.currentUser.id : ""
+
     if (toastId) {
       return (
         <button onClick={() => props.deleteToast(toastId)} className="checkin-button unlike-button"><i className="fa fa-beer" aria-hidden="true"></i>&nbsp;&nbsp;Untoast</button>
@@ -50,7 +31,14 @@ const ToastButton = (props) => {
 class CheckinIndexItem extends React.Component {
   constructor(props) {
     super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
 
+  handleClick(component) {
+    return (e) => {
+      this.props.receiveComponent(component);
+      this.props.activateModal(true);
+    };
   }
 
   render() {
@@ -68,7 +56,7 @@ class CheckinIndexItem extends React.Component {
     const ratingPercentage = (this.props.checkins.rating / 5 * 100).toString();
     return(
       <div className="beer-item-wrapper checkin-border">
-
+      
         <div className="beer-item-main">
           <div className="checkin-avatar">
             <div>
@@ -107,7 +95,7 @@ class CheckinIndexItem extends React.Component {
             </div>
             <div className="checkin-buttons">
 
-                <button className="checkin-button"><i className="fa fa-comment-o" aria-hidden="true"></i>&nbsp;&nbsp;Comment</button>
+                <button className="checkin-button" onClick={this.handleClick(<CommentForm />)}><i className="fa fa-comment-o" aria-hidden="true"></i>&nbsp;&nbsp;Comment</button>
                 <ToastButton currentUser={this.props.currentUser} checkin={this.props.checkins} deleteToast={this.props.deleteToast} createToast={this.props.createToast}/>
 
             </div>
