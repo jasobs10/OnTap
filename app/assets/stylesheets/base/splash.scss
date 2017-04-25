@@ -205,6 +205,7 @@ html {
   // border-color: rgb(189, 186, 186);
 
   background-color: white;
+  // position: fixed;
   position: absolute;
   z-index: 999;
   width: 30%;
@@ -215,7 +216,7 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  top: 10%;
+  top: 10vh;
   left: 50%;
   margin-left: -14%;
   padding: 0 3%;

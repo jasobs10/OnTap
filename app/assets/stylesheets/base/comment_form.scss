@@ -1,11 +1,12 @@
 .comment-wrapper {
-  position: absolute;
-  width: 100%;
-  top: 0;
+  position: fixed;
+  // width: 100%;
+  top: 30vh;
+  width: 35%;
   padding: 10px;
-  background-color: rgba(0,0,0,.05);
+  background-color: white;
   border-radius: 4px;
-  z-index: 999;
+  z-index: 100;
 }
 
 .comment-wrapper > form {
