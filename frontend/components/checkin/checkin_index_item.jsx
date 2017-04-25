@@ -33,9 +33,11 @@ class CheckinIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    // debugger
   }
 
   handleClick(component) {
+    // debugger
     return (e) => {
       this.props.receiveComponent(component);
       this.props.activateModal(true);
@@ -96,7 +98,7 @@ class CheckinIndexItem extends React.Component {
             </div>
             <div className="checkin-buttons">
 
-                <button className="checkin-button" onClick={this.handleClick(<CommentForm />)}><i className="fa fa-comment-o" aria-hidden="true"></i>&nbsp;&nbsp;Comment</button>
+                <button className="checkin-button" onClick={this.handleClick(<CommentForm activateModal={this.props.activateModal} addComment={this.props.addComment} deleteComment={this.props.deleteComment} checkins={this.props.checkins}/>)}><i className="fa fa-comment-o" aria-hidden="true"></i>&nbsp;&nbsp;Comment</button>
                 <ToastButton currentUser={this.props.currentUser} checkin={this.props.checkins} deleteToast={this.props.deleteToast} createToast={this.props.createToast}/>
 
             </div>
@@ -104,7 +106,7 @@ class CheckinIndexItem extends React.Component {
             <div className="checkin-footer">
               2 hours ago &nbsp;&nbsp;&nbsp;&nbsp; View detailed check-in
             </div>
-            <CommentsIndex />
+            <CommentsIndex checkin={this.props.checkins} deleteComment={this.props.deleteComment}/>
           </div>
           <div className="checkin-beer-avatar">
             <div>

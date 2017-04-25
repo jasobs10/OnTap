@@ -24,11 +24,13 @@
     json.comments do
       checkin.comments.each do |comment|
         json.set! comment.id do
-          json.user_id = comment.user.id
-          json.checkin_id = comment.checkin.id
+          json.id comment.id
+          json.user_id comment.user.id
+          json.checkin_id comment.checkin.id
           json.author_f_name comment.user.f_name
           json.author_l_name comment.user.l_name
           json.created_at comment.created_at
+          json.comment comment.comment
 
         end
       end

@@ -9,6 +9,14 @@
   border-radius: 4px;
 
 }
+.orange {
+  color: rgb(180, 124, 16);
+}
+
+.delete-comment:hover {
+  color: rgb(200, 137, 13);
+  cursor: pointer;
+}
 
 .comment-item-wrapper {
   width: 100%;
@@ -40,7 +48,7 @@
   flex-direction: row;
   justify-content: space-between;
   margin-right: 1%;
-  font-size: 13px;
+  font-size: 14px;
   margin-top: 2%;
   width: 40%;
 

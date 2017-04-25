@@ -32,10 +32,12 @@ class Modal extends React.Component {
     this.setState(nextProps.modal);
   }
 
+
+
   render() {
     // const comp = this.state.component === null ? "" : this.state.component;
     // const comp = this.state.active ? this.state.component : "";
-    // debugge
+    // debugger
     if (this.state.active) {
       return (
         <div>

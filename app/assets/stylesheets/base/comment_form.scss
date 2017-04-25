@@ -18,7 +18,7 @@
 }
 
 .comment-input {
-  height: 30%;
+  height: 32%;
   width: 100%;
   resize: none;
   display: block;
@@ -27,9 +27,15 @@
   padding: 8px;
   box-sizing: border-box;
   font-size: 16px;
-  color: black;
+  color: rgb(57, 57, 57);
   margin-bottom: 3%;
   background-color: white;
+  letter-spacing: 1px;
+}
+
+.counter {
+  color: rgb(87, 88, 88);
+  font-size: 14px;
 }
 
 .comment-bottom {

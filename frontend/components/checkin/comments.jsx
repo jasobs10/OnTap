@@ -1,7 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
+//
+// const mapStateToProps = (state) => {
+//
+// };
 
 
 const CommentsIndexItem = (props) => {
+  // debugger
   return (
     <div className="comment-item-wrapper">
       <div className="comment-avatar">
@@ -9,12 +15,12 @@ const CommentsIndexItem = (props) => {
       </div>
       <div className="comments-right">
         <div className="comments-body">
-          jason: whofldshf
+          <span className="orange">{props.comment.author_f_name} {props.comment.author_l_name}</span>: {props.comment.comment}
         </div>
         <div className='comments-footer'>
           <span>hour ago</span>
-          <span>edit</span>
-          <span>delete</span>
+          <span className="orange delete-comment">edit</span>
+          <span className="orange delete-comment" onClick={() => props.deleteComment(props.comment.id)}>delete</span>
         </div>
       </div>
     </div>
@@ -27,10 +33,13 @@ class CommentsIndex extends React.Component {
     super(props);
   }
 
+
+
   render() {
+    const comments = this.props.checkin.comments ? Object.values(this.props.checkin.comments).map((comment) => <CommentsIndexItem key={comment.id} comment={comment} deleteComment={this.props.deleteComment}/>) : "";
     return (
       <div className="comments-index-wrapper">
-        <CommentsIndexItem />
+        {comments}
       </div>
     );
   }
