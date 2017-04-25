@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { logIn, signUp } from '../../reducers/session_redux';
 import { activateModal, receiveComponent } from '../../reducers/modal_redux';
 import SignInForm from './signin';
-import { receiveSignUpErrors } from '../../reducers/session_redux';
+import { receiveSignUpErrors, defaultSignUp } from '../../reducers/session_redux';
 import { hashHistory } from 'react-router';
 
 const mapStateToProps = (state, ownProps) => {
@@ -19,7 +19,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     signUp: (user) => dispatch(signUp(user)),
     closeModal: () => dispatch(activateModal(false)),
     receiveComponent: (component) => dispatch(receiveComponent(component)),
-    clearErrors: () => dispatch(receiveSignUpErrors({}))
+    clearErrors: () => dispatch(receiveSignUpErrors({})),
+    defaultSignUp: (user) => dispatch(defaultSignUp(user))
   };
 };
 
@@ -68,7 +69,14 @@ class SignUpForm extends React.Component {
     formData.append("user[f_name]", this.state.f_name);
     formData.append("user[l_name]", this.state.l_name);
     formData.append("user[avatar]", this.state.imageFile);
-    this.props.signUp(formData).then(() => this.clearForm()).then(() => this.props.activateModal(false)).then(() => hashHistory.push('/home'));
+    // debugger
+    if (this.state.imageFile) {
+
+      this.props.signUp(formData).then(() => this.clearForm()).then(() => this.props.activateModal(false)).then(() => hashHistory.push('/home'));
+    } else {
+      // debugger
+      this.props.defaultSignUp({user: this.state}).then(() => this.clearForm()).then(() => this.props.activateModal(false)).then(() => hashHistory.push('/home'));
+    }
     // .then(() => this.props.router.push('/'))
   }
 
@@ -115,12 +123,12 @@ class SignUpForm extends React.Component {
           <input className="auth-input" type="text" onChange={this.handleChange('f_name')} value={this.state.f_name} placeholder="First name"/>
 
           <input className="auth-input last-input" type="text" onChange={this.handleChange('l_name')} value={this.state.l_name} placeholder="Last name"/>
-          <div className="upload-wrapper">
-            <label className="upload-picture-button"><i className="fa fa-camera-retro" aria-hidden="true"></i>
+
+            <label className="upload-wrapper upload-picture-button"><i className="fa fa-camera-retro" aria-hidden="true"></i>
               <input name="file" id="file" className="upload-button" type="file" onChange={this.updateFile}/>
+              <span className='photo-text'>Upload your picture</span>
             </label>
-            <span className='photo-text'>Upload your picture</span>
-          </div>
+
           <div className="preview-image-wrapper">
             <img src={this.state.imageUrl} />
           </div>

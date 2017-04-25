@@ -78,6 +78,10 @@ export const signUp = (user) => {
   return dispatch => APIUTIL.signUp(user).then(r => dispatch(receiveCurrentUser(r)), errors => dispatch(receiveSignUpErrors(errors.responseJSON)));
 };
 
+export const defaultSignUp = (user) => {
+  return dispatch => APIUTIL.defaultSignUp(user).then(r => dispatch(receiveCurrentUser(r)), errors => dispatch(receiveSignUpErrors(errors.responseJSON)));
+};
+
 export const logIn = (user) => {
   return dispatch => APIUTIL.logIn(user).then((r) => {
     // debugger
@@ -105,6 +109,15 @@ const APIUTIL = {
       contentType: false,
       processData: false,
       data: formData
+    });
+  },
+
+  defaultSignUp: (user) => {
+    // debugger
+    return $.ajax({
+      method: "post",
+      url: "/api/users",
+      data: user
     });
   },
 
