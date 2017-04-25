@@ -4,6 +4,7 @@ import { Line } from 'rc-progress';
 var Rating = require('react-rating');
 import CommentForm from './comments_form';
 import Modal from '../modal/modal';
+import CommentsIndex from './comments';
 // import { receiveComponent, activateModal } from '../../reducers/modal_redux'
 
 const ToastButton = (props) => {
@@ -56,7 +57,7 @@ class CheckinIndexItem extends React.Component {
     const ratingPercentage = (this.props.checkins.rating / 5 * 100).toString();
     return(
       <div className="beer-item-wrapper checkin-border">
-      
+
         <div className="beer-item-main">
           <div className="checkin-avatar">
             <div>
@@ -103,6 +104,7 @@ class CheckinIndexItem extends React.Component {
             <div className="checkin-footer">
               2 hours ago &nbsp;&nbsp;&nbsp;&nbsp; View detailed check-in
             </div>
+            <CommentsIndex />
           </div>
           <div className="checkin-beer-avatar">
             <div>

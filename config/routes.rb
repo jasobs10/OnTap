@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :checkins, only: [:index, :create, :update, :destroy]
     resources :brewery_likes, only: [:create, :destroy]
     resources :toasts, only: [:create, :destroy, :show]
+    resources :comments, only: [:create, :update, :destroy, :show]
 
   end
 

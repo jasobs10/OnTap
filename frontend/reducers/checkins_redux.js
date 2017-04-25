@@ -4,6 +4,8 @@ const RECEIVE_ALL_CHECKINS = "RECEIVE_ALL_CHECKINS";
 const RECEIVE_CHECKIN = "RECEIVE_CHECKIN";
 const RECEIVE_TOAST = "RECEIVE_TOAST";
 const REMOVE_TOAST = "REMOVE_TOAST";
+const RECEIVE_COMMENT = "RECEIVE_COMMENT";
+const REMOVE_COMMENT = "REMOVE_COMMENT";
 
 
 
@@ -35,6 +37,21 @@ const APIUTIL = {
     return $.ajax({
       method: "DELETE",
       url: `api/toasts/${id}`
+    });
+  },
+
+  addComment: (comment) => {
+    return $.ajax({
+      method: "POST",
+      url: "api/comments",
+      data: { comment }
+    });
+  },
+
+  removeComment: (id) => {
+    return $.ajax({
+      method: "DELETE",
+      url: `api/comments/${id}`
     });
   }
 };
@@ -68,6 +85,20 @@ const removeToast = (toast) => {
   };
 };
 
+const receiveComment = (comment) => {
+  return {
+    type: RECEIVE_COMMENT,
+    comment
+  };
+};
+
+const removeComment = (comment) => {
+  return {
+    type: REMOVE_COMMENT,
+    comment
+  };
+};
+
 export const createToast = (checkin_id) => {
   return dispatch => APIUTIL.addToast(checkin_id).then((user) => dispatch(addToast(user)));
 };
@@ -82,6 +113,14 @@ export const requestAllCheckins = () => {
 
 export const requestCheckin = (id) => {
   return dispatch => APIUTIL.fetchCheckin(id).then((checkin) => dispatch(receiveCheckin(checkin)));
+};
+
+export const addComment = (comment) => {
+  return dispatch => APIUTIL.addComment(comment).then((comment_r) => dispatch(receiveComment(comment_r)));
+};
+
+export const deleteComment = (id) => {
+  return dispatch => APIUTIL.removeComment(id).then((comment_r) => dispatch(removeComment(comment_r)));
 };
 
 export const checkinsReducer = (oldState = {}, action) => {
@@ -117,6 +156,16 @@ export const checkinsReducer = (oldState = {}, action) => {
       old2[action.toast.checkin_id].currentUserToast = null;
       delete old2[action.toast.checkin_id].toastUsers[action.toast.user_id];
       return old2;
+
+    case RECEIVE_COMMENT:
+      let merged = merge({}, oldState);
+      return merge(old[action.comment.checkin_id].comments, {[action.comment.id]: action.comment});
+
+    case REMOVE_COMMENT:
+      let merged2 = merge({}, oldState);
+      delete merged2[action.comment.checkin_id].comments[action.comment.id];
+      return merged2;
+
     default:
       return oldState;
   }
