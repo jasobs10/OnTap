@@ -38,11 +38,22 @@ class CheckinIndex extends React.Component {
   componentDidMount() {
     this.props.requestAllCheckins();
   }
-
+  // const breweryLikes = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
+  // const wishlistBeers = this.props.currentUser.wishlistBeers ? Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>) : "";
   render() {
-    const wishlistBeers = this.props.currentUser.wishlistBeers ? Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>) : "";
+    let wishlistBeers;
+    if (this.props.currentUser && this.props.currentUser.wishlistBeers) {
+      wishlistBeers = Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>);
+    } else {
+      wishlistBeers = ""
+    }
+    let breweryLikes;
+    if (this.props.currentUser && this.props.currentUser.likedBreweries) {
+      likedBreweries = Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>);
+    } else {
+      breweryLikes = ""
+    }
     const indexItems = this.props.checkins.map((checkin) => <CheckinIndexItem deleteToast={this.props.deleteToast} createToast={this.props.createToast} currentUser={this.props.currentUser} key={checkin.id} requestAllCheckins={this.props.requestAllCheckins} requestCheckin={this.props.requestCheckin} checkins={checkin} />);
-    const breweryLikes = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
     // debugger
     return(
       <div className="beers-wrapper">

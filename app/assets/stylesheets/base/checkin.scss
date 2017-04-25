@@ -161,5 +161,15 @@
 .checkin-button:hover {
   cursor: pointer;
   background-color: rgb(87, 88, 88);
-  transition: .5s;
+  transition: .4s;
+}
+
+.unlike-button {
+  background-color: rgb(255, 173, 13);
+  transition: .4s;
+}
+
+.unlike-button:hover {
+  background-color: rgb(173, 117, 6);
+  transition: .4s;
 }

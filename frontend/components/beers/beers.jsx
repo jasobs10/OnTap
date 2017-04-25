@@ -88,7 +88,12 @@ class Beers extends React.Component {
     // debugger
     const items = this.props.beers.map((beer) => <BeerIndexItem key={beer.id} beer={beer} addBeerToWishlist={this.props.addBeerToWishlist} removeBeerFromWishlist={this.props.removeBeerFromWishlist} addCurrentUserWishlist={this.props.addCurrentUserWishlist} removeCurrentUserWishlist={this.props.removeCurrentUserWishlist}/>)
     // debugger
-    const wishlistBeers = this.props.currentUser.wishlistBeers ? Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>) : "";
+    let wishlistBeers;
+    if (this.props.currentUser && this.props.currentUser.wishlistBeers) {
+      wishlistBeers = Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>);
+    } else {
+      wishlistBeers = ""
+    }
     const selectStyles = this.props.beers.length > 0 ? this.props.beers[0].allStyles.map((style, i) => <option key={i}value={style}>{style}</option>) : "";
     const ratings = ["0", "1", "2", "3", "4", "5"];
     const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');

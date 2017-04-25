@@ -2,6 +2,8 @@ import React from 'react';
 import { Line } from 'rc-progress';
 // import { WishlistBeerItem } from '../beers/beers';
 var Rating = require('react-rating');
+import CommentForm from './comments_form';
+import Modal from '../modal/modal';
 
 const ToastButton = (props) => {
   // debugger
@@ -10,7 +12,8 @@ const ToastButton = (props) => {
     // debugger
     toastId = props.checkin.currentUserToast.id
   }
-  const userId = props.currentUser.id
+  
+  const userId = props.currentUser ? props.currentUser.id : ""
   // debugger
   // const toasts = props.checkin.toastUsers
 
@@ -34,7 +37,7 @@ const ToastButton = (props) => {
     // debugger
     if (toastId) {
       return (
-        <button onClick={() => props.deleteToast(toastId)} className="checkin-button"><i className="fa fa-beer" aria-hidden="true"></i>&nbsp;&nbsp;Untoast</button>
+        <button onClick={() => props.deleteToast(toastId)} className="checkin-button unlike-button"><i className="fa fa-beer" aria-hidden="true"></i>&nbsp;&nbsp;Untoast</button>
       );
     }
     return (
@@ -108,6 +111,7 @@ class CheckinIndexItem extends React.Component {
                 <ToastButton currentUser={this.props.currentUser} checkin={this.props.checkins} deleteToast={this.props.deleteToast} createToast={this.props.createToast}/>
 
             </div>
+
             <div className="checkin-footer">
               2 hours ago &nbsp;&nbsp;&nbsp;&nbsp; View detailed check-in
             </div>

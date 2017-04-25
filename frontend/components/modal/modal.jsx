@@ -4,19 +4,19 @@ import { receiveComponent, activateModal } from '../../reducers/modal_redux';
 import SignInForm from '../splash/signin';
 import SignUpForm from '../splash/signup';
 
-// const mapStateToProps = (state, ownProps) => {
-//   return {
-//     component: state.modal.component,
-//     active: state.modal.active
-//   };
-// };
-//
-// const mapDispatchToProps = (dispatch, ownProps) => {
-//   return {
-//     receiveComponent: (component) => dispatch(receiveComponent(component)),
-//     activateModal: (bool) => dispatch(activateModal(bool))
-//   };
-// };
+const mapStateToProps = (state, ownProps) => {
+  return {
+    component: state.modal.component,
+    active: state.modal.active
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    receiveComponent: (component) => dispatch(receiveComponent(component)),
+    activateModal: (bool) => dispatch(activateModal(bool))
+  };
+};
 
 class Modal extends React.Component {
   constructor(props) {
@@ -52,6 +52,6 @@ class Modal extends React.Component {
   }
 
 }
-export default Modal;
+export default connect(mapStateToProps, mapDispatchToProps)(Modal)
 
 // {this.props.component}
