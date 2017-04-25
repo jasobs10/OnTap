@@ -4,6 +4,7 @@ class Api::CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
+    # debugger
     if @comment.save
       render :show
     else
@@ -12,7 +13,14 @@ class Api::CommentsController < ApplicationController
   end
 
   def update
-
+    @comment = Comment.find(params[:comment][:id])
+    # debugger
+    @comment.update(comment_params)
+    if @comment.save
+      render :show
+    else
+      render json: {base: ["You cannot edit this comment"]}
+    end
   end
 
   def show

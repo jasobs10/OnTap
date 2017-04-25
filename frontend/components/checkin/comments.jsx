@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import EditCommentForm from './edit_comments_form';
 //
 // const mapStateToProps = (state) => {
 //
@@ -9,11 +10,22 @@ import { connect } from 'react-redux';
 const CommentsIndexItem = (props) => {
   // debugger
   let del;
-  if (props.currentUser.id === props.comment.user_id || props.currentUser.id === props.comment.checkin_creator) {
+  let ed;
+  if (props.currentUser.id == props.comment.user_id || props.currentUser.id == props.comment.checkin_creator) {
     del = <span className="orange delete-comment" onClick={() => props.deleteComment(props.comment.id)}>delete</span>;
+    ed = <span onClick={handleClick} className="orange delete-comment">edit</span>;
   } else {
     del= "";
+    ed = "";
   }
+
+  const handleClick = (e) => {
+
+      props.receiveComponent(<EditCommentForm updateComment={props.updateComment} activateModal={props.activateModal} comment={props.comment}/>);
+      props.activateModal(true);
+
+  };
+  // debugger
   return (
     <div className="comment-item-wrapper">
       <div className="comment-avatar">
@@ -25,7 +37,7 @@ const CommentsIndexItem = (props) => {
         </div>
         <div className='comments-footer'>
           <span>hour ago</span>
-          <span className="orange delete-comment">edit</span>
+          <span onClick={handleClick} className="orange delete-comment">edit</span>
           { del }
         </div>
       </div>
@@ -42,7 +54,7 @@ class CommentsIndex extends React.Component {
 
 
   render() {
-    const comments = this.props.checkin.comments ? Object.values(this.props.checkin.comments).map((comment) => <CommentsIndexItem currentUser={this.props.currentUser} key={comment.id} comment={comment} deleteComment={this.props.deleteComment}/>).reverse() : "";
+    const comments = this.props.checkin.comments ? Object.values(this.props.checkin.comments).map((comment) => <CommentsIndexItem receiveComponent={this.props.receiveComponent} activateModal={this.props.activateModal} updateComment={this.props.updateComment} currentUser={this.props.currentUser} key={comment.id} comment={comment} deleteComment={this.props.deleteComment}/>).reverse() : "";
     return (
       <div className="comments-index-wrapper">
         {comments}

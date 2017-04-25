@@ -5,6 +5,7 @@ var Rating = require('react-rating');
 import CommentForm from './comments_form';
 import Modal from '../modal/modal';
 import CommentsIndex from './comments';
+import EditCommentForm from './edit_comments_form';
 // import { receiveComponent, activateModal } from '../../reducers/modal_redux'
 
 const ToastButton = (props) => {
@@ -98,7 +99,7 @@ class CheckinIndexItem extends React.Component {
             </div>
             <div className="checkin-buttons">
 
-                <button className="checkin-button" onClick={this.handleClick(<CommentForm activateModal={this.props.activateModal} addComment={this.props.addComment} deleteComment={this.props.deleteComment} checkins={this.props.checkins}/>)}><i className="fa fa-comment-o" aria-hidden="true"></i>&nbsp;&nbsp;Comment</button>
+                <button className="checkin-button" onClick={this.handleClick(<CommentForm updateComment={this.props.updateComment} currentUser={this.props.currentUser} activateModal={this.props.activateModal} addComment={this.props.addComment} deleteComment={this.props.deleteComment} checkins={this.props.checkins}/>)}><i className="fa fa-comment-o" aria-hidden="true"></i>&nbsp;&nbsp;Comment</button>
                 <ToastButton currentUser={this.props.currentUser} checkin={this.props.checkins} deleteToast={this.props.deleteToast} createToast={this.props.createToast}/>
 
             </div>
@@ -106,7 +107,7 @@ class CheckinIndexItem extends React.Component {
             <div className="checkin-footer">
               2 hours ago &nbsp;&nbsp;&nbsp;&nbsp; View detailed check-in
             </div>
-            <CommentsIndex checkin={this.props.checkins} deleteComment={this.props.deleteComment} currentUser={this.props.currentUser}/>
+            <CommentsIndex updateComment={this.props.updateComment} activateModal={this.props.activateModal} receiveComponent={this.props.receiveComponent} checkin={this.props.checkins} deleteComment={this.props.deleteComment} currentUser={this.props.currentUser}/>
           </div>
           <div className="checkin-beer-avatar">
             <div>

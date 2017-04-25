@@ -6,6 +6,7 @@ const RECEIVE_TOAST = "RECEIVE_TOAST";
 const REMOVE_TOAST = "REMOVE_TOAST";
 const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 const REMOVE_COMMENT = "REMOVE_COMMENT";
+const UPDATE_COMMENT = "UPDATE_COMMENT";
 
 
 
@@ -48,6 +49,15 @@ const APIUTIL = {
     });
   },
 
+  updateComment: (comment) => {
+    // debugger
+    return $.ajax({
+      method: "PATCH",
+      url: `api/comments/${comment.id}`,
+      data: { comment }
+    });
+  },
+
   removeComment: (id) => {
     return $.ajax({
       method: "DELETE",
@@ -60,6 +70,13 @@ const receiveAllCheckins = (checkins) => {
   return {
     type: RECEIVE_ALL_CHECKINS,
     checkins
+  };
+};
+
+const editComment = (comment) => {
+  return {
+    type: UPDATE_COMMENT,
+    comment
   };
 };
 
@@ -121,6 +138,10 @@ export const addComment = (comment) => {
 
 export const deleteComment = (id) => {
   return dispatch => APIUTIL.removeComment(id).then((comment_r) => dispatch(removeComment(comment_r)));
+};
+
+export const updateComment = (comment) => {
+  return dispatch => APIUTIL.updateComment(comment).then((comment_r) => dispatch(receiveComment(comment_r)));
 };
 
 export const checkinsReducer = (oldState = {}, action) => {

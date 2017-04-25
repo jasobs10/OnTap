@@ -4,7 +4,7 @@ import { logOut } from '../../reducers/session_redux';
 import { hashHistory } from 'react-router';
 import { requestBeers } from '../../reducers/beers_redux'
 import CheckinIndexItem from './checkin_index_item';
-import { requestAllCheckins, requestCheckin, createToast, deleteToast, addComment, deleteComment } from '../../reducers/checkins_redux';
+import { requestAllCheckins, requestCheckin, createToast, deleteToast, addComment, deleteComment, updateComment } from '../../reducers/checkins_redux';
 import { WishlistBeerItem } from '../beers/beers';
 import { BreweryLikeItem } from '../breweries/brewery_like_item';
 import { receiveComponent, activateModal } from '../../reducers/modal_redux';
@@ -33,7 +33,8 @@ const mapDispatchToProps = (dispatch) => {
     receiveComponent: (component) => dispatch(receiveComponent(component)),
     activateModal: (bool) => dispatch(activateModal(bool)),
     addComment: (comment) => dispatch(addComment(comment)),
-    deleteComment: (id) => dispatch(deleteComment(id))
+    deleteComment: (id) => dispatch(deleteComment(id)),
+    updateComment: (comment) => dispatch(updateComment(comment))
   }
 };
 
