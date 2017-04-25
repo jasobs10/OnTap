@@ -10,7 +10,7 @@ import { BreweryLikeItem } from '../breweries/brewery_like_item';
 import { receiveComponent, activateModal } from '../../reducers/modal_redux';
 import Modal from '../modal/modal';
 
-
+// <CheckinIndexItem modal={this.props.modal} receiveComponent={this.props.receiveComponent} activateModal={this.props.activateModal} deleteToast={this.props.deleteToast} createToast={this.props.createToast} currentUser={this.props.currentUser} key={checkin.id} requestAllCheckins={this.props.requestAllCheckins} requestCheckin={this.props.requestCheckin} checkins={checkin} />);
 const mapStateToProps = (state) => {
 
   return {
@@ -60,7 +60,8 @@ class CheckinIndex extends React.Component {
       } else {
         breweryLikes = ""
       }
-      const indexItems = this.props.checkins.map((checkin) => <CheckinIndexItem modal={this.props.modal} receiveComponent={this.props.receiveComponent} activateModal={this.props.activateModal} deleteToast={this.props.deleteToast} createToast={this.props.createToast} currentUser={this.props.currentUser} key={checkin.id} requestAllCheckins={this.props.requestAllCheckins} requestCheckin={this.props.requestCheckin} checkins={checkin} />);
+      const indexItems = this.props.checkins.map((checkin) => <CheckinIndexItem {...this.props}  key={checkin.id} checkins={checkin} />);
+
       // debugger
       return(
         <div className="beers-wrapper">
