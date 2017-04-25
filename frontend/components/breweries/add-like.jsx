@@ -19,7 +19,7 @@ class AddLike extends React.Component {
       let id = this.props.brewery.id
       return (
 
-        <div className="like-button-container" onClick={() => this.props.removeBreweryLike(this.props.brewery.currentUserLikes.id).then(() => this.props.removeUserLike(id))}>
+        <div className="like-button-container like-remove" onClick={() => this.props.removeBreweryLike(this.props.brewery.currentUserLikes.id).then(() => this.props.removeUserLike(id))}>
           <i className="fa fa-times" aria-hidden="true"></i>
           <div className="like-dropdown">
             Unlike

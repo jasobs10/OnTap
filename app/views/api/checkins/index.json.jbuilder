@@ -4,6 +4,24 @@
     json.brewery checkin.brewery.name
     json.beer checkin.beer.name
     json.user checkin.user, :f_name, :l_name
+    json.toastUsers do
+      checkin.toast_users.each do |user|
+        json.set! user.id do
+          json.user_id user.id
+          json.f_name user.f_name
+          json.l_name user.l_name
+          # json.userToasts do
+          #   json.set! user.id do
+          #     json.array! user.toasts.map(&:id)
+          #   end
+          # end
+          # json.checkinToasts do
+          #   json.array! user.checkins.toasts
+          # end
+        end
+      end
+    end
+    json.currentUserToast current_user.toasts.where("checkin_id = ?", checkin.id).first
   end
 end
 

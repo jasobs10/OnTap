@@ -33,7 +33,7 @@
 }
 
 .brewery-display > :first-child {
-  font-size: 15px;
+  font-size: 16.5px;
 }
 
 .brewery-info {
@@ -127,7 +127,7 @@
 }
 
 .brewery-loc {
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .like-button-container {
@@ -164,4 +164,8 @@
 
 .like-button-container:hover .like-dropdown {
   visibility: visible;
+}
+
+.like-remove {
+  background-color: rgba(115, 113, 113, 0.5);
 }

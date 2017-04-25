@@ -30,6 +30,10 @@ class User < ApplicationRecord
     through: :brewery_likes,
     source: :brewery
 
+  # dispaly liked checkins
+  has_many :toasts
+  has_many :toasted_checkins, through: :toasts, source: :checkin
+
 
 
 

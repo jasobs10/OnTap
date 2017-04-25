@@ -3,6 +3,46 @@ import { Line } from 'rc-progress';
 // import { WishlistBeerItem } from '../beers/beers';
 var Rating = require('react-rating');
 
+const ToastButton = (props) => {
+  // debugger
+  let toastId;
+  if (props.checkin.currentUserToast) {
+    // debugger
+    toastId = props.checkin.currentUserToast.id
+  }
+  const userId = props.currentUser.id
+  // debugger
+  // const toasts = props.checkin.toastUsers
+
+    // if (toasts) {
+    //   // debugger
+    //   if (Object.keys(toasts).includes(userId.toString())) {
+    //     return (
+    //       <button onClick={() => props.deleteToast(toastId)} className="checkin-button"><i className="fa fa-beer" aria-hidden="true"></i>&nbsp;&nbsp;Untoast</button>
+    //     );
+    //   } else {
+    //     debugger
+    //     return (
+    //       <button className="checkin-button" onClick={() => props.createToast(props.checkin.id)}><i className="fa fa-beer" aria-hidden="true"></i>&nbsp;&nbsp;Toast</button>
+    //     );
+    //   }
+    // } else {
+    //   return (
+    //     <button className="checkin-button" onClick={() => props.createToast(props.checkin.id)}><i className="fa fa-beer" aria-hidden="true"></i>&nbsp;&nbsp;Toast</button>
+    //   );
+    // }
+    // debugger
+    if (toastId) {
+      return (
+        <button onClick={() => props.deleteToast(toastId)} className="checkin-button"><i className="fa fa-beer" aria-hidden="true"></i>&nbsp;&nbsp;Untoast</button>
+      );
+    }
+    return (
+        <button className="checkin-button" onClick={() => props.createToast(props.checkin.id)}><i className="fa fa-beer" aria-hidden="true"></i>&nbsp;&nbsp;Toast</button>
+    );
+
+};
+
 
 class CheckinIndexItem extends React.Component {
   constructor(props) {
@@ -65,9 +105,7 @@ class CheckinIndexItem extends React.Component {
             <div className="checkin-buttons">
 
                 <button className="checkin-button"><i className="fa fa-comment-o" aria-hidden="true"></i>&nbsp;&nbsp;Comment</button>
-
-
-                <button className="checkin-button"><i className="fa fa-beer" aria-hidden="true"></i>&nbsp;&nbsp;Toast</button>
+                <ToastButton currentUser={this.props.currentUser} checkin={this.props.checkins} deleteToast={this.props.deleteToast} createToast={this.props.createToast}/>
 
             </div>
             <div className="checkin-footer">
