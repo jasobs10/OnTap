@@ -96,11 +96,15 @@ export const logOut = (user) => {
 
 // AJAX API UTIL For Session
 const APIUTIL = {
-  signUp: (user) => {
+  signUp: (formData) => {
+    // debugger
     return $.ajax({
       method: "post",
       url: "/api/users",
-      data: user
+      dataType: "json",
+      contentType: false,
+      processData: false,
+      data: formData
     });
   },
 

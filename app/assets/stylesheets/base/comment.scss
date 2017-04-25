@@ -33,6 +33,11 @@
 
 .comment-avatar {
   width: 13%;
+  // border-radius: 20px;
+}
+
+.comment-avatar > img {
+  border-radius: 50px;
 }
 
 .comments-right {

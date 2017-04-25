@@ -29,7 +29,7 @@ const CommentsIndexItem = (props) => {
   return (
     <div className="comment-item-wrapper">
       <div className="comment-avatar">
-        pic
+        <img src={props.comment.user_image_url}/>
       </div>
       <div className="comments-right">
         <div className="comments-body">

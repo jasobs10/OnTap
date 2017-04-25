@@ -32,6 +32,7 @@
           json.created_at comment.created_at
           json.comment comment.comment
           json.checkin_creator comment.checkin.user_id
+          json.user_image_url comment.user.avatar.url
 
         end
       end

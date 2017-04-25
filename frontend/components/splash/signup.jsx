@@ -27,11 +27,12 @@ class SignUpForm extends React.Component {
   constructor(props) {
     super(props);
     // debugger
-    this.state = {username: "", password: "", f_name: "", l_name: ""};
+    this.state = {username: "", password: "", f_name: "", l_name: "", imageFile: null, imageUrl: null};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.clearForm = this.clearForm.bind(this);
     this.toggleForm = this.toggleForm.bind(this);
+    this.updateFile = this.updateFile.bind(this);
   }
 
   handleChange(field) {
@@ -61,7 +62,13 @@ class SignUpForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.signUp({user: this.state}).then(() => this.clearForm()).then(() => this.props.activateModal(false)).then(() => hashHistory.push('/home'));
+    const formData = new FormData();
+    formData.append("user[username]", this.state.username);
+    formData.append("user[password]", this.state.password);
+    formData.append("user[f_name]", this.state.f_name);
+    formData.append("user[l_name]", this.state.l_name);
+    formData.append("user[avatar]", this.state.imageFile);
+    this.props.signUp(formData).then(() => this.clearForm()).then(() => this.props.activateModal(false)).then(() => hashHistory.push('/home'));
     // .then(() => this.props.router.push('/'))
   }
 
@@ -69,6 +76,17 @@ class SignUpForm extends React.Component {
     this.props.activateModal(false);
     this.props.receiveComponent(<SignInForm receiveComponent={this.props.receiveComponent} activateModal={this.props.activateModal}/>);
     this.props.activateModal(true);
+  }
+
+  updateFile(e) {
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = function () {
+      this.setState({imageFile: file, imageUrl: fileReader.result});
+    }.bind(this);
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
   }
 
   render () {
@@ -97,6 +115,8 @@ class SignUpForm extends React.Component {
           <input className="auth-input" type="text" onChange={this.handleChange('f_name')} value={this.state.f_name} placeholder="First name"/>
 
           <input className="auth-input" type="text" onChange={this.handleChange('l_name')} value={this.state.l_name} placeholder="Last name"/>
+          <input type="file" onChange={this.updateFile}/>
+          <img src={this.state.imageUrl} />
 
           <input className="auth-submit" type="submit" value="Sign Up" />
           <button className="close"onClick={() => this.props.activateModal(false)}></button>

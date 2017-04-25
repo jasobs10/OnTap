@@ -9,6 +9,7 @@ json.wishlistBeers do
     # json.array! beer,
   end
 end
+json.image_url user.avatar.url
 json.likedBreweries do
   user.liked_breweries.each do |like|
     json.set! like.id do
