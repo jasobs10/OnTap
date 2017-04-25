@@ -114,9 +114,16 @@ class SignUpForm extends React.Component {
 
           <input className="auth-input" type="text" onChange={this.handleChange('f_name')} value={this.state.f_name} placeholder="First name"/>
 
-          <input className="auth-input" type="text" onChange={this.handleChange('l_name')} value={this.state.l_name} placeholder="Last name"/>
-          <input type="file" onChange={this.updateFile}/>
-          <img src={this.state.imageUrl} />
+          <input className="auth-input last-input" type="text" onChange={this.handleChange('l_name')} value={this.state.l_name} placeholder="Last name"/>
+          <div className="upload-wrapper">
+            <label className="upload-picture-button"><i className="fa fa-camera-retro" aria-hidden="true"></i>
+              <input name="file" id="file" className="upload-button" type="file" onChange={this.updateFile}/>
+            </label>
+            <span className='photo-text'>Upload your picture</span>
+          </div>
+          <div className="preview-image-wrapper">
+            <img src={this.state.imageUrl} />
+          </div>
 
           <input className="auth-submit" type="submit" value="Sign Up" />
           <button className="close"onClick={() => this.props.activateModal(false)}></button>

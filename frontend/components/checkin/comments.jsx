@@ -37,7 +37,7 @@ const CommentsIndexItem = (props) => {
         </div>
         <div className='comments-footer'>
           <span>hour ago</span>
-          <span onClick={handleClick} className="orange delete-comment">edit</span>
+          { ed }
           { del }
         </div>
       </div>

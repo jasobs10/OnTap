@@ -28,10 +28,20 @@ img {
   height: auto;
 }
 
+.upload-button {
+  width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
 input[type="password"],
 input[type="email"],
 input[type="text"],
 input[type="submit"],
+input[type="file"],
 textarea,
 button {
   /*

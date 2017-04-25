@@ -386,3 +386,31 @@ html {
   margin: 4px 0;
   list-style: none;
 }
+
+.upload-wrapper {
+  padding: 1.5% 2%;
+
+  margin-bottom: 1.5%;
+  border-radius: 4px;
+  width: 75%;
+  display: flex;
+  justify-content: space-around;
+  background-color: rgb(255, 173, 13);
+
+}
+
+.upload-picture-button {
+  // background-color: rgb(255, 173, 13);
+  color: white;
+}
+
+.photo-text {
+  font-size: 12px;
+  padding-top: 1.2%;
+  color: white;
+
+}
+
+.last-input {
+  margin-bottom: 2%;
+}
