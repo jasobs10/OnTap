@@ -11,4 +11,9 @@
 #
 
 class Comment < ApplicationRecord
+  belongs_to :checkin
+  belongs_to :user
+  
+
+
 end

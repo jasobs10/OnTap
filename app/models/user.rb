@@ -26,6 +26,8 @@ class User < ApplicationRecord
   has_many :wishlists
   has_many :wishlist_beers, through: :wishlists, source: :beer
   has_many :brewery_likes
+  has_many :comments
+  has_many :commented_checkins, through: :comments, source: :checkin
   has_many :liked_breweries,
     through: :brewery_likes,
     source: :brewery

@@ -24,6 +24,8 @@ class Checkin < ApplicationRecord
   belongs_to :beer
   has_one :brewery, through: :beer
   has_many :toasts
+  has_many :comments
+  has_many :commenters, through: :comments, source: :user
   has_many :toast_users, through: :toasts, source: :user
   #has_many breweries through beer
 
