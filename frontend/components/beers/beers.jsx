@@ -86,79 +86,83 @@ class Beers extends React.Component {
   render () {
 
     // debugger
-    const items = this.props.beers.map((beer) => <BeerIndexItem key={beer.id} beer={beer} addBeerToWishlist={this.props.addBeerToWishlist} removeBeerFromWishlist={this.props.removeBeerFromWishlist} addCurrentUserWishlist={this.props.addCurrentUserWishlist} removeCurrentUserWishlist={this.props.removeCurrentUserWishlist}/>)
-    // debugger
-    let wishlistBeers;
-    if (this.props.currentUser && this.props.currentUser.wishlistBeers) {
-      wishlistBeers = Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>);
-    } else {
-      wishlistBeers = ""
-    }
-    const selectStyles = this.props.beers.length > 0 ? this.props.beers[0].allStyles.map((style, i) => <option key={i}value={style}>{style}</option>) : "";
-    const ratings = ["0", "1", "2", "3", "4", "5"];
-    const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
-    const selectRating = ratings.map((rating, i) => <option key={i} value={rating}>{rating}</option>);
-    const selectName = alphabet.map((letter, i) => <option key={i} value={letter}>{letter}</option>);
-    const breweryLikes = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
-    // debugger
-    return (
-      <div className="beers-wrapper">
-        <div className="beers-index">
-          <div className="beers-feed">
-            <div className="beer-header">
-              <h1>Top Rated Beers</h1>
-            </div>
-            <hr className="orange-line"/>
-            <div className="beer-filter">
-              <div>
-                Styles: &nbsp;
-                <select value={this.state.style} onChange={this.handleChange("style")}>
-                  <option disabled={true}>Filter by style</option>
-                  <option value="id">Show all beers</option>
-                  {selectStyles}
-                </select>
-              </div>
-              <div>
-                Rating: &nbsp;
-                <select value={this.state.rating} onChange={this.handleChange("rating")}>
-                  <option disabled={true}>Filter by rating</option>
-                  <option value="id">Show all beers</option>
-                  {selectRating}
-                </select>
-              </div>
-              <div>
-                Name: &nbsp;
-                <select value={this.state.name} onChange={this.handleChange("name")}>
-                  <option disabled={true}>Filter by name</option>
-                  <option value="id">Show all beers</option>
-                  {selectName}
-                </select>
-              </div>
-            </div>
-
-            {items}
-
-          </div>
-          <div className="side-bars">
-
-            <div className="top-beers">
-              <div className="header-side">
-                <h1 className="beers-index-title">My Wishlist</h1>
+    if (this.props.currentUser) {
+      const items = this.props.beers.map((beer) => <BeerIndexItem key={beer.id} beer={beer} addBeerToWishlist={this.props.addBeerToWishlist} removeBeerFromWishlist={this.props.removeBeerFromWishlist} addCurrentUserWishlist={this.props.addCurrentUserWishlist} removeCurrentUserWishlist={this.props.removeCurrentUserWishlist}/>)
+      // debugger
+      let wishlistBeers;
+      if (this.props.currentUser && this.props.currentUser.wishlistBeers) {
+        wishlistBeers = Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>);
+      } else {
+        wishlistBeers = ""
+      }
+      const selectStyles = this.props.beers.length > 0 ? this.props.beers[0].allStyles.map((style, i) => <option key={i}value={style}>{style}</option>) : "";
+      const ratings = ["0", "1", "2", "3", "4", "5"];
+      const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+      const selectRating = ratings.map((rating, i) => <option key={i} value={rating}>{rating}</option>);
+      const selectName = alphabet.map((letter, i) => <option key={i} value={letter}>{letter}</option>);
+      const breweryLikes = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
+      // debugger
+      return (
+        <div className="beers-wrapper">
+          <div className="beers-index">
+            <div className="beers-feed">
+              <div className="beer-header">
+                <h1>Top Rated Beers</h1>
               </div>
               <hr className="orange-line"/>
-              {wishlistBeers}
-            </div>
-            <div className="top-beers">
-              <div className="header-side">
-                <h1 className="beers-index-title">My Likes</h1>
+              <div className="beer-filter">
+                <div>
+                  Styles: &nbsp;
+                  <select value={this.state.style} onChange={this.handleChange("style")}>
+                    <option disabled={true}>Filter by style</option>
+                    <option value="id">Show all beers</option>
+                    {selectStyles}
+                  </select>
+                </div>
+                <div>
+                  Rating: &nbsp;
+                  <select value={this.state.rating} onChange={this.handleChange("rating")}>
+                    <option disabled={true}>Filter by rating</option>
+                    <option value="id">Show all beers</option>
+                    {selectRating}
+                  </select>
+                </div>
+                <div>
+                  Name: &nbsp;
+                  <select value={this.state.name} onChange={this.handleChange("name")}>
+                    <option disabled={true}>Filter by name</option>
+                    <option value="id">Show all beers</option>
+                    {selectName}
+                  </select>
+                </div>
               </div>
-              <hr className="orange-line"/>
-              {breweryLikes}
+
+              {items}
+
+            </div>
+            <div className="side-bars">
+
+              <div className="top-beers">
+                <div className="header-side">
+                  <h1 className="beers-index-title">My Wishlist</h1>
+                </div>
+                <hr className="orange-line"/>
+                {wishlistBeers}
+              </div>
+              <div className="top-beers">
+                <div className="header-side">
+                  <h1 className="beers-index-title">My Likes</h1>
+                </div>
+                <hr className="orange-line"/>
+                {breweryLikes}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return(<div></div>);
+    }
   }
 }
 

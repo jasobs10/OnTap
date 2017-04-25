@@ -41,52 +41,59 @@ class CheckinIndex extends React.Component {
   // const breweryLikes = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
   // const wishlistBeers = this.props.currentUser.wishlistBeers ? Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>) : "";
   render() {
-    let wishlistBeers;
-    if (this.props.currentUser && this.props.currentUser.wishlistBeers) {
-      wishlistBeers = Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>);
-    } else {
-      wishlistBeers = ""
-    }
-    let breweryLikes;
-    if (this.props.currentUser && this.props.currentUser.likedBreweries) {
-      likedBreweries = Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>);
-    } else {
-      breweryLikes = ""
-    }
-    const indexItems = this.props.checkins.map((checkin) => <CheckinIndexItem deleteToast={this.props.deleteToast} createToast={this.props.createToast} currentUser={this.props.currentUser} key={checkin.id} requestAllCheckins={this.props.requestAllCheckins} requestCheckin={this.props.requestCheckin} checkins={checkin} />);
-    // debugger
-    return(
-      <div className="beers-wrapper">
-        <div className="beers-index">
-          <div className="beers-feed">
-            <div className="beer-header">
-              <h1>Recent Activity</h1>
-            </div>
-            <hr className="orange-line checkin-line"/>
-
-            {indexItems}
-
-          </div>
-          <div className="side-bars">
-
-            <div className="top-beers">
-              <div className="header-side">
-                <h1 className="beers-index-title">My Wishlist</h1>
+    if (this.props.currentUser) {
+      let wishlistBeers;
+      if (this.props.currentUser && this.props.currentUser.wishlistBeers) {
+        wishlistBeers = Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>);
+      } else {
+        wishlistBeers = ""
+      }
+      let breweryLikes;
+      // debugger
+      if (this.props.currentUser && this.props.currentUser.likedBreweries) {
+        breweryLikes = Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>);
+      } else {
+        breweryLikes = ""
+      }
+      const indexItems = this.props.checkins.map((checkin) => <CheckinIndexItem deleteToast={this.props.deleteToast} createToast={this.props.createToast} currentUser={this.props.currentUser} key={checkin.id} requestAllCheckins={this.props.requestAllCheckins} requestCheckin={this.props.requestCheckin} checkins={checkin} />);
+      // debugger
+      return(
+        <div className="beers-wrapper">
+          <div className="beers-index">
+            <div className="beers-feed">
+              <div className="beer-header">
+                <h1>Recent Activity</h1>
               </div>
-              <hr className="orange-line"/>
-              {wishlistBeers}
+              <hr className="orange-line checkin-line"/>
+
+              {indexItems}
+
             </div>
-            <div className="top-beers">
-              <div className="header-side">
-                <h1 className="beers-index-title">My Likes</h1>
+            <div className="side-bars">
+
+              <div className="top-beers">
+                <div className="header-side">
+                  <h1 className="beers-index-title">My Wishlist</h1>
+                </div>
+                <hr className="orange-line"/>
+                {wishlistBeers}
               </div>
-              <hr className="orange-line"/>
-              {breweryLikes}
+              <div className="top-beers">
+                <div className="header-side">
+                  <h1 className="beers-index-title">My Likes</h1>
+                </div>
+                <hr className="orange-line"/>
+                {breweryLikes}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div></div>
+      )
+    }
   }
 }
 
