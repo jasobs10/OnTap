@@ -94,7 +94,9 @@ class Beers extends React.Component {
       // debugger
       let wishlistBeers;
       if (this.props.currentUser && this.props.currentUser.wishlistBeers) {
-        wishlistBeers = Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>);
+        wishlistBeers = Object.values(this.props.currentUser.wishlistBeers).sort((a, b) => {
+          return (a.id - b.id);
+        }).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>);
       } else {
         wishlistBeers = ""
       }
@@ -103,7 +105,10 @@ class Beers extends React.Component {
       const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
       const selectRating = ratings.map((rating, i) => <option key={i} value={rating}>{rating}</option>);
       const selectName = alphabet.map((letter, i) => <option key={i} value={letter}>{letter}</option>);
-      const breweryLikes = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
+      const breweryLikesSorted = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).sort((a, b) => {
+        return (b.id - a.id);
+      }) : "";
+      const breweryLikes = breweryLikesSorted.map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>);
       // debugger
       return (
         <div className="beers-wrapper">

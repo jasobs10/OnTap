@@ -56,7 +56,11 @@ class BreweriesIndex extends React.Component {
     if (logged_in) {
       const ratings = ["0", "1", "2", "3", "4", "5"];
       const wishlistBeers = this.props.currentUser.wishlistBeers ? Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>) : "";
-      const breweryLikes = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
+      // const breweryLikes = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
+      const breweryLikesSorted = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).sort((a, b) => {
+        return (b.id - a.id);
+      }) : "";
+      const breweryLikes = breweryLikesSorted.map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>);
       const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
       const selectRating = ratings.map((rating, i) => <option key={i} value={rating}>{rating}</option>);
       const selectName = alphabet.map((letter, i) => <option  key={i} value={letter}>{letter}</option>);
