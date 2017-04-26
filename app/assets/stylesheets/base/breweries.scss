@@ -169,3 +169,37 @@
 .like-remove {
   background-color: rgba(115, 113, 113, 0.5);
 }
+
+// .dropdown-select {
+//   padding: 3% 25%% 3% 3%;
+//   font-size: 16px;
+//   margin: 0;
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+//   appearance: none;
+//   box-sizing: inherit;
+//   background: transparent;
+//   text-align: left;
+//   // font-size: 100%;
+
+//   -webkit-font-smoothing: antialiased;
+//
+// }
+
+// .beer-filter:nth-child(1) {
+//   font-size: 30px;
+// }
+// .beer-filter > div {
+//   display: flex;
+//   justify-content: center;
+//
+// }
+
+.dropdown-select:hover {
+  cursor: pointer;
+
+}
+
+.dropdown-select  option:hover {
+  cursor: pointer;
+}

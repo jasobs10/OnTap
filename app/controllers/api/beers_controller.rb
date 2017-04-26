@@ -48,6 +48,8 @@ class Api::BeersController < ApplicationController
   end
 
   def show
+    @styles = Beer.all.map(&:style).uniq.sort
+    # debugger
     @beer = Beer.find(params[:id])
   end
 

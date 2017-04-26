@@ -1,5 +1,6 @@
 import React from 'react';
 // import ReactStars from 'react-stars'
+import { Link, hashHistory } from 'react-router';
 import { Line } from 'rc-progress';
 import WishlistAdd from '../wishlist/wishlist_add.jsx';
 var Rating = require('react-rating');
@@ -59,7 +60,7 @@ class BeerIndexItem extends React.Component {
             </div>
             <div className="col-2">
               <div className="beer-name">
-                {this.props.beer.name}
+                <Link to={`/beers/${this.props.beer.id}`}>{this.props.beer.name}</Link>
               </div>
               <div className="brewery-name">
                 {this.props.beer.brewery.name}

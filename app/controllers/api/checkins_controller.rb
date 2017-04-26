@@ -2,7 +2,14 @@ class Api::CheckinsController < ApplicationController
   before_action :require_logged_in
 
   def index
-    @checkins = Checkin.all.includes(:beer, :brewery, :comments, :toasts, :toast_users)
+    # debugger
+    id = params[:beer_id].to_i
+    if params[:beer_id]
+      @checkins = Checkin.where("beer_id = ?", id)
+      # debugger
+    else
+      @checkins = Checkin.all.includes(:beer, :brewery, :comments, :toasts, :toast_users)
+    end
   end
 
   def create

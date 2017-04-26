@@ -444,6 +444,7 @@
   margin-left: 2.2%;
   width: 100%;
   margin-top: 2%;
+
   // height: 20%;
 
 }
@@ -457,4 +458,94 @@
   // height: 1px;
   width: 100%;
 
+}
+
+.beers-feed-show {
+  width: 100% !important;
+  padding-top: 1% !important;
+}
+
+.beer-show-end {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.beer-show-end > div:first-child {
+  width: 60%;
+}
+
+.beer-show-main {
+  margin-bottom: 2%;
+
+}
+
+.beer-show-name {
+  font-size: 30px;
+  padding-top: 0;
+
+}
+
+.beer-show-brewery {
+  font-size: 20px;
+}
+
+.col-1-beer-show {
+  flex: 1;
+}
+
+.col-2-beer-show {
+  flex: 2.2;
+}
+
+.stats-container {
+  flex: 1.2;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.stats-col-1 {
+  width: 50%;
+  border-right: 1px solid rgb(205, 205, 205);
+  box-sizing: inherit;
+  // width: 100%;
+
+}
+.stats-col-1 > div {
+  width: 100%;
+  text-align: center;
+  box-sizing: inherit;
+  // padding: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stats-col-1 > div:first-child {
+  border-bottom: 1px solid rgb(205, 205, 205);
+}
+
+.stats-col-2 {
+  width: 50%;
+  box-sizing: inherit;
+
+
+}
+
+.stats-col-2 > div:first-child {
+  border-bottom: 1px solid rgb(205, 205, 205);
+}
+
+.stats-col-2 > div {
+
+  box-sizing: inherit;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }

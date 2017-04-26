@@ -9,6 +9,7 @@ import Navbar from './components/shared/navbar';
 import Beers from './components/beers/beers';
 import BreweriesIndex from './components/breweries/breweries_index';
 import {requestBeers} from './reducers/beers_redux';
+import BeerShow from './components/beers/beer_show';
 // import {signUp, logIn, logOut} from './reducers/session_redux';
 
 //TESTING
@@ -66,6 +67,7 @@ const Root = ({ store }) => {
           <IndexRoute component={ Splash } onEnter={_redirectIfLoggedIn}/>
           <Route path="home" component={ CheckinIndex } onEnter={_redirectIfNotLoggedIn}/>
           <Route path="beers" component={ Beers } onEnter={_redirectIfNotLoggedIn}/>
+          <Route path="beers/:beerId" component={ BeerShow } onEnter={_redirectIfNotLoggedIn}/>
           <Route path="breweries" component={ BreweriesIndex } onEnter={_redirectIfNotLoggedIn}/>
         </Route>
       </Router>

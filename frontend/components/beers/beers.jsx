@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { hashHistory } from 'react-router';
+import { hashHistory, Link } from 'react-router';
 import { requestBeers, addBeerToWishlist, removeBeerFromWishlist } from '../../reducers/beers_redux';
 import BeerIndexItem from './beer_index_item';
 import { addCurrentUserWishlist, removeCurrentUserWishlist } from '../../reducers/session_redux';
@@ -62,7 +62,7 @@ class Beers extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.requestBeers();
   }
   // componentWillReceiveProps(newProps) {
@@ -70,6 +70,14 @@ class Beers extends React.Component {
   //     this.props.requestBeers();
   //   }
   // }
+  // componentWillReceiveProps(newProps) {
+  //   if (newProps.beers === this.props.beers) {
+  //     return null;
+  //   }
+  //   this.props.requestBeers();
+  //
+  // }
+
   handleChange(field) {
     // debugger
     return (e) => {
@@ -120,24 +128,24 @@ class Beers extends React.Component {
               <hr className="orange-line"/>
               <div className="beer-filter">
                 <div>
-                  Styles: &nbsp;
-                  <select value={this.state.style} onChange={this.handleChange("style")}>
+
+                  <select className="dropdown-select" value={this.state.style} onChange={this.handleChange("style")}>
                     <option disabled={true}>Filter by style</option>
                     <option value="id">Show all beers</option>
                     {selectStyles}
                   </select>
                 </div>
                 <div>
-                  Rating: &nbsp;
-                  <select value={this.state.rating} onChange={this.handleChange("rating")}>
+
+                  <select className="dropdown-select" value={this.state.rating} onChange={this.handleChange("rating")}>
                     <option disabled={true}>Filter by rating</option>
                     <option value="id">Show all beers</option>
                     {selectRating}
                   </select>
                 </div>
                 <div>
-                  Name: &nbsp;
-                  <select value={this.state.name} onChange={this.handleChange("name")}>
+
+                  <select className="dropdown-select" value={this.state.name} onChange={this.handleChange("name")}>
                     <option disabled={true}>Filter by name</option>
                     <option value="id">Show all beers</option>
                     {selectName}

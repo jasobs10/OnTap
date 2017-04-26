@@ -9,7 +9,7 @@ const REMOVE_WISHLIST = "REMOVE_WISHLIST";
 const RECEIVE_BEERS_BY_STYLE = "RECEIVE_BEERS_BY_STYLE";
 const RECEIVE_BEERS_BY_NAME = "RECEIVE_BEERS_BY_NAME";
 const RECEIVE_BEERS_BY_RATING = "RECEIVE_BEERS_BY_RATING";
-const ADD_ALL_STYLES = "ADD_ALL_STYLES"
+const ADD_ALL_STYLES = "ADD_ALL_STYLES";
 
 
 const APIUTIL = {
@@ -136,6 +136,7 @@ export const beersReducer = (oldState = _defaultBeersState, action) => {
     case RECEIVE_ALL_BEERS:
       return action.beers;
     case RECEIVE_BEER:
+    // debugger
       return merge(old, action.beer);
     case ADD_WISHLIST:
 
