@@ -97,6 +97,13 @@
   position: relative;
 
 }
+.checkin-footer-wrapper {
+  display: flex;
+  flex-direction: row;
+  font-size: 13px;
+  justify-content: space-between;
+  width: 100%;
+}
 
 .stars {
   position: absolute;
@@ -188,4 +195,19 @@
 
 .checkin-beer-avatar > div > img {
   border-radius: 6px;
+}
+
+.like-count {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-end;
+  font-size: 16px;
+  align-items: center;
+  width: 20%;
+  padding-right: 1%;
+}
+
+.beer-icon-footer {
+  color: rgb(255, 173, 13);
 }

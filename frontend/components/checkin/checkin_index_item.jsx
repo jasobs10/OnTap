@@ -32,12 +32,26 @@ const ToastButton = (props) => {
 
 };
 
+const ToastLikes = (props) => {
+  // debugger
+  if ((Object.keys(props.checkins.toastUsers).length) > 0) {
+    return (
+      <div className="like-count">
+        {Object.keys(props.checkins.toastUsers).length}&nbsp;<i className="fa fa-beer beer-icon-footer" aria-hidden="true"></i>
+      </div>
+    );
+  } else {
+    return <div></div>
+  }
+}
+
 
 class CheckinIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     // debugger
+    this.state = {likes: this.props.checkins.toastCount}
   }
 
   handleClick(component) {
@@ -51,6 +65,7 @@ class CheckinIndexItem extends React.Component {
 
   render() {
     // debugger
+    const toastCount = this.props.checkins.toastUsers ? <ToastLikes checkins={this.props.checkins}/> : "";
     const lastName = this.props.checkins.user.l_name.slice(0,1) + ".";
     const rate = this.props.checkins.rating;
     let color;
@@ -108,9 +123,11 @@ class CheckinIndexItem extends React.Component {
 
             </div>
 
-            <div className="checkin-footer">
-              <TimeAgo datetime={this.props.checkins.created_at}/>&nbsp;&nbsp;&nbsp;&nbsp; View detailed check-in
+            <div className="checkin-footer-wrapper">
+              <span className="checkin-footer"><TimeAgo datetime={this.props.checkins.created_at}/>&nbsp;&nbsp;&nbsp;&nbsp; View detailed check-in</span>
+              {toastCount}
             </div>
+
             <CommentsIndex updateComment={this.props.updateComment} activateModal={this.props.activateModal} receiveComponent={this.props.receiveComponent} checkin={this.props.checkins} deleteComment={this.props.deleteComment} currentUser={this.props.currentUser}/>
           </div>
           <div className="checkin-beer-avatar">

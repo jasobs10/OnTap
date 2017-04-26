@@ -21,6 +21,7 @@
         end
       end
     end
+    # json.toastCount checkin.toasts.count
     json.comments do
       checkin.comments.each do |comment|
         json.set! comment.id do

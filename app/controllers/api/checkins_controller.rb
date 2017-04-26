@@ -2,7 +2,7 @@ class Api::CheckinsController < ApplicationController
   before_action :require_logged_in
 
   def index
-    @checkins = Checkin.all.includes(:beer, :brewery, :comments)
+    @checkins = Checkin.all.includes(:beer, :brewery, :comments, :toasts, :toast_users)
   end
 
   def create

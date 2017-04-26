@@ -10,6 +10,7 @@ json.f_name @toast.user.f_name
 json.l_name @toast.user.l_name
 json.id @toast.id
 json.checkin_id @toast.checkin_id
+# json.toastCount @toast.checkin.toasts.count
 # json.userToasts do
 #   json.array! @toast.users.map(&:id)
 # end
