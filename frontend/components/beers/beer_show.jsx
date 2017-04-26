@@ -76,7 +76,7 @@ class BeerShow extends React.Component {
           </div>
         </div>
 
-        <CheckinIndex beerCheckins={this.props.beerCheckins}/>
+        <CheckinIndex beerCheckins={this.props.checkins}/>
       </div>
     );
   }

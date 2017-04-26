@@ -180,7 +180,8 @@ export const createCheckin= (checkin) => {
 
 
 export const fetchBeerCheckins = (beer_id) => {
-  return dispatch => APIUTIL.fetchCheckins(beer_id).then((checkins) => dispatch(receiveAllCheckins(checkins)));
+  // debugger
+  return dispatch => APIUTIL.fetchCheckins(beer_id).then((checkins) => dispatch(receiveBeerCheckins(checkins)));
 };
 
 
@@ -192,6 +193,9 @@ export const checkinsReducer = (oldState = {}, action) => {
     case RECEIVE_CHECKIN:
     // debugger
       return merge({}, oldState, {[action.checkin.id]: action.checkin});
+    case RECEIVE_BEER_CHECKINS:
+    // debugger
+      return action.checkins
     case RECEIVE_TOAST:
     // debugger
       let old = merge({}, oldState);

@@ -47,7 +47,9 @@ class CheckinIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestAllCheckins();
+    if (!this.props.beerCheckins) {
+      this.props.requestAllCheckins();
+    }
   }
   // const breweryLikes = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
   // const wishlistBeers = this.props.currentUser.wishlistBeers ? Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>) : "";

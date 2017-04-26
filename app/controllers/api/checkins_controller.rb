@@ -5,6 +5,7 @@ class Api::CheckinsController < ApplicationController
     # debugger
     id = params[:beer_id].to_i
     if params[:beer_id]
+      # debugger
       @checkins = Checkin.where("beer_id = ?", id)
       # debugger
     else

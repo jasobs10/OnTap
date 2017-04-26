@@ -67,6 +67,7 @@ class CheckinIndexItem extends React.Component {
   render() {
     // debugger
     const toastCount = this.props.checkins.toastUsers ? <ToastLikes checkins={this.props.checkins}/> : "";
+    // debugger
     const lastName = this.props.checkins.user.l_name.slice(0,1) + ".";
     const rate = this.props.checkins.rating;
     let color;
@@ -89,7 +90,7 @@ class CheckinIndexItem extends React.Component {
           </div>
           <div className="checkin-content">
             <div className="checkin-header">
-              <span>{this.props.checkins.user.f_name} {lastName}</span> is drinking a <span>{this.props.checkins.beer}</span> by <span>{this.props.checkins.brewery}</span>
+              <span>{this.props.checkins.user.f_name} {lastName}</span>is drinking a <span><Link to={`/beers/${this.props.checkins.beer_id}`}>{this.props.checkins.beer}</Link></span> by <span>{this.props.checkins.brewery}</span>
             </div>
             <div className="checkin-review">
               <div className="arrow">
