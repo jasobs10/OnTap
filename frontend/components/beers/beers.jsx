@@ -104,14 +104,14 @@ class Beers extends React.Component {
         return (parseInt(b.average) - (parseInt(a.average)));
       });
       const items = sortedBeers.map((beer) => <BeerIndexItem
-      key={beer.id} beer={beer}
-      addBeerToWishlist={this.props.addBeerToWishlist}
-      removeBeerFromWishlist={this.props.removeBeerFromWishlist}
-      addCurrentUserWishlist={this.props.addCurrentUserWishlist}
-      removeCurrentUserWishlist={this.props.removeCurrentUserWishlist}
-      receiveComponent={this.props.receiveComponent}
-      activateModal={this.props.activateModal}
-      createCheckin={this.props.createCheckin}/>);
+        key={beer.id} beer={beer}
+        addBeerToWishlist={this.props.addBeerToWishlist}
+        removeBeerFromWishlist={this.props.removeBeerFromWishlist}
+        addCurrentUserWishlist={this.props.addCurrentUserWishlist}
+        removeCurrentUserWishlist={this.props.removeCurrentUserWishlist}
+        receiveComponent={this.props.receiveComponent}
+        activateModal={this.props.activateModal}
+        createCheckin={this.props.createCheckin}/>);
       // debugger
       let wishlistBeers;
       if (this.props.currentUser && this.props.currentUser.wishlistBeers) {

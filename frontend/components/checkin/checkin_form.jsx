@@ -12,6 +12,7 @@ class CheckinForm extends React.Component {
     this.clearForm = this.clearForm.bind(this);
     this.handleAddress = this.handleAddress.bind(this);
     this.handleSlide = this.handleSlide.bind(this);
+    this.handleContainer = this.handleContainer.bind(this);
   }
 
   backspace(e) {
@@ -27,13 +28,13 @@ class CheckinForm extends React.Component {
   }
 
   clearForm() {
-    this.setState({counter: 0, comment: ""});
+    this.setState({counter: 0, rating: 0, address: "", review: "", container: ""});
   }
 
   handleSubmit(e) {
     // debugger
     e.preventDefault()
-    this.props.addComment({comment: this.state.comment, checkin_id: this.props.checkins.id}).then(() => this.clearForm()).then(() => this.props.activateModal(false));
+    this.props.createCheckin({rating: this.state.rating, beer_id: this.props.params.beerId, address: this.state.address, container: this.state.container}).then(() => this.clearForm()).then(() => this.props.activateModal(false));
   }
 
   handleSlide(value) {
@@ -45,6 +46,10 @@ class CheckinForm extends React.Component {
 
   handleAddress(e) {
     this.setState({address: e.target.value})
+  }
+
+  handleContainer(e) {
+    this.setState({container: e.target.value})
   }
 
   render() {
@@ -64,7 +69,7 @@ class CheckinForm extends React.Component {
               <i className="fa fa-camera-retro" aria-hidden="true"></i>
             </div>
           </div>
-          <div className="comment-bottom checkin-form-bottom">
+          <div className="comment-bottom checkin-form-middle">
             <div className="counter">
               {this.state.counter} / 140
             </div>
@@ -77,6 +82,15 @@ class CheckinForm extends React.Component {
                              className="rating-stars"
                              onChange={this.handleSlide}
                              />&nbsp;&nbsp; {this.state.rating}/5</span>
+            </div>
+            <div className="container-select">
+              <select className="dropdown-select" value={this.state.container} onChange={this.handleContainer}>
+                <option disabled={true}>Select Container</option>
+                <option value="can">Can</option>
+                <option value="bottle">Bottle</option>
+                <option value="draft">Draft</option>
+
+              </select>
             </div>
 
           </div>

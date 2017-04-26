@@ -94,11 +94,25 @@
   width: 100%;
 }
 
+.checkin-form-middle {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  // margin-right: 4%;
+  margin-bottom: 2%;
+}
+
+.checkin-form-middle > div {
+  margin-right: 4%;
+}
+
 .checkin-form-bottom {
   margin-bottom: 1.2%;
 }
 .checkin-slider {
-  width: 70%;
+  width: 30%;
 }
 
 .location-input-wrapper {
@@ -107,7 +121,7 @@
 
 .location-input {
   width: 100%;
-  padding: 1%;
+  padding: 2%;
 }
 
 .checkin-form-rating {
