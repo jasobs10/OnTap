@@ -12,7 +12,7 @@ class CommentForm extends React.Component {
   }
 
   backspace(e) {
-    if (e.keyCode === 8) {
+    if (e.keyCode === 8 && this.state.counter !== 0) {
       this.setState({counter: this.state.counter - 2});
     }
   }

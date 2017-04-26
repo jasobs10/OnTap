@@ -26,6 +26,14 @@ const APIUTIL = {
     });
   },
 
+  createCheckin: (checkin) => {
+    return $.ajax({
+      method: "POST",
+      url: "api/checkins",
+      data: { checkin }
+    });
+  },
+
   addToast: (checkin_id) => {
     return $.ajax({
       method: "POST",
@@ -144,13 +152,17 @@ export const updateComment = (comment) => {
   return dispatch => APIUTIL.updateComment(comment).then((comment_r) => dispatch(receiveComment(comment_r)));
 };
 
+export const createCheckin= (checkin) => {
+  return dispatch => APIUTIL.createCheckin(checkin).then((checkin) => dispatch(receiveCheckin(checkin)));
+};
+
 export const checkinsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   switch(action.type) {
     case RECEIVE_ALL_CHECKINS:
       return action.checkins;
     case RECEIVE_CHECKIN:
-      return merge({}, oldState, action.checkin);
+      return merge({}, oldState, {[action.checkin.id]: action.checkin});
     case RECEIVE_TOAST:
     // debugger
       let old = merge({}, oldState);

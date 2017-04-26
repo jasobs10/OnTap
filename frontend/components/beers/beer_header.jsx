@@ -4,7 +4,7 @@ import { Link, hashHistory } from 'react-router';
 import { Line } from 'rc-progress';
 import WishlistAdd from '../wishlist/wishlist_add';
 var Rating = require('react-rating');
-import EditCommentForm from '../checkin/comments_form'
+import CheckinForm from '../checkin/checkin_form';
 
 export const LineRating = ({ average }) => {
   if (average) {
@@ -37,18 +37,19 @@ export const LineRating = ({ average }) => {
   )
 }
 
-class BeerIndexItem extends React.Component {
+class BeerHeader extends React.Component {
   constructor(props) {
     super(props);
-
+    this.handleClick = this.handleClick.bind(this);
   }
 
-handleClick(e) {
-
-    this.props.receiveComponent(<EditCommentForm updateComment={props.updateComment} activateModal={props.activateModal} comment={props.comment}/>);
+  handleClick(e) {
+    // debugger
+    this.props.receiveComponent(<CheckinForm beer={this.props.beer} createCheckin={this.props.createCheckin} activateModal={this.props.activateModal}/>);
     this.props.activateModal(true);
 
   };
+
 
   render() {
     // debugger
@@ -66,31 +67,31 @@ handleClick(e) {
               </div>
 
             </div>
-            <div className="col-2">
-              <div className="beer-name">
+            <div className="col-2 beer-show-color">
+              <div className="beer-name beer-showpage-name">
                 <Link to={`/beers/${this.props.beer.id}`}>{this.props.beer.name}</Link>
               </div>
-              <div className="brewery-name">
+              <div className="brewery-name beer-showpage-brewery">
                 {this.props.beer.brewery.name}
               </div>
-              <div className="beer-style">
+              <div className="beer-style beer-showpage-style">
                 {this.props.beer.style}
               </div>
-              <div className="beer-description">
+              <div className="beer-description beer-showpage-description">
                 {this.props.beer.description}
               </div>
             </div>
             <div className="col-3">
-              <WishlistAdd key={this.props.beer.id} addBeerToWishlist={this.props.addBeerToWishlist} removeBeerFromWishlist={this.props.removeBeerFromWishlist} beer={this.props.beer} removeCurrentUserWishlist={this.props.removeCurrentUserWishlist} addCurrentUserWishlist={this.props.addCurrentUserWishlist}/>
-              <div className="wish-add">
+              <div className="wish-add" onClick={this.handleClick}>
                 ✔
                 <div className="wishlist-dropdown">
                   Checkin Beer
                 </div>
               </div>
+              <WishlistAdd key={this.props.beer.id} addBeerToWishlist={this.props.addBeerToWishlist} removeBeerFromWishlist={this.props.removeBeerFromWishlist} beer={this.props.beer} removeCurrentUserWishlist={this.props.removeCurrentUserWishlist} addCurrentUserWishlist={this.props.addCurrentUserWishlist}/>
             </div>
           </div>
-          <div className="beer-item-bottom">
+          <div className="beer-item-bottom beer-showpage-bottom">
             <div className="bottom-left">
               {this.props.beer.abv}% ABV
             </div>
@@ -118,4 +119,4 @@ handleClick(e) {
 //   <div className="ratings-bottom"></div>
 // </div>
 
-export default BeerIndexItem;
+export default BeerHeader;

@@ -81,3 +81,69 @@
   cursor: pointer;
   transition: .3s;
 }
+
+.checkin-form-wrapper {
+  width: 42%;
+}
+
+.checkin-form-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.checkin-form-bottom {
+  margin-bottom: 1.2%;
+}
+.checkin-slider {
+  width: 70%;
+}
+
+.location-input-wrapper {
+  width: 65%;
+}
+
+.location-input {
+  width: 100%;
+  padding: 1%;
+}
+
+.checkin-form-rating {
+  font-size: 14px;
+  color: rgb(57, 57, 57);
+}
+
+.review-line {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.checkin-form-review {
+  width: 80%;
+}
+
+.checkin-form-title {
+  color: rgb(144, 100, 13);
+  font-size: 18px;
+}
+
+.checkin-upload {
+  color: white;
+  background-color: rgb(255, 173, 13);
+  font-size: 37px;
+  width: 15%;
+  margin-bottom: 3%;
+  border-radius: 4px;
+  padding-left: 2.85%;
+  padding-top: .65%;
+}
+
+.checkin-upload:hover {
+  background-color: rgb(190, 129, 9);
+  cursor: pointer;
+  transition: .3s;
+}

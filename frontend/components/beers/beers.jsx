@@ -5,6 +5,8 @@ import { requestBeers, addBeerToWishlist, removeBeerFromWishlist } from '../../r
 import BeerIndexItem from './beer_index_item';
 import { addCurrentUserWishlist, removeCurrentUserWishlist } from '../../reducers/session_redux';
 import { BreweryLikeItem } from '../breweries/brewery_like_item';
+import { receiveComponent, activateModal } from '../../reducers/modal_redux';
+import { createCheckin } from '../../reducers/checkins_redux'
 // import { addBeerToWishlist, removeBeerFromWishlist } from '../../reducers/wishlist_redux';
 
 const mapStateToProps = (state) => {
@@ -21,7 +23,10 @@ const mapDispatchToProps = (dispatch) => {
     addBeerToWishlist: (beerId) => dispatch(addBeerToWishlist(beerId)),
     removeBeerFromWishlist: (id) => dispatch(removeBeerFromWishlist(id)),
     addCurrentUserWishlist: (beer) => dispatch(addCurrentUserWishlist(beer)),
-    removeCurrentUserWishlist: (beer) => dispatch(removeCurrentUserWishlist(beer))
+    removeCurrentUserWishlist: (beer) => dispatch(removeCurrentUserWishlist(beer)),
+    receiveComponent: (component) => dispatch(receiveComponent(component)),
+    activateModal: (bool) => dispatch(activateModal(bool)),
+    createCheckin: (checkin) => dispatch(createCheckin(checkin))
 
   }
 };
@@ -98,7 +103,15 @@ class Beers extends React.Component {
       const sortedBeers = this.props.beers.sort((a, b) => {
         return (parseInt(b.average) - (parseInt(a.average)));
       });
-      const items = sortedBeers.map((beer) => <BeerIndexItem key={beer.id} beer={beer} addBeerToWishlist={this.props.addBeerToWishlist} removeBeerFromWishlist={this.props.removeBeerFromWishlist} addCurrentUserWishlist={this.props.addCurrentUserWishlist} removeCurrentUserWishlist={this.props.removeCurrentUserWishlist}/>)
+      const items = sortedBeers.map((beer) => <BeerIndexItem
+      key={beer.id} beer={beer}
+      addBeerToWishlist={this.props.addBeerToWishlist}
+      removeBeerFromWishlist={this.props.removeBeerFromWishlist}
+      addCurrentUserWishlist={this.props.addCurrentUserWishlist}
+      removeCurrentUserWishlist={this.props.removeCurrentUserWishlist}
+      receiveComponent={this.props.receiveComponent}
+      activateModal={this.props.activateModal}
+      createCheckin={this.props.createCheckin}/>);
       // debugger
       let wishlistBeers;
       if (this.props.currentUser && this.props.currentUser.wishlistBeers) {

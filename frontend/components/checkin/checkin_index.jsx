@@ -12,12 +12,14 @@ import Modal from '../modal/modal';
 
 
 // <CheckinIndexItem modal={this.props.modal} receiveComponent={this.props.receiveComponent} activateModal={this.props.activateModal} deleteToast={this.props.deleteToast} createToast={this.props.createToast} currentUser={this.props.currentUser} key={checkin.id} requestAllCheckins={this.props.requestAllCheckins} requestCheckin={this.props.requestCheckin} checkins={checkin} />);
-const mapStateToProps = (state) => {
-
+const mapStateToProps = (state, ownProps) => {
+  // debugger
+  const beerCheckins = ownProps.beerCheckins ? Object.values(ownProps.beerCheckins) : Object.values(state.checkins);
   return {
+    // debugger
     currentUser: state.currentUser,
     beers: state.beers,
-    checkins: Object.values(state.checkins),
+    checkins: beerCheckins,
     modal: state.modal
   }
 };
