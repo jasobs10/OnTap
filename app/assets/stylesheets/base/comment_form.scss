@@ -9,6 +9,19 @@
   z-index: 100;
 }
 
+.img-popout {
+
+    position: fixed;
+    // width: 100%;
+    top: 30vh;
+    width: 33%;
+    padding: 10px;
+    background-color: white;
+    border-radius: 4px;
+    z-index: 100;
+
+}
+
 .comment-wrapper > form {
   display: flex;
   flex-direction: column;

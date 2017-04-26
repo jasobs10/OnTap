@@ -7,6 +7,7 @@ import Modal from '../modal/modal';
 import CommentsIndex from './comments';
 import EditCommentForm from './edit_comments_form';
 import TimeAgo from 'timeago-react';
+import { CheckinImage } from './checkin_img';
 // import ReactTimeAgo from 'react-time-ago';
 // import { receiveComponent, activateModal } from '../../reducers/modal_redux'
 
@@ -46,6 +47,7 @@ class CheckinIndexItem extends React.Component {
       this.props.activateModal(true);
     };
   }
+
 
   render() {
     // debugger
@@ -96,7 +98,7 @@ class CheckinIndexItem extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="checkin-image">
+            <div className="checkin-image" onClick={this.handleClick(<CheckinImage/>)}>
               <img src="/images/tired-hands.jpg" alt="tired-hands-beer"/>
             </div>
             <div className="checkin-buttons">
