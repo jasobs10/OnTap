@@ -14,8 +14,14 @@
 //= require jquery_ujs
 //= require_tree .
 
-// $.ajax({
-//   method: "POST",
-//   url: "api/users",
-//   data: { user: {username: "jasobs10", password: "password"} }
-// });
+// import react_time_ago from 'react-time-ago';
+//
+//
+// import javascript_time_ago from 'javascript-time-ago';
+// javascript_time_ago.locale(require('javascript-time-ago/locales/en'));
+// javascript_time_ago.locale(require('javascript-time-ago/locales/ru'));
+//
+//
+// require('javascript-time-ago/intl-messageformat-global');
+// require('intl-messageformat/dist/locale-data/en');
+// require('intl-messageformat/dist/locale-data/ru');

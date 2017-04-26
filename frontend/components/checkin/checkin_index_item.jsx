@@ -6,6 +6,8 @@ import CommentForm from './comments_form';
 import Modal from '../modal/modal';
 import CommentsIndex from './comments';
 import EditCommentForm from './edit_comments_form';
+import TimeAgo from 'timeago-react';
+// import ReactTimeAgo from 'react-time-ago';
 // import { receiveComponent, activateModal } from '../../reducers/modal_redux'
 
 const ToastButton = (props) => {
@@ -69,7 +71,7 @@ class CheckinIndexItem extends React.Component {
           </div>
           <div className="checkin-content">
             <div className="checkin-header">
-              {this.props.checkins.user.f_name} {lastName} is drinking a {this.props.checkins.beer} by {this.props.checkins.brewery}
+              <span>{this.props.checkins.user.f_name} {lastName}</span> is drinking a <span>{this.props.checkins.beer}</span> by <span>{this.props.checkins.brewery}</span>
             </div>
             <div className="checkin-review">
               <div className="arrow">
@@ -105,7 +107,7 @@ class CheckinIndexItem extends React.Component {
             </div>
 
             <div className="checkin-footer">
-              2 hours ago &nbsp;&nbsp;&nbsp;&nbsp; View detailed check-in
+              <TimeAgo datetime={this.props.checkins.created_at}/>&nbsp;&nbsp;&nbsp;&nbsp; View detailed check-in
             </div>
             <CommentsIndex updateComment={this.props.updateComment} activateModal={this.props.activateModal} receiveComponent={this.props.receiveComponent} checkin={this.props.checkins} deleteComment={this.props.deleteComment} currentUser={this.props.currentUser}/>
           </div>

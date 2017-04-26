@@ -62,7 +62,11 @@ class BreweriesIndex extends React.Component {
       const selectName = alphabet.map((letter, i) => <option  key={i} value={letter}>{letter}</option>);
       const selectLoc = this.props.breweries.length > 0 ? this.props.breweries[0].allStates.map((state, i) => <option key={i} value={state}>{state}</option>) : "";
       // debugger
-      const brewers = this.props.breweries.map((brewery) => {
+      const sortedBreweries = this.props.breweries.sort((a, b) => {
+        return (parseInt(b.average) - (parseInt(a.average)));
+      });
+      // debugger
+      const brewers = sortedBreweries.map((brewery) => {
         return <BreweryIndexItem key={brewery.id} brewery={brewery} addBreweryLike={this.props.addBreweryLike} removeBreweryLike={this.props.removeBreweryLike} addUserLike={this.props.addUserLike} removeUserLike={this.props.removeUserLike}/>
       });
 

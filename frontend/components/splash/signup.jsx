@@ -124,9 +124,9 @@ class SignUpForm extends React.Component {
 
           <input className="auth-input last-input" type="text" onChange={this.handleChange('l_name')} value={this.state.l_name} placeholder="Last name"/>
 
-            <label className="upload-wrapper upload-picture-button"><i className="fa fa-camera-retro" aria-hidden="true"></i>
+            <label className="auth-submit upload">
               <input name="file" id="file" className="upload-button" type="file" onChange={this.updateFile}/>
-              <span className='photo-text'>Upload your picture</span>
+              <span className='photo-text'><i className="fa fa-camera-retro" aria-hidden="true"></i>&nbsp;&nbsp;Upload your picture</span>
             </label>
 
           <div className="preview-image-wrapper">

@@ -388,13 +388,14 @@ html {
 }
 
 .upload-wrapper {
-  padding: 1.5% 2%;
+  // padding: 1.5% 3%;
 
   margin-bottom: 1.5%;
   border-radius: 4px;
-  width: 75%;
+  width: 200px;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+
   background-color: rgb(255, 173, 13);
 
 }
@@ -402,20 +403,24 @@ html {
 .upload-picture-button {
   // background-color: rgb(255, 173, 13);
   color: white;
+  align-self: flex-start;
+  // font-size: 20px;
 }
 
 .photo-text {
-  font-size: 12px;
-  padding-top: 1.2%;
+  font-size: 100%;
+  padding-top: 1%;
   color: white;
 
 }
 
-.last-input {
-  margin-bottom: 2%;
-}
+
 
 .upload-wrapper:hover {
   cursor: pointer;
   background-color: rgb(144, 100, 14);
+}
+
+.upload {
+  margin-bottom: 2%;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import EditCommentForm from './edit_comments_form';
+import TimeAgo from 'timeago-react';
 //
 // const mapStateToProps = (state) => {
 //
@@ -36,7 +37,7 @@ const CommentsIndexItem = (props) => {
           <span className="orange">{props.comment.author_f_name} {props.comment.author_l_name}</span>: {props.comment.comment}
         </div>
         <div className='comments-footer'>
-          <span>hour ago</span>
+          <span><TimeAgo datetime={props.comment.created_at}/></span>
           { ed }
           { del }
         </div>
