@@ -14,6 +14,12 @@ class Api::CheckinsController < ApplicationController
 
   def create
     @checkin = Checkin.new(checkin_params)
+    @checkin.user_id = current_user.id
+    if @checkin.save
+      render :show
+    else
+      render json: {base: ["You cannot checkin this beer"]}
+    end
   end
 
   def update

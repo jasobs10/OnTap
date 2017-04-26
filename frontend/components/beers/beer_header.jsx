@@ -41,6 +41,7 @@ class BeerHeader extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    // debugger
   }
 
   handleClick(e) {
@@ -88,7 +89,12 @@ class BeerHeader extends React.Component {
                   Checkin Beer
                 </div>
               </div>
-              <WishlistAdd key={this.props.beer.id} addBeerToWishlist={this.props.addBeerToWishlist} removeBeerFromWishlist={this.props.removeBeerFromWishlist} beer={this.props.beer} removeCurrentUserWishlist={this.props.removeCurrentUserWishlist} addCurrentUserWishlist={this.props.addCurrentUserWishlist}/>
+              <WishlistAdd key={this.props.beer.id}
+                addBeerToWishlist={this.props.addBeerToWishlist}
+                removeBeerFromWishlist={this.props.removeBeerFromWishlist}
+                beer={this.props.beer}
+                removeCurrentUserWishlist={this.props.removeCurrentUserWishlist}
+                addCurrentUserWishlist={this.props.addCurrentUserWishlist}/>
             </div>
           </div>
           <div className="beer-item-bottom beer-showpage-bottom">

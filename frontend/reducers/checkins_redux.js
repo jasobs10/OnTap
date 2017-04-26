@@ -9,13 +9,25 @@ const REMOVE_COMMENT = "REMOVE_COMMENT";
 const UPDATE_COMMENT = "UPDATE_COMMENT";
 
 
+const RECEIVE_BEER_CHECKINS = "RECEIVE_BEER_CHECKINS";
+
+// const APIUTIL = {
+//   fetchCheckins: (beer_id) => {
+//     return $.ajax({
+//       method: "GET",
+//       url: `api/checkins`,
+//       data: { beer_id }
+//     });
+//   },
+// };
 
 
 const APIUTIL = {
-  fetchCheckins: () => {
+  fetchCheckins: (beer_id) => {
     return $.ajax({
       method: "GET",
-      url: "api/checkins"
+      url: `api/checkins`,
+      data: { beer_id }
     });
   },
 
@@ -124,6 +136,13 @@ const removeComment = (comment) => {
   };
 };
 
+const receiveBeerCheckins = (checkins) => {
+  return {
+    type: RECEIVE_BEER_CHECKINS,
+    checkins
+  };
+};
+
 export const createToast = (checkin_id) => {
   return dispatch => APIUTIL.addToast(checkin_id).then((user) => dispatch(addToast(user)));
 };
@@ -153,8 +172,17 @@ export const updateComment = (comment) => {
 };
 
 export const createCheckin= (checkin) => {
-  return dispatch => APIUTIL.createCheckin(checkin).then((checkin) => dispatch(receiveCheckin(checkin)));
+  return dispatch => APIUTIL.createCheckin(checkin).then((checkin) => {
+    // debugger
+    return dispatch(receiveCheckin(checkin));
+  });
 };
+
+
+export const fetchBeerCheckins = (beer_id) => {
+  return dispatch => APIUTIL.fetchCheckins(beer_id).then((checkins) => dispatch(receiveAllCheckins(checkins)));
+};
+
 
 export const checkinsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -162,16 +190,12 @@ export const checkinsReducer = (oldState = {}, action) => {
     case RECEIVE_ALL_CHECKINS:
       return action.checkins;
     case RECEIVE_CHECKIN:
+    // debugger
       return merge({}, oldState, {[action.checkin.id]: action.checkin});
     case RECEIVE_TOAST:
     // debugger
       let old = merge({}, oldState);
-      // if (old[action.user.checkinId].toastUsers) {
-      //   merge(old[action.user.checkinId].toastUsers, {[action.user.userId]: action.user });
-      // } else {
-      //   old[action.user.checkinId].toastUsers = {[action.user.userId]: action.user}
-      // }
-      // debugger
+
       old[action.user.checkin_id].currentUserToast = action.user;
 
 

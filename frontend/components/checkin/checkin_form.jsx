@@ -34,7 +34,7 @@ class CheckinForm extends React.Component {
   handleSubmit(e) {
     // debugger
     e.preventDefault()
-    this.props.createCheckin({rating: this.state.rating, beer_id: this.props.params.beerId, address: this.state.address, container: this.state.container}).then(() => this.clearForm()).then(() => this.props.activateModal(false));
+    this.props.createCheckin({rating: this.state.rating, beer_id: this.props.beer.id, address: this.state.address, container: this.state.container}).then(() => this.clearForm()).then(() => this.props.activateModal(false));
   }
 
   handleSlide(value) {
@@ -96,7 +96,7 @@ class CheckinForm extends React.Component {
           </div>
           <div className="checkin-form-bottom">
             <div className="location-input-wrapper">
-              <input className="location-input" type="text" value={this.state.address} placeholder="Location address" onChange={this.handleaAddress}/>
+              <input className="location-input" type="text" value={this.state.address} placeholder="Location address" onChange={this.handleAddress}/>
             </div>
             <div className="comment-button" onClick={this.handleSubmit}>
               Check-in

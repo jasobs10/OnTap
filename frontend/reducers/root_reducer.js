@@ -14,7 +14,7 @@ const rootReducer = combineReducers({
   beers: beersReducer,
   breweries: breweriesReducer,
   checkins: checkinsReducer,
-  beerCheckins: beerCheckinsReducer
+  // beerCheckins: beerCheckinsReducer
 
 });
 

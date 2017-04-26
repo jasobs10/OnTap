@@ -1,5 +1,6 @@
 import React from 'react';
 import { Line } from 'rc-progress';
+import { Link } from 'react-router';
 // import { WishlistBeerItem } from '../beers/beers';
 var Rating = require('react-rating');
 import CommentForm from './comments_form';

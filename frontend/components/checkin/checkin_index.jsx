@@ -66,7 +66,10 @@ class CheckinIndex extends React.Component {
       } else {
         breweryLikes = ""
       }
-      const indexItems = this.props.checkins.map((checkin) => <CheckinIndexItem {...this.props}  key={checkin.id} checkins={checkin} />);
+      const sortedCheckins = this.props.checkins.sort((a, b) => {
+        return (b.id - a.id);
+      });
+      const indexItems = sortedCheckins.map((checkin) => <CheckinIndexItem {...this.props}  key={checkin.id} checkins={checkin} />);
 
       // debugger
       return(

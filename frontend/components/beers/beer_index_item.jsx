@@ -80,14 +80,9 @@ handleClick(e) {
                 {this.props.beer.description}
               </div>
             </div>
-            <div className="col-3">
+            <div className="col-3 no-checkin">
               <WishlistAdd key={this.props.beer.id} addBeerToWishlist={this.props.addBeerToWishlist} removeBeerFromWishlist={this.props.removeBeerFromWishlist} beer={this.props.beer} removeCurrentUserWishlist={this.props.removeCurrentUserWishlist} addCurrentUserWishlist={this.props.addCurrentUserWishlist}/>
-              <div className="wish-add">
-                ✔
-                <div className="wishlist-dropdown">
-                  Checkin Beer
-                </div>
-              </div>
+
             </div>
           </div>
           <div className="beer-item-bottom">
