@@ -13,6 +13,7 @@ class Api::CheckinsController < ApplicationController
       @checkins = Brewery.includes(:checkins).find(params[:brewery_id]).checkins
     elsif params[:user_id]
       @checkins = User.includes(:checkins).find(params[:user_id]).checkins
+      # debugger
     else
       @checkins = Checkin.all.includes(:beer, :brewery, :comments, :toasts, :toast_users)
     end

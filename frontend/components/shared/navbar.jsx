@@ -1,7 +1,8 @@
 import React from 'react';
-import { hashHistory } from 'react-router';
+import { hashHistory, Link } from 'react-router';
 import { logOut } from '../../reducers/session_redux';
 import { connect } from 'react-redux';
+
 
 const mapStateToProps = (state) => {
   return {
@@ -47,7 +48,7 @@ class Navbar extends React.Component {
             {this.state.user.username}
             <div className="dropdown">
               <div>
-                My profile
+                <Link to={`/users/${this.state.user.id}`}>My profile</Link>
               </div>
               <div>
                 Add Picture

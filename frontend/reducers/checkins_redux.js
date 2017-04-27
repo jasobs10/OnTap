@@ -40,6 +40,7 @@ const APIUTIL = {
   },
 
   fetchUserCheckins: (user_id) => {
+    // debugger
     return $.ajax({
       method: "GET",
       url: `api/checkins`,
@@ -212,7 +213,7 @@ export const fetchBeerCheckins = (beer_id) => {
 };
 
 export const fetchUserCheckins = (user_id) => {
-  return dispatch => APIUTIL.fetchCheckins(user_id).then((checkins) => dispatch(receiveAllCheckins(checkins)));
+  return dispatch => APIUTIL.fetchUserCheckins(user_id).then((checkins) => dispatch(receiveAllCheckins(checkins)));
 };
 
 
@@ -220,6 +221,7 @@ export const checkinsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   switch(action.type) {
     case RECEIVE_ALL_CHECKINS:
+    // debugger
       return action.checkins;
     case RECEIVE_CHECKIN:
     //

@@ -30,10 +30,10 @@ class UserShow extends React.Component {
 
   componentWillMount() {
     // debugger
-    if (this.props.params.userId) {
+
       this.props.fetchUser(this.props.params.userId);
       this.props.fetchUserCheckins(this.props.params.userId)
-    }
+
   }
 
   checkins() {
@@ -52,7 +52,7 @@ class UserShow extends React.Component {
     //   return (<Spinner />);
     // }
 
-
+    // debugger
     return (
       <div>
         <div className="beers-wrapper">
