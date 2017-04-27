@@ -3,18 +3,18 @@ import React from 'react';
 class WishlistAdd extends React.Component {
   constructor(props) {
     super(props);
-    // debugger
+    // 
     this.state = {beer: this.props.beer}
-    // debugger
+    // 
     this.handleAdd = this.handleAdd.bind(this);
     this.handleRemove = this.handleRemove.bind(this);
     this.addBeerToWishlist = this.props.addBeerToWishlist.bind(this);
     this.addCurrentUserWishlist = this.props.addCurrentUserWishlist.bind(this);
-    // debugger
+    // 
   }
 
   componentWillReceiveProps(newProps) {
-    // debugger
+    // 
     this.setState({beer: newProps.beer})
   }
 
@@ -27,11 +27,11 @@ class WishlistAdd extends React.Component {
   }
 
   render() {
-    // debugger
+    // 
     if (this.props.beer.currentUserWishlist) {
-      // debugger
+      // 
       let id = this.props.beer.id
-      // debugger
+      // 
       return (
         <div className="wish-add wish-remove" onClick={() => this.props.removeBeerFromWishlist(this.props.beer.currentUserWishlist.id).then(() => this.props.removeCurrentUserWishlist(id))}>
           -
@@ -41,10 +41,10 @@ class WishlistAdd extends React.Component {
         </div>
       );
     } else {
-      // debugger
+      // 
       return (
         <div className="wish-add" onClick={() => {
-            // debugger
+            // 
             this.addBeerToWishlist(this.props.beer.id).then(() => this.addCurrentUserWishlist(this.props.beer))}}>
           +
           <div className="wishlist-dropdown">

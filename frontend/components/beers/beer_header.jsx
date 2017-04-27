@@ -19,7 +19,7 @@ export const LineRating = ({ average }) => {
     }
     const ratingPercentage = (average / 5 *  100).toString();
     let averageInt = parseFloat(average) - 0.3;
-    // debugger
+    //
     return(
       <span className="avg-text"><Rating
                      initialRate={averageInt}
@@ -45,11 +45,11 @@ class BeerHeader extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
-    // debugger
+    //
   }
 
   handleClick(e) {
-    // debugger
+    //
     this.props.receiveComponent(<CheckinForm beer={this.props.beer} createCheckin={this.props.createCheckin} activateModal={this.props.activateModal}/>);
     this.props.activateModal(true);
 
@@ -57,7 +57,7 @@ class BeerHeader extends React.Component {
 
 
   render() {
-    // debugger
+    //
     const ratingPercentage = (this.props.beer.average / 5 *  100).toString();
 
 

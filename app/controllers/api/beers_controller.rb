@@ -3,18 +3,18 @@ class Api::BeersController < ApplicationController
 
   def index
     # DO sort and indexing in here, pass in params
-    # debugger
+    #
     @styles = Beer.all.map(&:style).uniq.sort
     fetch_beers = Beer.includes(:brewery, :checkins)
     if params[:type] == "id" || params[:type] == nil || params[:sort] == "id"
       @beers = fetch_beers.all.sort { |a,b| b.checkins.average('rating') <=> a.checkins.average('rating')}
     elsif params[:type] == "style"
       @beers = fetch_beers.where("style = ?", params[:sort])
-      # debugger
+      #
     elsif params[:type] == "rating"
       avg_max = params[:sort].to_i.to_f + 0.99
       avg = params[:sort].to_f
-      # debugger
+      #
       # @beers = <<-SQL
       #   SELECT AVG(rating), beers.id FROM checkins JOIN beers ON checkins.beer_id = beers.id GROUP BY beers.id HAVING AVG(rating) BETWEEN 3 AND 4 - .1
       # SQL
@@ -23,7 +23,7 @@ class Api::BeersController < ApplicationController
       @beers = fetch_beers.select('*').where("name LIKE ?", "#{params[:sort]}%")
 
     end
-    # debugger
+    #
 
   end
 
@@ -49,7 +49,7 @@ class Api::BeersController < ApplicationController
 
   def show
     @styles = Beer.all.map(&:style).uniq.sort
-    # debugger
+    #
     @beer = Beer.find(params[:id])
   end
 

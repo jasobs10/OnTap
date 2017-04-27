@@ -74,7 +74,7 @@ export const removeUserLike = (id) => {
 // SESSION Thunk Action Creators
 
 export const signUp = (user) => {
-  // debugger
+  //
   return dispatch => APIUTIL.signUp(user).then(r => dispatch(receiveCurrentUser(r)), errors => dispatch(receiveSignUpErrors(errors.responseJSON)));
 };
 
@@ -84,10 +84,10 @@ export const defaultSignUp = (user) => {
 
 export const logIn = (user) => {
   return dispatch => APIUTIL.logIn(user).then((r) => {
-    // debugger
+    //
     dispatch(receiveCurrentUser(r));},
     (errors) => {
-    // debugger
+    //
       dispatch(receiveSignInErrors(errors.responseJSON));
   });
 };
@@ -101,7 +101,7 @@ export const logOut = (user) => {
 // AJAX API UTIL For Session
 const APIUTIL = {
   signUp: (formData) => {
-    // debugger
+    //
     return $.ajax({
       method: "post",
       url: "/api/users",
@@ -113,7 +113,7 @@ const APIUTIL = {
   },
 
   defaultSignUp: (user) => {
-    // debugger
+    //
     return $.ajax({
       method: "post",
       url: "/api/users",
@@ -140,15 +140,15 @@ const APIUTIL = {
 //Errors Reducer
 const _defaultErrorsState = {};
 export const errorsReducer = (oldState = _defaultErrorsState, action) => {
-  // debugger
+  //
   Object.freeze(oldState);
   switch(action.type) {
     case RECEIVE_SIGNUP_ERRORS:
-    // debugger
+    //
       return Object.assign({}, oldState, {'signUp': action.signUp});
 
     case RECEIVE_SIGNIN_ERRORS:
-    // debugger
+    //
       return Object.assign({}, oldState, {'signIn': action.signIn});
     case RECEIVE_LOGOUT_ERRORS:
       return Object.assign({}, oldState, {'logOut': action.logOut});
@@ -163,20 +163,20 @@ export const currentUserReducer = (oldState = _defaultCurrentUserState, action) 
   Object.freeze(oldState);
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
-    // debugger
+    //
       return action.currentUser;
     case ADD_CURRENT_USER_WISHLIST:
-    // debugger
+    //
       let current = merge({}, oldState);
       let newBeer = {wishlistBeers: {[action.beer.id]: action.beer}};
       return merge(current, newBeer);
     case REMOVE_CURRENT_USER_WISHLIST:
-    // debugger
+    //
       let current2 = merge({}, oldState);
       delete current2.wishlistBeers[action.id];
       return current2;
     case ADD_USER_LIKE:
-    // debugger
+    //
       let current4 = merge({}, oldState);
       let newLike = {likedBreweries: {[action.brewery.id]: action.brewery}};
       return merge(current4, newLike);

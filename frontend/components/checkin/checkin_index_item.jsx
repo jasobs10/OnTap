@@ -13,10 +13,10 @@ import { CheckinImage } from './checkin_img';
 // import { receiveComponent, activateModal } from '../../reducers/modal_redux'
 
 const ToastButton = (props) => {
-  // debugger
+  // 
   let toastId;
   if (props.checkin.currentUserToast) {
-    // debugger
+    //
     toastId = props.checkin.currentUserToast.id
   }
 
@@ -34,7 +34,7 @@ const ToastButton = (props) => {
 };
 
 const ToastLikes = (props) => {
-  // debugger
+  //
   if ((Object.keys(props.checkins.toastUsers).length) > 0) {
     return (
       <div className="like-count">
@@ -51,12 +51,12 @@ class CheckinIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
-    // debugger
+    //
     this.state = {likes: this.props.checkins.toastCount}
   }
 
   handleClick(component) {
-    // debugger
+    //
     return (e) => {
       this.props.receiveComponent(component);
       this.props.activateModal(true);
@@ -65,9 +65,9 @@ class CheckinIndexItem extends React.Component {
 
 
   render() {
-    // debugger
+    //
     const toastCount = this.props.checkins.toastUsers ? <ToastLikes checkins={this.props.checkins}/> : "";
-    // debugger
+    //
     const lastName = this.props.checkins.user.l_name.slice(0,1) + ".";
     const rate = this.props.checkins.rating;
     let color;

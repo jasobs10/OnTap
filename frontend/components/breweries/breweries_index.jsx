@@ -6,6 +6,7 @@ import BreweryIndexItem from './breweries_index_item';
 import { WishlistBeerItem } from '../beers/beers';
 import { addUserLike, removeUserLike } from '../../reducers/session_redux';
 import { BreweryLikeItem } from './brewery_like_item';
+import { Spinner } from '../shared/spinner';
 
 const mapStateToProps = (state) => {
 
@@ -30,7 +31,7 @@ const mapDispatchToProps = (dispatch) => {
 class BreweriesIndex extends React.Component {
   constructor(props) {
     super(props)
-    // debugger
+    //
     this.state = {state: "", name: "", id: "", rating: "", breweryCount: 8};
     this.handleChange = this.handleChange.bind(this);
     this.handleShow = this.handleShow.bind(this);
@@ -38,23 +39,23 @@ class BreweriesIndex extends React.Component {
   }
 
   componentWillMount() {
-    // debugger
+    //
     this.props.requestBreweries();
   }
 
   handleChange(field) {
-    // debugger
+    //
     return (e) => {
-      // debugger
+      //
       this.setState({[field]: e.target.value});
       this.props.requestBreweries(field, e.target.value);
     }
   }
 
   showMore() {
-    // debugger
+    //
     if (this.state.checkinCount < this.props.breweries.length || this.props.breweries.length === 0) {
-      // debugger
+      //
       return (<div className="show-more" onClick={this.handleShow}>SHOW MORE</div>);
     }
   }
@@ -64,10 +65,10 @@ class BreweriesIndex extends React.Component {
   }
 
   render() {
-    // debugger
+    //
     if (this.props.breweries.length === 0) {
-      // debugger
-      return (<div>loading</div>);
+      //
+      return <Spinner />;
     }
     const logged_in = this.props.currentUser
     if (logged_in) {
@@ -90,11 +91,11 @@ class BreweriesIndex extends React.Component {
       const selectRating = ratings.map((rating, i) => <option key={i} value={rating}>{rating}</option>);
       const selectName = alphabet.map((letter, i) => <option  key={i} value={letter}>{letter}</option>);
       const selectLoc = this.props.breweries.length > 0 ? this.props.breweries[0].allStates.map((state, i) => <option key={i} value={state}>{state}</option>) : "";
-      // debugger
+      //
       const sortedBreweries = this.props.breweries ? this.props.breweries.sort((a, b) => {
         return (parseInt(b.average) - (parseInt(a.average)));
       }) : "";
-      // debugger
+      //
       let brewers;
       if (sortedBreweries.length - this.state.breweryCount <= 0) {
         brewers = sortedBreweries.map((brewery) => {

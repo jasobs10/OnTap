@@ -14,7 +14,7 @@ import { receiveComponent, activateModal } from '../../reducers/modal_redux';
 import { createCheckin, fetchBeerCheckins } from '../../reducers/checkins_redux'
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger
+  //
   return ({
     beer: state.beers[ownProps.params.beerId],
     currentUser: state.currentUser,
@@ -41,10 +41,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 class BeerShow extends React.Component {
   constructor(props) {
     super(props);
-    // debugger
+    //
   }
   componentWillMount() {
-    // debugger
+    //
     this.props.fetchBeer(this.props.params.beerId)
     this.props.fetchBeerCheckins(this.props.params.beerId);
   }
@@ -59,7 +59,7 @@ class BeerShow extends React.Component {
     if (this.props.beer === undefined) {
       return (<div></div>)
     }
-    // debugger
+    //
     return (
       <div>
         <div className="beers-wrapper">

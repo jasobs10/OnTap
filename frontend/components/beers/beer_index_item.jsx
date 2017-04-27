@@ -5,6 +5,7 @@ import { Line } from 'rc-progress';
 import WishlistAdd from '../wishlist/wishlist_add';
 var Rating = require('react-rating');
 import EditCommentForm from '../checkin/comments_form'
+import { Spinner } from '../shared/spinner';
 
 export const LineRating = ({ average }) => {
   if (average) {

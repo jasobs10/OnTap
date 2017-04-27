@@ -7,6 +7,7 @@ import { addCurrentUserWishlist, removeCurrentUserWishlist } from '../../reducer
 import { BreweryLikeItem } from '../breweries/brewery_like_item';
 import { receiveComponent, activateModal } from '../../reducers/modal_redux';
 import { createCheckin } from '../../reducers/checkins_redux'
+import { Spinner } from '../shared/spinner';
 // import { addBeerToWishlist, removeBeerFromWishlist } from '../../reducers/wishlist_redux';
 
 const mapStateToProps = (state) => {
@@ -100,7 +101,7 @@ class Beers extends React.Component {
 
     // debugger
     if (this.props.beers.length === 0) {
-      return (<div>Loading...</div>)
+      return <Spinner />
     }
     if (this.props.currentUser) {
       const sortedBeers = this.props.beers.sort((a, b) => {

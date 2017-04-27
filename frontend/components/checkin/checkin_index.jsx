@@ -9,6 +9,7 @@ import { WishlistBeerItem } from '../beers/beers';
 import { BreweryLikeItem } from '../breweries/brewery_like_item';
 import { receiveComponent, activateModal } from '../../reducers/modal_redux';
 import Modal from '../modal/modal';
+import { Spinner } from '../shared/spinner';
 
 
 // <CheckinIndexItem modal={this.props.modal} receiveComponent={this.props.receiveComponent} activateModal={this.props.activateModal} deleteToast={this.props.deleteToast} createToast={this.props.createToast} currentUser={this.props.currentUser} key={checkin.id} requestAllCheckins={this.props.requestAllCheckins} requestCheckin={this.props.requestCheckin} checkins={checkin} />);
@@ -80,8 +81,9 @@ class CheckinIndex extends React.Component {
   // const breweryLikes = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
   // const wishlistBeers = this.props.currentUser.wishlistBeers ? Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>) : "";
   render() {
+
     if (this.props.checkins.length === 0) {
-      return <div>Loading...</div>
+      return <Spinner />
     }
     if (this.props.currentUser) {
       let wishlistBeers;
