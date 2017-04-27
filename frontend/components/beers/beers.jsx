@@ -63,9 +63,10 @@ class Beers extends React.Component {
   constructor(props) {
     super(props);
     // debugger
-    this.state = {style: "", name: "", rating: "", id: ""}
+    this.state = {style: "", name: "", rating: "", id: "", beersCount: 7}
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleShow = this.handleShow.bind(this);
   }
 
   componentWillMount() {
@@ -93,6 +94,20 @@ class Beers extends React.Component {
     }
   }
 
+  showMore() {
+    //
+    if (this.state.beersCount < this.props.beers.length || this.props.beers.length === 0) {
+
+      return (<div className="show-more" onClick={this.handleShow}>SHOW MORE</div>);
+    }
+    return "";
+  }
+
+  handleShow() {
+    this.setState({beersCount: this.state.beersCount + 7});
+  }
+
+
   handleSubmit(e) {
     e.preventDefault();
   }
@@ -104,18 +119,33 @@ class Beers extends React.Component {
       return <Spinner />
     }
     if (this.props.currentUser) {
-      const sortedBeers = this.props.beers.sort((a, b) => {
+      const sortedBeers = this.props.beers ? this.props.beers.sort((a, b) => {
         return (parseInt(b.average) - (parseInt(a.average)));
-      });
-      const items = sortedBeers.map((beer) => <BeerIndexItem
-        key={beer.id} beer={beer}
-        addBeerToWishlist={this.props.addBeerToWishlist}
-        removeBeerFromWishlist={this.props.removeBeerFromWishlist}
-        addCurrentUserWishlist={this.props.addCurrentUserWishlist}
-        removeCurrentUserWishlist={this.props.removeCurrentUserWishlist}
-        receiveComponent={this.props.receiveComponent}
-        activateModal={this.props.activateModal}
-        createCheckin={this.props.createCheckin}/>);
+      }) : "";
+
+      let items;
+
+      if (sortedBeers.length - this.state.beersCount <= 0) {
+        items = sortedBeers.map((beer) => <BeerIndexItem
+          key={beer.id} beer={beer}
+          addBeerToWishlist={this.props.addBeerToWishlist}
+          removeBeerFromWishlist={this.props.removeBeerFromWishlist}
+          addCurrentUserWishlist={this.props.addCurrentUserWishlist}
+          removeCurrentUserWishlist={this.props.removeCurrentUserWishlist}
+          receiveComponent={this.props.receiveComponent}
+          activateModal={this.props.activateModal}
+          createCheckin={this.props.createCheckin}/>);
+      } else {
+        items = sortedBeers.map((beer) => <BeerIndexItem
+          key={beer.id} beer={beer}
+          addBeerToWishlist={this.props.addBeerToWishlist}
+          removeBeerFromWishlist={this.props.removeBeerFromWishlist}
+          addCurrentUserWishlist={this.props.addCurrentUserWishlist}
+          removeCurrentUserWishlist={this.props.removeCurrentUserWishlist}
+          receiveComponent={this.props.receiveComponent}
+          activateModal={this.props.activateModal}
+          createCheckin={this.props.createCheckin}/>).slice(0, this.state.beersCount);
+      }
       // debugger
       let wishlistBeers;
       if (this.props.currentUser && this.props.currentUser.wishlistBeers) {
@@ -171,6 +201,7 @@ class Beers extends React.Component {
               </div>
 
               {items}
+              {this.showMore()}
 
             </div>
             <div className="side-bars">

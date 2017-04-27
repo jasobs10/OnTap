@@ -2,7 +2,8 @@ import React from 'react';
 import CheckinIndex from '../checkin/checkin_index';
 import { connect } from 'react-redux';
 import { fetchBreweryCheckins } from '../../reducers/checkins_redux';
-import { requestBrewery } from '../../reducers/breweries_redux';
+import { requestBrewery, addBreweryLike, removeBreweryLike } from '../../reducers/breweries_redux';
+import { removeUserLike, addUserLike } from '../../reducers/session_redux';
 import BreweriesIndexItem from './breweries_index_item';
 import BreweryHeader from './brewery_header';
 

@@ -54,18 +54,19 @@ class BreweriesIndex extends React.Component {
 
   showMore() {
     //
-    if (this.state.checkinCount < this.props.breweries.length || this.props.breweries.length === 0) {
-      //
+    if (this.state.breweryCount < this.props.breweries.length || this.props.breweries.length === 0) {
+
       return (<div className="show-more" onClick={this.handleShow}>SHOW MORE</div>);
     }
+    return "";
   }
 
   handleShow() {
-    this.setState({breweryCount: breweryCount + 8});
+    this.setState({breweryCount: this.state.breweryCount + 8});
   }
 
   render() {
-    //
+    // debugger
     if (this.props.breweries.length === 0) {
       //
       return <Spinner />;
@@ -157,7 +158,9 @@ class BreweriesIndex extends React.Component {
                 </div>
               </div>
               { brewers }
+
               {this.showMore()}
+
 
             </div>
             <div className="side-bars">

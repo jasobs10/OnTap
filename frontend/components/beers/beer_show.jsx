@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { requestBeer } from '../../reducers/beers_redux';
-import { addBeerToWishlist, removeBeerFromWishlist } from '../../reducers/beer_redux';
+import { addBeerToWishlist, removeBeerFromWishlist } from '../../reducers/beers_redux';
 import { addCurrentUserWishlist, removeCurrentUserWishlist } from '../../reducers/session_redux';
 var Rating = require('react-rating');
 import { LineRating } from './beer_index_item';
@@ -23,6 +23,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
+  
   return ({
     fetchBeer: (id) => dispatch(requestBeer(id)),
     fetchBeerCheckins: (beer_id) => dispatch(fetchBeerCheckins(beer_id)),
@@ -59,7 +60,7 @@ class BeerShow extends React.Component {
     if (this.props.beer === undefined) {
       return (<div></div>)
     }
-    //
+    // debugger
     return (
       <div>
         <div className="beers-wrapper">

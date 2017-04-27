@@ -50,10 +50,10 @@ class Navbar extends React.Component {
                 My profile
               </div>
               <div>
-                Beer history
+                Add Picture
               </div>
               <div>
-                settings
+                Edit Profile
               </div>
               <div>
                 Wish list

@@ -53,7 +53,6 @@ class BreweryHeader extends React.Component {
     return (
       <div className="brewery-index-item brewery-show-wrapper">
 
-        <AddLike key={this.props.brewery.id} brewery={this.props.brewery} addBreweryLike={this.props.addBreweryLike} removeBreweryLike={this.props.removeBreweryLike} addUserLike={this.props.addUserLike} removeUserLike={this.props.removeUserLike}/>
 
         <div className="brewery-text-container">
           <div className='brewery-pic brewery-show-pic'>
@@ -65,6 +64,15 @@ class BreweryHeader extends React.Component {
             </li>
             <li className="beer-style brewery-loc brewery-show-loc">
               {this.props.brewery.city},&nbsp;{this.props.brewery.state}<br />{this.props.brewery.country}
+            </li>
+            <li>
+              <AddLike
+                key={this.props.brewery.id}
+                brewery={this.props.brewery}
+                addBreweryLike={this.props.addBreweryLike}
+                removeBreweryLike={this.props.removeBreweryLike}
+                addUserLike={this.props.addUserLike}
+                removeUserLike={this.props.removeUserLike}/>
             </li>
           </div>
 
