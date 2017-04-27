@@ -14,18 +14,21 @@ const CommentsIndexItem = (props) => {
   let ed;
   if (props.currentUser.id == props.comment.user_id || props.currentUser.id == props.comment.checkin_creator) {
     del = <span className="orange delete-comment" onClick={() => props.deleteComment(props.comment.id)}>delete</span>;
-    ed = <span onClick={handleClick} className="orange delete-comment">edit</span>;
+    ed = <span onClick={() => {
+      props.receiveComponent(<EditCommentForm updateComment={props.updateComment} activateModal={props.activateModal} comment={props.comment}/>);
+      props.activateModal(true);
+      }} className="orange delete-comment">edit</span>;
   } else {
     del= "";
     ed = "";
   }
 
-  const handleClick = (e) => {
-
-      props.receiveComponent(<EditCommentForm updateComment={props.updateComment} activateModal={props.activateModal} comment={props.comment}/>);
-      props.activateModal(true);
-
-  };
+  // const handleClick = (e) => {
+  //     debugger
+  //     props.receiveComponent(<EditCommentForm updateComment={props.updateComment} activateModal={props.activateModal} comment={props.comment}/>);
+  //     props.activateModal(true);
+  //
+  // };
   // debugger
   return (
     <div className="comment-item-wrapper">

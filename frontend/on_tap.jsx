@@ -70,7 +70,8 @@ const Root = ({ store }) => {
           <Route path="beers" component={ Beers } onEnter={_redirectIfNotLoggedIn}/>
           <Route path="beers/:beerId" component={ BeerShow } onEnter={_redirectIfNotLoggedIn}/>
           <Route path="breweries" component={ BreweriesIndex } onEnter={_redirectIfNotLoggedIn}/>
-          <Route path="breweries/:breweryId" component= { BreweryShow } onEnter={_redirectIfNotLoggedIn}/>
+          <Route path="breweries/:breweryId" component={ BreweryShow } onEnter={_redirectIfNotLoggedIn}/>
+          
         </Route>
       </Router>
     </Provider>
