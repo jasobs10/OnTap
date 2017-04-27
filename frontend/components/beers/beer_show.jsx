@@ -11,7 +11,8 @@ import CheckinIndex from '../checkin/checkin_index';
 import BeerIndexItem from './beer_index_item';
 import BeerHeader from './beer_header';
 import { receiveComponent, activateModal } from '../../reducers/modal_redux';
-import { createCheckin, fetchBeerCheckins } from '../../reducers/checkins_redux'
+import { createCheckin, fetchBeerCheckins } from '../../reducers/checkins_redux';
+import { Spinner } from '../shared/spinner';
 
 const mapStateToProps = (state, ownProps) => {
   //
@@ -23,7 +24,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  
+
   return ({
     fetchBeer: (id) => dispatch(requestBeer(id)),
     fetchBeerCheckins: (beer_id) => dispatch(fetchBeerCheckins(beer_id)),
@@ -58,7 +59,7 @@ class BeerShow extends React.Component {
 
   render() {
     if (this.props.beer === undefined) {
-      return (<div></div>)
+      return (<Spinner />)
     }
     // debugger
     return (

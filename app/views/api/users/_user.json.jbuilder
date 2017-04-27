@@ -18,6 +18,9 @@ json.likedBreweries do
     end
   end
 end
+
+json.checkinCount user.checkins.count
+json.uniqueCheckinCount user.checkins.select(:beer_id).distinct.count
     # json.array! user.wishlist_beers do |beer|
     #   json.name beer.name
     #   json.brewery beer.brewery.name

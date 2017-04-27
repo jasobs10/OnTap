@@ -4,7 +4,7 @@
     json.brewery checkin.brewery.name
     json.brewery_id checkin.brewery.id
     json.beer checkin.beer.name
-    json.user checkin.user, :f_name, :l_name
+    json.user checkin.user, :f_name, :l_name, :id
     json.beer_id checkin.beer_id
     json.toastUsers do
       checkin.toast_users.each do |user|

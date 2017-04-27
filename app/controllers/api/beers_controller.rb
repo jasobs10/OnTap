@@ -4,7 +4,7 @@ class Api::BeersController < ApplicationController
   def index
     # DO sort and indexing in here, pass in params
     #
-    @styles = Beer.all.map(&:style).uniq.sort
+    @styles = Beer.includes(:brewery, :checkins).all.map(&:style).uniq.sort
     fetch_beers = Beer.includes(:brewery, :checkins)
     if params[:type] == "id" || params[:type] == nil || params[:sort] == "id"
       @beers = fetch_beers.all.sort { |a,b| b.checkins.average('rating') <=> a.checkins.average('rating')}

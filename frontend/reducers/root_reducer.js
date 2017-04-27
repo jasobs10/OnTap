@@ -6,6 +6,7 @@ import { breweriesReducer } from './breweries_redux';
 import { wishlistReducer } from './wishlist_redux';
 import { checkinsReducer } from './checkins_redux';
 import { beerCheckinsReducer } from './beer_redux';
+import { userReducer } from './user_redux';
 
 const rootReducer = combineReducers({
   currentUser: currentUserReducer,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   beers: beersReducer,
   breweries: breweriesReducer,
   checkins: checkinsReducer,
+  user: userReducer
   // beerCheckins: beerCheckinsReducer
 
 });

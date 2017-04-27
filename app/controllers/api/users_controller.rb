@@ -12,13 +12,13 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    #
-    # @user = current_user
-    # if @user
-    #   render :show
-    # else
-    #   render :root
-    # end
+    # debugger
+    @user = User.find(params[:id])
+    if @user
+      render :show
+    else
+      render :root
+    end
   end
 
   private

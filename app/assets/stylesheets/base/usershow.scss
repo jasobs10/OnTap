@@ -1,0 +1,125 @@
+
+
+.user-show-header {
+  color: white;
+  background-image: url("/images/userbg.jpg");
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  // width: 100%;
+  background-color: rgba(0,0,0,0.60);
+
+  justify-content: flex-end;
+
+}
+
+.user-show-wrapper {
+  height: 85%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.user-show-main {
+  width: 95%;
+  align-self: flex-start;
+  margin-bottom: 0;
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.user-show-footer {
+  display: flex;
+  flex-direction: row;
+  // align-flex: flex-start;
+  width: 100%;
+  // align-self: flex-end;
+  justify-content: space-around;
+  // padding: 1% 10%;
+  height: 30%;
+  background-color: rgba(0,0,0,0.75);
+
+}
+
+.user-statistics {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 20%;
+  justify-content: space-around;
+  // width: 35%;
+  // height: 30px;
+}
+
+
+
+.bottom-stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+.bottom-stats-border {
+  border-right: 1px solid white;
+}
+
+.user-image {
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  margin-right: 2%;
+  border-radius: 10px;
+}
+
+.user-edit-button {
+  display: flex;
+  width: 140px;
+  height: 100%;
+
+  align-items: center;
+}
+
+.user-edit {
+  justify-content: center;
+  width: 100%;
+  border: 1px solid white;
+  padding: 5%;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 15px;
+  border-radius: 4px;
+
+}
+
+.user-edit:hover {
+  color: black;
+  background-color: white;
+}
+
+.user-info {
+  width: 65%;
+}
+
+.name {
+  font-size: 28px;
+}
+
+.username {
+  font-size: 18px;
+}
+
+.state {
+  font-size: 18px;
+}
+
+.user-show-avatar {
+  border-radius: 75px;
+  border: 3px solid white;
+}

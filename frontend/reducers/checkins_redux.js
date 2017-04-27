@@ -39,6 +39,14 @@ const APIUTIL = {
     });
   },
 
+  fetchUserCheckins: (user_id) => {
+    return $.ajax({
+      method: "GET",
+      url: `api/checkins`,
+      data: {user_id}
+    });
+  },
+
   fetchCheckin: (id) => {
     return $.ajax({
       method: "GET",
@@ -158,6 +166,7 @@ const receiveBreweryCheckins = (checkins) => {
   };
 };
 
+
 export const createToast = (checkin_id) => {
   return dispatch => APIUTIL.addToast(checkin_id).then((user) => dispatch(addToast(user)));
 };
@@ -200,6 +209,10 @@ export const fetchBreweryCheckins = (brewery_id) => {
 export const fetchBeerCheckins = (beer_id) => {
   //
   return dispatch => APIUTIL.fetchCheckins(beer_id).then((checkins) => dispatch(receiveBeerCheckins(checkins)));
+};
+
+export const fetchUserCheckins = (user_id) => {
+  return dispatch => APIUTIL.fetchCheckins(user_id).then((checkins) => dispatch(receiveAllCheckins(checkins)));
 };
 
 

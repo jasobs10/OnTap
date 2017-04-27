@@ -11,6 +11,7 @@ import BreweriesIndex from './components/breweries/breweries_index';
 import {requestBeers} from './reducers/beers_redux';
 import BeerShow from './components/beers/beer_show';
 import BreweryShow from './components/breweries/brewery_show';
+import UserShow from './components/user/user_show';
 // import {signUp, logIn, logOut} from './reducers/session_redux';
 
 //TESTING
@@ -71,7 +72,7 @@ const Root = ({ store }) => {
           <Route path="beers/:beerId" component={ BeerShow } onEnter={_redirectIfNotLoggedIn}/>
           <Route path="breweries" component={ BreweriesIndex } onEnter={_redirectIfNotLoggedIn}/>
           <Route path="breweries/:breweryId" component={ BreweryShow } onEnter={_redirectIfNotLoggedIn}/>
-          
+          <Route path="users/:userId" component={ UserShow } onEnter={_redirectIfNotLoggedIn}/>
         </Route>
       </Router>
     </Provider>
@@ -84,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.logIn = logIn;
   // // window.logOut = logOut;
   // window.store = configureStore();
-  window.requestBeers = requestBeers;
+  // window.requestBeers = requestBeers;
   let store;
   if (window.currentUser) {
     const preloadedState = { currentUser: window.currentUser };

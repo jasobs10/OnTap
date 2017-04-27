@@ -13,7 +13,7 @@ import { CheckinImage } from './checkin_img';
 // import { receiveComponent, activateModal } from '../../reducers/modal_redux'
 
 const ToastButton = (props) => {
-  // 
+  //
   let toastId;
   if (props.checkin.currentUserToast) {
     //
@@ -90,7 +90,7 @@ class CheckinIndexItem extends React.Component {
           </div>
           <div className="checkin-content">
             <div className="checkin-header">
-              <span>{this.props.checkins.user.f_name} {lastName}</span>is drinking a <span><Link to={`/beers/${this.props.checkins.beer_id}`}>{this.props.checkins.beer}</Link></span> by <span><Link to={`/breweries/${this.props.checkins.brewery_id}`}>{this.props.checkins.brewery}</Link></span>
+              <span><Link to={`/users/${this.props.checkins.user.id}`}>{this.props.checkins.user.f_name} {lastName}</Link></span>is drinking a <span><Link to={`/beers/${this.props.checkins.beer_id}`}>{this.props.checkins.beer}</Link></span> by <span><Link to={`/breweries/${this.props.checkins.brewery_id}`}>{this.props.checkins.brewery}</Link></span>
             </div>
             <div className="checkin-review">
               <div className="arrow">
