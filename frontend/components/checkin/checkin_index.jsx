@@ -51,10 +51,12 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
+
 class CheckinIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {beers: this.props.beers}
+    this.state = {beers: this.props.beers, checkinCount: 5}
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentWillMount() {
@@ -63,6 +65,17 @@ class CheckinIndex extends React.Component {
       return null;
     }
     this.props.requestAllCheckins();
+  }
+
+  showMore() {
+    if (this.state.checkinCount < this.props.checkins.length) {
+      return (<div className="show-more" onClick={this.handleClick}>SHOW MORE</div>);
+    }
+
+  }
+
+  handleClick(e) {
+    this.setState({checkinCount: this.state.checkinCount + 5});
   }
   // const breweryLikes = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
   // const wishlistBeers = this.props.currentUser.wishlistBeers ? Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>) : "";
@@ -84,8 +97,20 @@ class CheckinIndex extends React.Component {
       const sortedCheckins = this.props.checkins ? this.props.checkins.sort((a, b) => {
         return (b.id - a.id);
       }) : "";
-      const indexItems = sortedCheckins ? sortedCheckins.map((checkin) => <CheckinIndexItem {...this.props}  key={checkin.id} checkins={checkin} />) : "";
+      let indexItems;
+      if (sortedCheckins.length - this.state.checkinCount <= 0) {
+        indexItems = sortedCheckins.map((checkin) => <CheckinIndexItem {...this.props}  key={checkin.id} checkins={checkin} />);
+      } else {
+        indexItems = sortedCheckins.map((checkin) => <CheckinIndexItem {...this.props}  key={checkin.id} checkins={checkin} />).slice(0, this.state.checkinCount);
 
+      }
+      // const indexItems = sortedCheckins ? sortedCheckins.map((checkin) => <CheckinIndexItem {...this.props}  key={checkin.id} checkins={checkin} />) : "";
+
+      // debugger
+      let showMore;
+      if (this.state.checkinCount < this.props.checkins.length) {
+        showMore = this.showMore();
+      }
       // debugger
       return(
         <div className="beers-wrapper">
@@ -99,7 +124,7 @@ class CheckinIndex extends React.Component {
               <hr className="orange-line checkin-line"/>
 
               {indexItems}
-
+              {this.showMore()}
             </div>
             <div className="side-bars">
 
@@ -118,7 +143,9 @@ class CheckinIndex extends React.Component {
                 {breweryLikes}
               </div>
             </div>
+
           </div>
+
         </div>
       );
     } else {
