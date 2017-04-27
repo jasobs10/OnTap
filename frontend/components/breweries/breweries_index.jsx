@@ -64,7 +64,7 @@ class BreweriesIndex extends React.Component {
   }
 
   render() {
-    debugger
+    // debugger
     if (this.props.breweries.length === 0) {
       // debugger
       return (<div>loading</div>);
