@@ -49,7 +49,7 @@ class BeerHeader extends React.Component {
   }
 
   handleClick(e) {
-    //
+    debugger
     this.props.receiveComponent(<CheckinForm
       beer={this.props.beer}
       createCheckin={this.props.createCheckin}

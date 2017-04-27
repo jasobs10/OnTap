@@ -116,7 +116,7 @@ class CheckinIndexItem extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="checkin-image" onClick={this.handleClick(<CheckinImage/>)}>
+            <div className="checkin-image" onClick={this.handleClick(<CheckinImage image_url={this.props.checkins.image_url}/>)}>
               <img src={this.props.checkins.image_url} alt="beer"/>
             </div>
             <div className="checkin-buttons">

@@ -34,7 +34,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     removeCurrentUserWishlist: (beer) => dispatch(removeCurrentUserWishlist(beer)),
     receiveComponent: (component) => dispatch(receiveComponent(component)),
     activateModal: (bool) => dispatch(activateModal(bool)),
-    createCheckin: (checkin) => dispatch(createCheckin(checkin))
+    createCheckin: (checkin) => dispatch(createCheckin(checkin)),
+    createPhotoCheckin: (formData) => dispatch(createPhotoCheckin(formData))
 
   });
 };
