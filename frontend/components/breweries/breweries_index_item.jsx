@@ -17,7 +17,7 @@ const LineRating = ({ average }) => {
       color = "rgb(244, 96, 96)";
     }
     const ratingPercentage = (average / 5 *  100).toString();
-    let averageInt = parseInt(average);
+    let averageInt = parseFloat(average) - 0.3;
     return(
       <span><Rating
                      initialRate={averageInt}
@@ -25,6 +25,7 @@ const LineRating = ({ average }) => {
                      empty="fa fa-circle-thin fa-1x empty"
                      full="fa fa-circle fa-1x overall-full"
                      className="rating-stars"
+                     fractions={4}
                      />&nbsp;({average})</span>
     );
   }

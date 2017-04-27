@@ -5,7 +5,7 @@
     json.extract! brewery, :id, :name, :country, :city, :state
     json.ratings brewery.checkins.count
     json.beers brewery.beers.count
-    json.average brewery.checkins.average('rating')
+    json.average brewery.checkins.average('rating').round(2)
     json.allStates do
       json.array! @states
     end

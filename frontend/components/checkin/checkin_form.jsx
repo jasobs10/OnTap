@@ -34,7 +34,7 @@ class CheckinForm extends React.Component {
   handleSubmit(e) {
     // debugger
     e.preventDefault()
-    this.props.createCheckin({rating: this.state.rating, beer_id: this.props.beer.id, address: this.state.address, container: this.state.container}).then(() => this.clearForm()).then(() => this.props.activateModal(false));
+    this.props.createCheckin({rating: this.state.rating, beer_id: this.props.beer.id, address: this.state.address, container: this.state.container, review: this.state.review}).then(() => this.clearForm()).then(() => this.props.activateModal(false));
   }
 
   handleSlide(value) {

@@ -5,7 +5,7 @@
     json.date_added beer.created_at.strftime("%m-%d-%Y")
     json.brewery beer.brewery, :name
     json.checkins beer.checkins.count(:id)
-    json.average beer.checkins.average('rating')
+    json.average beer.checkins.average('rating').round(2)
     json.allStyles do
       json.array! @styles
     end
