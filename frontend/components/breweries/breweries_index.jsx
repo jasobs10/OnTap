@@ -36,7 +36,7 @@ class BreweriesIndex extends React.Component {
     // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     // debugger
     this.props.requestBreweries();
   }
@@ -52,10 +52,19 @@ class BreweriesIndex extends React.Component {
 
 
   render() {
+    // debugger
     const logged_in = this.props.currentUser
     if (logged_in) {
       const ratings = ["0", "1", "2", "3", "4", "5"];
-      const wishlistBeers = this.props.currentUser.wishlistBeers ? Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>) : "";
+      // const wishlistBeers = this.props.currentUser.wishlistBeers ? Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>) : "";
+      let wishlistBeers;
+      if (this.props.currentUser && this.props.currentUser.wishlistBeers) {
+        wishlistBeers = Object.values(this.props.currentUser.wishlistBeers).sort((a, b) => {
+          return (a.id - b.id);
+        }).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>);
+      } else {
+        wishlistBeers = ""
+      }
       // const breweryLikes = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
       const breweryLikesSorted = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).sort((a, b) => {
         return (b.id - a.id);

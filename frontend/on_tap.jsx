@@ -10,6 +10,7 @@ import Beers from './components/beers/beers';
 import BreweriesIndex from './components/breweries/breweries_index';
 import {requestBeers} from './reducers/beers_redux';
 import BeerShow from './components/beers/beer_show';
+import BreweryShow from './components/breweries/brewery_show';
 // import {signUp, logIn, logOut} from './reducers/session_redux';
 
 //TESTING
@@ -69,6 +70,7 @@ const Root = ({ store }) => {
           <Route path="beers" component={ Beers } onEnter={_redirectIfNotLoggedIn}/>
           <Route path="beers/:beerId" component={ BeerShow } onEnter={_redirectIfNotLoggedIn}/>
           <Route path="breweries" component={ BreweriesIndex } onEnter={_redirectIfNotLoggedIn}/>
+          <Route path="breweries/:breweryId" component= { BreweryShow } onEnter={_redirectIfNotLoggedIn}/>
         </Route>
       </Router>
     </Provider>

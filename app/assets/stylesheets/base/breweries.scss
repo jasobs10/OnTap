@@ -203,3 +203,42 @@
 .dropdown-select  option:hover {
   cursor: pointer;
 }
+
+.brewery-show-header {
+  background-image: url('/images/brewery-background.jpg');
+  background-color: rgba(0, 0, 0, 0.75);
+  padding-bottom: 3%;
+}
+
+.brewery-show-wrapper {
+  border: none;
+
+}
+
+.brewery-show-pic {
+  width: 170px;
+}
+
+.brewery-show-name {
+  font-size: 30px !important;
+  color: rgb(246, 228, 175);
+}
+
+.brewery-show-loc {
+  font-size: 20px;
+  color: white;
+}
+
+.brewery-show-info {
+  color: white;
+  font-size: 20px;
+}
+
+.brewery-ratings {
+  align-items: center;
+  height: 100%;
+}
+
+.brew-border, .brew-section {
+  height: 100%;
+}

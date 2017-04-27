@@ -2,6 +2,7 @@
   json.set! checkin.id do
     json.extract! checkin, :id, :rating, :address, :review, :container, :created_at, :updated_at
     json.brewery checkin.brewery.name
+    json.brewery_id checkin.brewery.id
     json.beer checkin.beer.name
     json.user checkin.user, :f_name, :l_name
     json.beer_id checkin.beer_id

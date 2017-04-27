@@ -15,11 +15,22 @@ import Modal from '../modal/modal';
 const mapStateToProps = (state, ownProps) => {
   // debugger
   const beerCheckins = ownProps.beerCheckins ? Object.values(ownProps.beerCheckins) : Object.values(state.checkins);
+  let altCheckins;
+  if (ownProps.beerCheckins) {
+    altCheckins = Object.values(ownProps.beerCheckins);
+  } else if (ownProps.breweryCheckins) {
+    altCheckins = Object.values(ownProps.breweryCheckins);
+  } else if (ownProps.userCheckins) {
+    altCheckins = Object.values(ownProps.userCheckins);
+  } else {
+    altCheckins = Object.values(state.checkins)
+  }
+
   return {
     // debugger
     currentUser: state.currentUser,
     beers: state.beers,
-    checkins: beerCheckins,
+    checkins: altCheckins,
     modal: state.modal
   }
 };
@@ -43,13 +54,15 @@ const mapDispatchToProps = (dispatch) => {
 class CheckinIndex extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {beers: this.props.beers}
+    this.state = {beers: this.props.beers}
   }
 
-  componentDidMount() {
-    if (!this.props.beerCheckins) {
-      this.props.requestAllCheckins();
+  componentWillMount() {
+    // debugger
+    if (this.props.beerCheckins || this.props.breweryCheckins || this.props.userCheckins) {
+      return null;
     }
+    this.props.requestAllCheckins();
   }
   // const breweryLikes = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
   // const wishlistBeers = this.props.currentUser.wishlistBeers ? Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>) : "";
@@ -68,10 +81,10 @@ class CheckinIndex extends React.Component {
       } else {
         breweryLikes = ""
       }
-      const sortedCheckins = this.props.checkins.sort((a, b) => {
+      const sortedCheckins = this.props.checkins ? this.props.checkins.sort((a, b) => {
         return (b.id - a.id);
-      });
-      const indexItems = sortedCheckins.map((checkin) => <CheckinIndexItem {...this.props}  key={checkin.id} checkins={checkin} />);
+      }) : "";
+      const indexItems = sortedCheckins ? sortedCheckins.map((checkin) => <CheckinIndexItem {...this.props}  key={checkin.id} checkins={checkin} />) : "";
 
       // debugger
       return(

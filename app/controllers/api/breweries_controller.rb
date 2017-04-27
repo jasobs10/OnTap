@@ -39,6 +39,11 @@ class Api::BreweriesController < ApplicationController
 
   end
 
+  def show
+    @brewery = Brewery.find(params[:id])
+    
+  end
+
   private
   def brewery_params
     params.require(:brewery).permit(:name, :type, :country, :city, :state, :fb, :ig, :twitter, :website)

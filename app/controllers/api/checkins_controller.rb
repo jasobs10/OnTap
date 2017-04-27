@@ -8,6 +8,8 @@ class Api::CheckinsController < ApplicationController
       # debugger
       @checkins = Checkin.where("beer_id = ?", id)
       # debugger
+    elsif params[:brewery_id]
+      @checkins = Brewery.find(params[:brewery_id]).checkins
     else
       @checkins = Checkin.all.includes(:beer, :brewery, :comments, :toasts, :toast_users)
     end

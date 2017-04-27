@@ -42,7 +42,7 @@ const LineRating = ({ average }) => {
 }
 
 
-class BreweriesIndexItem extends React.Component {
+class BreweryHeader extends React.Component {
   constructor(props) {
     super(props);
     // debugger
@@ -51,25 +51,25 @@ class BreweriesIndexItem extends React.Component {
   render() {
     // const score = this.props.brewery.average ? this.props.brewery.average : "NO REVIEWS";
     return (
-      <div className="brewery-index-item">
+      <div className="brewery-index-item brewery-show-wrapper">
 
         <AddLike key={this.props.brewery.id} brewery={this.props.brewery} addBreweryLike={this.props.addBreweryLike} removeBreweryLike={this.props.removeBreweryLike} addUserLike={this.props.addUserLike} removeUserLike={this.props.removeUserLike}/>
 
         <div className="brewery-text-container">
-          <div className='brewery-pic'>
+          <div className='brewery-pic brewery-show-pic'>
             <img src="/images/beers.jpg"/>
           </div>
           <div className="brewery-display">
-            <li className="brewery-name">
+            <li className="brewery-name brewery-show-name">
               <Link to={`/breweries/${this.props.brewery.id}`}>{this.props.brewery.name}</Link>
             </li>
-            <li className="beer-style brewery-loc">
+            <li className="beer-style brewery-loc brewery-show-loc">
               {this.props.brewery.city},&nbsp;{this.props.brewery.state}<br />{this.props.brewery.country}
             </li>
           </div>
 
         </div>
-        <div className="brewery-info">
+        <div className="brewery-info brewery-show-info">
           <div className="brewery-ratings">
             <section className="brew-border">
               {this.props.brewery.beers} Beers
@@ -87,6 +87,5 @@ class BreweriesIndexItem extends React.Component {
     )
   }
 }
-// <LineRating average={this.props.brewery.average}/>
 
-export default BreweriesIndexItem;
+export default BreweryHeader

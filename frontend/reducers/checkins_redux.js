@@ -7,7 +7,7 @@ const REMOVE_TOAST = "REMOVE_TOAST";
 const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 const REMOVE_COMMENT = "REMOVE_COMMENT";
 const UPDATE_COMMENT = "UPDATE_COMMENT";
-
+const RECEIVE_BREWERY_CHECKINS = "RECEIVEBREWERYCHECKINS";
 
 const RECEIVE_BEER_CHECKINS = "RECEIVE_BEER_CHECKINS";
 
@@ -28,6 +28,14 @@ const APIUTIL = {
       method: "GET",
       url: `api/checkins`,
       data: { beer_id }
+    });
+  },
+
+  fetchBreweryCheckins: (brewery_id) => {
+    return $.ajax({
+      method: "GET",
+      url: `api/checkins`,
+      data: {brewery_id}
     });
   },
 
@@ -143,6 +151,13 @@ const receiveBeerCheckins = (checkins) => {
   };
 };
 
+const receiveBreweryCheckins = (checkins) => {
+  return {
+    type: RECEIVE_BREWERY_CHECKINS,
+    checkins
+  };
+};
+
 export const createToast = (checkin_id) => {
   return dispatch => APIUTIL.addToast(checkin_id).then((user) => dispatch(addToast(user)));
 };
@@ -171,13 +186,16 @@ export const updateComment = (comment) => {
   return dispatch => APIUTIL.updateComment(comment).then((comment_r) => dispatch(receiveComment(comment_r)));
 };
 
-export const createCheckin= (checkin) => {
+export const createCheckin = (checkin) => {
   return dispatch => APIUTIL.createCheckin(checkin).then((checkin) => {
     // debugger
     return dispatch(receiveCheckin(checkin));
   });
 };
 
+export const fetchBreweryCheckins = (brewery_id) => {
+  return dispatch => APIUTIL.fetchBreweryCheckins(brewery_id).then((checkins) => dispatch(receiveBreweryCheckins(checkins)));
+};
 
 export const fetchBeerCheckins = (beer_id) => {
   // debugger
@@ -195,7 +213,9 @@ export const checkinsReducer = (oldState = {}, action) => {
       return merge({}, oldState, {[action.checkin.id]: action.checkin});
     case RECEIVE_BEER_CHECKINS:
     // debugger
-      return action.checkins
+      return action.checkins;
+    case RECEIVE_BREWERY_CHECKINS:
+      return action.checkins;
     case RECEIVE_TOAST:
     // debugger
       let old = merge({}, oldState);
@@ -210,6 +230,7 @@ export const checkinsReducer = (oldState = {}, action) => {
       }
       // debugger
       return old;
+
 
     case REMOVE_TOAST:
     // debugger
