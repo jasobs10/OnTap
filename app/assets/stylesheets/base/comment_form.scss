@@ -1,12 +1,12 @@
 .comment-wrapper {
-  position: fixed;
+  position: relative;
   // width: 100%;
-  top: 30vh;
-  width: 33%;
+  top: 0;
+  width: 170%;
   padding: 10px;
   background-color: white;
   border-radius: 4px;
-  z-index: 100;
+  z-index: 20;
 }
 
 .img-popout {
@@ -15,8 +15,10 @@
     // width: 100%;
     top: 15vh;
     width: 33%;
-    padding: 10px;
-    background-color: white;
+    // padding: 10px;
+    left: 32%;
+    // background-color: white;
+    border: 3px solid white;
     border-radius: 4px;
     z-index: 100;
 
@@ -83,7 +85,9 @@
 }
 
 .checkin-form-wrapper {
-  width: 42%;
+  position: relative;
+  width: 150%;
+  top: 0;
 }
 
 .checkin-form-bottom {

@@ -79,6 +79,7 @@ class CheckinIndexItem extends React.Component {
       color = "rgb(244, 96, 96)";
     }
     const ratingPercentage = (this.props.checkins.rating / 5 * 100).toString();
+    // debugger
     return(
       <div className="beer-item-wrapper checkin-border">
 
@@ -116,7 +117,7 @@ class CheckinIndexItem extends React.Component {
               </div>
             </div>
             <div className="checkin-image" onClick={this.handleClick(<CheckinImage/>)}>
-              <img src="/images/tired-hands.jpg" alt="tired-hands-beer"/>
+              <img src={this.props.checkins.image_url} alt="beer"/>
             </div>
             <div className="checkin-buttons">
 

@@ -11,7 +11,7 @@ import CheckinIndex from '../checkin/checkin_index';
 import BeerIndexItem from './beer_index_item';
 import BeerHeader from './beer_header';
 import { receiveComponent, activateModal } from '../../reducers/modal_redux';
-import { createCheckin, fetchBeerCheckins } from '../../reducers/checkins_redux';
+import { createCheckin, fetchBeerCheckins, createPhotoCheckin } from '../../reducers/checkins_redux';
 import { Spinner } from '../shared/spinner';
 
 const mapStateToProps = (state, ownProps) => {
@@ -74,7 +74,8 @@ class BeerShow extends React.Component {
               removeCurrentUserWishlist={this.props.removeCurrentUserWishlist}
               receiveComponent={this.props.receiveComponent}
               activateModal={this.props.activateModal}
-              createCheckin={this.props.createCheckin}/>
+              createCheckin={this.props.createCheckin}
+              createPhotoCheckin={this.props.createPhotoCheckin}/>
           </div>
         </div>
 

@@ -50,7 +50,11 @@ class BeerHeader extends React.Component {
 
   handleClick(e) {
     //
-    this.props.receiveComponent(<CheckinForm beer={this.props.beer} createCheckin={this.props.createCheckin} activateModal={this.props.activateModal}/>);
+    this.props.receiveComponent(<CheckinForm
+      beer={this.props.beer}
+      createCheckin={this.props.createCheckin}
+      activateModal={this.props.activateModal}
+      createPhotoCheckin={this.props.createPhotoCheckin}/>);
     this.props.activateModal(true);
 
   };

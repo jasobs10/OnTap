@@ -5,7 +5,7 @@ class CheckinForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {counter: 0, rating: 0, address: "", review: "", container: ""}
+    this.state = {counter: 0, rating: 0, address: "", review: "", container: "", imageFile: null, imageUrl: null}
     this.handleChange = this.handleChange.bind(this);
     this.backspace = this.backspace.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -13,6 +13,7 @@ class CheckinForm extends React.Component {
     this.handleAddress = this.handleAddress.bind(this);
     this.handleSlide = this.handleSlide.bind(this);
     this.handleContainer = this.handleContainer.bind(this);
+    this.updateFile = this.updateFile.bind(this);
   }
 
   backspace(e) {
@@ -35,6 +36,23 @@ class CheckinForm extends React.Component {
     // debugger
     e.preventDefault()
     this.props.createCheckin({rating: this.state.rating, beer_id: this.props.beer.id, address: this.state.address, container: this.state.container, review: this.state.review}).then(() => this.clearForm()).then(() => this.props.activateModal(false));
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("checkin[rating]", this.state.rating);
+    formData.append("checkin[beer_id]", this.props.beer.id);
+    formData.append("checkin[address]", this.state.address);
+    formData.append("checkin[container]", this.state.container);
+    formData.append("checkin[review]", this.state.review);
+    formData.append("checkin[image]", this.state.imageFile);
+    // debugger
+    if (this.state.imageFile) {
+
+      this.props.createPhotoCheckin(formData).then(() => this.props.activateModal(false));
+    } else {
+      // debugger
+      this.props.createCheckin({rating: this.state.rating, beer_id: this.props.beer.id, address: this.state.address, container: this.state.container, review: this.state.review}).then(() => this.clearForm()).then(() => this.props.activateModal(false));
+    }
+    // .then(() => this.props.router.push
   }
 
   handleSlide(value) {
@@ -52,6 +70,17 @@ class CheckinForm extends React.Component {
     this.setState({container: e.target.value})
   }
 
+  updateFile(e) {
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = function () {
+      this.setState({imageFile: file, imageUrl: fileReader.result});
+    }.bind(this);
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  }
+
   render() {
     // debugger
     return (
@@ -65,9 +94,17 @@ class CheckinForm extends React.Component {
             <textarea className="comment-input checkin-form-review" value={this.state.review} placeholder="What did you think?" onChange={this.handleChange} onKeyDown={this.backspace}>
 
             </textarea>
-            <div className="checkin-upload">
+
+            <label className="checkin-upload">
+              <input name="file" id="file" className="upload-button" type="file" onChange={this.updateFile}/>
               <i className="fa fa-camera-retro" aria-hidden="true"></i>
-            </div>
+            </label>
+
+
+
+          </div>
+          <div className="preview-image-wrapper">
+            <img src={this.state.imageUrl} />
           </div>
           <div className="comment-bottom checkin-form-middle">
             <div className="counter">

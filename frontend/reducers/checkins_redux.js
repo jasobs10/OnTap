@@ -39,6 +39,8 @@ const APIUTIL = {
     });
   },
 
+
+
   fetchUserCheckins: (user_id) => {
     // debugger
     return $.ajax({
@@ -60,6 +62,17 @@ const APIUTIL = {
       method: "POST",
       url: "api/checkins",
       data: { checkin }
+    });
+  },
+
+  createPhotoCheckin: (formData) => {
+    return $.ajax({
+      method: "post",
+      url: "/api/checkins",
+      dataType: "json",
+      contentType: false,
+      processData: false,
+      data: formData
     });
   },
 
@@ -198,6 +211,13 @@ export const updateComment = (comment) => {
 
 export const createCheckin = (checkin) => {
   return dispatch => APIUTIL.createCheckin(checkin).then((checkin) => {
+    //
+    return dispatch(receiveCheckin(checkin));
+  });
+};
+
+export const createPhotoCheckin = (checkin) => {
+  return dispatch => APIUTIL.createPhotoCheckin(checkin).then((checkin) => {
     //
     return dispatch(receiveCheckin(checkin));
   });
