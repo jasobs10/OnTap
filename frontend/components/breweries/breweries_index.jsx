@@ -31,8 +31,9 @@ class BreweriesIndex extends React.Component {
   constructor(props) {
     super(props)
     // debugger
-    this.state = {state: "", name: "", id: "", rating: ""};
+    this.state = {state: "", name: "", id: "", rating: "", breweryCount: 8};
     this.handleChange = this.handleChange.bind(this);
+    this.handleShow = this.handleShow.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -50,9 +51,24 @@ class BreweriesIndex extends React.Component {
     }
   }
 
+  showMore() {
+    // debugger
+    if (this.state.checkinCount < this.props.breweries.length || this.props.breweries.length === 0) {
+      // debugger
+      return (<div className="show-more" onClick={this.handleShow}>SHOW MORE</div>);
+    }
+  }
+
+  handleShow() {
+    this.setState({breweryCount: breweryCount + 8});
+  }
 
   render() {
-    // debugger
+    debugger
+    if (this.props.breweries.length === 0) {
+      // debugger
+      return (<div>loading</div>);
+    }
     const logged_in = this.props.currentUser
     if (logged_in) {
       const ratings = ["0", "1", "2", "3", "4", "5"];
@@ -68,20 +84,37 @@ class BreweriesIndex extends React.Component {
       // const breweryLikes = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
       const breweryLikesSorted = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).sort((a, b) => {
         return (b.id - a.id);
-      }) : "";
-      const breweryLikes = breweryLikesSorted.map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>);
+      }) : null;
+      const breweryLikes = breweryLikesSorted ? breweryLikesSorted.map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
       const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
       const selectRating = ratings.map((rating, i) => <option key={i} value={rating}>{rating}</option>);
       const selectName = alphabet.map((letter, i) => <option  key={i} value={letter}>{letter}</option>);
       const selectLoc = this.props.breweries.length > 0 ? this.props.breweries[0].allStates.map((state, i) => <option key={i} value={state}>{state}</option>) : "";
       // debugger
-      const sortedBreweries = this.props.breweries.sort((a, b) => {
+      const sortedBreweries = this.props.breweries ? this.props.breweries.sort((a, b) => {
         return (parseInt(b.average) - (parseInt(a.average)));
-      });
+      }) : "";
       // debugger
-      const brewers = sortedBreweries.map((brewery) => {
-        return <BreweryIndexItem key={brewery.id} brewery={brewery} addBreweryLike={this.props.addBreweryLike} removeBreweryLike={this.props.removeBreweryLike} addUserLike={this.props.addUserLike} removeUserLike={this.props.removeUserLike}/>
-      });
+      let brewers;
+      if (sortedBreweries.length - this.state.breweryCount <= 0) {
+        brewers = sortedBreweries.map((brewery) => {
+          return <BreweryIndexItem key={brewery.id}
+            brewery={brewery}
+            addBreweryLike={this.props.addBreweryLike}
+            removeBreweryLike={this.props.removeBreweryLike}
+            addUserLike={this.props.addUserLike}
+            removeUserLike={this.props.removeUserLike}/>
+        });
+      } else {
+       brewers = sortedBreweries.map((brewery) => {
+          return <BreweryIndexItem key={brewery.id}
+            brewery={brewery}
+            addBreweryLike={this.props.addBreweryLike}
+            removeBreweryLike={this.props.removeBreweryLike}
+            addUserLike={this.props.addUserLike}
+            removeUserLike={this.props.removeUserLike}/>
+        }).slice(0, this.state.breweryCount);
+      }
 
       return(
         <div className="beers-wrapper">
@@ -123,6 +156,7 @@ class BreweriesIndex extends React.Component {
                 </div>
               </div>
               { brewers }
+              {this.showMore()}
 
             </div>
             <div className="side-bars">

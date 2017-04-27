@@ -48,7 +48,7 @@ export const WishlistBeerItem = (props) => {
       </div>
       <div>
         <div className="wishlist-beer">
-          {sliced}
+          <Link to={`/beers/${props.beer.id}`}>{sliced}</Link>
         </div>
         <div className="wishlist-brewery">
           {brewery}
@@ -99,6 +99,9 @@ class Beers extends React.Component {
   render () {
 
     // debugger
+    if (this.props.beers.length === 0) {
+      return (<div>Loading...</div>)
+    }
     if (this.props.currentUser) {
       const sortedBeers = this.props.beers.sort((a, b) => {
         return (parseInt(b.average) - (parseInt(a.average)));
@@ -128,8 +131,8 @@ class Beers extends React.Component {
       const selectName = alphabet.map((letter, i) => <option key={i} value={letter}>{letter}</option>);
       const breweryLikesSorted = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).sort((a, b) => {
         return (b.id - a.id);
-      }) : "";
-      const breweryLikes = breweryLikesSorted.map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>);
+      }) : null;
+      const breweryLikes = breweryLikesSorted ? breweryLikesSorted.map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
       // debugger
       return (
         <div className="beers-wrapper">

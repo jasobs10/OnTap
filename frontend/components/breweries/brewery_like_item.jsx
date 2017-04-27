@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 export const BreweryLikeItem = (props) => {
   // debugger
@@ -11,7 +12,7 @@ export const BreweryLikeItem = (props) => {
       </div>
       <div>
         <div className="brewery-like-items">
-          {sliced}
+          <Link to={`/breweries/${props.brewery.id}`}>{sliced}</Link>
         </div>
       </div>
     </div>

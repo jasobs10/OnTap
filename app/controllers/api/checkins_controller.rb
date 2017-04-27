@@ -3,13 +3,14 @@ class Api::CheckinsController < ApplicationController
 
   def index
     # debugger
+
     id = params[:beer_id].to_i
     if params[:beer_id]
       # debugger
-      @checkins = Checkin.where("beer_id = ?", id)
+      @checkins = Checkin.includes(:beer, :user, :comments, :toasts, :toast_users).where("beer_id = ?", id)
       # debugger
     elsif params[:brewery_id]
-      @checkins = Brewery.find(params[:brewery_id]).checkins
+      @checkins = Brewery.includes(:checkins).find(params[:brewery_id]).checkins
     else
       @checkins = Checkin.all.includes(:beer, :brewery, :comments, :toasts, :toast_users)
     end
