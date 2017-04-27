@@ -20,6 +20,9 @@ class Brewery < ApplicationRecord
   validates :name, :style, :country, :city, :state, presence: true
   validates :name, uniqueness: true
 
+  has_attached_file :image, default_url: "/images/beers.jpg"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+
   has_many :beers, dependent: :destroy
   has_many :checkins, through: :beers
   has_many :brewery_likes

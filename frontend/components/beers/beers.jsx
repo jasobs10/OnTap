@@ -42,10 +42,11 @@ export const WishlistBeerItem = (props) => {
   // debugger
   const brewery = props.beer.brewery.name || props.beer.brewery;
   const sliced = props.beer.name.length > 17 ? props.beer.name.slice(0, 17) + "..." : props.beer.name
+  // debugger
   return(
     <div className="top-beers-item">
       <div>
-        <img src="/images/chocolate.png"/>
+        <img src={props.beer.image_url}/>
       </div>
       <div>
         <div className="wishlist-beer">

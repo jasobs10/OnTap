@@ -10,35 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425193020) do
+ActiveRecord::Schema.define(version: 20170427195604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "beers", force: :cascade do |t|
-    t.string   "name",        null: false
+    t.string   "name",               null: false
     t.text     "description"
-    t.integer  "brewery_id",  null: false
-    t.float    "abv",         null: false
-    t.float    "ibu",         null: false
-    t.string   "style",       null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "brewery_id",         null: false
+    t.float    "abv",                null: false
+    t.float    "ibu",                null: false
+    t.string   "style",              null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["brewery_id"], name: "index_beers_on_brewery_id", using: :btree
   end
 
   create_table "breweries", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "style",      null: false
-    t.string   "country",    null: false
-    t.string   "city",       null: false
-    t.string   "state",      null: false
+    t.string   "name",               null: false
+    t.string   "style",              null: false
+    t.string   "country",            null: false
+    t.string   "city",               null: false
+    t.string   "state",              null: false
     t.string   "fb"
     t.string   "ig"
     t.string   "twitter"
     t.string   "website"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["name"], name: "index_breweries_on_name", unique: true, using: :btree
   end
 
@@ -51,15 +59,19 @@ ActiveRecord::Schema.define(version: 20170425193020) do
   end
 
   create_table "checkins", force: :cascade do |t|
-    t.integer  "user_id",    null: false
-    t.integer  "beer_id",    null: false
+    t.integer  "user_id",            null: false
+    t.integer  "beer_id",            null: false
     t.integer  "venue_id"
-    t.integer  "rating",     null: false
+    t.integer  "rating",             null: false
     t.string   "address"
     t.text     "review"
     t.string   "container"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["beer_id"], name: "index_checkins_on_beer_id", using: :btree
     t.index ["user_id"], name: "index_checkins_on_user_id", using: :btree
     t.index ["venue_id"], name: "index_checkins_on_venue_id", using: :btree

@@ -68,7 +68,7 @@ class BeerHeader extends React.Component {
           <div className="beer-item-main">
             <div className="col-1">
               <div className="img-container">
-                <img src="/images/beers.jpg"/>
+                <img src={this.props.beer.image_url}/>
               </div>
 
             </div>

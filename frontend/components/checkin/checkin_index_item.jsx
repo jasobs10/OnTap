@@ -85,7 +85,7 @@ class CheckinIndexItem extends React.Component {
         <div className="beer-item-main">
           <div className="checkin-avatar">
             <div>
-              <img src="/images/buscemi.jpg"/>
+              <img className="round-avatar" src={this.props.checkins.user_image_url}/>
             </div>
           </div>
           <div className="checkin-content">
@@ -134,7 +134,7 @@ class CheckinIndexItem extends React.Component {
           </div>
           <div className="checkin-beer-avatar">
             <div>
-              <img src="/images/street-green.jpg"/>
+              <img src={this.props.checkins.beer_image_url}/>
             </div>
           </div>
         </div>

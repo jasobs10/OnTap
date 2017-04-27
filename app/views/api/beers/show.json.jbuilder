@@ -4,6 +4,7 @@ json.set! @beer.id do
   json.brewery @beer.brewery, :name
   json.checkins @beer.checkins.count(:id)
   json.average @beer.checkins.average('rating').round(2)
+  json.image_url @beer.image.url
   json.allStyles do
     json.array! @styles
   end

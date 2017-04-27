@@ -8,7 +8,7 @@ export const BreweryLikeItem = (props) => {
   return(
     <div className="top-beers-item">
       <div>
-        <img src="/images/chocolate.png"/>
+        <img src={props.brewery.image_url}/>
       </div>
       <div>
         <div className="brewery-like-items">

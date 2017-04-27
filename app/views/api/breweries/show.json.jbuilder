@@ -3,6 +3,7 @@ json.set! @brewery.id do
   json.ratings @brewery.checkins.count
   json.beers @brewery.beers.count
   json.average @brewery.checkins.average('rating').round(2)
+  json.image_url @brewery.image.url
   # json.allStates do
   #   json.array! @states
   # end

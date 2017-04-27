@@ -5,13 +5,16 @@
     json.brewery_id checkin.brewery.id
     json.beer checkin.beer.name
     json.user checkin.user, :f_name, :l_name, :id
+    json.user_image_url checkin.user.avatar.url
     json.beer_id checkin.beer_id
+    json.beer_image_url checkin.beer.image.url
     json.toastUsers do
       checkin.toast_users.each do |user|
         json.set! user.id do
           json.user_id user.id
           json.f_name user.f_name
           json.l_name user.l_name
+          json.image_url user.avatar.url
           # json.userToasts do
           #   json.set! user.id do
           #     json.array! user.toasts.map(&:id)

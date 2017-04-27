@@ -2,6 +2,7 @@
 @beers.each do |beer|
   json.set! beer.id do
     json.extract! beer, :id, :name, :description, :abv, :ibu, :style
+    json.image_url beer.image.url
     json.date_added beer.created_at.strftime("%m-%d-%Y")
     json.brewery beer.brewery, :name, :id
     json.checkins beer.checkins.count(:id)
