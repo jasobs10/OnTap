@@ -41,12 +41,13 @@ const mapDispatchToProps = (dispatch) => {
 export const WishlistBeerItem = (props) => {
   // debugger
   const brewery = props.beer.brewery.name || props.beer.brewery;
+  const beerpic = props.beer.image_url || props.beer.beer_image_url
   const sliced = props.beer.name.length > 17 ? props.beer.name.slice(0, 17) + "..." : props.beer.name
   // debugger
   return(
     <div className="top-beers-item">
       <div>
-        <img src={props.beer.image_url}/>
+        <img src={beerpic}/>
       </div>
       <div>
         <div className="wishlist-beer">

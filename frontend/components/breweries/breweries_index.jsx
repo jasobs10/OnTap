@@ -87,6 +87,7 @@ class BreweriesIndex extends React.Component {
       const breweryLikesSorted = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).sort((a, b) => {
         return (b.id - a.id);
       }) : null;
+      // debugger
       const breweryLikes = breweryLikesSorted ? breweryLikesSorted.map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
       const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
       const selectRating = ratings.map((rating, i) => <option key={i} value={rating}>{rating}</option>);

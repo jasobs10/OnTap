@@ -18,6 +18,7 @@ json.likedBreweries do
     json.set! like.id do
       json.id like.id
       json.name like.name
+      json.image_url like.image.url
     end
   end
 end

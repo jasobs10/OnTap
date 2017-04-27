@@ -6,7 +6,7 @@ export const BreweryLikeItem = (props) => {
   const brewery = props.brewery || props.beer.brewery;
   const sliced = brewery.name.length > 21 ? brewery.name.slice(0, 21) + "..." : brewery.name
   return(
-    <div className="top-beers-item">
+    <div className="top-beers-item brewery-item-wrapper">
       <div>
         <img src={props.brewery.image_url}/>
       </div>
