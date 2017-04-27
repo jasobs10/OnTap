@@ -1,9 +1,10 @@
 .comment-wrapper {
-  position: relative;
+  position: fixed;
   // width: 100%;
-  top: 0;
-  width: 170%;
-  padding: 10px;
+  left: 30%;
+  top: 20vh;
+  width: 450px;
+  padding: 15px;
   background-color: white;
   border-radius: 4px;
   z-index: 20;
@@ -64,6 +65,7 @@
 .comment-header {
   margin-bottom: 2%;
   color: rgb(255, 173, 13);
+  font-size: 20px;
 }
 
 .comment-button {
