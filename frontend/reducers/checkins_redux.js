@@ -218,7 +218,7 @@ export const createCheckin = (checkin) => {
 
 export const createPhotoCheckin = (checkin) => {
   return dispatch => APIUTIL.createPhotoCheckin(checkin).then((checkin) => {
-    debugger
+    // debugger
     return dispatch(receiveCheckin(checkin));
   });
 };
