@@ -19,6 +19,7 @@ const LineRating = ({ average }) => {
     }
     const ratingPercentage = (average / 5 *  100).toString();
     let averageInt = parseFloat(average) - 0.3;
+    const rounded = parseFloat(average).toFixed(1);
     return(
       <span><Rating
                      initialRate={averageInt}
@@ -27,7 +28,7 @@ const LineRating = ({ average }) => {
                      full="fa fa-circle fa-1x overall-full"
                      className="rating-stars"
                      fractions={4}
-                     />&nbsp;({average})</span>
+                     />&nbsp;({rounded})</span>
     );
   }
   // <span className="line-flex"><Line percent={ratingPercentage} strokeWidth="10" strokeColor={`${color}`} trailColor="#8e8c8d" trailWidth="10" className="rating-bar"/> ({average})</span>

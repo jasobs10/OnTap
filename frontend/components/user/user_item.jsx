@@ -4,7 +4,7 @@ import React from 'react';
 const UserEditButton = (props) => {
   if (props.currentUserId === props.id) {
     return (
-      <div className="user-edit-button">
+      <div className="user-edit-button" style={{display: "none"}}>
         <button className="user-edit">update</button>
       </div>
     );

@@ -19,6 +19,7 @@ export const LineRating = ({ average }) => {
     }
     const ratingPercentage = (average / 5 *  100).toString();
     let averageInt = parseFloat(average) - 0.3;
+    const rounded = parseFloat(average).toFixed(1);
     //
     return(
       <span className="avg-text"><Rating
@@ -30,7 +31,7 @@ export const LineRating = ({ average }) => {
                      full="fa fa-circle fa-1x overall-full"
                      className="rating-stars"
                      fractions={2}
-                     />&nbsp;({average})</span>
+                     />&nbsp;({rounded})</span>
                  )
   }
 

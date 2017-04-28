@@ -161,7 +161,7 @@ class BreweriesIndex extends React.Component {
                     {selectName}
                   </select>
                 </div>
-                <div className="brewery-button">
+                <div className="brewery-button" style={{display: "none"}}>
                   <button className="add-brewery">+ Brewery</button>
                 </div>
               </div>

@@ -37,7 +37,7 @@
   // align-flex: flex-start;
   width: 100%;
   // align-self: flex-end;
-  justify-content: space-around;
+  justify-content: space-between;
   // padding: 1% 10%;
   height: 30%;
   background-color: rgba(0,0,0,0.75);
@@ -49,9 +49,11 @@
   flex-direction: row;
   align-items: center;
   width: 20%;
-  justify-content: space-around;
+  justify-content: space-between;
+  // align-self: flex-start;
   // width: 35%;
   // height: 30px;
+  margin-left: 17%;
 }
 
 
@@ -122,5 +124,5 @@
 .user-show-avatar {
   border-radius: 75px;
   border: 3px solid white;
-  
+
 }
