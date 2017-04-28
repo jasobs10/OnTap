@@ -10,7 +10,7 @@ import { Spinner } from '../shared/spinner';
 
 
 const mapStateToProps = (state) => {
-
+  // debugger
   return {
     currentUser: state.currentUser,
     breweries: Object.values(state.breweries)
@@ -40,7 +40,7 @@ class BreweriesIndex extends React.Component {
     // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     //
     this.props.requestBreweries();
   }
@@ -86,6 +86,7 @@ class BreweriesIndex extends React.Component {
         wishlistBeers = ""
       }
       // const breweryLikes = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
+
       const breweryLikesSorted = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).sort((a, b) => {
         return (b.id - a.id);
       }) : null;
@@ -94,8 +95,9 @@ class BreweriesIndex extends React.Component {
       const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
       const selectRating = ratings.map((rating, i) => <option key={i} value={rating}>{rating}</option>);
       const selectName = alphabet.map((letter, i) => <option  key={i} value={letter}>{letter}</option>);
+      // debugger
       const selectLoc = this.props.breweries.length > 0 ? this.props.breweries[0].allStates.map((state, i) => <option key={i} value={state}>{state}</option>) : "";
-      //
+      // debugger
       const sortedBreweries = this.props.breweries ? this.props.breweries.sort((a, b) => {
         // debugger
         return (parseInt(b.average) - (parseInt(a.average)));
@@ -104,6 +106,7 @@ class BreweriesIndex extends React.Component {
       let brewers;
       if (sortedBreweries.length - this.state.breweryCount <= 0) {
         brewers = sortedBreweries.map((brewery) => {
+
           return <BreweryIndexItem key={brewery.id}
             brewery={brewery}
             addBreweryLike={this.props.addBreweryLike}
@@ -113,6 +116,7 @@ class BreweriesIndex extends React.Component {
         });
       } else {
        brewers = sortedBreweries.map((brewery) => {
+              //  debugger
           return <BreweryIndexItem key={brewery.id}
             brewery={brewery}
             addBreweryLike={this.props.addBreweryLike}

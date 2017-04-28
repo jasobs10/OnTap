@@ -50,6 +50,7 @@ class BreweriesIndexItem extends React.Component {
 
   render() {
     // const score = this.props.brewery.average ? this.props.brewery.average : "NO REVIEWS";
+    // debugger
     return (
       <div className="brewery-index-item">
 

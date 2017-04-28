@@ -13,8 +13,8 @@ const UserEditButton = (props) => {
 }
 
 export const UserItem = (props) => {
-  const checkinCount = props.checkinCount > 0 ? props.checkinCount : 0;
-  const uniqueCheckinCount = props.uniqueCheckinCount > 0 ? props.uniqueCheckinCount : 0;
+  const checkinCount = props.user.checkinCount > 0 ? props.user.checkinCount : 0;
+  const uniqueCheckinCount = props.user.uniqueCheckinCount > 0 ? props.user.uniqueCheckinCount : 0;
   return (
     <div className="beer-item-wrapper user-show-wrapper">
       <div className="user-show-main">

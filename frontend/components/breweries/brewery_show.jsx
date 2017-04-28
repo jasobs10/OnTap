@@ -8,6 +8,7 @@ import BreweriesIndexItem from './breweries_index_item';
 import BreweryHeader from './brewery_header';
 
 const mapStateToProps = (state, ownProps) => {
+  // debugger
   return {
     checkins: state.checkins,
     brewery: state.breweries[ownProps.params.breweryId],

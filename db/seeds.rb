@@ -99,7 +99,7 @@ userarray.map! do |user|
   User.create!(username: Faker::Internet.user_name, password: "password", f_name: Faker::Name.first_name, l_name: Faker::Name.last_name, avatar: user)
 end
 
-
+meimage = open('https://s3.amazonaws.com/on-tap-dev/me.jpg')
 
 #
 # test_user = User.create!(username: "testaccount", password: "password", f_name: "Test", l_name: "Account")
@@ -107,7 +107,8 @@ end
 
 
 
-
+me = User.new(username: "jasobs10", password: "password", f_name: "Jason", l_name: "Liu", avatar: meimage)
+me.save!
 
 test_user = User.new(username: "testaccount", password: "password", f_name: "Test", l_name: "Account")
 User.create(username: "mealpal", password: "password", f_name: "meal", l_name: "pal")
@@ -256,6 +257,9 @@ reviews = [
 
 ]
 
+beers.each do |beer|
+  beer.checkins.create!(user_id: userarray.sample.id, rating: rate2.sample, address: Faker::Address.street_address, review: reviews.sample, container: container2.sample)
+end
 
 checkins = [brocolli1, damnnation1, doublenegative1, edward1, everett1, heady2, haze1, madfat1, pliny1, supplication1, psychokinesis1, tess1, tess2, tess3]
 beers3 = beers.map do |beer|
@@ -294,6 +298,14 @@ beers3 = beers.map do |beer|
       beer.checkins.create!(user_id: userarray.sample.id, rating: rate2.sample, address: Faker::Address.street_address, review: reviews.sample, container: container2.sample, image: checkins[13])
   end
 end
+userarray.each do |user|
+  breweries2.each do |brewery|
+    BreweryLike.create(user_id: user.id, brewery_id: brewery.id)
+  end
+end
+
+
+
 
 # Beer.all.each do |x|
 #   # debugger

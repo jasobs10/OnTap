@@ -56,7 +56,7 @@ class BreweryHeader extends React.Component {
 
         <div className="brewery-text-container">
           <div className='brewery-pic brewery-show-pic'>
-            <img src="/images/beers.jpg"/>
+            <img src={this.props.brewery.image_url}/>
           </div>
           <div className="brewery-display">
             <li className="brewery-name brewery-show-name">

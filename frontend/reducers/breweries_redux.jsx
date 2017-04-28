@@ -119,10 +119,13 @@ export const breweriesReducer = (oldState = _defaultBreweriesState, action) => {
   let old = merge({}, oldState);
   switch(action.type) {
     case RECEIVE_ALL_BREWERIES:
+    // debugger
       return action.breweries;
     case RECEIVE_BREWERY:
+    // debugger
       old = merge({}, oldState);
-      return merge(old, {[action.brewery.id]: action.brewery});
+      // debugger
+      return merge(old, action.brewery);
     case ADD_BREWERY_LIKE:
     // debugger
       old[action.breweryLike.brewery_id].currentUserLikes = { 'id': action.breweryLike.id }

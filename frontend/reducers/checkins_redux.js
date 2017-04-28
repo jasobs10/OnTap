@@ -7,7 +7,7 @@ const REMOVE_TOAST = "REMOVE_TOAST";
 const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 const REMOVE_COMMENT = "REMOVE_COMMENT";
 const UPDATE_COMMENT = "UPDATE_COMMENT";
-const RECEIVE_BREWERY_CHECKINS = "RECEIVEBREWERYCHECKINS";
+const RECEIVE_BREWERY_CHECKINS = "RECEIVE_BREWERY_CHECKINS";
 
 const RECEIVE_BEER_CHECKINS = "RECEIVE_BEER_CHECKINS";
 
@@ -250,6 +250,7 @@ export const checkinsReducer = (oldState = {}, action) => {
     //
       return action.checkins;
     case RECEIVE_BREWERY_CHECKINS:
+    // debugger
       return action.checkins;
     case RECEIVE_TOAST:
     //
