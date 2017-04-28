@@ -115,6 +115,7 @@ User.create(username: "mealpal", password: "password", f_name: "meal", l_name: "
 
 
 test_user.save!
+userarray << me
 
 brewery_style = ["Microbrewery", "Macrobrewery", "Farmhouse"]
 brewerynames = [
