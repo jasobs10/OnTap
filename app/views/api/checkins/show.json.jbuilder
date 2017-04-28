@@ -3,6 +3,8 @@ json.image_url @checkin.image.url
 json.brewery @checkin.brewery.name
 json.beer @checkin.beer.name
 json.user @checkin.user, :f_name, :l_name
+json.user_image_url @checkin.user.avatar.url
+json.beer_image_url @checkin.beer.image.url
 json.beer_id @checkin.beer_id
 json.toastUsers do
   @checkin.toast_users.each do |user|
