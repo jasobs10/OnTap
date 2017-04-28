@@ -1,4 +1,4 @@
-json.extract! @checkin, :id, :rating, :address, :review, :container, :created_at, :updated_at
+json.extract! @checkin, :id, :rating, :address, :review, :container, :created_at, :updated_at, :address
 json.image_url @checkin.image.url
 json.brewery @checkin.brewery.name
 json.beer @checkin.beer.name

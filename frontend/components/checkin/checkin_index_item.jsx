@@ -101,7 +101,7 @@ class CheckinIndexItem extends React.Component {
           </div>
           <div className="checkin-content">
             <div className="checkin-header">
-              <span><Link to={`/users/${this.props.checkins.user.id}`}>{this.props.checkins.user.f_name} {lastName}</Link></span>is drinking a <span><Link to={`/beers/${this.props.checkins.beer_id}`}>{this.props.checkins.beer}</Link></span> by <span><Link to={`/breweries/${this.props.checkins.brewery_id}`}>{this.props.checkins.brewery}</Link></span>
+              <span><Link to={`/users/${this.props.checkins.user.id}`}>{this.props.checkins.user.f_name} {lastName}</Link></span>is drinking a <span><Link to={`/beers/${this.props.checkins.beer_id}`}>{this.props.checkins.beer}</Link></span> by <span><Link to={`/breweries/${this.props.checkins.brewery_id}`}>{this.props.checkins.brewery}</Link></span> at <span>{this.props.checkins.address}</span>
             </div>
             <div className="checkin-review">
               <div className="arrow">
