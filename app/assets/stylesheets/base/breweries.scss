@@ -61,18 +61,27 @@
 
 }
 
+
 .brew-border {
   border-right: 1px solid rgb(231, 231, 230);
   // margin-bottom: 13px;
   width: 50%;
   text-align: center;
+
 }
+
+
 
 .brew-section {
   width: 50%;
   text-align: center;
 }
 
+.brewery-ratings > section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 // .brew-border > :first-child {
 //   padding-right: 6px;
 // }
