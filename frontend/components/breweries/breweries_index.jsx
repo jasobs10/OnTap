@@ -100,7 +100,7 @@ class BreweriesIndex extends React.Component {
       // debugger
       const sortedBreweries = this.props.breweries ? this.props.breweries.sort((a, b) => {
         // debugger
-        return (parseInt(b.average) - (parseInt(a.average)));
+        return (parseFloat(b.average) - (parseFloat(a.average)));
       }) : "";
       //
       let brewers;

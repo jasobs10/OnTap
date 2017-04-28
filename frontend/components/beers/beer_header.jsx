@@ -18,7 +18,7 @@ export const LineRating = ({ average }) => {
       color = "rgb(244, 96, 96)";
     }
     const ratingPercentage = (average / 5 *  100).toString();
-    let averageInt = parseFloat(average) - 0.3;
+    let averageInt = parseFloat(average) - 0.1;
     const rounded = parseFloat(average).toFixed(1);
     //
     return(

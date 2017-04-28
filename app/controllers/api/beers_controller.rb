@@ -7,7 +7,7 @@ class Api::BeersController < ApplicationController
     @styles = Beer.includes(:brewery, :checkins).all.map(&:style).uniq.sort
     fetch_beers = Beer.includes(:brewery, :checkins)
     if params[:type] == "id" || params[:type] == nil || params[:sort] == "id"
-
+      # Beer.select("AVG(ratings) as ratings", "*").joins("checkins").group("beers.id").order("ratings").limit(5)
       @beers = fetch_beers
     elsif params[:type] == "style"
       @beers = fetch_beers.where("style = ?", params[:sort])

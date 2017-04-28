@@ -122,7 +122,7 @@ class Beers extends React.Component {
     }
     if (this.props.currentUser) {
       const sortedBeers = this.props.beers ? this.props.beers.sort((a, b) => {
-        return (parseInt(b.average) - (parseInt(a.average)));
+        return (parseFloat(b.average) - (parseFloat(a.average)));
       }) : "";
 
       let items;
