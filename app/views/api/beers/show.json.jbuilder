@@ -1,9 +1,17 @@
 json.set! @beer.id do
   json.extract! @beer, :id, :name, :description, :abv, :ibu, :style
   json.date_added @beer.created_at.strftime("%m-%d-%Y")
-  json.brewery @beer.brewery, :name
+  json.brewery @beer.brewery, :name, :id
   json.checkins @beer.checkins.count(:id)
-  json.average @beer.checkins.average('rating').round(2)
+  
+  average = @beer.checkins.average('rating')
+
+  if average
+    json.average average
+    # debugger
+  else
+    json.average 0
+  end
   json.image_url @beer.image.url
   json.allStyles do
     json.array! @styles

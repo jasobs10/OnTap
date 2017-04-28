@@ -35,7 +35,7 @@ const LineRating = ({ average }) => {
 
   return(
     <span>
-      "NO REVIEWS"
+      NO REVIEWS
     </span>
   )
 
@@ -57,7 +57,7 @@ class BreweriesIndexItem extends React.Component {
 
         <div className="brewery-text-container">
           <div className='brewery-pic'>
-            <img src="/images/beers.jpg"/>
+            <img src={this.props.brewery.image_url}/>
           </div>
           <div className="brewery-display">
             <li className="brewery-name">

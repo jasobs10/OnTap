@@ -135,7 +135,7 @@ class CheckinIndexItem extends React.Component {
             </div>
 
             <div className="checkin-footer-wrapper">
-              <span className="checkin-footer"><TimeAgo datetime={this.props.checkins.created_at}/>&nbsp;&nbsp;&nbsp;&nbsp; View detailed check-in</span>
+              <span className="checkin-footer"><TimeAgo datetime={this.props.checkins.created_at}/></span>
               {toastCount}
             </div>
 

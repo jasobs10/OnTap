@@ -13,7 +13,10 @@ class Api::BreweriesController < ApplicationController
     elsif params[:type] == "rating"
       avg_max = params[:sort].to_i.to_f + 0.99
       avg = params[:sort].to_f
-      @breweries = fetch_breweries.select {|brewery| brewery.checkins.average('rating').between?(avg, avg_max)}
+      @breweries = fetch_breweries.select do |brewery|
+        checkin_average = brewery.checkins.average('rating')
+        checkin_average && checkin_average.between?(avg, avg_max)
+      end
     elsif params[:type] == "name"
       @breweries = fetch_breweries.select('*').where("name LIKE ?", "#{params[:sort]}%")
       # debugger

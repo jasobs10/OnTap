@@ -7,6 +7,7 @@ const RECEIVE_BREWERY = "RECEIVE_BREWERY";
 const ADD_BREWERY_LIKE = "ADD_BREWERY_LIKE";
 const REMOVE_BREWERY_LIKE = "REMOVE_LIKE";
 
+
 const APIUTIL = {
 
   addBreweryLike: (brewery_id) => {
@@ -108,6 +109,10 @@ export const updateBrewery = (brewery) => {
   return dispatch => APIUTIL.createBrewery(brewery).then((brewery) => dispatch(receiveBrewery(brewery)));
 };
 
+export const createBrewery = (brewery) => {
+  return dispatch => APIUTIL.createBrewery(brewery).then((r) => dispatch(receiveBrewery(r)));
+}
+
 const _defaultBreweriesState = {};
 export const breweriesReducer = (oldState = _defaultBreweriesState, action) => {
   Object.freeze(oldState);
@@ -117,7 +122,7 @@ export const breweriesReducer = (oldState = _defaultBreweriesState, action) => {
       return action.breweries;
     case RECEIVE_BREWERY:
       old = merge({}, oldState);
-      return merge(old, action.brewery);
+      return merge(old, {[action.brewery.id]: action.brewery});
     case ADD_BREWERY_LIKE:
     // debugger
       old[action.breweryLike.brewery_id].currentUserLikes = { 'id': action.breweryLike.id }

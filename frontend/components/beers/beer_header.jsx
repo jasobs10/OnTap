@@ -81,7 +81,7 @@ class BeerHeader extends React.Component {
                 <Link to={`/beers/${this.props.beer.id}`}>{this.props.beer.name}</Link>
               </div>
               <div className="brewery-name beer-showpage-brewery">
-                {this.props.beer.brewery.name}
+                <Link to={`/breweries/${this.props.beer.brewery.id}`}>{this.props.beer.brewery.name}</Link>
               </div>
               <div className="beer-style beer-showpage-style">
                 {this.props.beer.style}

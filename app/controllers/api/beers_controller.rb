@@ -7,19 +7,22 @@ class Api::BeersController < ApplicationController
     @styles = Beer.includes(:brewery, :checkins).all.map(&:style).uniq.sort
     fetch_beers = Beer.includes(:brewery, :checkins)
     if params[:type] == "id" || params[:type] == nil || params[:sort] == "id"
-      # debugger
+
       @beers = fetch_beers
     elsif params[:type] == "style"
       @beers = fetch_beers.where("style = ?", params[:sort])
       #
     elsif params[:type] == "rating"
+
       avg_max = params[:sort].to_i.to_f + 0.99
       avg = params[:sort].to_f
       #
-      # @beers = <<-SQL
-      #   SELECT AVG(rating), beers.id FROM checkins JOIN beers ON checkins.beer_id = beers.id GROUP BY beers.id HAVING AVG(rating) BETWEEN 3 AND 4 - .1
-      # SQL
-      @beers = fetch_beers.select {|beer| beer.checkins.average('rating').between?(avg, avg_max)}
+
+      @beers = fetch_beers.select do |beer|
+        checkin_average = beer.checkins.average('rating')
+        checkin_average && checkin_average.between?(avg, avg_max)
+      end
+      # debugger
     elsif params[:type] == "name"
       @beers = fetch_beers.select('*').where("name LIKE ?", "#{params[:sort]}%")
 

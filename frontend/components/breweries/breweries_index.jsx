@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { hashHistory } from 'react-router';
-import { requestBreweries, addBreweryLike, removeBreweryLike } from '../../reducers/breweries_redux'
+import { requestBreweries, addBreweryLike, removeBreweryLike, createBrewery } from '../../reducers/breweries_redux'
 import BreweryIndexItem from './breweries_index_item';
 import { WishlistBeerItem } from '../beers/beers';
 import { addUserLike, removeUserLike } from '../../reducers/session_redux';
 import { BreweryLikeItem } from './brewery_like_item';
 import { Spinner } from '../shared/spinner';
+
 
 const mapStateToProps = (state) => {
 
@@ -23,7 +24,8 @@ const mapDispatchToProps = (dispatch) => {
     removeBreweryLike: (id) => dispatch(removeBreweryLike(id)),
 
     addUserLike: (brewery) => dispatch(addUserLike(brewery)),
-    removeUserLike: (id) => dispatch(removeUserLike(id))
+    removeUserLike: (id) => dispatch(removeUserLike(id)),
+    createBrewery: (brewery) => dispatch(createBrewery(brewery))
 
   }
 };
@@ -95,6 +97,7 @@ class BreweriesIndex extends React.Component {
       const selectLoc = this.props.breweries.length > 0 ? this.props.breweries[0].allStates.map((state, i) => <option key={i} value={state}>{state}</option>) : "";
       //
       const sortedBreweries = this.props.breweries ? this.props.breweries.sort((a, b) => {
+        // debugger
         return (parseInt(b.average) - (parseInt(a.average)));
       }) : "";
       //

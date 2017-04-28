@@ -2,7 +2,15 @@ json.set! @brewery.id do
   json.extract! @brewery, :id, :name, :country, :city, :state
   json.ratings @brewery.checkins.count
   json.beers @brewery.beers.count
-  json.average @brewery.checkins.average('rating').round(2)
+
+  average = @brewery.checkins.average('rating')
+
+  if average
+    json.average average
+    # debugger
+  else
+    json.average 0
+  end
   json.image_url @brewery.image.url
   # json.allStates do
   #   json.array! @states
