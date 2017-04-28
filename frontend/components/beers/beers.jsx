@@ -42,6 +42,8 @@ export const WishlistBeerItem = (props) => {
   // debugger
   const brewery = props.beer.brewery.name || props.beer.brewery;
   const beerpic = props.beer.image_url || props.beer.beer_image_url
+  // debugger
+
   const sliced = props.beer.name.length > 17 ? props.beer.name.slice(0, 17) + "..." : props.beer.name
   // debugger
   return(
@@ -65,7 +67,7 @@ class Beers extends React.Component {
   constructor(props) {
     super(props);
     // debugger
-    this.state = {style: "", name: "", rating: "", id: "", beersCount: 7}
+    this.state = {style: "", name: "", rating: "", id: "", beersCount: 5}
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleShow = this.handleShow.bind(this);
@@ -106,7 +108,7 @@ class Beers extends React.Component {
   }
 
   handleShow() {
-    this.setState({beersCount: this.state.beersCount + 7});
+    this.setState({beersCount: this.state.beersCount + 5});
   }
 
 
