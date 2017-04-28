@@ -43,7 +43,7 @@ class CheckinForm extends React.Component {
     formData.append("checkin[container]", this.state.container);
     formData.append("checkin[review]", this.state.review);
     formData.append("checkin[image]", this.state.imageFile);
-    debugger
+    // debugger
     if (this.state.imageFile) {
 
       this.props.createPhotoCheckin(formData).then(() => this.props.activateModal(false));

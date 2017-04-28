@@ -23,7 +23,7 @@ class Checkin < ApplicationRecord
   validates :rating, inclusion: { in: 0..5 }
   validates :container, inclusion: { in: %w(can bottle draft )}
   validates :review, length: { maximum: 140 }
-  has_attached_file :image, default_url: "/images/tired-hands.jpg"
+  has_attached_file :image, default_url: "/assets/default.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   belongs_to :user

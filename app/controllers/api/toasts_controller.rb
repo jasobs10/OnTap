@@ -9,7 +9,7 @@ class Api::ToastsController < ApplicationController
     if @toast.save
       render 'api/toasts/show'
     else
-      render json: {base: ["You cannot toast this beer"]}
+      render json: {base: ["You cannot toast this beer"]}, status: 404
     end
   end
 

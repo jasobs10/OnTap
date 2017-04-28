@@ -8,7 +8,7 @@ class Api::CommentsController < ApplicationController
     if @comment.save
       render :show
     else
-      render json: {base: ["You cannot comment on this checkin"]}
+      render json: {base: ["Invalid comment"]}, status: 404
     end
   end
 
@@ -19,7 +19,7 @@ class Api::CommentsController < ApplicationController
     if @comment.save
       render :show
     else
-      render json: {base: ["You cannot edit this comment"]}
+      render json: {base: ["You cannot edit this comment"]}, status: 404
     end
   end
 

@@ -25,7 +25,7 @@ class Api::CheckinsController < ApplicationController
     if @checkin.save
       render :show
     else
-      render json: {base: ["You cannot checkin this beer"]}
+      render json: {base: ["Invalid checkin"]}, status: 404
     end
   end
 

@@ -63,11 +63,21 @@ class CheckinIndexItem extends React.Component {
     };
   }
 
+  handleImage() {
+    if (this.props.checkins.image_url === "/assets/default.jpg") {
+      return "";
+    }
+    return(
+      <div className="checkin-image" onClick={this.handleClick(<CheckinImage image_url={this.props.checkins.image_url}/>)}>
+        <img src={this.props.checkins.image_url} alt=""/>
+      </div>
+    );
+  }
 
   render() {
     //
     const toastCount = this.props.checkins.toastUsers ? <ToastLikes checkins={this.props.checkins}/> : "";
-    //
+    // debugger
     const lastName = this.props.checkins.user.l_name.slice(0,1) + ".";
     const rate = this.props.checkins.rating;
     let color;
@@ -116,9 +126,7 @@ class CheckinIndexItem extends React.Component {
                 </div>
               </div>
             </div>
-            <div className="checkin-image" onClick={this.handleClick(<CheckinImage image_url={this.props.checkins.image_url}/>)}>
-              <img src={this.props.checkins.image_url} alt="beer"/>
-            </div>
+            {this.handleImage()}
             <div className="checkin-buttons">
 
                 <button className="checkin-button" onClick={this.handleClick(<CommentForm updateComment={this.props.updateComment} currentUser={this.props.currentUser} activateModal={this.props.activateModal} addComment={this.props.addComment} deleteComment={this.props.deleteComment} checkins={this.props.checkins}/>)}><i className="fa fa-comment-o" aria-hidden="true"></i>&nbsp;&nbsp;Comment</button>

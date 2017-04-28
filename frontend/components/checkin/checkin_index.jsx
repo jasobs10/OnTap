@@ -56,7 +56,7 @@ const mapDispatchToProps = (dispatch) => {
 class CheckinIndex extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {beers: this.props.beers, checkinCount: 5}
+    this.state = {beers: this.props.beers, checkinCount: 4}
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -76,7 +76,7 @@ class CheckinIndex extends React.Component {
   }
 
   handleClick(e) {
-    this.setState({checkinCount: this.state.checkinCount + 5});
+    this.setState({checkinCount: this.state.checkinCount + 4});
   }
   // const breweryLikes = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
   // const wishlistBeers = this.props.currentUser.wishlistBeers ? Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>) : "";
