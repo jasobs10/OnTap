@@ -25,7 +25,6 @@
     "react-stars": "^2.1.0",
     "react-time-ago": "^0.3.6",
     "redux": "^3.6.0",
-    "redux-logger": "^3.0.1",
     "redux-thunk": "^2.2.0",
     "timeago-react": "^1.0.8",
     "webpack": "^2.4.1"
@@ -38,7 +37,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "webpack"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "redux-logger": "^3.0.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jasobs10/OnTap.git"
