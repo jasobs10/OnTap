@@ -1,6 +1,5 @@
 .checkin-avatar {
 
-  // border: 1px solid red;
   flex: .9;
   display: flex;
   flex-direction: column;
@@ -15,13 +14,11 @@
 }
 
 .checkin-content {
-  // border: 1px solid red;
   flex: 6;
   display: flex;
   flex-direction: column;
   width: 100%;
   align-content: center;
-  // padding: 1%;
   padding-bottom: 0;
   font-family: 'Lato', sans-serif;
   margin: 0 1.4%;
@@ -32,15 +29,12 @@
 }
 
 .checkin-beer-avatar {
-  // border: 1px solid red;
   flex: .9;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  // justify-content: center;
   padding-top: .5%;
   width: 100%;
-  // padding-left: 1.5%;
 }
 
 .checkin-beer-avatar div {
@@ -128,9 +122,6 @@
   letter-spacing: 1px;
 }
 
-// .checkin-border  :last-child {
-//   border: none;
-// }
 
 .checkin-buttons {
   display: flex;
@@ -146,8 +137,6 @@
   position: relative;
   margin-top: 4%;
   hyphens: auto;
-  // padding-top: 3px;
-  //word-break: break-all;
 }
 
 .arrow {
@@ -171,7 +160,6 @@
 
 .checkin-button {
   width: 47.5%;
-  // box-sizing: border-box;
   border-radius: 5px;
   color: white;
   background-color: rgb(163, 163, 161);

@@ -1,11 +1,7 @@
 .comments-index-wrapper {
   width: 100%;
   padding: 0;
-  // position: relative;
   background-color: rgb(246, 246, 246);
-  // -webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
-  // -moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
-  // box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
   border-radius: 4px;
 
 
@@ -27,13 +23,11 @@
   width: 100%;
   display: flex;
   padding: 2.2% 1%;
-  // border-bottom: 1px solid rgb(207, 207, 207);
   border-bottom: 1px solid rgba(180, 124, 16, 0.25);
 }
 
 .comment-avatar {
   width: 13%;
-  // border-radius: 20px;
 }
 
 .comment-avatar > img {

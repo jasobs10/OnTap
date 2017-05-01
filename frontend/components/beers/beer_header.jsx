@@ -1,5 +1,4 @@
 import React from 'react';
-// import ReactStars from 'react-stars'
 import { Link, hashHistory } from 'react-router';
 import { Line } from 'rc-progress';
 import WishlistAdd from '../wishlist/wishlist_add';
@@ -20,7 +19,7 @@ export const LineRating = ({ average }) => {
     const ratingPercentage = (average / 5 *  100).toString();
     let averageInt = parseFloat(average) - 0.1;
     const rounded = parseFloat(average).toFixed(1);
-    //
+
     return(
       <span className="avg-text"><Rating
                      initialRate={averageInt}
@@ -46,11 +45,10 @@ class BeerHeader extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
-    //
+
   }
 
   handleClick(e) {
-    // debugger
     this.props.receiveComponent(<CheckinForm
       beer={this.props.beer}
       createCheckin={this.props.createCheckin}
@@ -62,7 +60,7 @@ class BeerHeader extends React.Component {
 
 
   render() {
-    //
+
     const ratingPercentage = (this.props.beer.average / 5 *  100).toString();
 
 
@@ -128,10 +126,5 @@ class BeerHeader extends React.Component {
     );
   }
 }
-// {score} AVERAGE
-// <div className="top-star">
-//   <div className="ratings-top"></div>
-//   <div className="ratings-bottom"></div>
-// </div>
 
 export default BeerHeader;

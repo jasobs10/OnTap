@@ -7,9 +7,3 @@ export const Spinner = (props) => {
     </div>
   );
 }
-
-
-
-// <div>
-//   <img src="/images/beerloader.gif"/>
-// </div>

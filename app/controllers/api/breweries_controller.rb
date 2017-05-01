@@ -9,7 +9,6 @@ class Api::BreweriesController < ApplicationController
       @breweries = fetch_breweries.all
     elsif params[:type] == "state"
       @breweries = fetch_breweries.where("state = ?", params[:sort])
-      # debugger
     elsif params[:type] == "rating"
       avg_max = params[:sort].to_i.to_f + 0.99
       avg = params[:sort].to_f
@@ -19,7 +18,6 @@ class Api::BreweriesController < ApplicationController
       end
     elsif params[:type] == "name"
       @breweries = fetch_breweries.select('*').where("name LIKE ?", "#{params[:sort]}%")
-      # debugger
     end
   end
 

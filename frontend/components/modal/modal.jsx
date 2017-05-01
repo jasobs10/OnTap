@@ -21,23 +21,16 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 class Modal extends React.Component {
   constructor(props) {
     super(props);
-    // debugger
-    // this.state = this.props.modal;
     this.state = this.props.modal;
-    // debugger
   }
 
   componentWillReceiveProps(nextProps) {
-    // debugger
     this.setState(nextProps.modal);
   }
 
 
 
   render() {
-    // const comp = this.state.component === null ? "" : this.state.component;
-    // const comp = this.state.active ? this.state.component : "";
-    // debugger
     if (this.state.active) {
       return (
         <div>
@@ -58,5 +51,3 @@ class Modal extends React.Component {
 
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Modal)
-
-// {this.props.component}

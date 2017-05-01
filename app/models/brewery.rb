@@ -34,13 +34,4 @@ class Brewery < ApplicationRecord
     through: :brewery_likes,
     source: :user
 
-  #class method to return array of type
-  #validation for needing to be one of those
-  #has_many likes
-  #has_many likers
-  #has_many beers
-  #has_many checkins
-  #has_many ratings
-
-
 end

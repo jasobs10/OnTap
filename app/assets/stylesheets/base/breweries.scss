@@ -1,13 +1,9 @@
 .brewery-index-item {
   width: 100%;
-  // padding: 10px;
-  // padding: 0 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   border-bottom: 1px solid rgb(231, 231, 230);
-  // height: 200px;
-  // border-gottom
   padding: 20px;
   position: relative;
 }
@@ -22,10 +18,8 @@
 }
 
 .brewery-pic {
-  // padding: 30px;
   width: 110px;
 
-  // height:
 }
 
 .brewery-display {
@@ -41,10 +35,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  // justify-content: space-between;
   justify-content: center;
   color: rgb(142, 140, 141);
-  // width: 100%;
 }
 
 .brewery-ratings {
@@ -54,9 +46,6 @@
   border-bottom: 1px solid rgb(231, 231, 230);
   justify-content: center;
   align-items: space-around;
-  // align-items: center;
-  // border-left: 1px solid red;
-  // border-bottom: 1px solid red;
   height: 100%;
 
 }
@@ -64,7 +53,6 @@
 
 .brew-border {
   border-right: 1px solid rgb(231, 231, 230);
-  // margin-bottom: 13px;
   width: 50%;
   text-align: center;
 
@@ -82,16 +70,7 @@
   align-items: center;
   justify-content: center;
 }
-// .brew-border > :first-child {
-//   padding-right: 6px;
-// }
-//
-// .brew-border > :last-child {
-//   // padding-left: 6px;
-// }
-
 .brewery-right-bottom {
-  // padding: 6% 5px 0 5px;
   height: 100%;
   box-sizing: border-box;
   width: 220px;
@@ -156,7 +135,6 @@
 }
 
 .unlike {
-  // background-color: rgb(97, 97, 97);
 }
 
 .like-button-container:hover {
@@ -182,31 +160,6 @@
 .like-remove {
   background-color: rgba(115, 113, 113, 0.5);
 }
-
-// .dropdown-select {
-//   padding: 3% 25%% 3% 3%;
-//   font-size: 16px;
-//   margin: 0;
-//   -webkit-appearance: none;
-//   -moz-appearance: none;
-//   appearance: none;
-//   box-sizing: inherit;
-//   background: transparent;
-//   text-align: left;
-//   // font-size: 100%;
-
-//   -webkit-font-smoothing: antialiased;
-//
-// }
-
-// .beer-filter:nth-child(1) {
-//   font-size: 30px;
-// }
-// .beer-filter > div {
-//   display: flex;
-//   justify-content: center;
-//
-// }
 
 .dropdown-select:hover {
   cursor: pointer;

@@ -25,12 +25,7 @@ class Navbar extends React.Component {
 
   }
 
-  // componentWillReceiveProps(newProps) {
-  //   if (!newProps.currentUser)
-  // }
-
   render() {
-    // debugger
     return (
       <div className="nav-container">
         <div className="nav-inside">

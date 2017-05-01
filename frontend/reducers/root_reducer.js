@@ -16,9 +16,7 @@ const rootReducer = combineReducers({
   breweries: breweriesReducer,
   checkins: checkinsReducer,
   user: userReducer
-  // beerCheckins: beerCheckinsReducer
 
 });
 
-// wishlist: wishlistReducer
 export default rootReducer;

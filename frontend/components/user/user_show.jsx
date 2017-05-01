@@ -31,7 +31,6 @@ class UserShow extends React.Component {
   }
 
   componentWillMount() {
-    // debugger
 
       this.props.fetchUser(this.props.params.userId);
       this.props.fetchUserCheckins(this.props.params.userId)
@@ -39,7 +38,6 @@ class UserShow extends React.Component {
   }
 
   checkins() {
-    // debugger
     let wishlistBeers;
     if (this.props.user.wishlistBeers) {
       wishlistBeers = Object.values(this.props.user.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>);
@@ -48,7 +46,6 @@ class UserShow extends React.Component {
     }
     let breweryLikes = this.props.user.likedBreweries ? Object.values(this.props.user.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
     if (this.props.user.checkinCount === 0) {
-      // debugger
       return (
         <div className="beers-wrapper">
 
@@ -93,11 +90,6 @@ class UserShow extends React.Component {
   }
 
   render() {
-    // if (this.props.user === undefined) {
-    //   return (<Spinner />);
-    // }
-
-    // debugger
     return (
       <div>
         <div className="beers-wrapper">

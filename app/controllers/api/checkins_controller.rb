@@ -2,18 +2,14 @@ class Api::CheckinsController < ApplicationController
   before_action :require_logged_in
 
   def index
-    # debugger
 
     id = params[:beer_id].to_i
     if params[:beer_id]
-      # debugger
       @checkins = Checkin.includes(:beer, :user, :comments, :toasts, :toast_users).where("beer_id = ?", id)
-      # debugger
     elsif params[:brewery_id]
       @checkins = Brewery.includes(:checkins).find(params[:brewery_id]).checkins
     elsif params[:user_id]
       @checkins = User.includes(:checkins).find(params[:user_id]).checkins
-      # debugger
     else
       @checkins = Checkin.all.includes(:beer, :brewery, :comments, :toasts, :toast_users)
     end

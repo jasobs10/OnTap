@@ -33,6 +33,5 @@ class Checkin < ApplicationRecord
   has_many :comments
   has_many :commenters, through: :comments, source: :user
   has_many :toast_users, through: :toasts, source: :user
-  #has_many breweries through beer
 
 end

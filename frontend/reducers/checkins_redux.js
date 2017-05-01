@@ -11,16 +11,6 @@ const RECEIVE_BREWERY_CHECKINS = "RECEIVE_BREWERY_CHECKINS";
 
 const RECEIVE_BEER_CHECKINS = "RECEIVE_BEER_CHECKINS";
 
-// const APIUTIL = {
-//   fetchCheckins: (beer_id) => {
-//     return $.ajax({
-//       method: "GET",
-//       url: `api/checkins`,
-//       data: { beer_id }
-//     });
-//   },
-// };
-
 
 const APIUTIL = {
   fetchCheckins: (beer_id) => {
@@ -42,7 +32,6 @@ const APIUTIL = {
 
 
   fetchUserCheckins: (user_id) => {
-    // debugger
     return $.ajax({
       method: "GET",
       url: `api/checkins`,
@@ -211,14 +200,12 @@ export const updateComment = (comment) => {
 
 export const createCheckin = (checkin) => {
   return dispatch => APIUTIL.createCheckin(checkin).then((checkin) => {
-    //
     return dispatch(receiveCheckin(checkin));
   });
 };
 
 export const createPhotoCheckin = (checkin) => {
   return dispatch => APIUTIL.createPhotoCheckin(checkin).then((checkin) => {
-    // debugger
     return dispatch(receiveCheckin(checkin));
   });
 };
@@ -228,7 +215,6 @@ export const fetchBreweryCheckins = (brewery_id) => {
 };
 
 export const fetchBeerCheckins = (beer_id) => {
-  //
   return dispatch => APIUTIL.fetchCheckins(beer_id).then((checkins) => dispatch(receiveBeerCheckins(checkins)));
 };
 
@@ -241,19 +227,14 @@ export const checkinsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   switch(action.type) {
     case RECEIVE_ALL_CHECKINS:
-    // debugger
       return action.checkins;
     case RECEIVE_CHECKIN:
-    //
       return merge({}, oldState, {[action.checkin.id]: action.checkin});
     case RECEIVE_BEER_CHECKINS:
-    //
       return action.checkins;
     case RECEIVE_BREWERY_CHECKINS:
-    // debugger
       return action.checkins;
     case RECEIVE_TOAST:
-    //
       let old = merge({}, oldState);
 
       old[action.user.checkin_id].currentUserToast = action.user;
@@ -264,12 +245,10 @@ export const checkinsReducer = (oldState = {}, action) => {
       } else {
         old[action.user.checkin_id].toastUsers = {[action.user.user_id]: action.user};
       }
-      //
       return old;
 
 
     case REMOVE_TOAST:
-    //
       let old2 = merge({}, oldState);
       old2[action.toast.checkin_id].currentUserToast = null;
       delete old2[action.toast.checkin_id].toastUsers[action.toast.user_id];
@@ -277,17 +256,14 @@ export const checkinsReducer = (oldState = {}, action) => {
 
     case RECEIVE_COMMENT:
       let merged = merge({}, oldState);
-      //
       if (merged[action.comment.checkin_id].comments) {
         merge(merged[action.comment.checkin_id].comments, {[action.comment.id]: action.comment});
       } else {
         merged[action.comment.checkin_id].comments = {[action.comment.id]: action.comment};
       }
-      //
       return merged;
 
     case REMOVE_COMMENT:
-    //
       let merged2 = merge({}, oldState);
       delete merged2[action.comment.checkin_id].comments[action.comment.id];
       return merged2;

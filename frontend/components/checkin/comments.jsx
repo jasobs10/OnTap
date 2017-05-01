@@ -2,14 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import EditCommentForm from './edit_comments_form';
 import TimeAgo from 'timeago-react';
-//
-// const mapStateToProps = (state) => {
-//
-// };
 
 
 const CommentsIndexItem = (props) => {
-  // debugger
   let del;
   let ed;
   if (props.currentUser.id == props.comment.user_id || props.currentUser.id == props.comment.checkin_creator) {
@@ -22,14 +17,6 @@ const CommentsIndexItem = (props) => {
     del= "";
     ed = "";
   }
-
-  // const handleClick = (e) => {
-  //     debugger
-  //     props.receiveComponent(<EditCommentForm updateComment={props.updateComment} activateModal={props.activateModal} comment={props.comment}/>);
-  //     props.activateModal(true);
-  //
-  // };
-  // debugger
   return (
     <div className="comment-item-wrapper">
       <div className="comment-avatar">

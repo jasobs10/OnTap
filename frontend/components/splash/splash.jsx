@@ -26,7 +26,6 @@ const mapDispatchToProps = (dispatch) => {
 class Splash extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = this.props.modal;
     this.state = {username: "", password: ""};
     this.handleClick = this.handleClick.bind(this);
     this.handleModal = this.handleModal.bind(this);
@@ -47,7 +46,6 @@ class Splash extends React.Component {
 
 
   render() {
-    // debugger
 
     return (
       <div className="splash-wrapper">
@@ -99,7 +97,5 @@ class Splash extends React.Component {
     );
   }
 }
-// <SignInForm />
-// <div class="auth-form"><Modal /></div>
 
 export default connect(mapStateToProps, mapDispatchToProps)(Splash);

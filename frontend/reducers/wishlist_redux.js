@@ -17,7 +17,6 @@ const removeWishlist = (id) => {
 
 const APIUTIL = {
   addBeerToWishlist: (beer_id) => {
-    // debugger
     return $.ajax({
       method: "POST",
       url: "api/wishlists",
@@ -38,19 +37,16 @@ export const removeBeerFromWishlist = (id) => {
 };
 
 export const addBeerToWishlist = (beerId) => {
-  // debugger
   return dispatch => APIUTIL.addBeerToWishlist(beerId).then(() => dispatch(addWishlist()));
 };
 
 const _defaultState = [];
 
 export const wishlistReducer = (oldState = _defaultState, action) => {
-  // debugger
   Object.freeze(oldState);
   let oldArray = oldState.slice(0);
   switch(action.type) {
     case ADD_WISHLIST:
-    debugger
       return oldArray.push(action.beer);
     case REMOVE_WISHLIST:
       let index = oldArray.indexOf(action.id);

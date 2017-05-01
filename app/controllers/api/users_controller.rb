@@ -6,13 +6,11 @@ class Api::UsersController < ApplicationController
       log_in(@user)
       render :show
     else
-      #add in full_messages
       render json: @user.errors.full_messages, status: 404
     end
   end
 
   def show
-    # debugger
     @user = User.find(params[:id])
     if @user
       render :show

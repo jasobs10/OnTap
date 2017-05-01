@@ -9,7 +9,7 @@ const addLike = (brewery, user) => {
   };
 };
 
-const removeLike = (id) => {
+const deleteLike = (id) => {
   return {
     type: REMOVE_LIKE,
     brewery
@@ -18,7 +18,6 @@ const removeLike = (id) => {
 
 const APIUTIL = {
   addLike: (brewery_id) => {
-    // debugger
     return $.ajax({
       method: "POST",
       url: "api/brewery_likes",
@@ -35,18 +34,16 @@ const APIUTIL = {
 };
 
 export const removeLike = (id) => {
-  return dispatch => APIUTIL.removeBeerFromLike(id).then(() => dispatch(removeLike()));
+  return dispatch => APIUTIL.removeBeerFromLike(id).then(() => dispatch(deleteLike()));
 };
 
 export const addBeerToLike = (beerId) => {
-  // debugger
   return dispatch => APIUTIL.addBeerToLike(beerId).then(() => dispatch(addLike()));
 };
 
 const _defaultState = [];
 
 export const wishlistReducer = (oldState = _defaultState, action) => {
-  // debugger
   Object.freeze(oldState);
   let oldArray = oldState.slice(0);
   switch(action.type) {

@@ -3,20 +3,15 @@ import React from 'react';
 class CheckinAdd extends React.Component {
   constructor(props) {
     super(props);
-    // debugger
     this.state = {beer: this.props.beer}
-    // debugger
   }
 
   componentWillReceiveProps(newProps) {
-    // debugger
     this.setState({beer: newProps.beer})
   }
 
   render() {
-    // debugger
     if (this.props.beer.currentUserWishlist) {
-      // debugger
       let id = this.props.beer.id
       return (
         <div className="wish-add wish-remove" onClick={() => this.props.removeBeerFromWishlist(this.props.beer.currentUserWishlist.id).then(() => this.props.removeCurrentUserWishlist(id))}>
@@ -27,7 +22,6 @@ class CheckinAdd extends React.Component {
         </div>
       );
     } else {
-      // debugger
       return (
         <div className="wish-add" onClick={() => this.props.addBeerToWishlist(this.props.beer.id).then(() => this.props.addCurrentUserWishlist(this.props.beer))}>
           +

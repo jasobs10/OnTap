@@ -4,7 +4,6 @@ const RECEIVE_USER = "RECEIVE_USER";
 
 const APIUTIL = {
   fetchUser: (id) => {
-    // debugger
     return $.ajax({
       method: "GET",
       url: `api/users/${id}`,
@@ -41,7 +40,6 @@ export const userReducer = (oldState = {about: "", city: "", country: "", state:
   const _default = {about: "", city: "", country: "", state: ""};
   switch (action.type) {
     case RECEIVE_USER:
-    // debugger
       return merge(_default, action.user);
     default:
       return oldState;

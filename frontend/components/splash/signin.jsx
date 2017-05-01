@@ -6,10 +6,8 @@ import SignUpForm from './signup';
 import { receiveSignInErrors } from '../../reducers/session_redux';
 
 const mapStateToProps = (state, ownProps) => {
-  // let formType = ownProps.formType || 'signin';
   return {
     signInErrors: state.errors.signIn,
-    // formType
   };
 };
 
@@ -25,7 +23,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 class SignInForm extends React.Component {
   constructor(props) {
     super(props);
-    // debugger
     this.state = {username: "", password: ""};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -65,11 +62,7 @@ class SignInForm extends React.Component {
     return (e) => this.setState({[field]: e.target.value});
   }
 
-  // componentDidMount() {
-  //
-  // }
   componentWillMount() {
-    // debugger
     if (this.props.guest) {
       this.clearForm();
       this.guest();
@@ -78,33 +71,16 @@ class SignInForm extends React.Component {
     this.props.clearErrors();
   }
 
-  // componentWillReceiveProps(newProps) {
-  //   // debugger
-  //   if (newProps.signInErrors === this.props.signInErrors) {
-  //     this.props.clearErrors();
-  //   }
-  //   // debugger
-  // }
-
   componentDidMount() {
     this.props.clearErrors();
     // debugger
   }
 
-  // componentWillReceiveProps(newProps) {
-  //
-  //   if (newProps.errors !== this.props.errors) {
-  //     this.props.clearErrors();
-  //   }
-  // }
-
   clearForm() {
-    // debugger
     this.setState({username: "", password: ""});
   }
 
   renderErrors() {
-    // debugger
     let errs = Object.values(this.props.signInErrors).map((error, i) => {
       return (<li key={i} className="list-error"><i className="fa fa-exclamation-circle error-sym" aria-hidden="true"></i> {error}</li>);
     });
@@ -113,33 +89,18 @@ class SignInForm extends React.Component {
         {errs}
       </div>
     );
-    // <span className="error">{this.props.signInErrors.base}</span>
   }
 
   handleSubmit(e) {
-    // debugger
     e.preventDefault();
-    // debugger
     this.props.logIn({user: this.state}).then(() => this.clearForm()).then(() => this.props.activateModal(false)).then(() => hashHistory.push('/home'));
-    //.then(() => this.props.router.push('/'))
-    // change modal back to false
   }
 
   toggleForm() {
-    // this.props.activateModal(false);
     this.props.receiveComponent(<SignUpForm receiveComponent={this.props.receiveComponent} activateModal={this.props.activateModal}/>);
-    // this.props.activateModal(true);
   }
 
   render () {
-    // debugger
-    // let errors;
-    // if (this.props.signInErrors) {
-    //   errors = this.props.signInErrors.base;
-    // } else {
-    //   errors = "";
-    // }
-    // debugger
     return (
       <div className="auth-form-container">
         <h1>ONTA<i className="fa fa-beer beer-color" aria-hidden="true"></i></h1>

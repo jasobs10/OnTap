@@ -11,7 +11,6 @@ const REMOVE_BREWERY_LIKE = "REMOVE_LIKE";
 const APIUTIL = {
 
   addBreweryLike: (brewery_id) => {
-    // debugger
     return $.ajax({
       method: "POST",
       url: "api/brewery_likes",
@@ -97,7 +96,6 @@ export const removeBreweryLike = (id) => {
 };
 
 export const requestBreweries = (field, params) => {
-  // debugger
   return dispatch => APIUTIL.fetchBreweries(field, params).then((breweries) => dispatch(receiveAllBreweries(breweries)));
 };
 
@@ -119,17 +117,12 @@ export const breweriesReducer = (oldState = _defaultBreweriesState, action) => {
   let old = merge({}, oldState);
   switch(action.type) {
     case RECEIVE_ALL_BREWERIES:
-    // debugger
       return action.breweries;
     case RECEIVE_BREWERY:
-    // debugger
       old = merge({}, oldState);
-      // debugger
       return merge(old, action.brewery);
     case ADD_BREWERY_LIKE:
-    // debugger
       old[action.breweryLike.brewery_id].currentUserLikes = { 'id': action.breweryLike.id }
-      // debugger
       return old
     case REMOVE_BREWERY_LIKE:
       old[action.breweryLike.brewery_id].currentUserLikes = null

@@ -12,24 +12,9 @@ import {requestBeers} from './reducers/beers_redux';
 import BeerShow from './components/beers/beer_show';
 import BreweryShow from './components/breweries/brewery_show';
 import UserShow from './components/user/user_show';
-// import {signUp, logIn, logOut} from './reducers/session_redux';
-
-//TESTING
-// import {signUp, logIn, logOut} from './actions/session_actions';
-// import {receiveCurrentUser} from './actions/session_actions';
-
-// let nav = (<div></div>);
-//
-
-// <div className="app-container">
-//     {nav}
-//     {this.props.children}
-//   </div>
-//
 
 
 const App = (props) => {
-  // debugger
   let nav = (<div></div>);
   if(props.location.pathname !== "/"){
     nav = <Navbar />
@@ -80,12 +65,6 @@ const Root = ({ store }) => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  // window.store = configureStore();
-  // window.signUp = signUp;
-  // window.logIn = logIn;
-  // // window.logOut = logOut;
-  // window.store = configureStore();
-  // window.requestBeers = requestBeers;
   let store;
   if (window.currentUser) {
     const preloadedState = { currentUser: window.currentUser };
@@ -95,5 +74,3 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   ReactDOM.render(<Root store={store}/>, document.getElementById('root'));
 });
-
-// <Root store={ store } />,

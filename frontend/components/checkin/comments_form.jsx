@@ -28,13 +28,11 @@ class CommentForm extends React.Component {
   }
 
   handleSubmit(e) {
-    // debugger
     e.preventDefault()
     this.props.addComment({comment: this.state.comment, checkin_id: this.props.checkins.id}).then(() => this.clearForm()).then(() => this.props.activateModal(false));
   }
 
   render() {
-    // debugger
     return (
       <div className="comment-wrapper">
         <div className="comment-header">

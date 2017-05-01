@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router';
 
 export const BreweryLikeItem = (props) => {
-  // debugger
   const brewery = props.brewery || props.beer.brewery;
   const sliced = brewery.name.length > 21 ? brewery.name.slice(0, 21) + "..." : brewery.name
   return(

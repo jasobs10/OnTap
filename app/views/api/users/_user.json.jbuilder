@@ -9,7 +9,6 @@ json.wishlistBeers do
       json.beer_image_url beer.image.url
       json.brewery_image_url beer.brewery.image.url
     end
-    # json.array! beer,
   end
 end
 json.image_url user.avatar.url
@@ -25,9 +24,3 @@ end
 
 json.checkinCount user.checkins.count
 json.uniqueCheckinCount user.checkins.select(:beer_id).distinct.count
-    # json.array! user.wishlist_beers do |beer|
-    #   json.name beer.name
-    #   json.brewery beer.brewery.name
-    #   json.id beer.id
-    #
-    # end

@@ -6,7 +6,6 @@ import { Link } from 'react-router';
 
 
 const LineRating = ({ average }) => {
-  // debugger
   if (average) {
     const rate = average;
     let color;
@@ -31,9 +30,6 @@ const LineRating = ({ average }) => {
                      />&nbsp;({rounded})</span>
     );
   }
-  // <span className="line-flex"><Line percent={ratingPercentage} strokeWidth="10" strokeColor={`${color}`} trailColor="#8e8c8d" trailWidth="10" className="rating-bar"/> ({average})</span>
-  // <span className="line-flex"><i className="fa fa-beer flip" aria-hidden="true"></i></span>
-
   return(
     <span>
       "NO REVIEWS"
@@ -46,11 +42,9 @@ const LineRating = ({ average }) => {
 class BreweryHeader extends React.Component {
   constructor(props) {
     super(props);
-    // debugger
   }
 
   render() {
-    // const score = this.props.brewery.average ? this.props.brewery.average : "NO REVIEWS";
     return (
       <div className="brewery-index-item brewery-show-wrapper">
 

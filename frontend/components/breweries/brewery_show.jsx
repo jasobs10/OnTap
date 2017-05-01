@@ -8,7 +8,6 @@ import BreweriesIndexItem from './breweries_index_item';
 import BreweryHeader from './brewery_header';
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger
   return {
     checkins: state.checkins,
     brewery: state.breweries[ownProps.params.breweryId],
@@ -31,25 +30,17 @@ const mapDispatchToProps = (dispatch) => {
 class BreweryShow extends React.Component {
   constructor(props) {
     super(props);
-    // debugger
   }
   componentWillMount() {
-    // debugger
     this.props.fetchBrewery(this.props.params.breweryId)
     this.props.fetchBreweryCheckins(this.props.params.breweryId);
   }
-
-  // componentWillReceiveProps(nextProps) {
-  //   this.props.fetchBeer(nextProps.params.beerId);
-  //   this.props.fetchBeerCheckins(nextProps.params.beerId);
-  // }
 
 
   render() {
     if (this.props.brewery === undefined) {
       return (<div></div>)
     }
-    // debugger
     return (
       <div>
         <div className="beers-wrapper">
@@ -73,22 +64,3 @@ class BreweryShow extends React.Component {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BreweryShow);
-
-// <BeerHeader
-//   beer={this.props.beer}
-//   addBeerToWishlist={this.props.addBeerToWishlist}
-//   removeBeerFromWishlist={this.props.removeBeerFromWishlist}
-//   addCurrentUserWishlist={this.props.addCurrentUserWishlist}
-//   removeCurrentUserWishlist={this.props.removeCurrentUserWishlist}
-//   receiveComponent={this.props.receiveComponent}
-//   activateModal={this.props.activateModal}
-//   createCheckin={this.props.createCheckin}/>
-
-
-
-// <BreweriesIndexItem
-//   brewery={this.props.brewery}
-//   addBreweryLike={this.props.addBreweryLike}
-//   removeBreweryLike={this.props.removeBreweryLike}
-//   addUserLike={this.props.addUserLike}
-//   removeUserLike={this.props.removeUserLike}/>

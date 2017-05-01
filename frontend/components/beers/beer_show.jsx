@@ -44,25 +44,25 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 class BeerShow extends React.Component {
   constructor(props) {
     super(props);
-    //
   }
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.params.beerId !== this.props.params.beerId) {
+      this.props.fetchBeer(newProps.params.beerId);
+      this.props.fetchBeerCheckins(newProps.params.beerId);
+    }
+  }
+
+
   componentWillMount() {
-    //
-    this.props.fetchBeer(this.props.params.beerId)
+    this.props.fetchBeer(this.props.params.beerId);
     this.props.fetchBeerCheckins(this.props.params.beerId);
   }
-
-  // componentWillReceiveProps(nextProps) {
-  //   this.props.fetchBeer(nextProps.params.beerId);
-  //   this.props.fetchBeerCheckins(nextProps.params.beerId);
-  // }
-
 
   render() {
     if (this.props.beer === undefined) {
       return (<Spinner />)
     }
-    // debugger
     return (
       <div>
         <div className="beers-wrapper">

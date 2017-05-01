@@ -5,7 +5,6 @@ class Api::ToastsController < ApplicationController
     @toast = Toast.new(toast_params)
     @toast.user_id = current_user.id
     @user = @toast.user
-    # debugger
     if @toast.save
       render 'api/toasts/show'
     else
@@ -26,7 +25,6 @@ class Api::ToastsController < ApplicationController
   private
 
   def toast_params
-    # debugger
     params.require(:toast).permit(:user_id, :checkin_id)
   end
 end

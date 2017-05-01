@@ -21,7 +21,6 @@ export const LineRating = ({ average }) => {
     const ratingPercentage = (average / 5 *  100).toString();
     let averageInt = parseFloat(average) - 0.1;
     const rounded = parseFloat(average).toFixed(1);
-    // debugger
     return(
       <span className="avg-text"><Rating
                      initialRate={averageInt}
@@ -55,7 +54,6 @@ handleClick(e) {
   };
 
   render() {
-    // debugger
     const ratingPercentage = (this.props.beer.average / 5 *  100).toString();
 
 
@@ -111,10 +109,5 @@ handleClick(e) {
     );
   }
 }
-// {score} AVERAGE
-// <div className="top-star">
-//   <div className="ratings-top"></div>
-//   <div className="ratings-bottom"></div>
-// </div>
 
 export default BeerIndexItem;

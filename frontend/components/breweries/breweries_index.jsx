@@ -10,7 +10,6 @@ import { Spinner } from '../shared/spinner';
 
 
 const mapStateToProps = (state) => {
-  // debugger
   return {
     currentUser: state.currentUser,
     breweries: Object.values(state.breweries)
@@ -33,22 +32,17 @@ const mapDispatchToProps = (dispatch) => {
 class BreweriesIndex extends React.Component {
   constructor(props) {
     super(props)
-    //
     this.state = {state: "", name: "", id: "", rating: "", breweryCount: 8};
     this.handleChange = this.handleChange.bind(this);
     this.handleShow = this.handleShow.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
-    //
     this.props.requestBreweries();
   }
 
   handleChange(field) {
-    //
     return (e) => {
-      //
       this.setState({[field]: e.target.value});
       this.props.requestBreweries(field, e.target.value);
     }
@@ -68,15 +62,12 @@ class BreweriesIndex extends React.Component {
   }
 
   render() {
-    // debugger
     if (this.props.breweries.length === 0) {
-      //
       return <Spinner />;
     }
     const logged_in = this.props.currentUser
     if (logged_in) {
       const ratings = ["0", "1", "2", "3", "4", "5"];
-      // const wishlistBeers = this.props.currentUser.wishlistBeers ? Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>) : "";
       let wishlistBeers;
       if (this.props.currentUser && this.props.currentUser.wishlistBeers) {
         wishlistBeers = Object.values(this.props.currentUser.wishlistBeers).sort((a, b) => {
@@ -85,21 +76,16 @@ class BreweriesIndex extends React.Component {
       } else {
         wishlistBeers = ""
       }
-      // const breweryLikes = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
 
       const breweryLikesSorted = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).sort((a, b) => {
         return (b.id - a.id);
       }) : null;
-      // debugger
       const breweryLikes = breweryLikesSorted ? breweryLikesSorted.map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
       const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
       const selectRating = ratings.map((rating, i) => <option key={i} value={rating}>{rating}</option>);
       const selectName = alphabet.map((letter, i) => <option  key={i} value={letter}>{letter}</option>);
-      // debugger
       const selectLoc = this.props.breweries.length > 0 ? this.props.breweries[0].allStates.map((state, i) => <option key={i} value={state}>{state}</option>) : "";
-      // debugger
       const sortedBreweries = this.props.breweries ? this.props.breweries.sort((a, b) => {
-        // debugger
         return (parseFloat(b.average) - (parseFloat(a.average)));
       }) : "";
       //
@@ -116,7 +102,6 @@ class BreweriesIndex extends React.Component {
         });
       } else {
        brewers = sortedBreweries.map((brewery) => {
-              //  debugger
           return <BreweryIndexItem key={brewery.id}
             brewery={brewery}
             addBreweryLike={this.props.addBreweryLike}

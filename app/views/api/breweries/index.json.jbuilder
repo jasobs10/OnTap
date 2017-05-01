@@ -9,7 +9,6 @@
 
     if average
       json.average average
-      # debugger
     else
       json.average 0
     end
@@ -28,15 +27,6 @@
       end
     end
 
-    # json.beers do
-    #   json.array! brewery.beers
-    # end
     json.currentUserLikes brewery.brewery_likes.select('id').where("user_id = ?", current_user.id).first
   end
 end
-
-# json.beers do
-  # json.array! @breweries.beers do |beer|
-  #   json.exract! beer, :id
-  # end
-# end

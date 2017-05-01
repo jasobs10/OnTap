@@ -1,12 +1,10 @@
 
-
 .user-show-header {
   color: white;
   background-image: url("/images/userbg.jpg");
   height: 200px;
   display: flex;
   flex-direction: column;
-  // width: 100%;
   background-color: rgba(0,0,0,0.60);
 
   justify-content: flex-end;
@@ -34,11 +32,8 @@
 .user-show-footer {
   display: flex;
   flex-direction: row;
-  // align-flex: flex-start;
   width: 100%;
-  // align-self: flex-end;
   justify-content: space-between;
-  // padding: 1% 10%;
   height: 30%;
   background-color: rgba(0,0,0,0.75);
 
@@ -50,9 +45,6 @@
   align-items: center;
   width: 20%;
   justify-content: space-between;
-  // align-self: flex-start;
-  // width: 35%;
-  // height: 30px;
   margin-left: 17%;
 }
 
@@ -111,10 +103,6 @@
 
 .name {
   font-size: 28px;
-}
-
-.username {
-  font-size: 18px;
 }
 
 .state {

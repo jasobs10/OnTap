@@ -1,4 +1,3 @@
-//Modal Action Creator
 
 const RECEIVE_COMPONENT = "RECEIVE_COMPONENT";
 const ACTIVATE_MODAL = "ACTIVATE_MODAL";
@@ -11,7 +10,6 @@ export const receiveComponent = (component) => {
 };
 
 export const activateModal = (bool) => {
-  // debugger
   return {
     type: ACTIVATE_MODAL,
     active: bool

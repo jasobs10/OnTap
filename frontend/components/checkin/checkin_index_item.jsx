@@ -1,7 +1,6 @@
 import React from 'react';
 import { Line } from 'rc-progress';
 import { Link } from 'react-router';
-// import { WishlistBeerItem } from '../beers/beers';
 var Rating = require('react-rating');
 import CommentForm from './comments_form';
 import Modal from '../modal/modal';
@@ -9,14 +8,10 @@ import CommentsIndex from './comments';
 import EditCommentForm from './edit_comments_form';
 import TimeAgo from 'timeago-react';
 import { CheckinImage } from './checkin_img';
-// import ReactTimeAgo from 'react-time-ago';
-// import { receiveComponent, activateModal } from '../../reducers/modal_redux'
 
 const ToastButton = (props) => {
-  //
   let toastId;
   if (props.checkin.currentUserToast) {
-    //
     toastId = props.checkin.currentUserToast.id
   }
 
@@ -34,7 +29,6 @@ const ToastButton = (props) => {
 };
 
 const ToastLikes = (props) => {
-  //
   if ((Object.keys(props.checkins.toastUsers).length) > 0) {
     return (
       <div className="like-count">
@@ -51,12 +45,10 @@ class CheckinIndexItem extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
-    //
     this.state = {likes: this.props.checkins.toastCount}
   }
 
   handleClick(component) {
-    //
     return (e) => {
       this.props.receiveComponent(component);
       this.props.activateModal(true);
@@ -75,9 +67,7 @@ class CheckinIndexItem extends React.Component {
   }
 
   render() {
-    //
     const toastCount = this.props.checkins.toastUsers ? <ToastLikes checkins={this.props.checkins}/> : "";
-    // debugger
     const lastName = this.props.checkins.user.l_name.slice(0,1) + ".";
     const rate = this.props.checkins.rating;
     let color;
@@ -89,7 +79,6 @@ class CheckinIndexItem extends React.Component {
       color = "rgb(244, 96, 96)";
     }
     const ratingPercentage = (this.props.checkins.rating / 5 * 100).toString();
-    // debugger
     return(
       <div className="beer-item-wrapper checkin-border">
 
@@ -101,7 +90,7 @@ class CheckinIndexItem extends React.Component {
           </div>
           <div className="checkin-content">
             <div className="checkin-header">
-              <span><Link to={`/users/${this.props.checkins.user.id}`}>{this.props.checkins.user.f_name} {lastName}</Link></span>is drinking a <span><Link to={`/beers/${this.props.checkins.beer_id}`}>{this.props.checkins.beer}</Link></span> by <span><Link to={`/breweries/${this.props.checkins.brewery_id}`}>{this.props.checkins.brewery}</Link></span> at <span>{this.props.checkins.address}</span>
+              <span><Link to={`/users/${this.props.checkins.user.id}`}>{this.props.checkins.user.f_name} {lastName}</Link>&nbsp;</span>is drinking a <span><Link to={`/beers/${this.props.checkins.beer_id}`}>{this.props.checkins.beer}</Link></span> by <span><Link to={`/breweries/${this.props.checkins.brewery_id}`}>{this.props.checkins.brewery}</Link></span> at <span>{this.props.checkins.address}</span>
             </div>
             <div className="checkin-review">
               <div className="arrow">

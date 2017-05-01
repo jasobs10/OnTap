@@ -33,9 +33,7 @@ class CheckinForm extends React.Component {
   }
 
   handleSubmit(e) {
-    // debugger
     e.preventDefault()
-    // this.props.createCheckin({rating: this.state.rating, beer_id: this.props.beer.id, address: this.state.address, container: this.state.container, review: this.state.review}).then(() => this.clearForm()).then(() => this.props.activateModal(false));
     const formData = new FormData();
     formData.append("checkin[rating]", this.state.rating);
     formData.append("checkin[beer_id]", this.props.beer.id);
@@ -43,19 +41,15 @@ class CheckinForm extends React.Component {
     formData.append("checkin[container]", this.state.container);
     formData.append("checkin[review]", this.state.review);
     formData.append("checkin[image]", this.state.imageFile);
-    // debugger
     if (this.state.imageFile) {
 
       this.props.createPhotoCheckin(formData).then(() => this.props.activateModal(false));
     } else {
-      // debugger
       this.props.createCheckin({rating: this.state.rating, beer_id: this.props.beer.id, address: this.state.address, container: this.state.container, review: this.state.review}).then(() => this.clearForm()).then(() => this.props.activateModal(false));
     }
-    // .then(() => this.props.router.push
   }
 
   handleSlide(value) {
-    // debugger
     this.setState({
       rating: value
     })
@@ -81,7 +75,6 @@ class CheckinForm extends React.Component {
   }
 
   render() {
-    // debugger
     return (
       <div className="comment-wrapper checkin-form-wrapper">
         <div className="comment-header checkin-form-title">

@@ -1,14 +1,10 @@
 #root {
-  // overflow: auto;
-  // overflow: scroll;
 }
 html {
-  // height: 100%;
 
 }
 
 body {
-  // height: 100%;
 }
 .main-wrapper {
   display: flex;
@@ -18,7 +14,6 @@ body {
   padding: 0;
   margin: 0;
   background-color: rgba(0,0,0,.05);
-  // height: 100%;
 }
 
 .nav-container {
@@ -32,26 +27,21 @@ body {
   -webkit-box-shadow: 0px 1px 13px -4px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 1px 13px -4px rgba(0,0,0,0.75);
   box-shadow: 0px 1px 13px -4px rgba(0,0,0,0.75);
-  // height: 10%;
-  // padding: 1%;
 
 }
 
 .nav-inside {
   font-family: 'Oxygen', sans-serif;
   color: white;
-  // margin-left: 30%;
   font-size: 18px;
   display: flex;
   background-color: transparent;
   width: 850px;
   flex-direction: row;
   justify-content: center;
-  // justify-content: center;
   letter-spacing: 2px;
   margin: 0 auto;
   letter-spacing: 2px;
-  // padding: .3% 0;
   text-transform: uppercase;
   position: relative;
 }
@@ -102,7 +92,6 @@ body {
 .dropdown > div {
   width: 20%;
   box-sizing: border-box;
-  // border: 1px solid red;
   text-align: center;
   margin: 0;
   padding: 12px 0;
@@ -114,7 +103,6 @@ body {
   background-color: rgba(247, 96, 0, 0.97);
   transition: .3s;
 }
-//
 .account-button {
   position: static;
 }

@@ -28,13 +28,11 @@ class EditCommentForm extends React.Component {
   }
 
   handleSubmit(e) {
-    // debugger
     e.preventDefault()
     this.props.updateComment({comment: this.state.comment, id: this.props.comment.id}).then(() => this.clearForm()).then(() => this.props.activateModal(false));
   }
 
   render() {
-    // debugger
 
     return (
       <div className="comment-wrapper">

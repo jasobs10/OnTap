@@ -1,6 +1,5 @@
 .comment-wrapper {
   position: fixed;
-  // width: 100%;
   left: 30%;
   top: 20vh;
   width: 450px;
@@ -13,10 +12,8 @@
 .img-popout {
 
     position: fixed;
-    // width: 100%;
     top: 15vh;
     width: 33%;
-    // padding: 10px;
     left: 32%;
     background-color: rgb(230, 230, 230);
     border: 3px solid #ffad0d;
@@ -90,6 +87,7 @@
   position: relative;
   width: 150%;
   top: 0;
+  left: 0;
 }
 
 .checkin-form-bottom {
@@ -106,7 +104,6 @@
   justify-content: flex-start;
   align-items: center;
   width: 100%;
-  // margin-right: 4%;
   margin-bottom: 2%;
 }
 

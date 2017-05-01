@@ -12,22 +12,15 @@ html {
 
 
  .splash-container {
-  //  display: flex;
-  //  flex-direction: column;
    position: relative;
-  //  justify-content: center;
 
-  //  background-color: red;
    background-image: url('/images/beer.jpeg');
    background-attachment: scroll;
-  //  background-attachment: fixed;
    background-repeat: no-repeat;
    background-position: 10% 50%;
-  //  background-position: 10% 90%;
    background-size: cover;
    width: 100%;
    height: 700px;
-  //  height: 825px;
    background-color: rgba(0,0,0,0.7); // Tint color
    background-blend-mode: multiply;
  }
@@ -38,8 +31,6 @@ html {
    flex-direction: row;
    justify-content: flex-end;
    padding: 15px 15px;
-  //  position: fixed;
-  //  font-size: 20%;
  }
 
  .auth {
@@ -62,9 +53,7 @@ html {
    flex-direction: row;
    justify-content: center;
    margin-top: 50px;
-  //  font-size: 80%;
 
-  //  padding:
  }
 
  .splash-inner > div {
@@ -119,7 +108,6 @@ html {
    font-family: 'Oxygen', sans-serif;
    font-weight: 700;
    font-size: 35px;
-  //  width: 40%;
  }
  .two {
    display: flex;
@@ -146,9 +134,7 @@ html {
    flex-direction: row;
    justify-content: center;
    margin-top: 50px;
-    //  font-size: 80%;
 
-    //  padding:
   font-color: black;
  }
 
@@ -180,10 +166,6 @@ html {
   color: white;
   font-size: 14px;
   display: block;
-  // position: absolute;
-
-  // top: 0px;
-  // bottom: -200px;
   background-color: rgb(13, 0, 15);
   width: 100%;
   margin-top: 3%;
@@ -201,19 +183,11 @@ html {
   box-shadow: 2px 2px 49px -5px rgba(0,0,0,1);
   box-sizing: border-box;
   border-radius: 7px;
-  // border: 2px solid;
-  // border-color: rgb(189, 186, 186);
 
   background-color: white;
-  // position: fixed;
   position: absolute;
   z-index: 999;
-  // width: 30%;
   width: auto;
-  // make this non percentage to have consistent size
-  // width: 400px;
-  // height: 30%;
-  // add padding instead of height
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -230,14 +204,8 @@ html {
   align-items: center;
   justify-content: center;
   font-family: 'Cabin', sans-serif;
-  //   box-sizing: border-box;
-  //   border-radius: 7px;
-  //   border-color: rgba(0, 91, 130, 0.8);
-  //   background-color: white;
-  //  //  top: 100%;
   height: 100%;
   width: 100%;
-  // justify-content: space-around;
 }
 
 .auth-form {
@@ -351,7 +319,6 @@ html {
 .modal-background {
   z-index: 99;
   position: fixed;
-  // overflow: scroll;
   height: 100vh;
   width: 100%;
   top: 0;
@@ -361,7 +328,6 @@ html {
 
 .errors {
   margin-bottom: 8%;
-  // border-left: 3px solid red;
   width: 100%;
   text-align: left;
   color: white;
@@ -377,9 +343,6 @@ html {
 }
 
 .error {
-  // color: red;
-  // margin: 0 2%;
-
   margin: 6% 0;
 }
 
@@ -389,7 +352,6 @@ html {
 }
 
 .upload-wrapper {
-  // padding: 1.5% 3%;
 
   margin-bottom: 1.5%;
   border-radius: 4px;
@@ -402,10 +364,8 @@ html {
 }
 
 .upload-picture-button {
-  // background-color: rgb(255, 173, 13);
   color: white;
   align-self: flex-start;
-  // font-size: 20px;
 }
 
 .photo-text {

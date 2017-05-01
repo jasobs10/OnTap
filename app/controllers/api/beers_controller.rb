@@ -2,32 +2,27 @@ class Api::BeersController < ApplicationController
   before_action :require_logged_in
 
   def index
-    # DO sort and indexing in here, pass in params
-    #
+
     @styles = Beer.includes(:brewery, :checkins).all.map(&:style).uniq.sort
     fetch_beers = Beer.includes(:brewery, :checkins)
+
     if params[:type] == "id" || params[:type] == nil || params[:sort] == "id"
-      # Beer.select("AVG(ratings) as ratings", "*").joins("checkins").group("beers.id").order("ratings").limit(5)
       @beers = fetch_beers
     elsif params[:type] == "style"
       @beers = fetch_beers.where("style = ?", params[:sort])
-      #
     elsif params[:type] == "rating"
-
       avg_max = params[:sort].to_i.to_f + 0.99
       avg = params[:sort].to_f
-      #
 
       @beers = fetch_beers.select do |beer|
         checkin_average = beer.checkins.average('rating')
         checkin_average && checkin_average.between?(avg, avg_max)
       end
-      # debugger
+
     elsif params[:type] == "name"
       @beers = fetch_beers.select('*').where("name LIKE ?", "#{params[:sort]}%")
 
     end
-    #
 
   end
 
@@ -53,7 +48,6 @@ class Api::BeersController < ApplicationController
 
   def show
     @styles = Beer.all.map(&:style).uniq.sort
-    #
     @beer = Beer.find(params[:id])
   end
 

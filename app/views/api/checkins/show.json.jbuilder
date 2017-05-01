@@ -12,18 +12,11 @@ json.toastUsers do
       json.user_id user.id
       json.f_name user.f_name
       json.l_name user.l_name
-      # json.userToasts do
-      #   json.set! user.id do
-      #     json.array! user.toasts.map(&:id)
-      #   end
-      # end
-      # json.@checkinToasts do
-      #   json.array! user.@checkins.toasts
-      # end
+
     end
   end
 end
-# json.toastCount @checkin.toasts.count
+
 json.comments do
   @checkin.comments.each do |comment|
     json.set! comment.id do

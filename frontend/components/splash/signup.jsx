@@ -7,7 +7,6 @@ import { receiveSignUpErrors, defaultSignUp } from '../../reducers/session_redux
 import { hashHistory } from 'react-router';
 
 const mapStateToProps = (state, ownProps) => {
-  // let formType = ownProps.formType || 'signin';
   return {
     signUpErrors: state.errors.signUp,
     modal: state.modal
@@ -27,7 +26,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 class SignUpForm extends React.Component {
   constructor(props) {
     super(props);
-    // debugger
     this.state = {username: "", password: "", f_name: "", l_name: "", imageFile: null, imageUrl: null};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -44,19 +42,6 @@ class SignUpForm extends React.Component {
     this.setState({username: "", password: "", f_name: "", l_name: ""});
   }
 
-  // componentDidMount() {
-  //   this.props.clearErrors();
-  //   // debugger
-  // }
-
-  // componentWillReceiveProps(newProps) {
-  //   // debugger
-  //   if (newProps.signUpErrors === this.props.signUpErrors) {
-  //     this.props.clearErrors();
-  //   }
-  //   // debugger
-  // }
-
   componentWillUnmount() {
     this.props.clearErrors();
   }
@@ -69,15 +54,12 @@ class SignUpForm extends React.Component {
     formData.append("user[f_name]", this.state.f_name);
     formData.append("user[l_name]", this.state.l_name);
     formData.append("user[avatar]", this.state.imageFile);
-    // debugger
     if (this.state.imageFile) {
 
       this.props.signUp(formData).then(() => this.clearForm()).then(() => this.props.activateModal(false)).then(() => hashHistory.push('/home'));
     } else {
-      // debugger
       this.props.defaultSignUp({user: this.state}).then(() => this.clearForm()).then(() => this.props.activateModal(false)).then(() => hashHistory.push('/home'));
     }
-    // .then(() => this.props.router.push('/'))
   }
 
   toggleForm() {

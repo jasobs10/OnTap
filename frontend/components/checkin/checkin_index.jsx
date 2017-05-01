@@ -12,9 +12,7 @@ import Modal from '../modal/modal';
 import { Spinner } from '../shared/spinner';
 
 
-// <CheckinIndexItem modal={this.props.modal} receiveComponent={this.props.receiveComponent} activateModal={this.props.activateModal} deleteToast={this.props.deleteToast} createToast={this.props.createToast} currentUser={this.props.currentUser} key={checkin.id} requestAllCheckins={this.props.requestAllCheckins} requestCheckin={this.props.requestCheckin} checkins={checkin} />);
 const mapStateToProps = (state, ownProps) => {
-  // debugger
   const beerCheckins = ownProps.beerCheckins ? Object.values(ownProps.beerCheckins) : Object.values(state.checkins);
   let altCheckins;
   if (ownProps.beerCheckins) {
@@ -28,7 +26,6 @@ const mapStateToProps = (state, ownProps) => {
   }
 
   return {
-    // debugger
     currentUser: state.currentUser,
     beers: state.beers,
     checkins: altCheckins,
@@ -61,7 +58,6 @@ class CheckinIndex extends React.Component {
   }
 
   componentWillMount() {
-    // debugger
     if (this.props.beerCheckins || this.props.breweryCheckins || this.props.userCheckins) {
       return null;
     }
@@ -78,8 +74,6 @@ class CheckinIndex extends React.Component {
   handleClick(e) {
     this.setState({checkinCount: this.state.checkinCount + 4});
   }
-  // const breweryLikes = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
-  // const wishlistBeers = this.props.currentUser.wishlistBeers ? Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>) : "";
   render() {
 
     if (this.props.checkins.length === 0) {
@@ -93,7 +87,6 @@ class CheckinIndex extends React.Component {
         wishlistBeers = ""
       }
       let breweryLikes;
-      // debugger
       if (this.props.currentUser && this.props.currentUser.likedBreweries) {
         breweryLikes = Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>);
       } else {
@@ -109,14 +102,10 @@ class CheckinIndex extends React.Component {
         indexItems = sortedCheckins.map((checkin) => <CheckinIndexItem {...this.props}  key={checkin.id} checkins={checkin} />).slice(0, this.state.checkinCount);
 
       }
-      // const indexItems = sortedCheckins ? sortedCheckins.map((checkin) => <CheckinIndexItem {...this.props}  key={checkin.id} checkins={checkin} />) : "";
-
-      // debugger
       let showMore;
       if (this.state.checkinCount < this.props.checkins.length) {
         showMore = this.showMore();
       }
-      // debugger
       return(
         <div className="beers-wrapper">
           <Modal modal={this.props.modal} activateModal={this.props.activateModal}/>
@@ -163,17 +152,3 @@ class CheckinIndex extends React.Component {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(CheckinIndex);
-
-// let name = this.props.currentUser === null ? "" : this.props.currentUser.f_name;
-// return(
-//   <div className="checkin-wrapper">
-//     <div className="checkin-index" >
-//     </div>
-//
-//     <div className="user-display">
-//       Welcome {name}
-//     </div>
-//     <button onClick={() => this.props.logOut(this.props.currentUser).then(() => hashHistory.push('/'))}>Log Out</button>
-//
-//   </div>
-// );

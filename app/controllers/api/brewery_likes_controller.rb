@@ -4,10 +4,8 @@ class Api::BreweryLikesController < ApplicationController
     @brewery_like_user = current_user
     @brewery_like = BreweryLike.new(brewery_like_params)
     @brewery_like.user_id = current_user.id
-    # debugger
     if @brewery_like.save
       render json: @brewery_like
-      # render 'api/beers/index'
     else
       render json: {base: ["You cannot like this brewery"]}, status: 404
     end

@@ -8,7 +8,6 @@ import { BreweryLikeItem } from '../breweries/brewery_like_item';
 import { receiveComponent, activateModal } from '../../reducers/modal_redux';
 import { createCheckin } from '../../reducers/checkins_redux'
 import { Spinner } from '../shared/spinner';
-// import { addBeerToWishlist, removeBeerFromWishlist } from '../../reducers/wishlist_redux';
 
 const mapStateToProps = (state) => {
 
@@ -32,20 +31,15 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
-// const SyleSelect = (props) => {
-//   return(
-//     <option value={props.value}
-//   );
-// }
 
 export const WishlistBeerItem = (props) => {
-  // debugger
+
   const brewery = props.beer.brewery.name || props.beer.brewery;
   const beerpic = props.beer.image_url || props.beer.beer_image_url
-  // debugger
+
 
   const sliced = props.beer.name.length > 17 ? props.beer.name.slice(0, 17) + "..." : props.beer.name
-  // debugger
+
   return(
     <div className="top-beers-item">
       <div>
@@ -66,7 +60,7 @@ export const WishlistBeerItem = (props) => {
 class Beers extends React.Component {
   constructor(props) {
     super(props);
-    // debugger
+
     this.state = {style: "", name: "", rating: "", id: "", beersCount: 5}
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -76,23 +70,9 @@ class Beers extends React.Component {
   componentWillMount() {
     this.props.requestBeers();
   }
-  // componentWillReceiveProps(newProps) {
-  //   if (newProps.beers != this.props.beers) {
-  //     this.props.requestBeers();
-  //   }
-  // }
-  // componentWillReceiveProps(newProps) {
-  //   if (newProps.beers === this.props.beers) {
-  //     return null;
-  //   }
-  //   this.props.requestBeers();
-  //
-  // }
 
   handleChange(field) {
-    // debugger
     return (e) => {
-      // debugger
       this.setState({[field]: e.target.value});
       this.props.requestBeers(field, e.target.value);
     }
@@ -118,7 +98,7 @@ class Beers extends React.Component {
 
   render () {
 
-    // debugger
+
     if (this.props.beers.length === 0) {
       return <Spinner />
     }
@@ -150,7 +130,7 @@ class Beers extends React.Component {
           activateModal={this.props.activateModal}
           createCheckin={this.props.createCheckin}/>).slice(0, this.state.beersCount);
       }
-      // debugger
+
       let wishlistBeers;
       if (this.props.currentUser && this.props.currentUser.wishlistBeers) {
         wishlistBeers = Object.values(this.props.currentUser.wishlistBeers).sort((a, b) => {
@@ -168,7 +148,7 @@ class Beers extends React.Component {
         return (b.id - a.id);
       }) : null;
       const breweryLikes = breweryLikesSorted ? breweryLikesSorted.map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
-      // debugger
+
       return (
         <div className="beers-wrapper">
           <div className="beers-index">
@@ -234,7 +214,4 @@ class Beers extends React.Component {
   }
 }
 
-// <div className="header-main">
-//   <h1 className="beers-index-title">Whats ONTAP?</h1>
-// </div>
 export default connect(mapStateToProps, mapDispatchToProps)(Beers);

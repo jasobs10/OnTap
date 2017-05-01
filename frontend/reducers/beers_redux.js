@@ -28,13 +28,6 @@ const APIUTIL = {
     });
   },
 
-  // fetchBeersBy: (field) => {
-  //   return $.ajax({
-  //     method: "GET",
-  //     url: "api/beers"
-  //   });
-  // },
-
   createBeer: (beer) => {
     return $.ajax({
       method: "POST",
@@ -105,18 +98,15 @@ const addAllStyles = (styles) => {
 };
 
 export const removeBeerFromWishlist = (id) => {
-  // debugger
   return dispatch => APIUTIL.removeBeerFromWishlist(id).then((wishlist) => dispatch(removeWishlist(wishlist)));
 };
 
 export const addBeerToWishlist = (beerId) => {
-  // debugger
   return dispatch => APIUTIL.addBeerToWishlist(beerId).then((wishlist) => dispatch(addWishlist(wishlist)));
 };
 
 
 export const requestBeers = (field, params) => {
-  // debugger
   return dispatch => APIUTIL.fetchBeers(field, params).then((beers) => dispatch(receiveAllBeers(beers)));
 };
 
@@ -136,7 +126,6 @@ export const beersReducer = (oldState = _defaultBeersState, action) => {
     case RECEIVE_ALL_BEERS:
       return action.beers;
     case RECEIVE_BEER:
-    // debugger
       return merge(old, action.beer);
     case ADD_WISHLIST:
 
