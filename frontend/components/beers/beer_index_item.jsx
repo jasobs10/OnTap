@@ -57,15 +57,10 @@ class BeerIndexItem extends React.Component {
   };
 
   handleCheckin(e) {
-    // this.props.receiveComponent(<CheckinForm
-    //   beer={this.props.beer}
-    //   createCheckin={this.props.createCheckin}
-    //   activateModal={this.props.activateModal}
-    //   createPhotoCheckin={this.props.createPhotoCheckin}/>);
-    //
-    // this.props.activateModal(true);
+
 
       this.props.receiveComponent(<CheckinForm
+        isModal={true}
         beer={this.props.beer}
         createCheckin={this.props.createCheckin}
         activateModal={this.props.activateModal}
@@ -73,7 +68,7 @@ class BeerIndexItem extends React.Component {
 
       this.props.activateModal(true);
 
-      hashHistory.push('/home')
+  
 
 
   }

@@ -46,7 +46,14 @@ class CheckinForm extends React.Component {
 
       this.props.createPhotoCheckin(formData).then(() => this.props.activateModal(false));
     } else {
-      this.props.createCheckin({rating: this.state.rating, beer_id: this.props.beer.id, address: this.state.address, container: this.state.container, review: this.state.review}).then(() => this.clearForm()).then(() => this.props.activateModal(false));
+      this.props.createCheckin({rating: this.state.rating, beer_id: this.props.beer.id, address: this.state.address, container: this.state.container, review: this.state.review})
+      .then(() => this.clearForm())
+      .then(() => this.props.activateModal(false))
+      .then(() => {
+        if (this.props.isModal) {
+          hashHistory.push('/home');
+        }
+      });
     }
 
   }
