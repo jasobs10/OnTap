@@ -1,5 +1,6 @@
 import React from 'react';
 var Rating = require('react-rating');
+import { hashHistory } from 'react-router';
 
 class CheckinForm extends React.Component {
   constructor(props) {
@@ -47,6 +48,7 @@ class CheckinForm extends React.Component {
     } else {
       this.props.createCheckin({rating: this.state.rating, beer_id: this.props.beer.id, address: this.state.address, container: this.state.container, review: this.state.review}).then(() => this.clearForm()).then(() => this.props.activateModal(false));
     }
+
   }
 
   handleSlide(value) {

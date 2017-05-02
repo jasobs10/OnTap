@@ -6,14 +6,16 @@ import BeerIndexItem from './beer_index_item';
 import { addCurrentUserWishlist, removeCurrentUserWishlist } from '../../reducers/session_redux';
 import { BreweryLikeItem } from '../breweries/brewery_like_item';
 import { receiveComponent, activateModal } from '../../reducers/modal_redux';
-import { createCheckin } from '../../reducers/checkins_redux'
 import { Spinner } from '../shared/spinner';
+import { createCheckin, fetchBeerCheckins, createPhotoCheckin } from '../../reducers/checkins_redux';
+import Modal from '../modal/modal';
 
 const mapStateToProps = (state) => {
 
   return {
     currentUser: state.currentUser,
-    beers: Object.values(state.beers)
+    beers: Object.values(state.beers),
+    modal: state.modal
   }
 };
 
@@ -26,7 +28,8 @@ const mapDispatchToProps = (dispatch) => {
     removeCurrentUserWishlist: (beer) => dispatch(removeCurrentUserWishlist(beer)),
     receiveComponent: (component) => dispatch(receiveComponent(component)),
     activateModal: (bool) => dispatch(activateModal(bool)),
-    createCheckin: (checkin) => dispatch(createCheckin(checkin))
+    createCheckin: (checkin) => dispatch(createCheckin(checkin)),
+    createPhotoCheckin: (formData) => dispatch(createPhotoCheckin(formData))
 
   }
 };
@@ -118,7 +121,8 @@ class Beers extends React.Component {
           removeCurrentUserWishlist={this.props.removeCurrentUserWishlist}
           receiveComponent={this.props.receiveComponent}
           activateModal={this.props.activateModal}
-          createCheckin={this.props.createCheckin}/>);
+          createCheckin={this.props.createCheckin}
+          createPhotoCheckin={this.props.createPhotoCheckin}/>);
       } else {
         items = sortedBeers.map((beer) => <BeerIndexItem
           key={beer.id} beer={beer}
@@ -128,7 +132,8 @@ class Beers extends React.Component {
           removeCurrentUserWishlist={this.props.removeCurrentUserWishlist}
           receiveComponent={this.props.receiveComponent}
           activateModal={this.props.activateModal}
-          createCheckin={this.props.createCheckin}/>).slice(0, this.state.beersCount);
+          createCheckin={this.props.createCheckin}
+          createPhotoCheckin={this.props.createPhotoCheckin}/>).slice(0, this.state.beersCount);
       }
 
       let wishlistBeers;
@@ -151,6 +156,7 @@ class Beers extends React.Component {
 
       return (
         <div className="beers-wrapper">
+          <Modal modal={this.props.modal} activateModal={this.props.activateModal}/>
           <div className="beers-index">
             <div className="beers-feed">
               <div className="beer-header">

@@ -6,6 +6,8 @@ import WishlistAdd from '../wishlist/wishlist_add';
 var Rating = require('react-rating');
 import EditCommentForm from '../checkin/comments_form'
 import { Spinner } from '../shared/spinner';
+import CheckinForm from '../checkin/checkin_form';
+
 
 export const LineRating = ({ average }) => {
   if (average) {
@@ -43,15 +45,38 @@ export const LineRating = ({ average }) => {
 class BeerIndexItem extends React.Component {
   constructor(props) {
     super(props);
-
+    this.handleClick = this.handleClick.bind(this);
+    this.handleCheckin = this.handleCheckin.bind(this);
   }
 
-handleClick(e) {
+  handleClick(e) {
 
-    this.props.receiveComponent(<EditCommentForm updateComment={props.updateComment} activateModal={props.activateModal} comment={props.comment}/>);
-    this.props.activateModal(true);
+      this.props.receiveComponent(<EditCommentForm updateComment={props.updateComment} activateModal={props.activateModal} comment={props.comment}/>);
+      this.props.activateModal(true);
 
   };
+
+  handleCheckin(e) {
+    // this.props.receiveComponent(<CheckinForm
+    //   beer={this.props.beer}
+    //   createCheckin={this.props.createCheckin}
+    //   activateModal={this.props.activateModal}
+    //   createPhotoCheckin={this.props.createPhotoCheckin}/>);
+    //
+    // this.props.activateModal(true);
+
+      this.props.receiveComponent(<CheckinForm
+        beer={this.props.beer}
+        createCheckin={this.props.createCheckin}
+        activateModal={this.props.activateModal}
+        createPhotoCheckin={this.props.createPhotoCheckin}/>);
+
+      this.props.activateModal(true);
+
+      hashHistory.push('/home')
+
+
+  }
 
   render() {
     const ratingPercentage = (this.props.beer.average / 5 *  100).toString();
@@ -82,8 +107,20 @@ handleClick(e) {
                 {this.props.beer.description}
               </div>
             </div>
-            <div className="col-3 no-checkin">
-              <WishlistAdd key={this.props.beer.id} addBeerToWishlist={this.props.addBeerToWishlist} removeBeerFromWishlist={this.props.removeBeerFromWishlist} beer={this.props.beer} removeCurrentUserWishlist={this.props.removeCurrentUserWishlist} addCurrentUserWishlist={this.props.addCurrentUserWishlist}/>
+            <div className="col-3">
+              <div className="wish-add" onClick={this.handleCheckin}>
+                ✔
+                <div className="wishlist-dropdown">
+                  Checkin Beer
+                </div>
+              </div>
+              <WishlistAdd
+                key={this.props.beer.id}
+                addBeerToWishlist={this.props.addBeerToWishlist}
+                removeBeerFromWishlist={this.props.removeBeerFromWishlist}
+                beer={this.props.beer}
+                removeCurrentUserWishlist={this.props.removeCurrentUserWishlist}
+                addCurrentUserWishlist={this.props.addCurrentUserWishlist}/>
 
             </div>
           </div>
