@@ -8,8 +8,8 @@ OnTap is a web app inspired by UNTAPPD where beer lovers can share, rate and rev
 
 * Ruby
 * Rails
-* Javascript
-* React
+* JavaScript
+* React.js
 * Redux
 * PostgreSQL
 * Amazon Web Services
