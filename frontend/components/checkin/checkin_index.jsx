@@ -80,7 +80,7 @@ class CheckinIndex extends React.Component {
     let breweryLikes = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
     if (this.props.currentUser.checkinCount === 0) {
       return (
-        <div><Spinner /></div>
+        <div><Spinner/></div>
 
       );
     }

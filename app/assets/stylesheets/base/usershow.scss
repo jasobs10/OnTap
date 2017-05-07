@@ -62,14 +62,18 @@
 }
 
 .user-image {
-  width: 15%;
+  align-self: flex-end;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   z-index: 10;
   margin-right: 2%;
-  border-radius: 10px;
+  border-radius: 50%;
+  width: 142.5px;
+  height: 142.5px;
+  border: 2px solid white;
+  overflow: hidden;
 }
 
 .user-edit-button {
@@ -110,7 +114,7 @@
 }
 
 .user-show-avatar {
-  border-radius: 75px;
-  border: 3px solid white;
+  // border-radius: 75px;
+  // border: 3px solid white;
 
 }
