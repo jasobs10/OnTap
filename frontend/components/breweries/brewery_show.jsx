@@ -6,6 +6,7 @@ import { requestBrewery, addBreweryLike, removeBreweryLike } from '../../reducer
 import { removeUserLike, addUserLike } from '../../reducers/session_redux';
 import BreweriesIndexItem from './breweries_index_item';
 import BreweryHeader from './brewery_header';
+import { Spinner } from '../shared/spinner';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -31,6 +32,14 @@ class BreweryShow extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.params.breweryId !== this.props.params.breweryId) {
+      this.props.fetchBrewery(newProps.params.breweryId);
+      this.props.fetchBreweryCheckins(newProps.params.breweryId);
+    }
+  }
+
   componentWillMount() {
     this.props.fetchBrewery(this.props.params.breweryId)
     this.props.fetchBreweryCheckins(this.props.params.breweryId);
@@ -39,7 +48,7 @@ class BreweryShow extends React.Component {
 
   render() {
     if (this.props.brewery === undefined) {
-      return (<div></div>)
+      return (<Spinner />)
     }
     return (
       <div>

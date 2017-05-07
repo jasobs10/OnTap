@@ -70,6 +70,21 @@ class CheckinIndex extends React.Component {
     }
 
   }
+  checkins() {
+    let wishlistBeers;
+    if (this.props.currentUser.wishlistBeers) {
+      wishlistBeers = Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>);
+    } else {
+      wishlistBeers = "";
+    }
+    let breweryLikes = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
+    if (this.props.currentUser.checkinCount === 0) {
+      return (
+        <div><Spinner /></div>
+
+      );
+    }
+  }
 
   handleClick(e) {
     this.setState({checkinCount: this.state.checkinCount + 4});
@@ -77,7 +92,7 @@ class CheckinIndex extends React.Component {
   render() {
 
     if (this.props.checkins.length === 0) {
-      return <Spinner />
+      this.checkins();
     }
     if (this.props.currentUser) {
       let wishlistBeers;
@@ -102,6 +117,14 @@ class CheckinIndex extends React.Component {
         indexItems = sortedCheckins.map((checkin) => <CheckinIndexItem {...this.props}  key={checkin.id} checkins={checkin} />).slice(0, this.state.checkinCount);
 
       }
+
+      let heading = "Recent Activity";
+
+      if (indexItems.length === 0) {
+        indexItems = <Spinner />;
+        heading = "No Checkins Yet!"
+      }
+
       let showMore;
       if (this.state.checkinCount < this.props.checkins.length) {
         showMore = this.showMore();
@@ -113,7 +136,7 @@ class CheckinIndex extends React.Component {
           <div className="beers-index">
             <div className="beers-feed">
               <div className="beer-header">
-                <h1>Recent Activity</h1>
+                <h1>{heading}</h1>
               </div>
               <hr className="orange-line checkin-line"/>
 
