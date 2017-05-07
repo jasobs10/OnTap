@@ -50,7 +50,7 @@ end
 
 Checkins are posts that are created by a user for a certain beer, where the user can upload a photo, leave a rating and review, and post where they are drinking the beer. Checkins are posted to the global feed located on the home page. In addition, individual beer, brewery and user pages display checkins associated to the respective beer, brewery or user.
 
-Checkins are stored in the checkins table, with columns `id`, `beer_id`, `user_id`, `rating`, `review`, `address`, `container` and `image`. The `BeerIndexItem` component links to a checkin form which makes an API call to the `CheckinsController` to create a new checkin based on the values that are submitted through the form. The `CheckinsController` also handles which checkins to return based on the API call for all, user, beer or brewery. Image uploads are stored by AWS, and are saved to the database by paperclip.
+Checkins are stored in the `checkins` table, with columns `id`, `beer_id`, `user_id`, `rating`, `review`, `address`, `container` and `image`. The `BeerIndexItem` component links to a checkin form which makes an API call to the `CheckinsController` to create a new checkin based on the values that are submitted through the form. The `CheckinsController` also handles which checkins to return based on the API call for all, user, beer or brewery. Image uploads are stored by AWS, and are saved to the database by paperclip.
 
 On the front-end the `CheckinsIndex` component renders all of the individual `CheckinIndexItems`.
 
