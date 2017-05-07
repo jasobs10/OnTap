@@ -27,7 +27,10 @@
 }
 
 .comment-avatar {
-  width: 13%;
+  width: 62px;
+  height: 53.75px;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .comment-avatar > img {
