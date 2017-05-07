@@ -84,7 +84,7 @@ class CheckinForm extends React.Component {
 
   render() {
     return (
-      <div className="comment-wrapper checkin-form-wrapper">
+      <div className="comment-wrapper">
         <div className="comment-header checkin-form-title">
           Check-in {this.props.beer.name}
         </div>

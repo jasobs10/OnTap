@@ -76,7 +76,10 @@ class Splash extends React.Component {
 
         <div className="bottom-wrapper">
           <div className="bottom-inner">
-            <img src={window.images.ratings} alt="beer ratings"/>
+            <div className="splash-img-container">
+              <img src="images/checkin.png" alt="beer ratings"/>
+            </div>
+
             <div>
               <h2>Check in and Rate Beer </h2>
               <p>Keep track of beers you drink</p>
@@ -85,10 +88,12 @@ class Splash extends React.Component {
           </div>
 
           <div className="bottom-inner">
-            <img src={window.images.badges} alt="beer badges"/>
+            <div className="splash-img-container">
+              <img src="images/wishlist2.png" alt="beer badges"/>
+            </div>
             <div>
-              <h2>Drink More Beer, Collect More Badges</h2>
-              <p>Show off your drinking skills</p>
+              <h2>Update Your Wishlist</h2>
+              <p>Save those beers you are dying to try</p>
             </div>
           </div>
         </div>
