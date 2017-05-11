@@ -88,6 +88,7 @@ class BreweriesIndex extends React.Component {
         return (parseFloat(b.average) - (parseFloat(a.average)));
       }) : "";
       //
+      document.title = "Top Breweries"
 
       let heading = "Top Rated Breweries"
       let spinner;

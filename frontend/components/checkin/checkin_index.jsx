@@ -58,6 +58,7 @@ class CheckinIndex extends React.Component {
   }
 
   componentWillMount() {
+
     if (this.props.beerCheckins || this.props.breweryCheckins || this.props.userCheckins) {
       return null;
     }
@@ -95,6 +96,7 @@ class CheckinIndex extends React.Component {
       this.checkins();
     }
     if (this.props.currentUser) {
+      document.title = `${this.props.currentUser.f_name} is OnTap`;
       let wishlistBeers;
       if (this.props.currentUser && this.props.currentUser.wishlistBeers) {
         wishlistBeers = Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>);

@@ -161,7 +161,7 @@ class Beers extends React.Component {
       const breweryLikes = breweryLikesSorted ? breweryLikesSorted.map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
 
 
-
+      document.title = "Top Beers"
       return (
         <div className="beers-wrapper">
           <Modal modal={this.props.modal} activateModal={this.props.activateModal}/>

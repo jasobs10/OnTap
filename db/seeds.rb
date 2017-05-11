@@ -99,7 +99,7 @@ userarray.map! do |user|
   User.create!(username: Faker::Internet.user_name, password: "password", f_name: Faker::Name.first_name, l_name: Faker::Name.last_name, avatar: user)
 end
 
-meimage = open('https://s3.amazonaws.com/on-tap-dev/me.jpg')
+meimage = open('https://s3.amazonaws.com/on-tap-dev/Jason_Liu.jpg')
 
 #
 # test_user = User.create!(username: "testaccount", password: "password", f_name: "Test", l_name: "Account")

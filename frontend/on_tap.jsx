@@ -20,8 +20,11 @@ const App = (props) => {
     nav = <Navbar />
   }
 
+  document.title = "Welcome to OnTap"
+
   return (
     <div className="main-wrapper">
+
       { nav }
       { props.children }
       <footer className="splash-footer">
