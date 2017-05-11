@@ -82,12 +82,13 @@ class Beers extends React.Component {
   }
 
   showMore() {
-    //
-    if (this.state.beersCount < this.props.beers.length || this.props.beers.length === 0) {
+    if (this.props.beers.length > 0) {
+      if (this.state.beersCount < this.props.beers.length || this.props.beers.length === 0) {
 
-      return (<div className="show-more" onClick={this.handleShow}>SHOW MORE</div>);
+        return (<div className="show-more" onClick={this.handleShow}>SHOW MORE</div>);
+      }
+      return "";
     }
-    return "";
   }
 
   handleShow() {
@@ -102,16 +103,18 @@ class Beers extends React.Component {
   render () {
 
 
-    if (this.props.beers.length === 0) {
-      return <Spinner />
-    }
     if (this.props.currentUser) {
       const sortedBeers = this.props.beers ? this.props.beers.sort((a, b) => {
         return (parseFloat(b.average) - (parseFloat(a.average)));
       }) : "";
 
+      let spinner;
+      let heading = "Top Rated Beers"
+      if (sortedBeers.length === 0) {
+        spinner = <Spinner />;
+        heading = "No Beers!"
+      }
       let items;
-
       if (sortedBeers.length - this.state.beersCount <= 0) {
         items = sortedBeers.map((beer) => <BeerIndexItem
           key={beer.id} beer={beer}
@@ -136,6 +139,9 @@ class Beers extends React.Component {
           createPhotoCheckin={this.props.createPhotoCheckin}/>).slice(0, this.state.beersCount);
       }
 
+
+      const beerItems = spinner || items
+
       let wishlistBeers;
       if (this.props.currentUser && this.props.currentUser.wishlistBeers) {
         wishlistBeers = Object.values(this.props.currentUser.wishlistBeers).sort((a, b) => {
@@ -154,13 +160,15 @@ class Beers extends React.Component {
       }) : null;
       const breweryLikes = breweryLikesSorted ? breweryLikesSorted.map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
 
+
+
       return (
         <div className="beers-wrapper">
           <Modal modal={this.props.modal} activateModal={this.props.activateModal}/>
           <div className="beers-index">
             <div className="beers-feed">
               <div className="beer-header">
-                <h1>Top Rated Beers</h1>
+                <h1>{heading}</h1>
               </div>
               <hr className="orange-line"/>
               <div className="beer-filter">
@@ -190,7 +198,7 @@ class Beers extends React.Component {
                 </div>
               </div>
 
-              {items}
+              {beerItems}
               {this.showMore()}
 
             </div>

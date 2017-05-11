@@ -50,11 +50,13 @@ class BreweriesIndex extends React.Component {
 
   showMore() {
     //
-    if (this.state.breweryCount < this.props.breweries.length || this.props.breweries.length === 0) {
+    if (this.props.breweries.length > 0) {
+      if (this.state.breweryCount < this.props.breweries.length || this.props.breweries.length === 0) {
 
-      return (<div className="show-more" onClick={this.handleShow}>SHOW MORE</div>);
+        return (<div className="show-more" onClick={this.handleShow}>SHOW MORE</div>);
+      }
+      return "";
     }
-    return "";
   }
 
   handleShow() {
@@ -62,9 +64,6 @@ class BreweriesIndex extends React.Component {
   }
 
   render() {
-    if (this.props.breweries.length === 0) {
-      return <Spinner />;
-    }
     const logged_in = this.props.currentUser
     if (logged_in) {
       const ratings = ["0", "1", "2", "3", "4", "5"];
@@ -89,6 +88,13 @@ class BreweriesIndex extends React.Component {
         return (parseFloat(b.average) - (parseFloat(a.average)));
       }) : "";
       //
+
+      let heading = "Top Rated Breweries"
+      let spinner;
+      if (sortedBreweries.length === 0) {
+        spinner = <Spinner />;
+        heading = "No Breweries Yet!"
+      }
       let brewers;
       if (sortedBreweries.length - this.state.breweryCount <= 0) {
         brewers = sortedBreweries.map((brewery) => {
@@ -111,13 +117,15 @@ class BreweriesIndex extends React.Component {
         }).slice(0, this.state.breweryCount);
       }
 
+      const breweryItems = spinner || brewers
+
       return(
         <div className="beers-wrapper">
           <div className="beers-index">
             <div className="beers-feed">
 
               <div className="beer-header">
-                <h1>Top Rated Breweries</h1>
+                <h1>{heading}</h1>
               </div>
               <hr className="orange-line"/>
               <div className="beer-filter">
@@ -150,7 +158,7 @@ class BreweriesIndex extends React.Component {
                   <button className="add-brewery">+ Brewery</button>
                 </div>
               </div>
-              { brewers }
+              { breweryItems }
 
               {this.showMore()}
 
