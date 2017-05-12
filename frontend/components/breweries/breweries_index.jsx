@@ -127,6 +127,7 @@ class BreweriesIndex extends React.Component {
 
               <div className="beer-header">
                 <h1>{heading}</h1>
+                <button className="add-button">Add Brewery</button>
               </div>
               <hr className="orange-line"/>
               <div className="beer-filter">

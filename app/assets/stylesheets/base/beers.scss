@@ -333,17 +333,39 @@
 .beer-header {
   margin-bottom: 1%;
   align-self: flex-start;
-  margin-left: 2.2%;
+  
   font: 'Rubik', sans-serif;
   // font-size: 30px;
+  width: 100%;
   letter-spacing: 1.5px;
   font-weight: 800;
   font-size: 33px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   // height: 55%;
+  align-items: flex-end;
+  align-self: center;
 
 
+}
+
+.add-button {
+  font-size: 16px;
+  padding: 1% 4%;
+  border-radius: 4px;
+  background-color: #ffad0d;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: white;
+  cursor: pointer;
+  width: 28%;
+  text-align: center;
+
+}
+
+.add-button:hover {
+  background-color: rgb(177, 123, 18);
 }
 
 .beer-filter {
@@ -370,6 +392,9 @@
 
 .beers-feed {
   min-height: 88vh;
+  display: flex;
+  flex-direction: column;
+
 }
 
 .beers-feed-show {
