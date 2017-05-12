@@ -4,7 +4,6 @@
   display: flex;
   justify-content: center;
   font-family: 'Lato', sans-serif;
-  min-height: 100%;
 }
 
 
@@ -14,7 +13,8 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-top: 0px
+  padding-top: 0px;
+  min-height: 63vh;
 }
 
 .beers-index > div {
@@ -366,6 +366,10 @@
   border-top: 1px solid #ffad0d;
   width: 100%;
 
+}
+
+.beers-feed {
+  min-height: 88vh;
 }
 
 .beers-feed-show {
