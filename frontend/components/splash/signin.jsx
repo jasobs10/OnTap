@@ -107,7 +107,7 @@ class SignInForm extends React.Component {
         <h2>beer beer beer beer beer</h2>
         <form onSubmit={this.handleSubmit} className="auth-form">
           {this.props.signInErrors ? this.renderErrors() : ""}
-          <input className="auth-input username" type="text" onChange={this.handleChange('username')} value={this.state.username} placeholder="Username"/>
+          <input className="auth-input" type="text" onChange={this.handleChange('username')} value={this.state.username} placeholder="Username"/>
 
           <input className="auth-input" type="password" onChange={this.handleChange('password')} value={this.state.password} placeholder="Password"/>
 
