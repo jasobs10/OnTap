@@ -1,0 +1,45 @@
+.user-update-form {
+  position: relative;
+
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 15px;
+  background-color: white;
+  border-radius: 4px;
+  z-index: 20;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.user-update-form input, textarea {
+  margin-top: 1% !important;
+  margin-bottom: 0 !important;
+}
+
+.user-form-header {
+  margin-top: 2% !important;
+  font-size: 30px !important;
+
+}
+
+.user-about {
+  letter-spacing: 0px;
+  color: #666666;
+  font-size: 14.4px;
+}
+
+.user-update-form-container {
+  justify-content: flex-start;
+}
+
+.name-input-wrapper {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.name-input-wrapper > input {
+  width: 48%;
+}

@@ -80,7 +80,6 @@ class SignUpForm extends React.Component {
   }
 
   render () {
-    // debugger
     let signErrors;
     if (this.props.signUpErrors === undefined) {
       signErrors = "";
@@ -89,7 +88,6 @@ class SignUpForm extends React.Component {
         return <li key={i} className="list-error"><i className="fa fa-exclamation-circle error-sym" aria-hidden="true"></i> {error}</li>
       });
     }
-    // debugger
     return (
       <div className="auth-form-container">
         <h1>ONTA<i className="fa fa-beer beer-color" aria-hidden="true"></i></h1>

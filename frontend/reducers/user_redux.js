@@ -10,16 +10,16 @@ const APIUTIL = {
     });
   },
 
-  editUser: (user) => {
-    return $.ajax({
-      method: "PATCH",
-      url: `api/users/${user.id}`,
-      data: { user }
-    });
-  }
+  // editUser: (user) => {
+  //   return $.ajax({
+  //     method: "PATCH",
+  //     url: `api/users/${user.id}`,
+  //     data: { user }
+  //   });
+  // }
 };
 
-const receiveUser = (user) => {
+export const receiveUser = (user) => {
   return {
     type: RECEIVE_USER,
     user

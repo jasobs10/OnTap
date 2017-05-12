@@ -7,12 +7,16 @@ import { fetchUserCheckins } from "../../reducers/checkins_redux";
 import { Spinner } from '../shared/spinner';
 import { WishlistBeerItem } from '../beers/beers';
 import { BreweryLikeItem } from '../breweries/brewery_like_item';
+import { receiveComponent, activateModal } from '../../reducers/modal_redux';
+import { defaultEditUser, editUser } from '../../reducers/session_redux';
+import Modal from '../modal/modal';
 
 const mapStateToProps = (state) => {
   return {
     currentUser: state.currentUser,
     user: state.user,
-    checkins: state.checkins
+    checkins: state.checkins,
+    modal: state.modal
   }
 }
 
@@ -21,7 +25,11 @@ const mapDispatchToProps = (dispatch) => {
   return {
     updateUser: (user) => dispatch(updateUser(user)),
     fetchUser: (id) => dispatch(fetchUser(id)),
-    fetchUserCheckins: (user_id) => dispatch(fetchUserCheckins(user_id))
+    fetchUserCheckins: (user_id) => dispatch(fetchUserCheckins(user_id)),
+    receiveComponent: (component) => dispatch(receiveComponent(component)),
+    activateModal: (bool) => dispatch(activateModal(bool)),
+    defaultEditUser: (user) => dispatch(defaultEditUser(user)),
+    editUser: (user, id) => dispatch(editUser(user, id))
   }
 };
 
@@ -29,6 +37,15 @@ class UserShow extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  componentWillReceiveProps(newProps) {
+
+    if (newProps.params.userId !== this.props.params.userId) {
+      this.props.fetchUser(newProps.params.userId);
+      this.props.fetchUserCheckins(newProps.params.userId);
+    }
+  }
+
 
   componentWillMount() {
 
@@ -93,8 +110,14 @@ class UserShow extends React.Component {
     return (
       <div>
         <div className="beers-wrapper">
+          <Modal modal={this.props.modal} activateModal={this.props.activateModal}/>
           <div className="beer-show-header user-show-header">
-            <UserItem user={this.props.user} currentUser={this.props.currentUser} />
+            <UserItem user={this.props.user}
+              currentUser={this.props.currentUser}
+              activateModal={this.props.activateModal}
+              receiveComponent={this.props.receiveComponent}
+              defaultEditUser={this.props.defaultEditUser}
+              editUser={this.props.editUser}/>
           </div>
         </div>
 

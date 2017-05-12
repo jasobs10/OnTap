@@ -11,6 +11,10 @@
 
 }
 
+.username {
+  font-size: 20px;
+}
+
 .user-show-wrapper {
   height: 85%;
   display: flex;
@@ -109,12 +113,19 @@
   font-size: 28px;
 }
 
+.change-photo {
+  font-size: 15px;
+  margin-left: 1%;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .state {
   font-size: 18px;
 }
 
-.user-show-avatar {
-  // border-radius: 75px;
-  // border: 3px solid white;
+
+.add-picture-link {
+  color: white;
 
 }

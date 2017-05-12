@@ -1,5 +1,6 @@
 import merge from 'lodash/merge';
 import { activateModal } from './modal_redux';
+import { receiveUser } from './user_redux';
 // Session Action Creators (Log in, Sign up, Log Out)
 
 const RECEIVE_SIGNUP_ERRORS = "RECEIVE_SIGNUP_ERRORS";
@@ -75,6 +76,20 @@ export const defaultSignUp = (user) => {
   return dispatch => APIUTIL.defaultSignUp(user).then(r => dispatch(receiveCurrentUser(r)), errors => dispatch(receiveSignUpErrors(errors.responseJSON)));
 };
 
+export const editUser = (user, id) => {
+  return dispatch => APIUTIL.editUser(user, id).then(r => {
+    dispatch(receiveCurrentUser(r));
+    dispatch(receiveUser(r));
+  });
+};
+
+export const defaultEditUser = (user) => {
+  return dispatch => APIUTIL.defaultEditUser(user).then(r => {
+    dispatch(receiveCurrentUser(r));
+    dispatch(receiveUser(r));
+  });
+};
+
 export const logIn = (user) => {
   return dispatch => APIUTIL.logIn(user).then((r) => {
     dispatch(receiveCurrentUser(r));},
@@ -91,7 +106,7 @@ export const logOut = (user) => {
 
 const APIUTIL = {
   signUp: (formData) => {
-    //
+
     return $.ajax({
       method: "post",
       url: "/api/users",
@@ -101,6 +116,26 @@ const APIUTIL = {
       data: formData
     });
   },
+
+  editUser: (user, id) => {
+    return $.ajax({
+      method: "patch",
+      url: `/api/users/${id}`,
+      dataType: "json",
+      contentType: false,
+      processData: false,
+      data: user
+    });
+  },
+
+  defaultEditUser: (user) => {
+    return $.ajax({
+      method: "patch",
+      url: `/api/users/${user.id}`,
+      data: { user }
+    });
+  },
+
 
   defaultSignUp: (user) => {
     return $.ajax({

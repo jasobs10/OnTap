@@ -1,4 +1,5 @@
 import React from 'react';
+import UpdateUserForm from './user_form';
 
 
 const UserEditButton = (props) => {
@@ -10,6 +11,26 @@ const UserEditButton = (props) => {
     );
   }
   return <div></div>
+}
+
+const Update = (props) => {
+  if (props.currentUser) {
+    if (props.currentUser.id === props.user.id) {
+      return (
+        <span className="change-photo" onClick={() => {
+            props.receiveComponent(<UpdateUserForm
+              currentUser={props.currentUser}
+              editUser={props.editUser}
+              defaultEditUser={props.defaultEditUser}
+              activateModal={props.activateModal}
+              />);
+            props.activateModal(true)}}>
+            Update Account
+        </span>
+      );
+    }
+  }
+  return (<div></div>)
 }
 
 export const UserItem = (props) => {
@@ -25,7 +46,15 @@ export const UserItem = (props) => {
         </div>
         <div className="user-info">
           <div className="name">
-            {props.user.f_name}&nbsp; {props.user.l_name}
+            <span>{props.user.f_name}&nbsp; {props.user.l_name}</span>
+            <Update
+              receiveComponent={props.receiveComponent}
+              currentUser={props.currentUser}
+              editUser={props.editUser}
+              defaultEditUser={props.defaultEditUser}
+              activateModal={props.activateModal}
+              user={props.user}
+              />
           </div>
           <div className="username">
             {props.user.username}
@@ -60,7 +89,7 @@ export const UserItem = (props) => {
         </div>
 
 
-        <UserEditButton currentUserId={props.currentUser.id} id={props.user.id}/>
+
       </div>
     </div>
   );
