@@ -22,7 +22,6 @@ class UpdateUserForm extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.clearForm = this.clearForm.bind(this);
     this.updateFile = this.updateFile.bind(this);
   }
 
@@ -30,9 +29,6 @@ class UpdateUserForm extends React.Component {
     return (e) => this.setState({[field]: e.target.value});
   }
 
-  clearForm() {
-    this.setState({username: "", f_name: "", l_name: ""});
-  }
 
 
   updateFile(e) {
