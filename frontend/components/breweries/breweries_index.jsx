@@ -7,6 +7,8 @@ import { WishlistBeerItem } from '../beers/beers';
 import { addUserLike, removeUserLike } from '../../reducers/session_redux';
 import { BreweryLikeItem } from './brewery_like_item';
 import { Spinner } from '../shared/spinner';
+import { receiveComponent, activateModal } from '../../reducers/modal_redux';
+import AddBreweryForm from './brewery_form';
 
 
 const mapStateToProps = (state) => {
@@ -21,10 +23,11 @@ const mapDispatchToProps = (dispatch) => {
     requestBreweries: (field, params) => dispatch(requestBreweries(field, params)),
     addBreweryLike: (brewery_id) => dispatch(addBreweryLike(brewery_id)),
     removeBreweryLike: (id) => dispatch(removeBreweryLike(id)),
-
     addUserLike: (brewery) => dispatch(addUserLike(brewery)),
     removeUserLike: (id) => dispatch(removeUserLike(id)),
-    createBrewery: (brewery) => dispatch(createBrewery(brewery))
+    createBrewery: (brewery) => dispatch(createBrewery(brewery)),
+    receiveComponent: (component) => dispatch(receiveComponent(component)),
+    activateModal: (bool) => dispatch(activateModal(bool)),
 
   }
 };
@@ -35,6 +38,7 @@ class BreweriesIndex extends React.Component {
     this.state = {state: "", name: "", id: "", rating: "", breweryCount: 8};
     this.handleChange = this.handleChange.bind(this);
     this.handleShow = this.handleShow.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -46,6 +50,13 @@ class BreweriesIndex extends React.Component {
       this.setState({[field]: e.target.value});
       this.props.requestBreweries(field, e.target.value);
     }
+  }
+
+  handleClick(component) {
+    return (e) => {
+      this.props.receiveComponent(component);
+      this.props.activateModal(true);
+    };
   }
 
   showMore() {
@@ -127,7 +138,7 @@ class BreweriesIndex extends React.Component {
 
               <div className="beer-header">
                 <h1>{heading}</h1>
-                <button className="add-button">Add Brewery</button>
+                <button className="add-button" onClick={this.handleClick(<AddBreweryForm currentUser={this.props.currentUser} activateModal={this.props.activateModal}/>)}>Add Brewery</button>
               </div>
               <hr className="orange-line"/>
               <div className="beer-filter">
