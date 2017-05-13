@@ -39,7 +39,7 @@ const APIUTIL = {
   createPhotoBeer: (formData, brewery_id) => {
     return $.ajax({
       method: "post",
-      url: `/api/breweries/${brewery_id}`,
+      url: `/api/breweries/${brewery_id}/beers`,
       dataType: "json",
       contentType: false,
       processData: false,

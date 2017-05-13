@@ -123,7 +123,7 @@ export const createBrewery = (brewery) => {
 }
 
 export const createPhotoBrewery = (brewery) => {
-  return dispatch => APIUTIL.createBrewery(brewery).then((r) => dispatch(receiveBrewery(r)));
+  return dispatch => APIUTIL.createPhotoBrewery(brewery).then((r) => dispatch(receiveBrewery(r)));
 }
 
 const _defaultBreweriesState = {};
