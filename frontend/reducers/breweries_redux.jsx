@@ -43,8 +43,19 @@ const APIUTIL = {
   createBrewery: (brewery) => {
     return $.ajax({
       method: "POST",
-      url: 'api/breweries/',
+      url: 'api/breweries',
       data: { brewery }
+    });
+  },
+
+  createPhotoBrewery: (formData) => {
+    return $.ajax({
+      method: "post",
+      url: "/api/breweries",
+      dataType: "json",
+      contentType: false,
+      processData: false,
+      data: formData
     });
   },
 
@@ -108,6 +119,10 @@ export const updateBrewery = (brewery) => {
 };
 
 export const createBrewery = (brewery) => {
+  return dispatch => APIUTIL.createBrewery(brewery).then((r) => dispatch(receiveBrewery(r)));
+}
+
+export const createPhotoBrewery = (brewery) => {
   return dispatch => APIUTIL.createBrewery(brewery).then((r) => dispatch(receiveBrewery(r)));
 }
 

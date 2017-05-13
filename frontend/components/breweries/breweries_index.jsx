@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { hashHistory } from 'react-router';
-import { requestBreweries, addBreweryLike, removeBreweryLike, createBrewery } from '../../reducers/breweries_redux'
+import { requestBreweries, addBreweryLike, removeBreweryLike, createBrewery, createPhotoBrewery } from '../../reducers/breweries_redux'
 import BreweryIndexItem from './breweries_index_item';
 import { WishlistBeerItem } from '../beers/beers';
 import { addUserLike, removeUserLike } from '../../reducers/session_redux';
@@ -28,6 +28,7 @@ const mapDispatchToProps = (dispatch) => {
     createBrewery: (brewery) => dispatch(createBrewery(brewery)),
     receiveComponent: (component) => dispatch(receiveComponent(component)),
     activateModal: (bool) => dispatch(activateModal(bool)),
+    createPhotoBrewery: (brewery) => dispatch(createPhotoBrewery(brewery))
 
   }
 };
@@ -138,7 +139,7 @@ class BreweriesIndex extends React.Component {
 
               <div className="beer-header">
                 <h1>{heading}</h1>
-                <button className="add-button" onClick={this.handleClick(<AddBreweryForm currentUser={this.props.currentUser} activateModal={this.props.activateModal}/>)}>Add Brewery</button>
+                <button className="add-button" onClick={this.handleClick(<AddBreweryForm currentUser={this.props.currentUser} activateModal={this.props.activateModal} createBrewery={this.props.createBrewery} createPhotoBrewery={this.props.createPhotoBrewery}/>)}>Add Brewery</button>
               </div>
               <hr className="orange-line"/>
               <div className="beer-filter">

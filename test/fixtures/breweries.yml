@@ -4,7 +4,7 @@
 #
 #  id                 :integer          not null, primary key
 #  name               :string           not null
-#  style              :string           not null
+#  style              :string
 #  country            :string           not null
 #  city               :string           not null
 #  state              :string           not null

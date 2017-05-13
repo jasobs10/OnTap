@@ -22,11 +22,13 @@ class Api::BreweriesController < ApplicationController
   end
 
   def create
-    @brewery = Brewery.new
+    @brewery = Brewery.new(brewery_params)
     if @brewery.save
+
+      @states = Brewery.all.map(&:state).uniq.sort
       render :show
     else
-      render json: @brewery.errors.full_messages
+      render json: @brewery.errors.full_messages, status: 404
     end
   end
 

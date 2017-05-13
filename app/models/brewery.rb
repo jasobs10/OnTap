@@ -4,7 +4,7 @@
 #
 #  id                 :integer          not null, primary key
 #  name               :string           not null
-#  style              :string           not null
+#  style              :string
 #  country            :string           not null
 #  city               :string           not null
 #  state              :string           not null
@@ -21,7 +21,7 @@
 #
 
 class Brewery < ApplicationRecord
-  validates :name, :style, :country, :city, :state, presence: true
+  validates :name, :country, :city, :state, presence: true
   validates :name, uniqueness: true
 
   has_attached_file :image, default_url: "/images/beers.jpg"

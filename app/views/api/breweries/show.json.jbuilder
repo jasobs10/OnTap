@@ -11,6 +11,9 @@ json.set! @brewery.id do
     json.average 0
   end
   json.image_url @brewery.image.url
+  json.allStates do
+    json.array! @states
+  end
   json.likers do
     @brewery.brewery_likers.each do |liker|
       json.set! liker.id do
@@ -21,6 +24,6 @@ json.set! @brewery.id do
       end
     end
   end
-  
+
   json.currentUserLikes @brewery.brewery_likes.select('id').where("user_id = ?", current_user.id).first
 end
