@@ -26,7 +26,7 @@ class AddBreweryForm extends React.Component {
   }
 
   clearForm() {
-    this.setState({counter: 0, rating: 0, address: "", review: "", container: ""});
+    this.setState({name: "", city: "", country: "", state: "", imageFile: null, imageUrl: null});
   }
 
 
@@ -45,11 +45,7 @@ class AddBreweryForm extends React.Component {
       this.props.createBrewery(this.state)
       .then(() => this.clearForm())
       .then(() => this.props.activateModal(false))
-      .then(() => {
-        if (this.props.isModal) {
-          hashHistory.push('/home');
-        }
-      });
+    
     }
   }
 

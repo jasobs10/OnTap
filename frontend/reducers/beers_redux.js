@@ -28,11 +28,22 @@ const APIUTIL = {
     });
   },
 
-  createBeer: (beer) => {
+  createBeer: (beer, brewery_id) => {
     return $.ajax({
       method: "POST",
-      url: `api/breweries/${beer.brewery_id}/beers`,
+      url: `api/breweries/${brewery_id}/beers`,
       data: { beer }
+    });
+  },
+
+  createPhotoBeer: (formData, brewery_id) => {
+    return $.ajax({
+      method: "post",
+      url: `/api/breweries/${brewery_id}`,
+      dataType: "json",
+      contentType: false,
+      processData: false,
+      data: formData
     });
   },
 
@@ -118,6 +129,14 @@ export const updateBeer = (beer) => {
   return dispatch => APIUTIL.createBeer(beer).then((beer) => dispatch(receiveBeer(beer)));
 };
 
+export const createBeer = (beer, breweryId) => {
+  return dispatch => APIUTIL.createBeer(beer, breweryId).then((beer) => dispatch(receiveBeer(beer)));
+};
+
+export const createPhotoBeer = (beer, breweryId) => {
+  return dispatch => APIUTIL.createPhotoBeer(beer, breweryId).then((beer) => dispatch(receiveBeer(beer)));
+};
+
 const _defaultBeersState = {};
 export const beersReducer = (oldState = _defaultBeersState, action) => {
   Object.freeze(oldState);
@@ -126,7 +145,8 @@ export const beersReducer = (oldState = _defaultBeersState, action) => {
     case RECEIVE_ALL_BEERS:
       return action.beers;
     case RECEIVE_BEER:
-      return merge(old, action.beer);
+    debugger
+    return merge(old, action.beer);
     case ADD_WISHLIST:
 
       old[action.wishlist.beer_id].currentUserWishlist = {'id': action.wishlist.id};

@@ -1,0 +1,14 @@
+.beer-name-wrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin-bottom: 2%;
+  justify-content: space-between;
+}
+
+.beer-name-input {
+  width: 60%;
+  padding: 1% 2%;
+  color: #666666;
+  font-size: 14px;
+}

@@ -28,11 +28,11 @@ class Api::BeersController < ApplicationController
 
   def create
     @beer = Beer.new(beer_params)
-    @beer.brewery_id = params[:id]
+    # @beer.brewery_id = params[:id]
 
     if @beer.save
       render :show
-    elseshow
+    else
       render json: @beer.errors.full_messages, status: 404
     end
   end

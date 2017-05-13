@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { hashHistory, Link } from 'react-router';
-import { requestBeers, addBeerToWishlist, removeBeerFromWishlist } from '../../reducers/beers_redux';
+import { requestBeers, addBeerToWishlist, removeBeerFromWishlist, createBeer, createPhotoBeer } from '../../reducers/beers_redux';
 import BeerIndexItem from './beer_index_item';
 import { addCurrentUserWishlist, removeCurrentUserWishlist } from '../../reducers/session_redux';
 import { BreweryLikeItem } from '../breweries/brewery_like_item';
@@ -9,6 +9,7 @@ import { receiveComponent, activateModal } from '../../reducers/modal_redux';
 import { Spinner } from '../shared/spinner';
 import { createCheckin, fetchBeerCheckins, createPhotoCheckin } from '../../reducers/checkins_redux';
 import Modal from '../modal/modal';
+import AddBeerForm from './beer_form';
 
 const mapStateToProps = (state) => {
 
@@ -29,7 +30,9 @@ const mapDispatchToProps = (dispatch) => {
     receiveComponent: (component) => dispatch(receiveComponent(component)),
     activateModal: (bool) => dispatch(activateModal(bool)),
     createCheckin: (checkin) => dispatch(createCheckin(checkin)),
-    createPhotoCheckin: (formData) => dispatch(createPhotoCheckin(formData))
+    createPhotoCheckin: (formData) => dispatch(createPhotoCheckin(formData)),
+    createBeer: (beer, brewery_id) => dispatch(createBeer(beer, brewery_id)),
+    createPhotoBeer: (beer, brewery_id) => dispatch(createPhotoBeer(beer, brewery_id)),
 
   }
 };
@@ -79,6 +82,13 @@ class Beers extends React.Component {
       this.setState({[field]: e.target.value});
       this.props.requestBeers(field, e.target.value);
     }
+  }
+
+  handleClick(component) {
+    return (e) => {
+      this.props.receiveComponent(component);
+      this.props.activateModal(true);
+    };
   }
 
   showMore() {
@@ -164,12 +174,12 @@ class Beers extends React.Component {
       document.title = "Top Beers"
       return (
         <div className="beers-wrapper">
-        
+
           <div className="beers-index">
             <div className="beers-feed">
               <div className="beer-header">
                 <h1>{heading}</h1>
-                <button className="add-button">Add Beer</button>
+                <button className="add-button" onClick={this.handleClick(<AddBeerForm beers={this.props.beers} activateModal={this.props.activateModal} createBeer={this.props.createBeer} createPhotoBeer={this.props.createPhotoBeer}/>)}>Add Beer</button>
               </div>
               <hr className="orange-line"/>
               <div className="beer-filter">
