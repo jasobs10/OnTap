@@ -133,7 +133,6 @@ class CheckinIndex extends React.Component {
       }
       return(
         <div className="beers-wrapper">
-          <Modal modal={this.props.modal} activateModal={this.props.activateModal}/>
 
           <div className="beers-index">
             <div className="beers-feed">

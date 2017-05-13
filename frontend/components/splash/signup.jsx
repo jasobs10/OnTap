@@ -91,7 +91,7 @@ class SignUpForm extends React.Component {
     return (
       <div className="auth-form-container">
         <h1>ONTA<i className="fa fa-beer beer-color" aria-hidden="true"></i></h1>
-        <h2>beer beer beer beer beer</h2>
+        <h2 className="beerbeer">beer beer beer beer beer</h2>
         <form onSubmit={this.handleSubmit} className="auth-form">
           <div className="errors">
             {signErrors}

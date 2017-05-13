@@ -47,8 +47,9 @@ class Navbar extends React.Component {
 
   render() {
     return (
+      <div className="modal-wrapper">
+          <Modal modal={this.props.modal} activateModal={this.props.activateModal}/>
       <div className="nav-container">
-        <Modal modal={this.props.modal} activateModal={this.props.activateModal}/>
         <div className="nav-inside">
 
           <li className="titlelogo" onClick={() => hashHistory.push('/home')}>
@@ -84,6 +85,7 @@ class Navbar extends React.Component {
             Log Out
           </li>
         </div>
+      </div>
       </div>
     );
   }

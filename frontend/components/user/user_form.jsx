@@ -77,9 +77,9 @@ class UpdateUserForm extends React.Component {
 
             <input className="auth-input last-input" type="text" onChange={this.handleChange('l_name')} value={this.state.l_name} placeholder="Last name"/>
           </div>
-            <textarea className="comment-input user-about" value={this.state.about} placeholder="About me" onChange={this.handleChange("about")}>
+          <textarea className="comment-input user-about" value={this.state.about} placeholder="About me" onChange={this.handleChange("about")}>
 
-            </textarea>
+          </textarea>
           <input className="auth-input last-input" type="text" onChange={this.handleChange('city')} value={this.state.city} placeholder="City"/>
           <input className="auth-input last-input" type="text" onChange={this.handleChange('state')} value={this.state.state} placeholder="State"/>
           <input className="auth-input last-input" type="text" onChange={this.handleChange('country')} value={this.state.country} placeholder="Country"/>

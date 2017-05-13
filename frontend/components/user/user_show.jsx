@@ -110,7 +110,6 @@ class UserShow extends React.Component {
     return (
       <div>
         <div className="beers-wrapper">
-          <Modal modal={this.props.modal} activateModal={this.props.activateModal}/>
           <div className="beer-show-header user-show-header">
             <UserItem user={this.props.user}
               currentUser={this.props.currentUser}

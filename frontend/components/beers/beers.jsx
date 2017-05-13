@@ -164,7 +164,7 @@ class Beers extends React.Component {
       document.title = "Top Beers"
       return (
         <div className="beers-wrapper">
-          <Modal modal={this.props.modal} activateModal={this.props.activateModal}/>
+        
           <div className="beers-index">
             <div className="beers-feed">
               <div className="beer-header">
