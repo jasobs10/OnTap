@@ -40,6 +40,7 @@ class AddBeerForm extends React.Component {
     formData.append("beer[abv]", this.state.abv);
     formData.append("beer[ibu]", this.state.ibu);
     formData.append("beer[style]", this.state.style);
+    formData.append("beer[brewery_id]", this.state.brewery_id);
     formData.append("beer[description]", this.state.description);
     formData.append("beer[image]", this.state.imageFile);
 
@@ -78,7 +79,7 @@ class AddBeerForm extends React.Component {
         <div className="beer-name-wrapper">
           <input className="beer-name-input" type="text" value={this.state.name} placeholder="Name" onChange={this.handleChange("name")}/>
           <select className="dropdown-select" value={this.state.brewery_id} onChange={this.handleChange("brewery_id")}>
-            <option disabled={true}>Select Brewery</option>
+            <option disabled={true} value="">Select Brewery</option>
             {this.brewerySelect()}
           </select>
         </div>

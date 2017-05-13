@@ -186,7 +186,7 @@ class Beers extends React.Component {
                 <div>
 
                   <select className="dropdown-select" value={this.state.style} onChange={this.handleChange("style")}>
-                    <option disabled={true}>Filter by style</option>
+                    <option disabled={true} value="">Filter by style</option>
                     <option value="id">Show all beers</option>
                     {selectStyles}
                   </select>
@@ -194,7 +194,7 @@ class Beers extends React.Component {
                 <div>
 
                   <select className="dropdown-select" value={this.state.rating} onChange={this.handleChange("rating")}>
-                    <option disabled={true}>Filter by rating</option>
+                    <option disabled={true} value="">Filter by rating</option>
                     <option value="id">Show all beers</option>
                     {selectRating}
                   </select>
@@ -202,7 +202,7 @@ class Beers extends React.Component {
                 <div>
 
                   <select className="dropdown-select" value={this.state.name} onChange={this.handleChange("name")}>
-                    <option disabled={true}>Filter by name</option>
+                    <option disabled={true} value="">Filter by name</option>
                     <option value="id">Show all beers</option>
                     {selectName}
                   </select>

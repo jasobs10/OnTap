@@ -145,7 +145,6 @@ export const beersReducer = (oldState = _defaultBeersState, action) => {
     case RECEIVE_ALL_BEERS:
       return action.beers;
     case RECEIVE_BEER:
-    debugger
     return merge(old, action.beer);
     case ADD_WISHLIST:
 

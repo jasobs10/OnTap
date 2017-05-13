@@ -146,8 +146,8 @@ class BreweriesIndex extends React.Component {
 
                 <div>
                   State: &nbsp;
-                  <select className="dropdown-select" value={this.state.loc} onChange={this.handleChange("state")}>
-                    <option disabled={true}>Filter by state</option>
+                  <select className="dropdown-select" value={this.state.state} onChange={this.handleChange("state")}>
+                    <option disabled={true} value="">Filter by state</option>
                     <option value="id">Show all breweries</option>
                     {selectLoc}
                   </select>
@@ -155,7 +155,7 @@ class BreweriesIndex extends React.Component {
                 <div>
                   Rating: &nbsp;
                   <select  className="dropdown-select" value={this.state.rating} onChange={this.handleChange("rating")}>
-                    <option disabled={true}>Filter by rating</option>
+                    <option disabled={true} value="">Filter by rating</option>
                     <option value="id">Show all breweries</option>
                     {selectRating}
                   </select>
@@ -163,7 +163,7 @@ class BreweriesIndex extends React.Component {
                 <div>
                   Name: &nbsp;
                   <select  className="dropdown-select" value={this.state.name} onChange={this.handleChange("name")}>
-                    <option disabled={true}>Filter by name</option>
+                    <option disabled={true} value="">Filter by name</option>
                     <option value="id">Show all beers</option>
                     {selectName}
                   </select>

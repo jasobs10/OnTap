@@ -122,7 +122,7 @@ class CheckinForm extends React.Component {
             </div>
             <div className="container-select">
               <select className="dropdown-select" value={this.state.container} onChange={this.handleContainer}>
-                <option disabled={true}>Select Container</option>
+                <option disabled={true} value="">Select Container</option>
                 <option value="can">Can</option>
                 <option value="bottle">Bottle</option>
                 <option value="draft">Draft</option>
