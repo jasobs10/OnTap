@@ -41,19 +41,18 @@ class AddBreweryForm extends React.Component {
     formData.append("brewery[image]", this.state.imageFile);
 
     if (this.state.imageFile) {
-      this.props.createPhotoBrewery(formData).then(() => this.props.activateModal(false)).then(() => {
-        if (this.props.isModal) {
-          hashHistory.push('/breweries');
-        }
-      });
+      this.props.createPhotoBrewery(formData)
+      .then((r) => {
+        hashHistory.push(`/breweries/${Object.keys(r.brewery)[0]}`)
+      })
+      .then(() => this.props.activateModal(false));
     } else {
       this.props.createBrewery(this.state)
+      .then((r) => {
+        hashHistory.push(`/breweries/${Object.keys(r.brewery)[0]}`)
+      })
       .then(() => this.clearForm())
-      .then(() => this.props.activateModal(false)).then(() => {
-        if (this.props.isModal) {
-          hashHistory.push('/breweries');
-        }
-      });
+      .then(() => this.props.activateModal(false));
 
     }
   }
