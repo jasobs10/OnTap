@@ -12,10 +12,15 @@ class Api::CommentsController < ApplicationController
   end
 
   def update
+
     @comment = Comment.find(params[:comment][:id])
-    @comment.update(comment_params)
-    if @comment.save
-      render :show
+    if current_user.id == @comment.user_id.to_i
+      @comment.update(comment_params)
+      if @comment.save
+        render :show
+      else
+        render json: {base: ["You cannot edit this comment"]}, status: 404
+      end
     else
       render json: {base: ["You cannot edit this comment"]}, status: 404
     end
@@ -26,9 +31,14 @@ class Api::CommentsController < ApplicationController
   end
 
   def destroy
+
     @comment = Comment.find(params[:id])
-    @comment.destroy
-    render :show
+    if current_user.id == @comment.user_id.to_i
+      @comment.destroy
+      render :show
+    else
+      render json: {base: ["You cannot delete this comment"]}, status: 404
+    end
 
   end
 
