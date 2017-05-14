@@ -46,20 +46,19 @@ class AddBeerForm extends React.Component {
     formData.append("beer[image]", this.state.imageFile);
 
     if (this.state.imageFile) {
-      this.props.createPhotoBeer(formData, this.state.brewery_id).then(() => this.props.activateModal(false)).then(() => {
-        if (this.props.isModal) {
-          hashHistory.push('/beers');
-        }
-      });
+      this.props.createPhotoBeer(formData, this.state.brewery_id)
+      .then((r) => {
+        hashHistory.push(`/beers/${Object.keys(r.beer)[0]}`)
+      })
+      .then(() => this.props.activateModal(false));
+
     } else {
 
       this.props.createBeer(this.state, this.state.brewery_id)
-      .then(() => this.clearForm())
-      .then(() => this.props.activateModal(false)).then(() => {
-        if (this.props.isModal) {
-          hashHistory.push('/beers');
-        }
-      });
+      .then((r) => {
+        hashHistory.push(`/beers/${Object.keys(r.beer)[0]}`)
+      })
+      .then(() => this.props.activateModal(false));
     }
   }
 
