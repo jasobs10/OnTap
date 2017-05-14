@@ -14,8 +14,12 @@ class Api::WishlistsController < ApplicationController
 
   def destroy
     @wishlistbeer = Wishlist.find(params[:id])
-    @wishlistbeer.destroy
-    render json: @wishlistbeer
+    if @wishlistbeer.user_id == current_user.id
+      @wishlistbeer.destroy
+      render json: @wishlistbeer
+    else
+      render json: {base: ["You cannot delete this item"]}, status: 404
+    end
   end
 
   private

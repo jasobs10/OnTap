@@ -13,8 +13,12 @@ class Api::BreweryLikesController < ApplicationController
 
   def destroy
     @brewery_like = BreweryLike.find(params[:id])
-    @brewery_like.destroy
-    render json: @brewery_like
+    if current_user.id == @brewery_like.user_id
+      @brewery_like.destroy
+      render json: @brewery_like
+    else
+      render json: {base: ["You cannot delete this item"]}, status: 404
+    end
   end
 
   private
