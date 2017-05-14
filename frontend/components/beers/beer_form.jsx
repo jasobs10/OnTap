@@ -1,4 +1,5 @@
 import React from 'react';
+import { hashHistory } from 'react-router';
 
 class AddBeerForm extends React.Component {
   constructor(props) {
@@ -45,12 +46,20 @@ class AddBeerForm extends React.Component {
     formData.append("beer[image]", this.state.imageFile);
 
     if (this.state.imageFile) {
-      this.props.createPhotoBeer(formData, this.state.brewery_id).then(() => this.props.activateModal(false));
+      this.props.createPhotoBeer(formData, this.state.brewery_id).then(() => this.props.activateModal(false)).then(() => {
+        if (this.props.isModal) {
+          hashHistory.push('/beers');
+        }
+      });
     } else {
 
       this.props.createBeer(this.state, this.state.brewery_id)
       .then(() => this.clearForm())
-      .then(() => this.props.activateModal(false));
+      .then(() => this.props.activateModal(false)).then(() => {
+        if (this.props.isModal) {
+          hashHistory.push('/beers');
+        }
+      });
     }
   }
 

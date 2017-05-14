@@ -44,7 +44,11 @@ class CheckinForm extends React.Component {
     formData.append("checkin[image]", this.state.imageFile);
 
     if (this.state.imageFile) {
-      this.props.createPhotoCheckin(formData).then(() => this.props.activateModal(false));
+      this.props.createPhotoCheckin(formData).then(() => this.props.activateModal(false)).then(() => {
+        if (this.props.isModal) {
+          hashHistory.push('/home');
+        }
+      });
     } else {
       this.props.createCheckin({rating: this.state.rating, beer_id: this.props.beer.id, address: this.state.address, container: this.state.container, review: this.state.review})
       .then(() => this.clearForm())

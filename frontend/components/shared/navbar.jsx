@@ -6,7 +6,11 @@ import Modal from '../modal/modal';
 import { receiveComponent, activateModal } from '../../reducers/modal_redux';
 import { defaultEditUser, editUser } from '../../reducers/session_redux';
 import UpdateUserForm from '../user/user_form';
-
+import {createBrewery, createPhotoBrewery} from '../../reducers/breweries_redux';
+import AddBreweryForm from '../breweries/brewery_form';
+import AddBeerForm from '../beers/beer_form';
+import { createBeer, createPhotoBeer } from '../../reducers/beers_redux';
+import { requestBeers } from '../../reducers/beers_redux';
 
 const mapStateToProps = (state) => {
   return {
@@ -21,8 +25,12 @@ const mapDispatchToProps = (dispatch) => {
     receiveComponent: (component) => dispatch(receiveComponent(component)),
     activateModal: (bool) => dispatch(activateModal(bool)),
     defaultEditUser: (user) => dispatch(defaultEditUser(user)),
-    editUser: (user, id) => dispatch(editUser(user, id))
-
+    editUser: (user, id) => dispatch(editUser(user, id)),
+    createBrewery: (brewery) => dispatch(createBrewery(brewery)),
+    createPhotoBrewery: (brewery) => dispatch(createPhotoBrewery(brewery)),
+    createBeer: (beer, breweryId) => dispatch(createBeer(beer, breweryId)),
+    createPhotoBeer: (beer, breweryId) => dispatch(createPhotoBeer(beer, breweryId)),
+    requestBeers: (field, params) => dispatch(requestBeers(field, params))
   }
 };
 
@@ -32,6 +40,8 @@ class Navbar extends React.Component {
     super(props);
     this.state = {user: this.props.currentUser}
     this.handleClick = this.handleClick.bind(this);
+    this.handleBreweryClick = this.handleBreweryClick.bind(this);
+    this.handleBeerClick = this.handleBeerClick.bind(this);
 
   }
 
@@ -43,6 +53,32 @@ class Navbar extends React.Component {
       activateModal={this.props.activateModal}
       />);
     this.props.activateModal(true);
+  }
+
+  handleBreweryClick() {
+    this.props.receiveComponent(
+      <AddBreweryForm currentUser={this.props.currentUser}
+        activateModal={this.props.activateModal}
+        createBrewery={this.props.createBrewery}
+        createPhotoBrewery={this.props.createPhotoBrewery}
+        isModal={true}/>
+    );
+    this.props.activateModal(true);
+  }
+
+  handleBeerClick() {
+    this.props.requestBeers().then((r) => {
+      const beers = Object.values(r.beers);
+      this.props.receiveComponent(
+        <AddBeerForm currentUser={this.props.currentUser}
+          beers={beers}
+          activateModal={this.props.activateModal}
+          createBeer={this.props.createBeer}
+          createPhotoBeer={this.props.createPhotoBeer}
+          isModal={true}/>
+      );
+      this.props.activateModal(true);
+    });
   }
 
   render() {
@@ -61,8 +97,8 @@ class Navbar extends React.Component {
           <li onClick={() => hashHistory.push('/breweries')}>
             Breweries
           </li>
-          <li className="account-button" onClick={() => hashHistory.push(`/users/${this.state.user.id}`)}>
-            {this.state.user.username}
+          <li className="account-button">
+            <Link to={`/users/${this.state.user.id}`}>{this.state.user.username}</Link>
             <div className="dropdown">
               <div>
                 <Link to={`/users/${this.state.user.id}`}>My profile</Link>
@@ -70,10 +106,10 @@ class Navbar extends React.Component {
               <div onClick={this.handleClick}>
                 Edit Profile
               </div>
-              <div>
+              <div onClick={this.handleBeerClick}>
                 Add Beer
               </div>
-              <div>
+              <div onClick={this.handleBreweryClick}>
                 Add Brewery
               </div>
               <div onClick={() => this.props.logOut(this.props.currentUser).then(() => hashHistory.push('/'))}>
