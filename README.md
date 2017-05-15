@@ -2,7 +2,7 @@
 
 OnTap is a web app inspired by UNTAPPD where beer lovers can share, rate and review beers and interact with other users. On the backend, it uses Ruby on Rails with a PostgreSQL database. The front-end is handled by React.js and Redux.
 
-[OnTap live](https://on-tapp.herokuapp.com)
+[OnTap live](https://www.on-tap.us)
 
 ## Technologies used
 
