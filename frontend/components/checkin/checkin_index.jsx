@@ -72,18 +72,12 @@ class CheckinIndex extends React.Component {
 
   }
   checkins() {
-    let wishlistBeers;
-    if (this.props.currentUser.wishlistBeers) {
-      wishlistBeers = Object.values(this.props.currentUser.wishlistBeers).map((beer) => <WishlistBeerItem beer={beer} key={beer.id}/>);
-    } else {
-      wishlistBeers = "";
-    }
-    let breweryLikes = this.props.currentUser.likedBreweries ? Object.values(this.props.currentUser.likedBreweries).map((brewery) => <BreweryLikeItem brewery={brewery} key={brewery.id}/>) : "";
-    if (this.props.currentUser.checkinCount === 0) {
-      return (
-        <div><Spinner/></div>
-
-      );
+    if (this.props.currentUser) {
+      if (this.props.currentUser.checkinCount === 0) {
+        return (
+          <div><Spinner/></div>
+        );
+      }
     }
   }
 
@@ -93,7 +87,7 @@ class CheckinIndex extends React.Component {
   render() {
 
     if (this.props.checkins.length === 0) {
-      this.checkins();
+      {this.checkins()};
     }
     if (this.props.currentUser) {
       document.title = `${this.props.currentUser.f_name} is OnTap`;
