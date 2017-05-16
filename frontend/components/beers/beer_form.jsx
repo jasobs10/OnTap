@@ -86,17 +86,16 @@ class AddBeerForm extends React.Component {
           Add a Beer
         </div>
         <hr className="orange"/>
-
-        <div className="beer-name-wrapper">
-          <input className="beer-name-input" type="text" value={this.state.name} placeholder="Name" onChange={this.handleChange("name")}/>
-          <select className="dropdown-select" value={this.state.brewery_id} onChange={this.handleChange("brewery_id")}>
-            <option disabled={true} value="">Select Brewery</option>
-            {this.brewerySelect()}
-          </select>
-        </div>
-        <form className="brewery-form">
+        <form className="brewery-form" onSubmit={this.handleSubmit}>
+          <div className="beer-name-wrapper">
+            <input required className="beer-name-input" type="text" value={this.state.name} placeholder="Name" onChange={this.handleChange("name")}/>
+            <select required className="dropdown-select" value={this.state.brewery_id} onChange={this.handleChange("brewery_id")}>
+              <option disabled={true} value="">Select Brewery</option>
+              {this.brewerySelect()}
+            </select>
+          </div>
           <div className="review-line brewery-name-wrapper">
-            <input className="brewery-name-input" type="text" value={this.state.description} placeholder="Add a Description" onChange={this.handleChange("description")}/>
+            <input required className="brewery-name-input" type="text" value={this.state.description} placeholder="Add a Description" onChange={this.handleChange("description")}/>
 
             <label className="checkin-upload brewery-upload">
               <input name="file" id="file" className="upload-button" type="file" onChange={this.updateFile}/>
@@ -108,14 +107,12 @@ class AddBeerForm extends React.Component {
             <img src={this.state.imageUrl} />
           </div>
           <div className="comment-bottom address-inputs">
-            <input className="city-input" type="text" value={this.state.style} placeholder="Style" onChange={this.handleChange("style")}/>
-            <input className="state-input" type="text" value={this.state.abv} placeholder="ABV" onChange={this.handleChange("abv")}/>
-            <input className="country-input" type="text" value={this.state.ibu} placeholder="IBU" onChange={this.handleChange("ibu")}/>
+            <input required className="city-input" type="text" value={this.state.style} placeholder="Style" onChange={this.handleChange("style")}/>
+            <input required className="state-input" type="text" value={this.state.abv} placeholder="ABV" onChange={this.handleChange("abv")}/>
+            <input required className="country-input" type="text" value={this.state.ibu} placeholder="IBU" onChange={this.handleChange("ibu")}/>
           </div>
           <div className="checkin-form-bottom brewery-form-bottom">
-            <div className="comment-button" onClick={this.handleSubmit}>
-              CREATE
-            </div>
+          <input type="submit" className="comment-button" value="CREATE"/>
           </div>
         </form>
       </div>

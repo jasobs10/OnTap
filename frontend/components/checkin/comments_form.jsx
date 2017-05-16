@@ -38,17 +38,15 @@ class CommentForm extends React.Component {
         <div className="comment-header">
           Leave a Comment
         </div>
-        <form>
-          <textarea className="comment-input" value={this.state.comment} placeholder="Enter comment..." onChange={this.handleChange} onKeyDown={this.backspace}>
+        <form onSubmit={this.handleSubmit}>
+          <textarea required className="comment-input" value={this.state.comment} placeholder="Enter comment..." onChange={this.handleChange} onKeyDown={this.backspace}>
 
           </textarea>
           <div className="comment-bottom">
             <div className="counter">
               {this.state.counter} / 140
             </div>
-            <div className="comment-button" onClick={this.handleSubmit}>
-              Post
-            </div>
+            <input type="submit" className="comment-button" value="post"/>
           </div>
         </form>
       </div>

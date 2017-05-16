@@ -65,12 +65,12 @@ class AddBreweryForm extends React.Component {
           Add a Brewery
         </div>
         <hr className="orange"/>
-        <form className="brewery-form">
+        <form className="brewery-form" onSubmit={this.handleSubmit}>
           <div className="review-line brewery-name-wrapper">
-            <input className="brewery-name-input" type="text" value={this.state.name} placeholder="Brewery Name" onChange={this.handleChange("name")}/>
+            <input required className="brewery-name-input" type="text" value={this.state.name} placeholder="Brewery Name" onChange={this.handleChange("name")}/>
 
             <label className="checkin-upload brewery-upload">
-              <input name="file" id="file" className="upload-button" type="file" onChange={this.updateFile}/>
+              <input required name="file" id="file" className="upload-button" type="file" onChange={this.updateFile}/>
               <i className="fa fa-camera-retro" aria-hidden="true"></i>
             </label>
 
@@ -79,14 +79,12 @@ class AddBreweryForm extends React.Component {
             <img src={this.state.imageUrl} />
           </div>
           <div className="comment-bottom address-inputs">
-            <input className="city-input" type="text" value={this.state.city} placeholder="City" onChange={this.handleChange("city")}/>
-            <input className="state-input" type="text" value={this.state.state} placeholder="State" onChange={this.handleChange("state")}/>
-            <input className="country-input" type="text" value={this.state.country} placeholder="Country" onChange={this.handleChange("country")}/>
+            <input required className="city-input" type="text" value={this.state.city} placeholder="City" onChange={this.handleChange("city")}/>
+            <input required className="state-input" type="text" value={this.state.state} placeholder="State" onChange={this.handleChange("state")}/>
+            <input required className="country-input" type="text" value={this.state.country} placeholder="Country" onChange={this.handleChange("country")}/>
           </div>
           <div className="checkin-form-bottom brewery-form-bottom">
-            <div className="comment-button" onClick={this.handleSubmit}>
-              CREATE
-            </div>
+            <input type="submit" className="comment-button" value="CREATE"/>
           </div>
         </form>
       </div>

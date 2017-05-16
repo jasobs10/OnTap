@@ -70,11 +70,11 @@ class UpdateUserForm extends React.Component {
           <div className="errors">
 
           </div>
-          <input className="auth-input" type="text" onChange={this.handleChange('username')} value={this.state.username} placeholder="Username"/>
+          <input required className="auth-input" type="text" onChange={this.handleChange('username')} value={this.state.username} placeholder="Username"/>
           <div className="name-input-wrapper">
-            <input className="auth-input" type="text" onChange={this.handleChange('f_name')} value={this.state.f_name} placeholder="First name"/>
+            <input required className="auth-input" type="text" onChange={this.handleChange('f_name')} value={this.state.f_name} placeholder="First name"/>
 
-            <input className="auth-input last-input" type="text" onChange={this.handleChange('l_name')} value={this.state.l_name} placeholder="Last name"/>
+            <input required className="auth-input last-input" type="text" onChange={this.handleChange('l_name')} value={this.state.l_name} placeholder="Last name"/>
           </div>
           <textarea className="comment-input user-about" value={this.state.about} placeholder="About me" onChange={this.handleChange("about")}>
 
