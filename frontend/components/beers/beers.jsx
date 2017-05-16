@@ -10,13 +10,15 @@ import { Spinner } from '../shared/spinner';
 import { createCheckin, fetchBeerCheckins, createPhotoCheckin } from '../../reducers/checkins_redux';
 import Modal from '../modal/modal';
 import AddBeerForm from './beer_form';
+import { fetchBreweryNames } from '../../reducers/breweries_redux';
 
 const mapStateToProps = (state) => {
 
   return {
     currentUser: state.currentUser,
     beers: Object.values(state.beers),
-    modal: state.modal
+    modal: state.modal,
+    breweryNames: state.breweryNames
   }
 };
 
@@ -33,6 +35,7 @@ const mapDispatchToProps = (dispatch) => {
     createPhotoCheckin: (formData) => dispatch(createPhotoCheckin(formData)),
     createBeer: (beer, brewery_id) => dispatch(createBeer(beer, brewery_id)),
     createPhotoBeer: (beer, brewery_id) => dispatch(createPhotoBeer(beer, brewery_id)),
+    fetchBreweryNames: () => dispatch(fetchBreweryNames())
 
   }
 };
@@ -179,7 +182,12 @@ class Beers extends React.Component {
             <div className="beers-feed">
               <div className="beer-header">
                 <h1>{heading}</h1>
-                <button className="add-button" onClick={this.handleClick(<AddBeerForm beers={this.props.beers} activateModal={this.props.activateModal} createBeer={this.props.createBeer} createPhotoBeer={this.props.createPhotoBeer}/>)}>Add Beer</button>
+                <button className="add-button" onClick={this.handleClick(<AddBeerForm breweryNames={this.props.breweryNames}
+                    fetchBreweryNames={this.props.fetchBreweryNames}
+                    beers={this.props.beers}
+                    activateModal={this.props.activateModal}
+                    createBeer={this.props.createBeer}
+                    createPhotoBeer={this.props.createPhotoBeer}/>)}>Add Beer</button>
               </div>
               <hr className="orange-line"/>
               <div className="beer-filter">

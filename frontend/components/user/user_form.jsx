@@ -43,7 +43,6 @@ class UpdateUserForm extends React.Component {
   }
 
   handleSubmit(e) {
-    // debugger
     e.preventDefault();
     const formData = new FormData();
     formData.append("user[username]", this.state.username);

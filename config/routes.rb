@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :beers, only: [:show, :index, :update, :create] do
       resources :checkins, only: [:index]
     end
+
+    get '/breweries/fetch', to: 'breweries#fetch'
     resources :breweries, only: [:index, :show, :update, :create] do
       resources :beers, only: [:create, :index]
       resources :checkins, only: [:index]

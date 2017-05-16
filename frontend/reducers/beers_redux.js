@@ -56,7 +56,6 @@ const APIUTIL = {
   },
 
   addBeerToWishlist: (beer_id) => {
-    // debugger
     return $.ajax({
       method: "POST",
       url: "api/wishlists",

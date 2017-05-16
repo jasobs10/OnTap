@@ -6,6 +6,8 @@ const RECEIVE_ALL_BREWERIES = "RECEIVE_ALL_BREWERIES";
 const RECEIVE_BREWERY = "RECEIVE_BREWERY";
 const ADD_BREWERY_LIKE = "ADD_BREWERY_LIKE";
 const REMOVE_BREWERY_LIKE = "REMOVE_LIKE";
+const RECEIVE_BREWERY_NAMES = "RECEIVE_BREWERY_NAMES";
+const RECEIVE_BREWERY_NAME = "RECEIVE_BREWERY_NAME";
 
 
 const APIUTIL = {
@@ -37,6 +39,13 @@ const APIUTIL = {
     return $.ajax({
       method: "GET",
       url: `api/breweries/${id}`
+    });
+  },
+
+  fetchBreweryNames: () => {
+    return $.ajax({
+      method: "GET",
+      url: `api/breweries/fetch`
     });
   },
 
@@ -97,6 +106,20 @@ const receiveBrewery = (brewery) => {
   };
 };
 
+const receiveBreweryNames = (breweries) => {
+  return {
+    type: RECEIVE_BREWERY_NAMES,
+    breweries
+  }
+}
+
+const receiveBreweryName = (brewery) => {
+  return {
+    type: RECEIVE_BREWERY_NAME,
+    brewery
+  }
+}
+
 export const addBreweryLike = (brewery_id) => {
 
   return dispatch => APIUTIL.addBreweryLike(brewery_id).then((brewerylike) => dispatch(addLike(brewerylike)));
@@ -119,11 +142,18 @@ export const updateBrewery = (brewery) => {
 };
 
 export const createBrewery = (brewery) => {
-  return dispatch => APIUTIL.createBrewery(brewery).then((r) => dispatch(receiveBrewery(r)));
+  return dispatch => APIUTIL.createBrewery(brewery).then((r) => {
+    dispatch(receiveBreweryName(r));
+    return dispatch(receiveBrewery(r));
+  });
 }
 
 export const createPhotoBrewery = (brewery) => {
   return dispatch => APIUTIL.createPhotoBrewery(brewery).then((r) => dispatch(receiveBrewery(r)));
+}
+
+export const fetchBreweryNames = (brewery) => {
+  return dispatch => APIUTIL.fetchBreweryNames().then((r) => dispatch(receiveBreweryNames(r)));
 }
 
 const _defaultBreweriesState = {};
@@ -147,3 +177,17 @@ export const breweriesReducer = (oldState = _defaultBreweriesState, action) => {
   }
 
 };
+
+export const breweryNamesReducer = (oldState = {}, action) => {
+  switch (action.type) {
+    case RECEIVE_BREWERY_NAMES:
+      return action.breweries;
+    case RECEIVE_BREWERY_NAME:
+      const brewery = Object.values(action.brewery)[0];
+      const breweryName = {[brewery.name]: brewery.id};
+      const merged = merge({}, oldState);
+      return merge(merged, breweryName);
+    default:
+      return oldState;
+  }
+}

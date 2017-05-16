@@ -48,7 +48,6 @@ export const wishlistReducer = (oldState = _defaultState, action) => {
   let oldArray = oldState.slice(0);
   switch(action.type) {
     case ADD_LIKE:
-    debugger
       return oldArray.push(action.beer);
     case REMOVE_LIKE:
       let index = oldArray.indexOf(action.id);

@@ -42,6 +42,11 @@ class Api::BreweriesController < ApplicationController
 
   end
 
+  def fetch
+    @breweries = Brewery.all
+    render :fetch
+  end
+
   def show
     @brewery = Brewery.find(params[:id])
 

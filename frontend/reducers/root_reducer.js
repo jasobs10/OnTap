@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { currentUserReducer, errorsReducer } from './session_redux';
 import { modalReducer } from './modal_redux';
 import { beersReducer } from './beers_redux';
-import { breweriesReducer } from './breweries_redux';
+import { breweriesReducer, breweryNamesReducer } from './breweries_redux';
 import { wishlistReducer } from './wishlist_redux';
 import { checkinsReducer } from './checkins_redux';
 import { beerCheckinsReducer } from './beer_redux';
@@ -15,7 +15,8 @@ const rootReducer = combineReducers({
   beers: beersReducer,
   breweries: breweriesReducer,
   checkins: checkinsReducer,
-  user: userReducer
+  user: userReducer,
+  breweryNames: breweryNamesReducer
 
 });
 

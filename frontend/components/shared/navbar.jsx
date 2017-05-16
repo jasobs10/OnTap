@@ -6,7 +6,7 @@ import Modal from '../modal/modal';
 import { receiveComponent, activateModal } from '../../reducers/modal_redux';
 import { defaultEditUser, editUser } from '../../reducers/session_redux';
 import UpdateUserForm from '../user/user_form';
-import {createBrewery, createPhotoBrewery} from '../../reducers/breweries_redux';
+import { createBrewery, createPhotoBrewery, fetchBreweryNames } from '../../reducers/breweries_redux';
 import AddBreweryForm from '../breweries/brewery_form';
 import AddBeerForm from '../beers/beer_form';
 import { createBeer, createPhotoBeer } from '../../reducers/beers_redux';
@@ -15,7 +15,8 @@ import { requestBeers } from '../../reducers/beers_redux';
 const mapStateToProps = (state) => {
   return {
     currentUser: state.currentUser,
-    modal: state.modal
+    modal: state.modal,
+    breweryNames: state.breweryNames
   };
 };
 
@@ -30,7 +31,8 @@ const mapDispatchToProps = (dispatch) => {
     createPhotoBrewery: (brewery) => dispatch(createPhotoBrewery(brewery)),
     createBeer: (beer, breweryId) => dispatch(createBeer(beer, breweryId)),
     createPhotoBeer: (beer, breweryId) => dispatch(createPhotoBeer(beer, breweryId)),
-    requestBeers: (field, params) => dispatch(requestBeers(field, params))
+    requestBeers: (field, params) => dispatch(requestBeers(field, params)),
+    fetchBreweryNames: () => dispatch(fetchBreweryNames())
   }
 };
 
@@ -43,6 +45,10 @@ class Navbar extends React.Component {
     this.handleBreweryClick = this.handleBreweryClick.bind(this);
     this.handleBeerClick = this.handleBeerClick.bind(this);
 
+  }
+
+  componentDidMount() {
+    this.props.fetchBreweryNames();
   }
 
   handleClick() {
@@ -70,7 +76,9 @@ class Navbar extends React.Component {
     this.props.requestBeers().then((r) => {
       const beers = Object.values(r.beers);
       this.props.receiveComponent(
-        <AddBeerForm currentUser={this.props.currentUser}
+        <AddBeerForm
+          breweryNames={this.props.breweryNames}
+          currentUser={this.props.currentUser}
           beers={beers}
           activateModal={this.props.activateModal}
           createBeer={this.props.createBeer}

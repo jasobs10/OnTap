@@ -22,7 +22,7 @@ class AddBeerForm extends React.Component {
     const fileReader = new FileReader();
     fileReader.onloadend = function () {
       this.setState({imageFile: file, imageUrl: fileReader.result});
-    }.bind(this);
+    }.bind(this);``
     if (file) {
       fileReader.readAsDataURL(file);
     }
@@ -63,15 +63,8 @@ class AddBeerForm extends React.Component {
   }
 
   brewerySelect() {
-    const breweryObj = {};
-    const breweryList = Object.keys(this.props.beers).forEach((beerId) => {
-      breweryObj[`${this.props.beers[beerId].brewery.name}`] = this.props.beers[beerId].brewery.id;
-    });
-
-    const sortedBreweries = Object.keys(breweryObj).sort();
-
-    return sortedBreweries.map((brewery, i) => <option key={i} value={breweryObj[brewery]}>{brewery}</option>);
-
+    const sortedBreweries = Object.keys(this.props.breweryNames).sort();
+    return sortedBreweries.map((brewery, i) => <option key={i} value={this.props.breweryNames[brewery]}>{brewery}</option>);
   }
 
   render() {
