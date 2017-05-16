@@ -63,7 +63,17 @@ class AddBeerForm extends React.Component {
   }
 
   brewerySelect() {
-    const sortedBreweries = Object.keys(this.props.breweryNames).sort();
+    const sortedBreweries = Object.keys(this.props.breweryNames).sort((a, b) => {
+      const nameA = a.toUpperCase();
+      const nameB = b.toUpperCase();
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    });
     return sortedBreweries.map((brewery, i) => <option key={i} value={this.props.breweryNames[brewery]}>{brewery}</option>);
   }
 
