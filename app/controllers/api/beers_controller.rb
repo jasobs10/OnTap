@@ -20,7 +20,9 @@ class Api::BeersController < ApplicationController
       end
 
     elsif params[:type] == "name"
-      @beers = fetch_beers.select('*').where("name LIKE ?", "#{params[:sort]}%")
+      uppercase = params[:sort].upcase
+      lowercase = params[:sort].downcase
+      @beers = fetch_beers.where("name LIKE ?", "#{uppercase}%").or(fetch_beers.where("name LIKE ?", "#{lowercase}%"))
 
     end
 

@@ -17,7 +17,9 @@ class Api::BreweriesController < ApplicationController
         checkin_average && checkin_average.between?(avg, avg_max)
       end
     elsif params[:type] == "name"
-      @breweries = fetch_breweries.select('*').where("name LIKE ?", "#{params[:sort]}%")
+      uppercase = params[:sort].upcase
+      lowercase = params[:sort].downcase
+      @breweries = fetch_breweries.where("name LIKE ?", "#{uppercase}%").or(fetch_breweries.where("name LIKE ?", "#{lowercase}%"))
     end
   end
 

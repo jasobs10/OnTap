@@ -61,7 +61,6 @@ class BreweriesIndex extends React.Component {
   }
 
   showMore() {
-    //
     if (this.props.breweries.length > 0) {
       if (this.state.breweryCount < this.props.breweries.length || this.props.breweries.length === 0) {
 
