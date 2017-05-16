@@ -93,11 +93,11 @@ class CheckinIndexItem extends React.Component {
               <span><Link to={`/users/${this.props.checkins.user.id}`}>{this.props.checkins.user.f_name} {lastName}</Link>&nbsp;</span>is drinking a <span><Link to={`/beers/${this.props.checkins.beer_id}`}>{this.props.checkins.beer}</Link></span> by <span><Link to={`/breweries/${this.props.checkins.brewery_id}`}>{this.props.checkins.brewery}</Link></span> at <span>{this.props.checkins.address}</span>
             </div>
             <div className="checkin-review">
-              <div className="arrow">
 
-              </div>
               <div>
                 <div className="ratings-container">
+                  <div className="arrow">
+                  </div>
                   <div className="review">
                     {this.props.checkins.review}
                   </div>

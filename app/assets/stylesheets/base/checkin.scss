@@ -54,6 +54,7 @@
 
 
 .ratings-container {
+  position: relative;
   margin-bottom: .9%;
   width: 100%;
   border: 1px solid rgb(203, 203, 199);
@@ -143,7 +144,7 @@
 }
 
 .arrow {
-  border: 1.5px solid rgb(203, 203, 199);
+  border: 1.4px solid rgb(203, 203, 199);
   border-bottom: none;
   border-right: none;
   position: absolute;
@@ -151,7 +152,7 @@
   height: 15px;
   border-radius: 2px;
   transform: rotate(45deg);
-  top: -6.5px;
+  top: -8px;
   left: 30px;
   z-index: 3;
   background-color: white;
