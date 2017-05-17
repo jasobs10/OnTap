@@ -56,10 +56,14 @@
 .comments-footer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin-right: 1%;
   font-size: 14px;
   margin-top: 2%;
-  width: 50%;
+  width: 100%;
 
+}
+
+.comments-footer > span {
+  margin-right: 2%;
 }
