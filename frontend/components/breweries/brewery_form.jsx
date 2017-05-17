@@ -1,5 +1,5 @@
 import React from 'react';
-import { hashHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 
 class AddBreweryForm extends React.Component {
   constructor(props) {
@@ -43,13 +43,13 @@ class AddBreweryForm extends React.Component {
     if (this.state.imageFile) {
       this.props.createPhotoBrewery(formData)
       .then((r) => {
-        hashHistory.push(`/breweries/${Object.keys(r.brewery)[0]}`)
+        browserHistory.push(`/breweries/${Object.keys(r.brewery)[0]}`)
       })
       .then(() => this.props.activateModal(false));
     } else {
       this.props.createBrewery(this.state)
       .then((r) => {
-        hashHistory.push(`/breweries/${Object.keys(r.brewery)[0]}`)
+        browserHistory.push(`/breweries/${Object.keys(r.brewery)[0]}`)
       })
       .then(() => this.clearForm())
       .then(() => this.props.activateModal(false));

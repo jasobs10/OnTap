@@ -6,7 +6,7 @@ const APIUTIL = {
   fetchCheckins: (beer_id) => {
     return $.ajax({
       method: "GET",
-      url: `api/checkins`,
+      url: `/api/checkins`,
       data: { beer_id }
     });
   },

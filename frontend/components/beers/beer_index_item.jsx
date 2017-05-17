@@ -1,6 +1,6 @@
 import React from 'react';
 // import ReactStars from 'react-stars'
-import { Link, hashHistory } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 import { Line } from 'rc-progress';
 import WishlistAdd from '../wishlist/wishlist_add';
 var Rating = require('react-rating');

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import EditCommentForm from './edit_comments_form';
 import TimeAgo from 'timeago-react';
+import { Link } from 'react-router';
 
 
 const CommentsIndexItem = (props) => {
@@ -24,7 +25,7 @@ const CommentsIndexItem = (props) => {
       </div>
       <div className="comments-right">
         <div className="comments-body">
-          <span className="orange">{props.comment.author_f_name} {props.comment.author_l_name}</span>: {props.comment.comment}
+          <span className="orange"><Link to={`/users/${props.comment.user_id}`}>{props.comment.author_f_name} {props.comment.author_l_name}</Link></span>: {props.comment.comment}
         </div>
         <div className='comments-footer'>
           <span><TimeAgo datetime={props.comment.created_at}/></span>

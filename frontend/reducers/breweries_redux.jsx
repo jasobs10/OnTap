@@ -1,4 +1,4 @@
-import { hashHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 import merge from 'lodash/merge'
 
 
@@ -15,7 +15,7 @@ const APIUTIL = {
   addBreweryLike: (brewery_id) => {
     return $.ajax({
       method: "POST",
-      url: "api/brewery_likes",
+      url: "/api/brewery_likes",
       data: {brewery_like: {brewery_id}}
     });
   },
@@ -23,14 +23,14 @@ const APIUTIL = {
   removeBreweryLike: (id) => {
     return $.ajax({
       method: "DELETE",
-      url: `api/brewery_likes/${id}`
+      url: `/api/brewery_likes/${id}`
     });
   },
 
   fetchBreweries: (field = "id", param) => {
     return $.ajax({
       method: "GET",
-      url: "api/breweries",
+      url: "/api/breweries",
       data: {type: field, sort: param}
     });
   },
@@ -38,21 +38,21 @@ const APIUTIL = {
   fetchBrewery: (id) => {
     return $.ajax({
       method: "GET",
-      url: `api/breweries/${id}`
+      url: `/api/breweries/${id}`
     });
   },
 
   fetchBreweryNames: () => {
     return $.ajax({
       method: "GET",
-      url: `api/breweries/fetch`
+      url: `/api/breweries/fetch`
     });
   },
 
   createBrewery: (brewery) => {
     return $.ajax({
       method: "POST",
-      url: 'api/breweries',
+      url: '/api/breweries',
       data: { brewery }
     });
   },
@@ -71,7 +71,7 @@ const APIUTIL = {
   updateBrewery: (brewery) => {
     return $.ajax({
       method: "PATCH",
-      url: `api/breweries/${brewery.id}`,
+      url: `/api/breweries/${brewery.id}`,
       data: { brewery }
     });
   },

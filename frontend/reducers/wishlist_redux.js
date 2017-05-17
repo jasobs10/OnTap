@@ -19,7 +19,7 @@ const APIUTIL = {
   addBeerToWishlist: (beer_id) => {
     return $.ajax({
       method: "POST",
-      url: "api/wishlists",
+      url: "/api/wishlists",
       data: {wishlist: {beer_id}}
     });
   },
@@ -27,7 +27,7 @@ const APIUTIL = {
   removeBeerFromWishlist: (id) => {
     return $.ajax({
       method: "DELETE",
-      url: `api/wishlists/${id}`
+      url: `/api/wishlists/${id}`
     });
   }
 };

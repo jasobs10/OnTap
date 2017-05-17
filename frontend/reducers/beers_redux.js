@@ -1,4 +1,4 @@
-import { hashHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 import merge from 'lodash/merge';
 
 
@@ -16,7 +16,7 @@ const APIUTIL = {
   fetchBeers: (field = "id", param) => {
     return $.ajax({
       method: "GET",
-      url: "api/beers",
+      url: "/api/beers",
       data: {type: field, sort: param}
     });
   },
@@ -24,14 +24,14 @@ const APIUTIL = {
   fetchBeer: (id) => {
     return $.ajax({
       method: "GET",
-      url: `api/beers/${id}`
+      url: `/api/beers/${id}`
     });
   },
 
   createBeer: (beer, brewery_id) => {
     return $.ajax({
       method: "POST",
-      url: `api/breweries/${brewery_id}/beers`,
+      url: `/api/breweries/${brewery_id}/beers`,
       data: { beer }
     });
   },
@@ -50,7 +50,7 @@ const APIUTIL = {
   updateBeer: (beer) => {
     return $.ajax({
       method: "PATCH",
-      url: `api/beers/${beer.id}`,
+      url: `/api/beers/${beer.id}`,
       data: { beer }
     });
   },
@@ -58,7 +58,7 @@ const APIUTIL = {
   addBeerToWishlist: (beer_id) => {
     return $.ajax({
       method: "POST",
-      url: "api/wishlists",
+      url: "/api/wishlists",
       data: {wishlist: {beer_id}}
     });
   },
@@ -66,7 +66,7 @@ const APIUTIL = {
   removeBeerFromWishlist: (id) => {
     return $.ajax({
       method: "DELETE",
-      url: `api/wishlists/${id}`
+      url: `/api/wishlists/${id}`
     });
   }
 

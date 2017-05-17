@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { hashHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 import { requestBreweries, addBreweryLike, removeBreweryLike, createBrewery, createPhotoBrewery } from '../../reducers/breweries_redux'
 import BreweryIndexItem from './breweries_index_item';
 import { WishlistBeerItem } from '../beers/beers';

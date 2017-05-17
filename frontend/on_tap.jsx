@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import { Provider } from 'react-redux';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import Splash from './components/splash/splash';
 import CheckinIndex from './components/checkin/checkin_index';
 import Navbar from './components/shared/navbar';
@@ -51,15 +51,15 @@ const Root = ({ store }) => {
 
   return (
     <Provider store={ store }>
-      <Router history={ hashHistory }>
+      <Router history={ browserHistory }>
         <Route path="/" component={ App }>
           <IndexRoute component={ Splash } onEnter={_redirectIfLoggedIn}/>
-          <Route path="home" component={ CheckinIndex } onEnter={_redirectIfNotLoggedIn}/>
-          <Route path="beers" component={ Beers } onEnter={_redirectIfNotLoggedIn}/>
-          <Route path="beers/:beerId" component={ BeerShow } onEnter={_redirectIfNotLoggedIn}/>
-          <Route path="breweries" component={ BreweriesIndex } onEnter={_redirectIfNotLoggedIn}/>
-          <Route path="breweries/:breweryId" component={ BreweryShow } onEnter={_redirectIfNotLoggedIn}/>
-          <Route path="users/:userId" component={ UserShow } onEnter={_redirectIfNotLoggedIn}/>
+          <Route path="/home" component={ CheckinIndex } onEnter={_redirectIfNotLoggedIn}/>
+          <Route path="/beers" component={ Beers } onEnter={_redirectIfNotLoggedIn}/>
+          <Route path="/beers/:beerId" component={ BeerShow } onEnter={_redirectIfNotLoggedIn}/>
+          <Route path="/breweries" component={ BreweriesIndex } onEnter={_redirectIfNotLoggedIn}/>
+          <Route path="/breweries/:breweryId" component={ BreweryShow } onEnter={_redirectIfNotLoggedIn}/>
+          <Route path="/users/:userId" component={ UserShow } onEnter={_redirectIfNotLoggedIn}/>
         </Route>
       </Router>
     </Provider>

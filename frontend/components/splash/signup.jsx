@@ -4,7 +4,7 @@ import { logIn, signUp } from '../../reducers/session_redux';
 import { activateModal, receiveComponent } from '../../reducers/modal_redux';
 import SignInForm from './signin';
 import { receiveSignUpErrors, defaultSignUp } from '../../reducers/session_redux';
-import { hashHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -56,9 +56,9 @@ class SignUpForm extends React.Component {
     formData.append("user[avatar]", this.state.imageFile);
     if (this.state.imageFile) {
 
-      this.props.signUp(formData).then(() => this.clearForm()).then(() => this.props.activateModal(false)).then(() => hashHistory.push('/home'));
+      this.props.signUp(formData).then(() => this.clearForm()).then(() => this.props.activateModal(false)).then(() => browserHistory.push('/home'));
     } else {
-      this.props.defaultSignUp({user: this.state}).then(() => this.clearForm()).then(() => this.props.activateModal(false)).then(() => hashHistory.push('/home'));
+      this.props.defaultSignUp({user: this.state}).then(() => this.clearForm()).then(() => this.props.activateModal(false)).then(() => browserHistory.push('/home'));
     }
   }
 

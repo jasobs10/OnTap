@@ -1,5 +1,5 @@
 import React from 'react';
-import { hashHistory, Link } from 'react-router';
+import { browserHistory, Link } from 'react-router';
 import { logOut } from '../../reducers/session_redux';
 import { connect } from 'react-redux';
 import Modal from '../modal/modal';
@@ -96,13 +96,13 @@ class Navbar extends React.Component {
       <div className="nav-container">
         <div className="nav-inside">
 
-          <li className="titlelogo" onClick={() => hashHistory.push('/home')}>
+          <li className="titlelogo" onClick={() => browserHistory.push('/home')}>
             <i className="fa fa-beer" aria-hidden="true"></i> ONTAP
           </li>
-          <li onClick={() => hashHistory.push('/beers')}>
+          <li onClick={() => browserHistory.push('/beers')}>
             Top beers
           </li>
-          <li onClick={() => hashHistory.push('/breweries')}>
+          <li onClick={() => browserHistory.push('/breweries')}>
             Breweries
           </li>
           <li className="account-button">
@@ -120,12 +120,12 @@ class Navbar extends React.Component {
               <div onClick={this.handleBreweryClick}>
                 Add Brewery
               </div>
-              <div onClick={() => this.props.logOut(this.props.currentUser).then(() => hashHistory.push('/'))}>
+              <div onClick={() => this.props.logOut(this.props.currentUser).then(() => browserHistory.push('/'))}>
                 Log out
               </div>
             </div>
           </li>
-          <li onClick={() => this.props.logOut(this.props.currentUser).then(() => hashHistory.push('/'))}>
+          <li onClick={() => this.props.logOut(this.props.currentUser).then(() => browserHistory.push('/'))}>
             Log Out
           </li>
         </div>

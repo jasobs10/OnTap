@@ -6,7 +6,7 @@ const APIUTIL = {
   fetchUser: (id) => {
     return $.ajax({
       method: "GET",
-      url: `api/users/${id}`,
+      url: `/api/users/${id}`,
     });
   },
 

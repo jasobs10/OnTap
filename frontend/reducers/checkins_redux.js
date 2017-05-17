@@ -16,7 +16,7 @@ const APIUTIL = {
   fetchCheckins: (beer_id) => {
     return $.ajax({
       method: "GET",
-      url: `api/checkins`,
+      url: `/api/checkins`,
       data: { beer_id }
     });
   },
@@ -24,7 +24,7 @@ const APIUTIL = {
   fetchBreweryCheckins: (brewery_id) => {
     return $.ajax({
       method: "GET",
-      url: `api/checkins`,
+      url: `/api/checkins`,
       data: {brewery_id}
     });
   },
@@ -34,7 +34,7 @@ const APIUTIL = {
   fetchUserCheckins: (user_id) => {
     return $.ajax({
       method: "GET",
-      url: `api/checkins`,
+      url: `/api/checkins`,
       data: {user_id}
     });
   },
@@ -42,14 +42,14 @@ const APIUTIL = {
   fetchCheckin: (id) => {
     return $.ajax({
       method: "GET",
-      url: `api/checkins/${id}`
+      url: `/api/checkins/${id}`
     });
   },
 
   createCheckin: (checkin) => {
     return $.ajax({
       method: "POST",
-      url: "api/checkins",
+      url: "/api/checkins",
       data: { checkin }
     });
   },
@@ -68,7 +68,7 @@ const APIUTIL = {
   addToast: (checkin_id) => {
     return $.ajax({
       method: "POST",
-      url: "api/toasts",
+      url: "/api/toasts",
       data: {toast: {checkin_id}}
     });
   },
@@ -76,14 +76,14 @@ const APIUTIL = {
   removeToast: (id) => {
     return $.ajax({
       method: "DELETE",
-      url: `api/toasts/${id}`
+      url: `/api/toasts/${id}`
     });
   },
 
   addComment: (comment) => {
     return $.ajax({
       method: "POST",
-      url: "api/comments",
+      url: "/api/comments",
       data: { comment }
     });
   },
@@ -92,7 +92,7 @@ const APIUTIL = {
     //
     return $.ajax({
       method: "PATCH",
-      url: `api/comments/${comment.id}`,
+      url: `/api/comments/${comment.id}`,
       data: { comment }
     });
   },
@@ -100,7 +100,7 @@ const APIUTIL = {
   removeComment: (id) => {
     return $.ajax({
       method: "DELETE",
-      url: `api/comments/${id}`
+      url: `/api/comments/${id}`
     });
   }
 };

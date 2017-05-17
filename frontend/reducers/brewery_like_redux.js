@@ -20,7 +20,7 @@ const APIUTIL = {
   addLike: (brewery_id) => {
     return $.ajax({
       method: "POST",
-      url: "api/brewery_likes",
+      url: "/api/brewery_likes",
       data: {brewery_like: {brewery_id}}
     });
   },
@@ -28,7 +28,7 @@ const APIUTIL = {
   removeBeerFromLike: (id) => {
     return $.ajax({
       method: "DELETE",
-      url: `api/brewery_likes/${id}`
+      url: `/api/brewery_likes/${id}`
     });
   }
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { hashHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 
 class AddBeerForm extends React.Component {
   constructor(props) {
@@ -48,7 +48,7 @@ class AddBeerForm extends React.Component {
     if (this.state.imageFile) {
       this.props.createPhotoBeer(formData, this.state.brewery_id)
       .then((r) => {
-        hashHistory.push(`/beers/${Object.keys(r.beer)[0]}`)
+        browserHistory.push(`/beers/${Object.keys(r.beer)[0]}`)
       })
       .then(() => this.props.activateModal(false));
 
@@ -56,7 +56,7 @@ class AddBeerForm extends React.Component {
 
       this.props.createBeer(this.state, this.state.brewery_id)
       .then((r) => {
-        hashHistory.push(`/beers/${Object.keys(r.beer)[0]}`)
+        browserHistory.push(`/beers/${Object.keys(r.beer)[0]}`)
       })
       .then(() => this.props.activateModal(false));
     }

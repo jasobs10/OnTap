@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { logOut } from '../../reducers/session_redux';
-import { hashHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 import { requestBeers } from '../../reducers/beers_redux'
 import CheckinIndexItem from './checkin_index_item';
 import { requestAllCheckins, requestCheckin, createToast, deleteToast, addComment, deleteComment, updateComment } from '../../reducers/checkins_redux';

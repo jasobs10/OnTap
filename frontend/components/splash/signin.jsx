@@ -1,5 +1,5 @@
 import React from 'react';
-import { hashHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { logIn, signUp } from '../../reducers/session_redux';
 import SignUpForm from './signup';
@@ -47,7 +47,7 @@ class SignInForm extends React.Component {
             this.setState({password: this.state.password + testPass[current]})
           } else {
             clearInterval(interval2);
-            this.props.logIn({user: this.state}).then(() => this.clearForm()).then(() => this.props.activateModal(false)).then(() => hashHistory.push('/home'));
+            this.props.logIn({user: this.state}).then(() => this.clearForm()).then(() => this.props.activateModal(false)).then(() => browserHistory.push('/home'));
           }
 
         }, 100);
@@ -92,7 +92,7 @@ class SignInForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.logIn({user: this.state}).then(() => this.clearForm()).then(() => this.props.activateModal(false)).then(() => hashHistory.push('/home'));
+    this.props.logIn({user: this.state}).then(() => this.clearForm()).then(() => this.props.activateModal(false)).then(() => browserHistory.push('/home'));
   }
 
   toggleForm() {

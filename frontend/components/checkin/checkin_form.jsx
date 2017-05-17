@@ -1,6 +1,6 @@
 import React from 'react';
 var Rating = require('react-rating');
-import { hashHistory } from 'react-router';
+import { browserHistory } from 'react-router';
 
 class CheckinForm extends React.Component {
   constructor(props) {
@@ -46,7 +46,7 @@ class CheckinForm extends React.Component {
     if (this.state.imageFile) {
       this.props.createPhotoCheckin(formData).then(() => this.props.activateModal(false)).then(() => {
         if (this.props.isModal) {
-          hashHistory.push('/home');
+          browserHistory.push('/home');
         }
       });
     } else {
@@ -55,7 +55,7 @@ class CheckinForm extends React.Component {
       .then(() => this.props.activateModal(false))
       .then(() => {
         if (this.props.isModal) {
-          hashHistory.push('/home');
+          browserHistory.push('/home');
         }
       });
     }
