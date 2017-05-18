@@ -70,7 +70,7 @@ class AddBreweryForm extends React.Component {
             <input required className="brewery-name-input" type="text" value={this.state.name} placeholder="Brewery Name" onChange={this.handleChange("name")}/>
 
             <label className="checkin-upload brewery-upload">
-              <input required name="file" id="file" className="upload-button" type="file" onChange={this.updateFile}/>
+              <input name="file" id="file" className="upload-button" type="file" onChange={this.updateFile}/>
               <i className="fa fa-camera-retro" aria-hidden="true"></i>
             </label>
 
