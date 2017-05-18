@@ -165,8 +165,9 @@ html {
 .splash-footer {
   font-family: 'Oxygen', sans-serif;
   color: white;
-  font-size: 14px;
-  display: block;
+  font-size: 1.1vw;
+  display: flex;
+  justify-content: space-between;
   background-color: rgb(13, 0, 15);
   width: 100%;
   margin-top: 3%;
@@ -176,6 +177,21 @@ html {
   letter-spacing: 3px;
   align-self: flex-end;
   height: .2%;
+}
+
+.ontap-name {
+  width: 20%;
+}
+
+.myinfo-container {
+  display: flex;
+  width: 40%;
+  justify-content: space-between;
+  margin-left: 8vw;
+}
+
+.personal-link {
+  cursor: pointer;
 }
 
 .modal {

@@ -27,7 +27,13 @@ const App = (props) => {
       { nav }
       { props.children }
       <footer className="splash-footer">
-        © ONTAP, 2017
+        <div className="myinfo-container">
+          <span>Jason Liu</span>
+          <span><a className="personal-link" href="http://www.jason-liu.net" target="_blank"><i className="fa fa-id-card-o" aria-hidden="true"></i>&nbsp;Portfolio</a></span>
+          <span><a className="personal-link" href="https://github.com/jasobs10" target="_blank"><i className="fa fa-github" aria-hidden="true"></i>&nbsp;Github</a></span>
+          <span><a className="personal-link" href="https://www.linkedin.com/in/jasobs10/" target="_blank"><i className="fa fa-linkedin" aria-hidden="true"></i>&nbsp;LinkedIn</a></span>
+        </div>
+        <span className="ontap-name">© ONTAP, 2017</span>
       </footer>
     </div>
   );
