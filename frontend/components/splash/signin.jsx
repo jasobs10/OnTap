@@ -50,10 +50,10 @@ class SignInForm extends React.Component {
             this.props.logIn({user: this.state}).then(() => this.clearForm()).then(() => this.props.activateModal(false)).then(() => browserHistory.push('/home'));
           }
 
-        }, 100);
+        }, 40);
       }
 
-    }, 75);
+    }, 40);
 
 
   }
