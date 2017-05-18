@@ -112,7 +112,7 @@
 .checkin-form-middle {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   margin-bottom: 2%;
@@ -126,7 +126,7 @@
   margin-bottom: 1.2%;
 }
 .checkin-slider {
-  width: 30%;
+  width: 35%;
 }
 
 .location-input-wrapper {
