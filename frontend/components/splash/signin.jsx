@@ -35,26 +35,49 @@ class SignInForm extends React.Component {
   guest() {
     const testUser = ["t", "e", "s", "t", "a", "c", "c", "o", "u", "n", "t"];
     const testPass = ["p", "a", "s", "s", "w", "o", "r", "d"];
-    let interval = setInterval(() => {
-      let current = this.state.username.length;
-      if (current < testUser.length) {
-        this.setState({username: this.state.username + testUser[current]})
-      } else {
-        clearInterval(interval);
-          let interval2 = setInterval(() => {
-          current = this.state.password.length;
-          if (current < testPass.length) {
-            this.setState({password: this.state.password + testPass[current]})
-          } else {
-            clearInterval(interval2);
-            this.props.logIn({user: this.state}).then(() => this.clearForm()).then(() => this.props.activateModal(false)).then(() => browserHistory.push('/home'));
-          }
 
-        }, 40);
-      }
+    let i = 0;
+    testUser.forEach((usernameLetter) => {
+      (function() {
+        setTimeout(() => {
+          this.setState({username: this.state.username + usernameLetter});
+        }, 40 * i);
+        i++;
+      }.bind(this))(i, usernameLetter);
+    });
 
-    }, 40);
+    testPass.forEach((passLetter) => {
+      (function() {
+        setTimeout(() => {
+          this.setState({password: this.state.password + passLetter});
+        }, 40 * i);
+        i++;
+      }.bind(this))(i, passLetter)
+    });
 
+    setTimeout(() => {
+      this.props.logIn({user: this.state}).then(() => this.clearForm()).then(() => this.props.activateModal(false)).then(() => browserHistory.push('/home'));
+    }, 40 * i);
+    // let interval = setInterval(() => {
+    //   let current = this.state.username.length;
+    //   if (current < testUser.length) {
+    //     this.setState({username: this.state.username + testUser[current]})
+    //   } else {
+    //     clearInterval(interval);
+    //       let interval2 = setInterval(() => {
+    //       current = this.state.password.length;
+    //       if (current < testPass.length) {
+    //         this.setState({password: this.state.password + testPass[current]})
+    //       } else {
+    //         clearInterval(interval2);
+    //         this.props.logIn({user: this.state}).then(() => this.clearForm()).then(() => this.props.activateModal(false)).then(() => browserHistory.push('/home'));
+    //       }
+    //
+    //     }, 40);
+    //   }
+    //
+    // }, 40);
+    //
 
   }
 
@@ -66,7 +89,6 @@ class SignInForm extends React.Component {
     if (this.props.guest) {
       this.clearForm();
       this.guest();
-
     }
     this.props.clearErrors();
   }
